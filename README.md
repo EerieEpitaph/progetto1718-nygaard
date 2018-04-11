@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/softeng-inf-uniba/progetto1718-nygaard.svg?token=Fb9WxfqDkAYKbxzd96zJ&branch=master)](https://travis-ci.com/softeng-inf-uniba/progetto1718-nygaard)
+
 # sna4slack [![Build Status](https://travis-ci.com/softeng-inf-uniba/base1718.svg?token=qPSHqHRJS6eXDxLetTSE&branch=master)](https://travis-ci.com/softeng-inf-uniba/base1718) [![codecov](https://codecov.io/gh/softeng-inf-uniba/base1718/branch/master/graph/badge.svg?token=KwXhgTMYEj)](https://codecov.io/gh/softeng-inf-uniba/base1718)
 La struttura della repository si presenta nel seguente modo:
 ```
