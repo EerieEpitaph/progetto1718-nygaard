@@ -58,7 +58,7 @@ public class ZipParser
                         for(User x : tempUser)
                         {
 //                            System.out.println(x.get_id());
-                            users.put(x.get_id(), x);
+                            users.put(x.getId(), x);
                         }     
                     } 
                     else 
@@ -67,7 +67,7 @@ public class ZipParser
                         for(Channel x : tempUser)
                         {
 //                            System.out.println(x.get_id());
-                            channels.put(x.get_id(), x);
+                            channels.put(x.getId(), x);
                         }     
                     } 
 

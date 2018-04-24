@@ -11,20 +11,20 @@ public final class AppMain
 	    
 	    for( it.uniba.workdata.User x : test.getUsers().values())
 	    {
-	        System.out.println(x.get_id());
-	        System.out.println(x.get_name());
-	        System.out.println(x.get_realname());
-	        System.out.println(x.get_teamId());
+	        System.out.println(x.getId());
+	        System.out.println(x.getName());
+	        System.out.println(x.getRealName());
+	        System.out.println(x.getTeamId());
 	        System.out.println("================");
 	    }
 	    
        for( it.uniba.workdata.Channel x : test.getChannels().values())
        {
-            System.out.println(x.get_id());
-            System.out.println(x.get_name());
-            System.out.println(x.get_date_creation());
-            System.out.println(x.get_founder());
-            System.out.println(x.get_member_list());
+            System.out.println(x.getId());
+            System.out.println(x.getName());
+            System.out.println(x.getDateCreation());
+            System.out.println(x.getCreator());
+            System.out.println(x.getMemberList());
             System.out.println("================");
        }
 	    System.out.println("Exited");
