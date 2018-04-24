@@ -1,14 +1,13 @@
 package it.uniba.workdata;
 
-import java.util.LinkedList;
-
-public final class User {
+public final class User 
+{
 	private String id;
-	private LinkedList<String> team_id = new LinkedList<String>();;
+	private String team_id;
 	private String name;
 	private String real_name;
 	
-	public User(String _id, LinkedList<String> teams, String _name, String _real_name)
+	public User(String _id, String teams, String _name, String _real_name)
 	{
 		id = _id;
 		name = _name;
@@ -21,7 +20,7 @@ public final class User {
 	{
 		return id;
 	}
-	public LinkedList<String> get_teamId()
+	public String get_teamId()
 	{
 		return team_id;
 	}
@@ -39,7 +38,7 @@ public final class User {
 	{
 		id = value;
 	}
-	public void set_team_id(LinkedList<String> value)
+	public void set_team_id(String value)
 	{
 		team_id = value;
 	}

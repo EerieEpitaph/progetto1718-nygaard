@@ -3,7 +3,8 @@ package it.uniba.workdata;
 import java.util.LinkedList;
 import java.util.Date;
 
-public final class Channel {
+public final class Channel 
+{
 	private String id;
 	private Date date_creation;
 	private String creator;
