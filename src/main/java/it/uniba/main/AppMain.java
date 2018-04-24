@@ -1,28 +1,32 @@
 package it.uniba.main;
 
-/**
- * The main class for the project. It must be customized to meet the project
- * assignment specifications.
- * 
- * <b>DO NOT RENAME</b>
- */
-public final class AppMain {
+import it.uniba.parsing.ZipParser;
 
-	/**
-	 * Private constructor. Change if needed.
-	 */
-	private AppMain() {
-
+public final class AppMain 
+{
+	public static void main(final String[] args) 
+	{
+	    ZipParser test = new ZipParser();
+	    test.load("C:\\Users\\Ottavio Lischio\\Desktop\\test.zip");
+	    
+	    for( it.uniba.workdata.User x : test.getUsers().values())
+	    {
+	        System.out.println(x.get_id());
+	        System.out.println(x.get_name());
+	        System.out.println(x.get_realname());
+	        System.out.println(x.get_teamId());
+	        System.out.println("================");
+	    }
+	    
+       for( it.uniba.workdata.Channel x : test.getChannels().values())
+       {
+            System.out.println(x.get_id());
+            System.out.println(x.get_name());
+            System.out.println(x.get_date_creation());
+            System.out.println(x.get_founder());
+            System.out.println(x.get_member_list());
+            System.out.println("================");
+       }
+	    System.out.println("Exited");
 	}
-
-	/**
-	 * This is the main entry of the application.
-	 *
-	 * @param args
-	 *            The command-line arguments.
-	 */
-	public static void main(final String[] args) {
-		System.out.println("Hello world.");
-	}
-
 }
