@@ -2,51 +2,51 @@ package it.uniba.workdata;
 
 public final class User 
 {
-	private String id;
+	private String id_user;
 	private String team_id;
 	private String name;
 	private String real_name;
 	
-	public User(String _id, String teams, String _name, String _real_name)
+	public User(String _id, String _teams, String _name, String _real_name)
 	{
-		id = _id;
+		id_user = _id;
 		name = _name;
 		real_name = _real_name;
-		team_id = teams;
+		team_id = _teams;
 	}
 	
 	/****************** GETTER  **************************/
-	public String get_id()
+	public String getId()
 	{
-		return id;
+		return id_user;
 	}
-	public String get_teamId()
+	public String getTeamId()
 	{
 		return team_id;
 	}
-	public String get_name()
+	public String getName()
 	{
 		return name;
 	}
-	public String get_realname()
+	public String getRealName()
 	{
 		return real_name;
 	}
 
 	/****************** SETTER  **************************/
-	public void set_id(String value)
+	public void setId(String value)
 	{
-		id = value;
+		id_user = value;
 	}
-	public void set_team_id(String value)
+	public void setTeamId(String value)
 	{
 		team_id = value;
 	}
-	public void set_name(String value)
+	public void setName(String value)
 	{
 		name = value;
 	}
-	public void name(String value)
+	public void setRealName(String value)
 	{
 		real_name = value;
 	}

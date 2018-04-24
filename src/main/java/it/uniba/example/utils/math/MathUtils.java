@@ -29,6 +29,6 @@ public class MathUtils {
 	 *             If <code>div</code> is zero.
 	 */
 	public float divide(final int num, final int div) throws ArithmeticException {
-		return (num / div);
+		return num / div;	// Eliminato parentesi 
 	}
 }

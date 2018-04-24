@@ -56,7 +56,7 @@ public class MathUtilsTest {
 		assertEquals(3, mu.add(1, 2));
 		assertEquals(-2, mu.add(-5, 3));
 		assertSame(3, mu.add(1, 2));
-		Integer val1 = 3;
+		Integer val1 = new Integer(3);
 		Integer val2 = mu.add(1, 2);
 		assertTrue(val1.equals(val2));
 		assertNotSame(val1, val2);
