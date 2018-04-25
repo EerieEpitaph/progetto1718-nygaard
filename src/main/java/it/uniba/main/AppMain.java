@@ -19,7 +19,11 @@ public final class AppMain
 	    {
 	        //Printa il workspace caricato
 	        System.out.print("(" + currtWorkspace + ") >> ");
-	        String[] currParams = scanLine.nextLine().split(" ");
+	        //Regex per ignorare gli spazi tra quotes ("")
+	        String[] currParams = scanLine.nextLine().split("\\s(?=(?:[^'\"`]*(['\"`])[^'\"`]*\\1)*[^'\"`]*$)");
+	        
+//	        for(String x: currParams)
+//	            System.out.println(x);
 	        
 	        CommandParser commander = new CommandParser(currParams);
 	        String path = commander.getParsedArgs().getZipFile();
