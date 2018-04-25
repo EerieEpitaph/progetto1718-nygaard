@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
+import com.beust.jcommander.ParameterException;
 
 public class CommandParser
 {
@@ -15,6 +16,10 @@ public class CommandParser
 
         @Parameter(names = { "load", "-l" }, description = "Path of the zip file to load")
         private String zipFile;
+        
+        @Parameter(names = { "quit", "-q" }, description = "Quits")
+        private boolean sigKill = false;
+        
         /*
         @Parameter(names = { "members", "-m" }, description = "Prints workspace's members")
         private String groups; //TEMP
@@ -24,14 +29,15 @@ public class CommandParser
         
         @Parameter(names = { "workspace", "-w" }, description = "Prints the name of the workspace")
         private boolean debug = false; //TEMP
-        
-        @Parameter(names = { "quit", "-q" }, description = "Quits")
-        private boolean sad = false; //TEMP
         */
         
         public String getZipFile()
         {
             return zipFile;
+        }
+        public boolean getSigKill()
+        {
+            return sigKill;
         }
     }
     
@@ -40,8 +46,15 @@ public class CommandParser
     public CommandParser(String[] parameters)
     {
         arguments = new Args();
-        JCommander.newBuilder().addObject(arguments).build().parse(parameters);
-        System.out.println(arguments.zipFile);
+        try 
+        {
+            //Passando un vettore di parametri, il JCommander prova ad interfacciarli con i membri privati della classe "Args" sopra elencati
+            //Se un parametro è stato definito, il corrispettivo membro privato viene settato col giusto valore
+            JCommander.newBuilder().addObject(arguments).build().parse(parameters);        
+        }
+        catch(ParameterException e)
+        {System.out.println(e.getMessage());}
+
     }
     
     public Args getParsedArgs()

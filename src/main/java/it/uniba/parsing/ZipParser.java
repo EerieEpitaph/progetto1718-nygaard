@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.file.InvalidPathException;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.zip.ZipEntry;
@@ -19,9 +20,15 @@ import it.uniba.workdata.User;
 public class ZipParser 
 {
     //I due dizionari da riempire
+    private boolean loadedSomething = false;
+    private boolean success = false;
     private Map<String, User> users = new HashMap<String, User>();
     private Map<String, Channel> channels = new HashMap<String, Channel>();;
 
+    public boolean isSuccessful()
+    {
+        return success;
+    }
     public Map<String, User> getUsers()
     {
         return users;
@@ -45,6 +52,7 @@ public class ZipParser
                 
                 if (entry.getName().equals("channels.json") || entry.getName().equals("users.json")) 
                 {
+                    loadedSomething = true;
                     InputStream stream = zip.getInputStream(entry);
                     Reader lecturer = new InputStreamReader(stream);
 //                    System.out.println(entry.getName() + " " + ++count);
@@ -72,15 +80,20 @@ public class ZipParser
                     } 
 
                     lecturer.close();
+                    //Non ho trovato i file che ci servono
+                    if(!loadedSomething) throw new ZipException();
                 }
             }
-
+            
+            success = true;
             zip.close();
         } 
         catch (NullPointerException e) 
         {System.out.println("Specify zip file to load");} 
         catch (ZipException e) 
-        {System.out.println("Unable to open. Damaged or wrong file");} 
+        {System.out.println("Unable to analyze. Damaged or wrong file");} 
+        catch (InvalidPathException e) 
+        {System.out.println("Illegal char used in path");} 
         catch (IOException e) 
         {System.out.println("Invalid file");} 
         catch (JsonParseException e) 

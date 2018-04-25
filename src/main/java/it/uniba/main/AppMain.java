@@ -1,5 +1,8 @@
 package it.uniba.main;
 
+import java.io.File;
+import java.util.Scanner;
+
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.ZipParser;
 
@@ -7,36 +10,44 @@ public final class AppMain
 {
 	public static void main(final String[] args) 
 	{ 
-	    CommandParser commander = new CommandParser(args);
-	    String path = commander.getParsedArgs().getZipFile();
+	    String currtWorkspace = new String();
+	    Scanner scanLine = new Scanner(System.in);
+	    ZipParser fileParser = new ZipParser();
 	    
-	    if(path != null) //Abbiamo effettivamente invocato il "load" da parametro
+	    //Main loop
+	    do
 	    {
-	        ZipParser test = new ZipParser();
-	        test.load(path);    
+	        //Printa il workspace caricato
+	        System.out.print("(" + currtWorkspace + ") >> ");
+	        String[] currParams = scanLine.nextLine().split(" ");
+	        
+	        CommandParser commander = new CommandParser(currParams);
+	        String path = commander.getParsedArgs().getZipFile();
+	        boolean sigKill = commander.getParsedArgs().getSigKill();
+	        
+	        //Comando "quit" invocato
+            if(sigKill)
+                break;
+	        
+            //Abbiamo effettivamente invocato il "load" da parametro
+	        if(path != null) 
+	        {
+	            fileParser.load(path);    
+	            
+	            //Aggiorna il nome del workspace corrente se il comando "load" è andato a buon fine
+	            if(fileParser.isSuccessful())
+	            {
+	                File tempFile = new File(path);
+	                String fileName = tempFile.getName();
+	                if(fileName != null)
+	                    currtWorkspace = fileName;
+	                else
+	                    currtWorkspace = path;
+	            }
+	        }     
 	    }
-
+	    while(true);
 	    
-	    /*
-	    for( it.uniba.workdata.User x : test.getUsers().values())
-	    {
-	        System.out.println(x.getId());
-	        System.out.println(x.getName());
-	        System.out.println(x.getRealName());
-	        System.out.println(x.getTeamId());
-	        System.out.println("================");
-	    }
-	    
-       for( it.uniba.workdata.Channel x : test.getChannels().values())
-       {
-            System.out.println(x.getId());
-            System.out.println(x.getName());
-            System.out.println(x.getDateCreation());
-            System.out.println(x.getCreator());
-            System.out.println(x.getMemberList());
-            System.out.println("================");
-       }*/
-       
-	    System.out.println("Exited");
+	    scanLine.close();
 	}
 }
