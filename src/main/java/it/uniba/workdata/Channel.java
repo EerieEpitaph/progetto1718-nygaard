@@ -1,41 +1,40 @@
 package it.uniba.workdata;
 
 import java.util.LinkedList;
-import java.util.Date;
 
 public final class Channel 
 {
-	private String id_channel;
-	private Date date_creation;
+	private String id;
+	private Long created;
 	private String creator;
-	private LinkedList<String> member_list = new LinkedList<String>();
+	private LinkedList<String> members = new LinkedList<String>();
 	private String name;
 	
-	public Channel(String _id, Date _date, String _creator, LinkedList<String> _list_member, String _name)
+	public Channel(String _id, Long _created, String _creator, LinkedList<String> _members, String _name)
 	{
-		id_channel = _id;
-		date_creation = _date; 
+		id = _id;
+		created = _created; 
 		creator = _creator;
-		member_list = _list_member; 
+		members = _members; 
 		name = _name; 
 	}
 
 	/****************** GETTER  **************************/
 	public String getId()
 	{
-		return id_channel;
+		return id;
 	}
 	public LinkedList<String> getMemberList()
 	{
-		return member_list;
+		return members;
 	}
 	public String getName()
 	{
 		return name; 
 	}
-	public Date getDateCreation()
+	public Long getDateCreation()
 	{
-		return date_creation;
+		return created;
 	}
 	public String getCreator() 
 	{
@@ -45,11 +44,11 @@ public final class Channel
 	/****************** SETTER  **************************/
 	public void setId(String value)
 	{
-		id_channel = value;
+	    id = value;
 	}
 	public void setMembeList(LinkedList<String> value)
 	{
-		member_list = value;
+	    members = value;
 	}
 	public void setName(String value)
 	{
@@ -59,9 +58,9 @@ public final class Channel
 	{
 		creator = value;
 	}
-	public void setDateCreation(Date value)
+	public void setDateCreation(Long value)
 	{
-		date_creation = value;
+	    created = value;
 	}
 	
 	

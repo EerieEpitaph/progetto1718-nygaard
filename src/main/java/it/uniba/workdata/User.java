@@ -2,14 +2,14 @@ package it.uniba.workdata;
 
 public final class User 
 {
-	private String id_user;
+	private String id;
 	private String team_id;
 	private String name;
 	private String real_name;
 	
 	public User(String _id, String _teams, String _name, String _real_name)
 	{
-		id_user = _id;
+		id = _id;
 		name = _name;
 		real_name = _real_name;
 		team_id = _teams;
@@ -18,7 +18,7 @@ public final class User
 	/****************** GETTER  **************************/
 	public String getId()
 	{
-		return id_user;
+		return id;
 	}
 	public String getTeamId()
 	{
@@ -36,7 +36,7 @@ public final class User
 	/****************** SETTER  **************************/
 	public void setId(String value)
 	{
-		id_user = value;
+	    id = value;
 	}
 	public void setTeamId(String value)
 	{
