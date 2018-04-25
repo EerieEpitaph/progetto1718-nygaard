@@ -57,7 +57,7 @@ public class ZipParser
                         User[] tempUser = gson.fromJson(lecturer, User[].class);
                         for(User x : tempUser)
                         {
-//                            System.out.println(x.get_id());
+//                            System.out.println(x.getId());
                             users.put(x.getId(), x);
                         }     
                     } 
@@ -66,7 +66,7 @@ public class ZipParser
                         Channel[] tempUser = gson.fromJson(lecturer, Channel[].class);
                         for(Channel x : tempUser)
                         {
-//                            System.out.println(x.get_id());
+//                            System.out.println(x.getId());
                             channels.put(x.getId(), x);
                         }     
                     } 

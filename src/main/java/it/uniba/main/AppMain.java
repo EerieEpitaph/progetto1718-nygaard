@@ -1,14 +1,23 @@
 package it.uniba.main;
 
+import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.ZipParser;
 
 public final class AppMain 
 {
 	public static void main(final String[] args) 
-	{
-	    ZipParser test = new ZipParser();
-	    test.load("C:\\Users\\Ottavio Lischio\\Desktop\\test.zip");
+	{ 
+	    CommandParser commander = new CommandParser(args);
+	    String path = commander.getParsedArgs().getZipFile();
 	    
+	    if(path != null) //Abbiamo effettivamente invocato il "load" da parametro
+	    {
+	        ZipParser test = new ZipParser();
+	        test.load(path);    
+	    }
+
+	    
+	    /*
 	    for( it.uniba.workdata.User x : test.getUsers().values())
 	    {
 	        System.out.println(x.getId());
@@ -26,7 +35,7 @@ public final class AppMain
             System.out.println(x.getCreator());
             System.out.println(x.getMemberList());
             System.out.println("================");
-       }
+       }*/
        
 	    System.out.println("Exited");
 	}
