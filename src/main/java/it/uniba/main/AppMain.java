@@ -1,6 +1,7 @@
 package it.uniba.main;
 
 import java.io.File;
+import java.util.List;
 import java.util.Scanner;
 
 import com.beust.jcommander.ParameterException;
@@ -46,11 +47,11 @@ public final class AppMain
 	            continue;
 	        }
 	        
-	        String path = commander.getParsedArgs().getZipFile();
-	        boolean sigKill = commander.getParsedArgs().getSigKill();
-	        boolean toDrop = commander.getParsedArgs().getDrop();
-	        boolean channelize = commander.getParsedArgs().getChannelize();
-	        boolean members = commander.getParsedArgs().getMembers();
+	        String path = commander.getSingleArgs().getZipFile();
+	        Boolean sigKill = commander.getSingleArgs().getSigKill();
+	        Boolean toDrop = commander.getSingleArgs().getDrop();
+	        String channelFilter = commander.getCommandUsers().getFilterChannel();
+	        
 	        
 	        //Comando "quit" invocato
             if(sigKill)
@@ -87,23 +88,10 @@ public final class AppMain
 	        }
 	        
 	        //Abbiamo richiesto il print dei canali
-	        if(channelize)
-	        {
-	            //Abbiamo effettivamente un workspace su cui lavorare
-	            if(fileParser.hasLoaded())
-	                Controller.printChannels(fileParser);
-	            else
-	                System.out.println("No workspace used"); 
-	        }
-	        
-	        if(members)
-	        {
-	            if(fileParser.hasLoaded())
-	                Controller.printMembers(fileParser);
-	            else
-	                System.out.println("No workspace used");
-	                
-	        }
+//	        if(channels)
+//	        {
+//	            Controller.printChannels(fileParser);
+//	        }
 	        
 	    }
 	    while(true);
