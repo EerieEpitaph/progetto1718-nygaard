@@ -75,7 +75,7 @@ public final class AppMain
 //	            System.out.println(path);
 	            fileParser.load(path);    
 	            
-	            //Aggiorna il nome del workspace corrente if il comando "load" è andato a buon fine
+	            //Aggiorna il nome del workspace corrente if il comando "load" ï¿½ andato a buon fine
 	            if(fileParser.hasLoaded())
 	            {
 	                File tempFile = new File(path);
@@ -88,14 +88,28 @@ public final class AppMain
 	        }
 	        
 	        //Abbiamo richiesto il print dei canali
-//	        if(channels)
-//	        {
-//	            Controller.printChannels(fileParser);
-//	        }
+
+	        if(channelize)
+	        {
+	            //Abbiamo effettivamente un workspace su cui lavorare
+	            if(fileParser.hasLoaded())
+	                Controller.printChannels(fileParser);
+	            else
+	                System.out.println("No workspace used"); 
+	        }
 	        
+	        if(members)
+	        {
+	            if(fileParser.hasLoaded())
+	             	 Controller.printMembers(fileParser); /*solo per test  Controller.members4Channel(fileParser); */
+	            else
+	                System.out.println("No workspace used");
+          }
+>>>>>>> 46184d6b41280dd1a3ffbdb51c96bf302afbcd83
 	    }
 	    while(true);
 	    
 	    scanLine.close();
 	}
+	// "/home/phinkie/Downloads/ingsw.zip"
 }
