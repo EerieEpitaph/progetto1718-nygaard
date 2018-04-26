@@ -19,6 +19,22 @@ public class Controller
                 +"\t"+  utente.getRealName() +"\t"+  utente.getTeamId());
          }
     }
+ // Channel:
+	// -Membro
+	// -Membro 
+    public static void members4Channel(ZipParser fileParser)
+    {
+    	for (Channel canale : fileParser.getChannels().values())
+    	{
+    		System.out.print(" + " + canale.getName() + "\n\t");
+    		for(String membro : canale.getMemberList())
+    		{
+    			User utente = fileParser.getUsers().get(membro);
+    			System.out.print(" - " + utente.getRealName() + "\t@ " + utente.getName() + "\n\t");
+    		}
+    		System.out.println();
+    	}
+    }
     
     /*
     public static void printUsers(ZipParser fileParser)
