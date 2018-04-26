@@ -99,16 +99,14 @@ public final class AppMain
 	        if(members)
 	        {
 	            if(fileParser.hasLoaded())
-	            	Controller.printMembers(fileParser);
-	            	/* test issue#4 Controller.channelMembers(fileParser,  "nygaard"); */
+	             	 Controller.printMembers(fileParser); /*solo per test  Controller.members4Channel(fileParser); */
 	            else
 	                System.out.println("No workspace used");
-	                
-	        }
-	        
+          }
 	    }
 	    while(true);
 	    
 	    scanLine.close();
 	}
+	// "/home/phinkie/Downloads/ingsw.zip"
 }
