@@ -3,6 +3,7 @@ package it.uniba.main;
 import java.io.File;
 import java.util.Scanner;
 
+import it.uniba.controller.Controller;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.ZipParser;
 
@@ -29,10 +30,23 @@ public final class AppMain
 	        String path = commander.getParsedArgs().getZipFile();
 	        boolean sigKill = commander.getParsedArgs().getSigKill();
 	        boolean toDrop = commander.getParsedArgs().getDrop();
+	        boolean channelize = commander.getParsedArgs().getChannelize();
 	        
 	        //Comando "quit" invocato
             if(sigKill)
                 break;
+            
+            //Abbiamo chiesto il drop del workspace
+            if(toDrop)
+            {
+                if(!fileParser.hasLoaded())
+                    System.out.println("No workspace to drop");
+                else
+                {
+                    fileParser = new ZipParser();
+                    currWorkspace = "";            
+                }
+            }
 	        
             //Abbiamo effettivamente invocato il "load" da parametro
 	        if(path != null) 
@@ -40,7 +54,7 @@ public final class AppMain
 	            fileParser.load(path);    
 	            
 	            //Aggiorna il nome del workspace corrente se il comando "load" è andato a buon fine
-	            if(fileParser.isSuccessful())
+	            if(fileParser.hasLoaded())
 	            {
 	                File tempFile = new File(path);
 	                String fileName = tempFile.getName();
@@ -51,17 +65,16 @@ public final class AppMain
 	            }
 	        }
 	        
-	        //Abbiamo chiesto il drop del workspace
-	        if(toDrop)
+	        //Abbiamo richiesto il print dei canali
+	        if(channelize)
 	        {
-	            if(!fileParser.isSuccessful())
-	                System.out.println("No workspace to drop");
+	            //Abbiamo effettivamente un workspace su cui lavorare
+	            if(fileParser.hasLoaded())
+	                Controller.printChannels(fileParser);
 	            else
-	            {
-	                fileParser = new ZipParser();
-	                currWorkspace = "";            
-	            }
+	                System.out.println("No workspace used"); 
 	        }
+	        
 	    }
 	    while(true);
 	    

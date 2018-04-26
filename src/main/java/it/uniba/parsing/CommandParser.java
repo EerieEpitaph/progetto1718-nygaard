@@ -22,12 +22,15 @@ public class CommandParser
         
         @Parameter(names = { "drop", "-d" }, description = "Drops current workspace")
         private boolean toDrop = false;
+        
+        @Parameter(names = { "channels", "-c" }, description = "Prints workspace's channels")
+        private boolean channelize = false;
+        
         /*
         @Parameter(names = { "members", "-m" }, description = "Prints workspace's members")
         private String groups; //TEMP
 
-        @Parameter(names = { "channels", "-c" }, description = "Prints workspace's channels")
-        private boolean s = false; //TEMP
+
         
         @Parameter(names = { "workspace", "-w" }, description = "Prints the name of the workspace")
         private boolean debug = false; //TEMP
@@ -44,6 +47,10 @@ public class CommandParser
         public boolean getDrop()
         {
             return toDrop;
+        }
+        public boolean getChannelize()
+        {
+            return channelize;
         }
     }
     
