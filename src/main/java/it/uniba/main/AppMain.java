@@ -74,7 +74,7 @@ public final class AppMain
 //	            System.out.println(path);
 	            fileParser.load(path);    
 	            
-	            //Aggiorna il nome del workspace corrente if il comando "load" è andato a buon fine
+	            //Aggiorna il nome del workspace corrente if il comando "load" ï¿½ andato a buon fine
 	            if(fileParser.hasLoaded())
 	            {
 	                File tempFile = new File(path);
@@ -99,7 +99,7 @@ public final class AppMain
 	        if(members)
 	        {
 	            if(fileParser.hasLoaded())
-	                Controller.printMembers(fileParser);
+	             	 Controller.printMembers(fileParser); /*solo per test  Controller.members4Channel(fileParser); */ 
 	            else
 	                System.out.println("No workspace used");
 	                
@@ -110,4 +110,5 @@ public final class AppMain
 	    
 	    scanLine.close();
 	}
+	// "/home/phinkie/Downloads/ingsw.zip"
 }
