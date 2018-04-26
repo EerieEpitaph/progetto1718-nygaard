@@ -74,7 +74,7 @@ public final class AppMain
 //	            System.out.println(path);
 	            fileParser.load(path);    
 	            
-	            //Aggiorna il nome del workspace corrente if il comando "load" è andato a buon fine
+	            //Aggiorna il nome del workspace corrente if il comando "load" ï¿½ andato a buon fine
 	            if(fileParser.hasLoaded())
 	            {
 	                File tempFile = new File(path);
@@ -99,7 +99,8 @@ public final class AppMain
 	        if(members)
 	        {
 	            if(fileParser.hasLoaded())
-	                Controller.printMembers(fileParser);
+	            	Controller.printMembers(fileParser);
+	            	/* test issue#4 Controller.channelMembers(fileParser,  "nygaard"); */
 	            else
 	                System.out.println("No workspace used");
 	                
