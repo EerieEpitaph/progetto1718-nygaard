@@ -21,13 +21,13 @@ public class ZipParser
 {
     //I due dizionari da riempire
     private boolean loadedSomething = false;
-    private boolean success = false;
+    private boolean loadSuccessful = false;
     private Map<String, User> users = new HashMap<String, User>();
     private Map<String, Channel> channels = new HashMap<String, Channel>();;
 
-    public boolean isSuccessful()
+    public boolean hasLoaded()
     {
-        return success;
+        return loadSuccessful;
     }
     public Map<String, User> getUsers()
     {
@@ -85,7 +85,7 @@ public class ZipParser
                 }
             }
             
-            success = true;
+            loadSuccessful = true;
             zip.close();
         } 
         catch (NullPointerException e) 
