@@ -36,6 +36,20 @@ public class Controller
     	}
     }
     
+    public static void channelMembers(ZipParser fileParser,String channel)
+    {
+    	System.out.print(" + " + channel + "\n");
+    	// -l "/home/phinkie/Downloads/ingsw.zip"
+ 
+    	 
+    	for(String key : fileParser.getChannels().get(channel).getMemberList()) // key from value 
+    	{
+    		User utente = fileParser.getUsers().get(key);
+    		System.out.print("\t -" + utente.getRealName() + " @" + utente.getName() + "\n");
+    	}
+    	System.out.println();
+    }
+    
     /*
     public static void printUsers(ZipParser fileParser)
     {

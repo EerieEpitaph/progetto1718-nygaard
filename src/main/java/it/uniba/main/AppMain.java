@@ -99,12 +99,10 @@ public final class AppMain
 	        if(members)
 	        {
 	            if(fileParser.hasLoaded())
-	             	 Controller.printMembers(fileParser); /*solo per test  Controller.members4Channel(fileParser); */ 
+	             	 Controller.printMembers(fileParser); /*solo per test  Controller.members4Channel(fileParser); */
 	            else
 	                System.out.println("No workspace used");
-	                
-	        }
-	        
+          }
 	    }
 	    while(true);
 	    

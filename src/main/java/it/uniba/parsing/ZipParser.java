@@ -75,7 +75,7 @@ public class ZipParser
                         for(Channel x : tempUser)
                         {
 //                            System.out.println(x.getId());
-                            channels.put(x.getId(), x);
+                            channels.put(x.getName(), x);
                         }     
                     } 
 
