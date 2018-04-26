@@ -10,7 +10,7 @@ public final class AppMain
 {
 	public static void main(final String[] args) 
 	{ 
-	    String currtWorkspace = new String();
+	    String currWorkspace = new String();
 	    Scanner scanLine = new Scanner(System.in);
 	    ZipParser fileParser = new ZipParser();
 	    
@@ -18,7 +18,7 @@ public final class AppMain
 	    do
 	    {
 	        //Printa il workspace caricato
-	        System.out.print("(" + currtWorkspace + ") >> ");
+	        System.out.print("(" + currWorkspace + ") >> ");
 	        //Regex per ignorare gli spazi tra quotes ("")
 	        String[] currParams = scanLine.nextLine().split("\\s(?=(?:[^'\"`]*(['\"`])[^'\"`]*\\1)*[^'\"`]*$)");
 	        
@@ -28,6 +28,7 @@ public final class AppMain
 	        CommandParser commander = new CommandParser(currParams);
 	        String path = commander.getParsedArgs().getZipFile();
 	        boolean sigKill = commander.getParsedArgs().getSigKill();
+	        boolean toDrop = commander.getParsedArgs().getDrop();
 	        
 	        //Comando "quit" invocato
             if(sigKill)
@@ -44,11 +45,23 @@ public final class AppMain
 	                File tempFile = new File(path);
 	                String fileName = tempFile.getName();
 	                if(fileName != null)
-	                    currtWorkspace = fileName;
+	                    currWorkspace = fileName;
 	                else
-	                    currtWorkspace = path;
+	                    currWorkspace = path;
 	            }
-	        }     
+	        }
+	        
+	        //Abbiamo chiesto il drop del workspace
+	        if(toDrop)
+	        {
+	            if(!fileParser.isSuccessful())
+	                System.out.println("No workspace to drop");
+	            else
+	            {
+	                fileParser = new ZipParser();
+	                currWorkspace = "";            
+	            }
+	        }
 	    }
 	    while(true);
 	    

@@ -95,7 +95,7 @@ public class ZipParser
         catch (InvalidPathException e) 
         {System.out.println("Illegal char used in path");} 
         catch (IOException e) 
-        {System.out.println("Invalid file");} 
+        {System.out.println("Invalid file. Usage: load \"path\\to\\file.zip\"");} 
         catch (JsonParseException e) 
         {System.out.println( e.toString() );} 
         catch (Exception e) 

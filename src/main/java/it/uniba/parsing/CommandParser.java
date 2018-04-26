@@ -20,6 +20,8 @@ public class CommandParser
         @Parameter(names = { "quit", "-q" }, description = "Quits")
         private boolean sigKill = false;
         
+        @Parameter(names = { "drop", "-d" }, description = "Drops current workspace")
+        private boolean toDrop = false;
         /*
         @Parameter(names = { "members", "-m" }, description = "Prints workspace's members")
         private String groups; //TEMP
@@ -38,6 +40,10 @@ public class CommandParser
         public boolean getSigKill()
         {
             return sigKill;
+        }
+        public boolean getDrop()
+        {
+            return toDrop;
         }
     }
     
