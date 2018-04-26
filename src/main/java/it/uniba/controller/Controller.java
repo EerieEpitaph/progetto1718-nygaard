@@ -11,6 +11,15 @@ public class Controller
             System.out.println(x.getName());
     }
     
+    public static void printMembers(ZipParser fileParser)
+    {
+         for( User utente : fileParser.getUsers().values())
+         { 
+             System.out.println(utente.getId() +"\t"+ utente.getName() 
+                +"\t"+  utente.getRealName() +"\t"+  utente.getTeamId());
+         }
+    }
+    
     /*
     public static void printUsers(ZipParser fileParser)
     {

@@ -3,6 +3,8 @@ package it.uniba.main;
 import java.io.File;
 import java.util.Scanner;
 
+import com.beust.jcommander.ParameterException;
+
 import it.uniba.controller.Controller;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.ZipParser;
@@ -20,17 +22,35 @@ public final class AppMain
 	    {
 	        //Printa il workspace caricato
 	        System.out.print("(" + currWorkspace + ") >> ");
-	        //Regex per ignorare gli spazi tra quotes ("")
+	        //Regex per ignorare gli spazi tra quotes ("Tipo questo")
 	        String[] currParams = scanLine.nextLine().split("\\s(?=(?:[^'\"`]*(['\"`])[^'\"`]*\\1)*[^'\"`]*$)");
 	        
-//	        for(String x: currParams)
-//	            System.out.println(x);
+	        CommandParser commander;
+	        try
+	        {
+//	            for(String x : currParams)
+//	                System.out.println(x);
+	            
+	            //Valida gli argomenti, riesegue il loop se trova discordanze
+	            commander = new CommandParser(currParams);
+                commander.validateArguments();
+	        }
+	        catch(ParameterException e)
+	        {
+	            System.out.println(e.getMessage());
+	            continue;
+	        }
+	        catch(AssertionError e)
+	        {
+	            System.out.println("Invalid syntax. Refer to 'help' command");
+	            continue;
+	        }
 	        
-	        CommandParser commander = new CommandParser(currParams);
 	        String path = commander.getParsedArgs().getZipFile();
 	        boolean sigKill = commander.getParsedArgs().getSigKill();
 	        boolean toDrop = commander.getParsedArgs().getDrop();
 	        boolean channelize = commander.getParsedArgs().getChannelize();
+	        boolean members = commander.getParsedArgs().getMembers();
 	        
 	        //Comando "quit" invocato
             if(sigKill)
@@ -51,9 +71,10 @@ public final class AppMain
             //Abbiamo effettivamente invocato il "load" da parametro
 	        if(path != null) 
 	        {
+//	            System.out.println(path);
 	            fileParser.load(path);    
 	            
-	            //Aggiorna il nome del workspace corrente se il comando "load" è andato a buon fine
+	            //Aggiorna il nome del workspace corrente if il comando "load" è andato a buon fine
 	            if(fileParser.hasLoaded())
 	            {
 	                File tempFile = new File(path);
@@ -73,6 +94,15 @@ public final class AppMain
 	                Controller.printChannels(fileParser);
 	            else
 	                System.out.println("No workspace used"); 
+	        }
+	        
+	        if(members)
+	        {
+	            if(fileParser.hasLoaded())
+	                Controller.printMembers(fileParser);
+	            else
+	                System.out.println("No workspace used");
+	                
 	        }
 	        
 	    }
