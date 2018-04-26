@@ -88,7 +88,7 @@ public final class AppMain
 	        }
 	        
 	        //Abbiamo richiesto il print dei canali
-
+	        /*
 	        if(channelize)
 	        {
 	            //Abbiamo effettivamente un workspace su cui lavorare
@@ -101,11 +101,12 @@ public final class AppMain
 	        if(members)
 	        {
 	            if(fileParser.hasLoaded())
-	             	 Controller.printMembers(fileParser); /*solo per test  Controller.members4Channel(fileParser); */
+	             	 Controller.printMembers(fileParser);
 	            else
 	                System.out.println("No workspace used");
-          }
->>>>>>> 46184d6b41280dd1a3ffbdb51c96bf302afbcd83
+	        }
+	        */
+	    
 	    }
 	    while(true);
 	    

@@ -29,7 +29,7 @@ public class CommandParser
         private boolean channels = false;
         
         @Parameter(names = "members", description = "Lists all users") 
-        private boolean users = false;
+        private boolean members = false;
         
         public String getZipFile()
         {
@@ -49,7 +49,7 @@ public class CommandParser
         }
         public Boolean getNakedUsers()
         {
-            return users;
+            return members;
         }
     }
     
@@ -78,18 +78,18 @@ public class CommandParser
     }
     
     private JCommander commander;
-    private Args arguments;
+    private Args nakedArgs;
     private CommandChannels cc;
     private CommandUsers cu;
     private ArrayList<Field> fields;
     
     public CommandParser(String[] parameters)
     {
-        arguments = new Args();
+        nakedArgs = new Args();
         cc = new CommandChannels();
         cu = new CommandUsers();
         commander = JCommander.newBuilder()
-            .addObject(arguments)
+            .addObject(nakedArgs)
             .addCommand(cc)
             .addCommand(cu)
             .build();
@@ -98,8 +98,7 @@ public class CommandParser
         
         fields = new ArrayList(Arrays.asList(Args.class.getDeclaredFields()));
         fields.remove(0);
-        fields.remove(0);
-        fields.remove(fields.size()-1);
+        fields.remove(fields.size()-1); 
     }
     
     public JCommander getCommander()
@@ -108,7 +107,7 @@ public class CommandParser
     }
     public Args getSingleArgs()
     {
-        return arguments;
+        return nakedArgs;
     }
     public CommandChannels getCommandChannels()
     {
@@ -124,7 +123,7 @@ public class CommandParser
     }
     
     //Controlla se la stringa "param" è definita tra i parametri associati
-    private boolean isTrue(Object param)
+    private boolean isTrue(String param)
     {
         for(Field x : fields)
         {
@@ -138,10 +137,10 @@ public class CommandParser
                 {
                     //Se x non è un booleano vediamo se almeno non è nullo
                     if(!x.getType().equals(boolean.class))
-                        tempEval = (x.get(arguments) != null);
+                        tempEval = (x.get(nakedArgs) != null);
                     //Altrimenti castiamo a booleano
                     else 
-                        tempEval = (boolean) x.get(arguments);
+                        tempEval = (boolean) x.get(nakedArgs);
                     
                     x.setAccessible(false);
                     if(tempEval)
@@ -157,7 +156,7 @@ public class CommandParser
     }
     
     //Controlla se la stringa "param", che ha il nome di un field della classe Args, è l'unico ad esse true oppure no
-    private boolean isUnique(Object param)
+    private boolean isUnique(String param)
     {
         for(Field x : fields)
         {
@@ -171,10 +170,10 @@ public class CommandParser
                 {
                     //Se x non è un booleano vediamo se almeno non è nullo
                     if(!x.getType().equals(boolean.class))
-                        tempEval = (x.get(arguments) != null);
+                        tempEval = (x.get(nakedArgs) != null);
                     //Altrimenti castiamo a booleano
                     else 
-                        tempEval = (boolean) x.get(arguments);
+                        tempEval = (boolean) x.get(nakedArgs);
                     
                     x.setAccessible(false);
                     if(tempEval)
@@ -191,7 +190,15 @@ public class CommandParser
     
     public void validateArguments()
     {
-        if(isTrue(arguments.getZipFile()))
-            assert(isUnique(arguments.getZipFile()));
+        if(isTrue("zipFile"))
+            assert(isUnique("zipFile"));
+        if(isTrue("sigKill"))
+            assert(isUnique("sigKill"));
+        if(isTrue("toDrop"))
+            assert(isUnique("toDrop"));
+        if(isTrue("channels"))
+            assert(isUnique("channels"));
+        if(isTrue("members"))
+            assert(isUnique("members"));
     }
 }
