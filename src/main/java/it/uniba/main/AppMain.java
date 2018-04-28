@@ -38,7 +38,6 @@ public final class AppMain
 	        
 	        interpreter = new CommandInterpreter();
 	        control = interpreter.executeCommands(commandParser, control);
-	    
 	    }
 	    while(!control.getQuitStatus());
 	    scanLine.close();

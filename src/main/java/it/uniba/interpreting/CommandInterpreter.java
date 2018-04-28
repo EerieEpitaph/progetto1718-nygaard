@@ -12,45 +12,60 @@ public class CommandInterpreter
 {
     public FlowController executeCommands(CommandParser parser, FlowController control)
     {
-        FlowController toReturn = control;
+        FlowController newControl = control;
         
         CommBaseArgs baseArgs = parser.getBaseArgs();
         CommLoad load = parser.getCommLoad();
         CommMembers members = parser.getCommMembers();
         CommChannels channels = parser.getCommChannels();
         
+        //Argomenti singoli immessi
         if(baseArgs.isActive())
         {
             if(baseArgs.getQuitStatus())
-                toReturn.setQuitStatus(true);
+                newControl.setQuitStatus(true);
 
             else if(baseArgs.getDropStatus())
-                toReturn = dropWorkspace(toReturn);
+                newControl = dropWorkspace(newControl);
         }
         
+        //Load inserito
         if(load.isActive())
         {
+            //Percorso valido
             if(load.getPathToZip() != null)
-                toReturn = loadWorkspace(load.getPathToZip(), toReturn);   
+                newControl = loadWorkspace(load.getPathToZip(), newControl);   
         }
         
+        //Members inserito
         else if(members.isActive())
         {
-            if(members.getChannelFilter() == null)
-                DataController.printMembers(toReturn.getFileParser());
+            if(control.getFileParser().hasLoaded())
+            {
+                if(members.getChannelFilter() == null)
+                    DataController.printMembers(newControl.getFileParser());
+                else
+                    DataController.channelMembers(newControl.getFileParser(), members.getChannelFilter());
+            }
             else
-                DataController.channelMembers(toReturn.getFileParser(), members.getChannelFilter());
+                System.out.println("No workspace loaded");
         }
         
+        //Channels inserito
         else if(channels.isActive())
         {
-            if(!channels.getExtendedStatus())
-                DataController.printChannels(toReturn.getFileParser());
+            if(control.getFileParser().hasLoaded())
+            {
+                if(!channels.getExtendedStatus())
+                    DataController.printChannels(newControl.getFileParser());
+                else
+                    DataController.members4Channel(newControl.getFileParser());
+            }
             else
-                DataController.members4Channel(toReturn.getFileParser());
+                System.out.println("No workspace loaded");
         }
         
-        return toReturn;
+        return newControl;
     }
     
     private FlowController dropWorkspace(FlowController control)
