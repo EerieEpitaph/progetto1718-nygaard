@@ -14,7 +14,7 @@ import it.uniba.parsing.ZipParser;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
-// coppia dei dizionari memrbri-utenti 
+// coppia dei dizionari members-channels 
 class pairDict {
 	private  Map<String, User> users = new HashMap<String, User>();
     private  Map<String, Channel> channels = new HashMap<String, Channel>();
