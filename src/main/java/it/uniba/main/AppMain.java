@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
-import com.beust.jcommander.ParameterException;
-
 import it.uniba.controller.Controller;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.ZipParser;
@@ -26,32 +24,28 @@ public final class AppMain
 	        //Regex per ignorare gli spazi tra quotes ("Tipo questo")
 	        String[] currParams = scanLine.nextLine().split("\\s(?=(?:[^'\"`]*(['\"`])[^'\"`]*\\1)*[^'\"`]*$)");
 	        
-	        CommandParser commander;
+	        CommandParser commandParser;
 	        try
 	        {
 //	            for(String x : currParams)
 //	                System.out.println(x);
 	            
 	            //Valida gli argomenti, riesegue il loop se trova discordanze
-	            commander = new CommandParser(currParams);
-                commander.validateArguments();
-	        }
-	        catch(ParameterException e)
-	        {
-	            System.out.println(e.getMessage());
-	            continue;
+	            commandParser = new CommandParser(currParams);
+//              commandParser.validateArguments();
 	        }
 	        catch(AssertionError e)
 	        {
-	            System.out.println("Invalid syntax. Refer to 'help' command");
+	            System.out.println("Invalid syntax chaining. Refer to 'help' command");
 	            continue;
 	        }
 	        
+//	        System.out.println(commandParser.getSingleArgs().getDropStatus());
+	        /*
 	        String path = commander.getSingleArgs().getZipFile();
 	        Boolean sigKill = commander.getSingleArgs().getSigKill();
 	        Boolean toDrop = commander.getSingleArgs().getDrop();
 	        String channelFilter = commander.getCommandUsers().getFilterChannel();
-	        
 	        
 	        //Comando "quit" invocato
             if(sigKill)
@@ -88,7 +82,7 @@ public final class AppMain
 	        }
 	        
 	        //Abbiamo richiesto il print dei canali
-	        /*
+	        
 	        if(channelize)
 	        {
 	            //Abbiamo effettivamente un workspace su cui lavorare
@@ -110,7 +104,6 @@ public final class AppMain
 	    }
 	    while(true);
 	    
-	    scanLine.close();
+//	    scanLine.close();
 	}
-	// "/home/phinkie/Downloads/ingsw.zip"
 }
