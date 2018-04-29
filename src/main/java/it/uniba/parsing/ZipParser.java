@@ -1,6 +1,7 @@
 package it.uniba.parsing;
 
 import java.util.Map;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -88,8 +89,8 @@ public class ZipParser
                     if(!loadedSomething) throw new ZipException();
                 }
             }
-            
-            workspaceLoaded = zip.getName().replaceFirst("[.][^.]+$", "");
+            File tempFile = new File(zip.getName());
+            workspaceLoaded = tempFile.getName().replaceFirst("[.][^.]+$", "");
 //            System.out.println(workspaceLoaded);
             zip.close();
         } 

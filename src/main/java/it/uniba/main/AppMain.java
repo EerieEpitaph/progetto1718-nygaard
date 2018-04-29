@@ -15,7 +15,7 @@ public final class AppMain
 		CommandInterpreter interpreter = null;
 
 		for(String x : args)
-		    System.out.print(x + " ");
+		    System.out.println(x + " ");
 		System.out.println(" ");
 		
 		try
