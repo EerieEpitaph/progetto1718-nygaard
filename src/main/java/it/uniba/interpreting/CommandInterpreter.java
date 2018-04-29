@@ -22,22 +22,23 @@ public class CommandInterpreter
         //Argomenti singoli immessi
         if(baseArgs.isActive())
         {
-
+            
         }
         
         //load inserito
-        if(load.isActive())
+        else if(load.isActive())
         {
             //Percorso valido
             if(load.getPathToZip() != null)
             {
                 fileParser.load(load.getPathToZip());
-                System.out.println(fileParser.getWorkspaceName());
                 worksys = new WorkspaceSys(); 
                 
                 //creo la directory nascosta su cui memorizzare a fine esecuzione users e channels 
                 worksys.makedirArea(fileParser.getWorkspaceName()); 
             }	
+            else
+                System.out.println("Invalid syntax. Refer to 'help' command");
         }
         
         //-w nomeWorkspace inserito
