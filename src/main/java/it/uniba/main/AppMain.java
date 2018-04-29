@@ -9,6 +9,7 @@ import it.uniba.parsing.ZipParser;
 
 public final class AppMain 
 {
+	// path zip : /home/phinkie/Downloads/ingsw.zip 
 	public static void main(final String[] args) 
 	{ 
 	    Scanner scanLine = new Scanner(System.in);
@@ -18,10 +19,9 @@ public final class AppMain
         CommandInterpreter interpreter = null;
 	    
 	    //Main loop
-	    do
-	    {
+	   
 	        //Printa il workspace caricato
-	        System.out.print("(" + control.getCurrWorkspace() + ") >> ");
+	        System.out.print(" >> ");
 	        //Regex per ignorare gli spazi tra quotes ("Tipo questo")
 	        String[] currParams = scanLine.nextLine().split("\\s(?=(?:[^'\"`]*(['\"`])[^'\"`]*\\1)*[^'\"`]*$)");
 	        
@@ -33,13 +33,10 @@ public final class AppMain
 	        catch(Exception e)
 	        {
 	            System.out.println("Invalid syntax. Refer to 'help' command");
-	            continue;
 	        }
 	        
 	        interpreter = new CommandInterpreter();
 	        control = interpreter.executeCommands(commandParser, control);
-	    }
-	    while(!control.getQuitStatus());
 	    scanLine.close();
 	}
 }
