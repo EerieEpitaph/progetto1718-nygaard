@@ -31,13 +31,12 @@ public class CommandInterpreter
             //Percorso valido
             if(load.getPathToZip() != null)
             {
-//                newControl = loadWorkspace(load.getPathToZip(), newControl);   
+                fileParser.load(load.getPathToZip());
                 worksys = new WorkspaceSys(); 
                 
                 //creo la directory nascosta su cui memorizzare a fine esecuzione users e channels 
                 System.out.println("workspace name" + fileParser.getWorkspaceName());
-                
-               // worksys.makedirArea(fileParser.getWorkspaceName()); 
+                worksys.makedirArea(fileParser.getWorkspaceName()); 
             }	
         }
         
