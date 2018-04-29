@@ -1,174 +1,152 @@
 package it.uniba.parsing;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameter;
+import it.uniba.parsing.CommandLine.*;
 
 public class CommandParser
 {
-    public class Args 
+    public class CommBaseArgs
     {
-        @Parameter
-        private List<String> parameters = new ArrayList<String>();
+        private Boolean active = false;
         
-        Map<String, Boolean> evaluatedParams = new HashMap<String, Boolean>();
+        @Option(names = "drop")
+        private boolean dropStatus;
+        
+        @Option(names = "quit")
+        private boolean quitStatus;
+        
+        public Boolean isActive()
+        {
+            return active;
+        }
+        
+        public Boolean getDropStatus()
+        {
+            return dropStatus;
+        }
+        
+        public Boolean getQuitStatus()
+        {
+            return quitStatus;
+        }
+    }
+    
+    public class CommLoad
+    {
+        private Boolean active = false;
+        
+        @Parameters(index = "0")    
+        String pathToZip;
 
-        @Parameter(names = { "load", "-l" }, description = "Path of the zip file to load") 
-        private String zipFile;
+        public Boolean isActive()
+        {
+            return active;
+        }
         
-        @Parameter(names = { "quit", "-q" }, description = "Quits") 
-        private boolean sigKill = false;
+        public String getPathToZip()
+        {
+            return pathToZip;
+        }
+    }
+    
+    public class CommMembers
+    {
+        private Boolean active = false;
         
-        @Parameter(names = { "drop", "-d" }, description = "Drops current workspace") 
-        private boolean toDrop = false;
-        
-        @Parameter(names = { "channels", "-c" }, description = "Prints workspace's channels") 
-        private boolean printChannels = false;
-        
-        @Parameter(names = { "members", "-m" }, description = "Prints workspace's members")
-        private boolean printMembers; //TEMP
+        @Option(names = "-c", arity = "0..1", description = "Optional filtering by channel")
+        private String filterBy;
 
+        public Boolean isActive()
+        {
+            return active;
+        }
+        
+        public String getChannelFilter()
+        {
+            return filterBy;
+        }
+    }
+    
+    public class CommChannels
+    {
+        private Boolean active = false;
+        
+        @Option(names = "-m", arity = "0..1", description = "Optional printing of channels and associated members")
+        private boolean extendedStatus;
 
-        /*
-        @Parameter(names = { "workspace", "-w" }, description = "Prints the name of the workspace")
-        private boolean debug = false; //TEMP
-        */
-        
-        public Map<String, Boolean> getEvals()
+        public Boolean isActive()
         {
-            return evaluatedParams;
+            return active;
         }
         
-        public String getZipFile()
+        public Boolean getExtendedStatus()
         {
-            return zipFile;
-        }
-        public boolean getSigKill()
-        {
-            return sigKill;
-        }
-        public boolean getDrop()
-        {
-            return toDrop;
-        }
-        public boolean getChannelize()
-        {
-            return printChannels;
-        }
-        public boolean getMembers()
-        {
-            return printMembers;
+            return extendedStatus;
         }
     }
     
-    private Args arguments;
-    private ArrayList<Field> fields;
+    private CommBaseArgs baseArgs;
+    private CommLoad load;
+    private CommMembers members;
+    private CommChannels channels;
     
-    public CommandParser(String[] parameters)
+    public CommandParser(String[] args)
     {
-        arguments = new Args();
- 
-        //Passando un vettore di parametri, il JCommander prova ad interfacciarli con i membri privati della classe "Args" sopra elencati
-        //Se un parametro è stato definito, il corrispettivo membro privato viene settato col giusto valore
-        JCommander.newBuilder().addObject(arguments).build().parse(parameters);        
+        baseArgs = new CommBaseArgs();
+        load = new CommLoad();
+        members = new CommMembers();
+        channels = new CommChannels();
         
-        //Popolo la lista di booleani con i comandi parsati con successo
-        Field[] tempFields = Args.class.getDeclaredFields();
-        fields = new ArrayList<Field>(Arrays.asList(tempFields));
+        CommandLine commandLine = new CommandLine(baseArgs)
+                .addSubcommand("load", load)
+                .addSubcommand("members", members)
+                .addSubcommand("channels", channels);
         
-        //Remove necessari per togliere i meta-membri di classe (this, riferimenti alla sovraclasse)
-        fields.remove(0);
-        fields.remove(0);
-        fields.remove(fields.size()-1);    
-    }
-    
-    public Args getParsedArgs()
-    {
-        return arguments;
-    }
-    public ArrayList<Field> getArgsFields()
-    {
-        return fields;
-    }
-    
-    //Controlla se la stringa "param" è definita tra i parametri associati
-    private boolean isTrue(String param)
-    {
-        for(Field x : fields)
+        List<CommandLine> result = commandLine.parse(args);
+        
+        for(CommandLine x : result)
         {
-            try
+            if(x.getCommand().getClass() == CommBaseArgs.class)
             {
-                x.setAccessible(true);
-                boolean tempEval = false;
-                
-                //Se il field a cui stiamo facendo accesso è quello del parametro
-                if(x.getName().equals(param))
-                {
-                    //Se x non è un booleano vediamo se almeno non è nullo
-                    if(!x.getType().equals(boolean.class))
-                        tempEval = (x.get(arguments) != null);
-                    //Altrimenti castiamo a booleano
-                    else 
-                        tempEval = (boolean) x.get(arguments);
-                    
-                    x.setAccessible(false);
-                    if(tempEval)
-                        return true;
-                }
-            } 
-            catch (IllegalArgumentException e)
-            {e.printStackTrace();} 
-            catch (IllegalAccessException e)
-            {e.printStackTrace();}  
-        }
-        return false;
-    }
-    
-    //Controlla se la stringa "param", che ha il nome di un field della classe Args, è l'unico ad esse true oppure no
-    private boolean isUnique(String param)
-    {
-        for(Field x : fields)
-        {
-            try
+                baseArgs = (CommBaseArgs) x.getCommand();
+                baseArgs.active = true;
+            }
+            else if(x.getCommand().getClass() == CommLoad.class)
             {
-                x.setAccessible(true);
-                boolean tempEval = false;
-                
-                //Se il field a cui stiamo facendo accesso NON è quello del parametro
-                if(!x.getName().equals(param))
-                {
-                    //Se x non è un booleano vediamo se almeno non è nullo
-                    if(!x.getType().equals(boolean.class))
-                        tempEval = (x.get(arguments) != null);
-                    //Altrimenti castiamo a booleano
-                    else 
-                        tempEval = (boolean) x.get(arguments);
-                    
-                    x.setAccessible(false);
-                    if(tempEval)
-                        return false;
-                }
-            } 
-            catch (IllegalArgumentException e)
-            {e.printStackTrace();} 
-            catch (IllegalAccessException e)
-            {e.printStackTrace();}  
+                load = (CommLoad) x.getCommand();
+                load.active = true;
+            }
+            else if(x.getCommand().getClass() == CommMembers.class)
+            {
+                members = (CommMembers) x.getCommand();
+                members.active = true;
+            }
+            else if(x.getCommand().getClass() == CommChannels.class)
+            {
+                channels = (CommChannels) x.getCommand();
+                channels.active = true;
+            }
         }
-        return true;
     }
     
-    public void validateArguments()
+    public CommBaseArgs getBaseArgs()
     {
-        if(isTrue("zipFile"))
-            assert(isUnique("zipFile"));      
-        
-        if(isTrue("toDrop"))
-            assert(isUnique("toDrop"));
+        return baseArgs;
+    }
+    
+    public CommLoad getCommLoad()
+    {
+        return load;
+    }
+    
+    public CommMembers getCommMembers()
+    {
+        return members;
+    }
+    
+    public CommChannels getCommChannels()
+    {
+        return channels;
     }
 }
