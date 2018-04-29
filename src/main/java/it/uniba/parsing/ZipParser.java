@@ -30,7 +30,7 @@ public class ZipParser
     }
     public Boolean hasLoaded()
     {
-        return (workspaceLoaded == "");
+        return (workspaceLoaded != "");
     }
     public Map<String, User> getUsers()
     {
