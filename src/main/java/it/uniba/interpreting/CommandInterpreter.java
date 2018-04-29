@@ -35,7 +35,9 @@ public class CommandInterpreter
                 worksys = new WorkspaceSys(); 
                 
                 //creo la directory nascosta su cui memorizzare a fine esecuzione users e channels 
-                worksys.makedirArea(fileParser.getWorkspaceName()); 
+                System.out.println("workspace name" + fileParser.getWorkspaceName());
+                
+               // worksys.makedirArea(fileParser.getWorkspaceName()); 
             }	
         }
         
