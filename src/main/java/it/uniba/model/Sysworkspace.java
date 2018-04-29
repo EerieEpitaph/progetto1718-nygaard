@@ -68,50 +68,57 @@ public class Sysworkspace {
 	}
 	
 	// crea in base all'os la cartella nascosta e segna nel workarea i workspace attivi 
-	public void makedirArea(String namews) throws IOException // da gestire 
+	public void makedirArea(String namews) // da gestire 
 	{
-		 if(currentOs == "Windows") // da testare su os  
-		 {
-			 /// Runtime.getRuntime().exec("attrib +H " + currentPath); certezza sui file ma non sulle directory 
-			 currentPath = currentPath + "/" + namews + "tmp";
-			 Path path = Paths.get(currentPath);
-			 Files.setAttribute(path, "dos:hidden", true);
-			 Files.createDirectories(path);
-			 workarea.put(namews, currentPath);
-		 }
-		 else // OS Linux or other linux distro based
-		 {
-			 currentPath = currentPath + "/." + namews + "tmp";
-			 Path path = Paths.get(currentPath);
-			 Files.createDirectories(path);
-			 workarea.put(namews, currentPath);
-		 }
-		 
+		try
+		{
+			if(currentOs == "Windows") // da testare su os  
+			{
+				/// Runtime.getRuntime().exec("attrib +H " + currentPath); certezza sui file ma non sulle directory 
+				currentPath = currentPath + "/" + namews + "tmp";
+				Path path = Paths.get(currentPath);
+				Files.setAttribute(path, "dos:hidden", true);
+				Files.createDirectories(path);
+				workarea.put(namews, currentPath);
+			}
+			else // OS Linux or other linux distro based
+			{
+				currentPath = currentPath + "/." + namews + "tmp";
+				Path path = Paths.get(currentPath);
+				Files.createDirectories(path);
+				workarea.put(namews, currentPath);
+			}
+		}
+	    catch(IOException ioe)
+        {
+       	 ioe.printStackTrace();
+        }
+				
 	}
 	
 	// Serializza i dizionari caricati in memoria su disco
 	// dato un workspace e un fileParser serializza i due dizionari 
-	public void DictSerial(String namews,ZipParser fileParser)
+	public void DictSerial(String namews,ZipParser fileParser) 
 	{
 		 try
          {
         	 String pathMember = workarea.get(namews) + "/members.ser";
         	 //pathMember = pathMember +  "/members.ser";
-        	 FileOutputStream fos = new FileOutputStream(pathMember ); // prende un stream su cui scrivere l'ogetto 
-        	 ObjectOutputStream oos = new ObjectOutputStream(fos); // crea daòlo stream output l'ObjectOutputStream che scriverà un oggetto sullo stream 
-        	 oos.writeObject(fileParser.getUsers()); // scrive il dizionario 
-        	 // chiude i due stream di output 
+        	 FileOutputStream fos = new FileOutputStream(pathMember ); // prende un stream su cui scrivere il dizionario users
+        	 ObjectOutputStream oos = new ObjectOutputStream(fos); // crea dallo stream output l'ObjectOutputStream che scriverà un oggetto sullo stream 
+        	 oos.writeObject(fileParser.getUsers()); // scrive il dizionario users  
+        	  
         	 
         	 String pathChannel = workarea.get(namews) +  "/channels.ser";
         	// pathChannel = pathChannel +  "/channels.ser";
         	 
-        	 fos = new FileOutputStream(pathMember ); 
-        	 oos = new ObjectOutputStream(fos); 
-        	 oos.writeObject(fileParser.getChannels());
+        	 fos = new FileOutputStream(pathChannel); // imposta lo stream output su cui scrivere il dizionario channels
+        	 oos = new ObjectOutputStream(fos);  // crea dallo stream output l'ObjectOutputStream che scriverà un oggetto sullo stream 
+        	 oos.writeObject(fileParser.getChannels()); //scrive il dizionario channels  
         	 
+        	 // Chiusura degli output streams
         	 oos.close(); 
         	 fos.close();
-        	 //System.out.printf("Dizionario Seriliazzato");
          }
          catch(IOException ioe)
          {
@@ -127,15 +134,17 @@ public class Sysworkspace {
 		
 		try
 		{
-			String member = workarea.get(namews) + "/members.ser";
-			FileInputStream fis = new FileInputStream(member);
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			worksdata.setDictUser((HashMap)ois.readObject());
+			String member = workarea.get(namews) + "/members.ser"; // prende il path del workspace e il percorso del dizionario users 
+			FileInputStream fis = new FileInputStream(member); // imposta l'input stream sui cui leggere il dizionario users
+			ObjectInputStream ois = new ObjectInputStream(fis); // crea dallo stream input l'ObjectInputStream che leggerà un oggetto sullo stream 
+			worksdata.setDictUser((HashMap)ois.readObject()); // legge il  dizionario e lo iposta come campo della tupla pairDicts
 			
 			String channel = workarea.get(namews) + "/channels.ser";
 			fis = new FileInputStream(channel);
 			ois = new ObjectInputStream(fis);
 			worksdata.setDictChannel((HashMap)ois.readObject());
+			
+			// Chiude gli stream 
 			ois.close();
 			fis.close();
 		}
@@ -144,13 +153,8 @@ public class Sysworkspace {
 			ioe.printStackTrace();
 			
 		}
-		catch(ClassNotFoundException c)
-		{
-			System.out.println("Class not found");
-			c.printStackTrace();
-			
-		}
-		return worksdata;
+	 
+		return worksdata;  // restituisce la tupla contenente il dizionario users e channels 
 	}
 	
 }
