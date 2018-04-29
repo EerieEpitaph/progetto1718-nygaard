@@ -1,4 +1,5 @@
 package it.uniba.model;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -47,6 +48,7 @@ public class Sysworkspace {
 	 * Comandi: 
 	 * 			-l --load path dello zip |  carica e  crea i dizionari sul disco in una cartella temporanea 
 	 * 		    -show | mostra i workspace attivi e creati nelle cartelle
+	 * 			-d "NomeWorkspace" elimina il workspace caricato su disco con relativi dizionari user e channel
 	 * 			#Esempi user Story: 
 	 * 			    -w "NomeWorkspace" -m			    |  mostro tutti membri del workspace
 	 * 				-w "NomeWorkspace" -c 			    |  mostro tutti channels  del workspace
@@ -141,6 +143,7 @@ public class Sysworkspace {
 	}
 	
 	// Dato un workspace deserializza i due dizionari e li restituisce  
+	
 	public pairDict getDicts(String namews)
 	{
 		
@@ -171,9 +174,24 @@ public class Sysworkspace {
 		{
 			System.out.println("Class not found");
 			c.printStackTrace();
-			
 		}
 		return worksdata;  // restituisce la tupla contenente il dizionario users e channels 
+	}
+	
+	void delWorkspace(String namews)
+	{
+		//dato un workspace elimino i dizionari creati e la sua cartella nascosta 
+		
+		String delPath = workarea.get(namews);  // prendo il path completo del workspace creato su disco 
+		File pathFile = new File(delPath);
+		String[] data = pathFile.list(); // predo tutti i file presenti nella cartella del workspace 
+		for(String s: data) 
+		{
+		    File currentFile = new File(pathFile.getPath(),s);
+		    currentFile.delete(); // elimino ogni file presente nella cartella 
+		}
+		pathFile.delete(); // eliminio infine la directory del workspace 
+		workarea.remove(namews); // elimino il riferimento nel dizionario del workspace 
 	}
 	
 }
