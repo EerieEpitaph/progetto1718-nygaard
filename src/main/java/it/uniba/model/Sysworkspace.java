@@ -153,7 +153,12 @@ public class Sysworkspace {
 			ioe.printStackTrace();
 			
 		}
-	 
+		catch(ClassNotFoundException c)
+		{
+			System.out.println("Class not found");
+			c.printStackTrace();
+			
+		}
 		return worksdata;  // restituisce la tupla contenente il dizionario users e channels 
 	}
 	
