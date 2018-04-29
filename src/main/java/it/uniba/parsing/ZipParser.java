@@ -20,14 +20,17 @@ import it.uniba.workdata.User;
 public class ZipParser 
 {
     //I due dizionari da riempire
-    private boolean loadedSomething = false;
-    private boolean loadSuccessful = false;
+    private String workspaceLoaded = "";
     private Map<String, User> users = new HashMap<String, User>();
     private Map<String, Channel> channels = new HashMap<String, Channel>();;
 
-    public boolean hasLoaded()
+    public String getWorkspaceName()
     {
-        return loadSuccessful;
+        return workspaceLoaded;
+    }
+    public Boolean hasLoaded()
+    {
+        return (workspaceLoaded == "");
     }
     public Map<String, User> getUsers()
     {
@@ -40,6 +43,7 @@ public class ZipParser
     
     public void load(String path) 
     {
+        Boolean loadedSomething = false;
         try 
         {
 //            int count = 0;
@@ -85,7 +89,8 @@ public class ZipParser
                 }
             }
             
-            loadSuccessful = true;
+            workspaceLoaded = zip.getName().replaceFirst("[.][^.]+$", "");
+//            System.out.println(workspaceLoaded);
             zip.close();
         } 
         catch (NullPointerException e) 

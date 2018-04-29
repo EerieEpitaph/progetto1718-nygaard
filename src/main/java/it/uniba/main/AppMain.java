@@ -1,6 +1,5 @@
 package it.uniba.main;
 
-import it.uniba.controller.FlowController;
 import it.uniba.interpreting.CommandInterpreter;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.ZipParser;
@@ -10,7 +9,7 @@ public final class AppMain
 	// path zip : /home/phinkie/Downloads/ingsw.zip 
 	public static void main(final String[] args) 
 	{ 
-		FlowController control = new FlowController("", false, new ZipParser());
+		ZipParser fileParser = new ZipParser();
 
 		CommandParser commandParser = null;
 		CommandInterpreter interpreter = null;
@@ -29,10 +28,10 @@ public final class AppMain
 		}
 
 		interpreter = new CommandInterpreter();
-		control = interpreter.executeCommands(commandParser, control);
+		interpreter.executeCommands(commandParser, fileParser);
 		
 		// salvataggio dei dizionari e dei workspace creati 
-		interpreter.getSysws().DictSerial(control.getCurrWorkspace(), control.getFileParser());
+		interpreter.getSysws().DictSerial(fileParser.getWorkspaceName(), fileParser);
 		interpreter.getSysws().saveWorkspace();
 	}
 }

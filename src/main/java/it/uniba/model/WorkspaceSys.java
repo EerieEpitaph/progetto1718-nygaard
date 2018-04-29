@@ -117,7 +117,7 @@ public class WorkspaceSys {
 	
 	// Serializza i dizionari caricati in memoria su disco
 	// dato un workspace e un fileParser serializza i due dizionari 
-	public void DictSerial(String namews,ZipParser fileParser) 
+	public void DictSerial(String namews, ZipParser fileParser) 
 	{
 		 try
          {
