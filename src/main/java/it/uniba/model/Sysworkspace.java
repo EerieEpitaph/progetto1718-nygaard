@@ -16,6 +16,7 @@ import it.uniba.workdata.User;
 
 // coppia dei dizionari members-channels 
 class pairDict {
+	
 	private  Map<String, User> users = new HashMap<String, User>();
     private  Map<String, Channel> channels = new HashMap<String, Channel>();
     
@@ -41,10 +42,23 @@ class pairDict {
     }
 }
 public class Sysworkspace {
+	
+	/*
+	 * Comandi: 
+	 * 			-l --load path dello zip |  carica e  crea i dizionari sul disco in una cartella temporanea 
+	 * 		    -show | mostra i workspace attivi e creati nelle cartelle
+	 * 			#Esempi user Story: 
+	 * 			    -w "NomeWorkspace" -m			    |  mostro tutti membri del workspace
+	 * 				-w "NomeWorkspace" -c 			    |  mostro tutti channels  del workspace
+	 * 				-w "NomeWorkspace" -m -c            |  mostro i membri raggruppati per canali 
+	 * 				-w "NomeWorkspace" -m -c "nygaard"  | mostro tutti i membri di un particolare channel	  
+	 * 				
+	 */
+	
+
+	private Map<String,String> workarea = new HashMap<String,String>();
 	/* tutti i possibili workspace caricati identificati 
 	come chiave,dal nome del workspace,  e come value, dal path assoluto del workspace */
-	
-	private Map<String,String> workarea = new HashMap<String,String>();
 	
 	private String currentPath; // path dell'applicazione
 	private String currentOs;   // os corrente
