@@ -32,10 +32,9 @@ public class CommandInterpreter
             if(load.getPathToZip() != null)
             {
                 fileParser.load(load.getPathToZip());
-<<<<<<< HEAD
-=======
+ 
                 System.out.println(fileParser.getWorkspaceName());
->>>>>>> 7144a4a093286a194f2b4bf2f5ab4fd3af3934d6
+ 
                 worksys = new WorkspaceSys(); 
                 
                 //creo la directory nascosta su cui memorizzare a fine esecuzione users e channels 
