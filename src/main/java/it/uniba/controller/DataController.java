@@ -3,7 +3,7 @@ package it.uniba.controller;
 import it.uniba.workdata.*;
 import it.uniba.parsing.ZipParser;
 
-public class Controller
+public class DataController
 {
     public static void printChannels(ZipParser fileParser)
     {
