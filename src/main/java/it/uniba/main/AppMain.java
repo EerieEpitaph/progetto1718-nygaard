@@ -14,9 +14,9 @@ public final class AppMain
 		CommandParser commandParser = null;
 		CommandInterpreter interpreter = null;
 
-		for(String x : args)
-		    System.out.println(x + " ");
-		System.out.println(" ");
+//		for(String x : args)
+//		    System.out.println(x + " ");
+//		System.out.println(" ");
 		
 		try
 		{
