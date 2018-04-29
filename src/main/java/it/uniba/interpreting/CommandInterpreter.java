@@ -31,7 +31,7 @@ public class CommandInterpreter
             //Percorso valido
             if(load.getPathToZip() != null)
             {
-//                newControl = loadWorkspace(load.getPathToZip(), newControl);   
+                fileParser.load(load.getPathToZip());
                 worksys = new WorkspaceSys(); 
                 
                 //creo la directory nascosta su cui memorizzare a fine esecuzione users e channels 
