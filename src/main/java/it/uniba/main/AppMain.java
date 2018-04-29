@@ -1,7 +1,5 @@
 package it.uniba.main;
 
-import java.util.Scanner;
-
 import it.uniba.controller.FlowController;
 import it.uniba.interpreting.CommandInterpreter;
 import it.uniba.parsing.CommandParser;
@@ -12,15 +10,17 @@ public final class AppMain
 	// path zip : /home/phinkie/Downloads/ingsw.zip 
 	public static void main(final String[] args) 
 	{ 
-		Scanner scanLine = new Scanner(System.in);
 		FlowController control = new FlowController("", false, new ZipParser());
 
 		CommandParser commandParser = null;
 		CommandInterpreter interpreter = null;
 
+		for(String x : args)
+		    System.out.print(x + " ");
+		System.out.println(" ");
+		
 		try
 		{
-			//Valida gli argomenti, riesegue il loop se trova discordanze
 			commandParser = new CommandParser(args);
 		}
 		catch(Exception e)

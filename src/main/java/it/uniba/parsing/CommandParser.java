@@ -6,6 +6,7 @@ import it.uniba.parsing.CommandLine.*;
 
 public class CommandParser
 {
+    //Comandi booleani senza parametri
     public class CommBaseArgs
     {
         private Boolean active = false;
@@ -15,9 +16,6 @@ public class CommandParser
         
         @Option(names = "drop")
         private boolean dropStatus;
-        
-        @Option(names = "quit")
-        private boolean quitStatus;
         
         public Boolean isActive()
         {
@@ -32,11 +30,6 @@ public class CommandParser
         public Boolean getDropStatus()
         {
             return dropStatus;
-        }
-        
-        public Boolean getQuitStatus()
-        {
-            return quitStatus;
         }
     }
     
@@ -122,6 +115,7 @@ public class CommandParser
     {
         baseArgs = new CommBaseArgs();
         load = new CommLoad();
+        workspace = new CommWorkspace();
         members = new CommMembers();
         channels = new CommChannels();
         

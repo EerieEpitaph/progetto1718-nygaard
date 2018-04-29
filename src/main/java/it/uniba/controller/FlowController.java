@@ -5,17 +5,11 @@ import it.uniba.parsing.ZipParser;
 public class FlowController
 {
     private String currWorkspace;
-    private Boolean quitStatus;
     private ZipParser fileParser;
     
     public String getCurrWorkspace()
     {
         return currWorkspace;
-    }
-    
-    public Boolean getQuitStatus()
-    {
-        return quitStatus;
     }
     
     public ZipParser getFileParser()
@@ -28,11 +22,6 @@ public class FlowController
         currWorkspace = newWorkspace;
     }
     
-    public void setQuitStatus(Boolean quitStatus)
-    {
-        this.quitStatus = quitStatus;
-    }
-    
     public void setFileParser(ZipParser fileParser)
     {
         this.fileParser = fileParser;
@@ -41,7 +30,6 @@ public class FlowController
     public FlowController(String newWorkspace, Boolean quitStatus, ZipParser fileParser)
     {
         this.currWorkspace = newWorkspace;
-        this.quitStatus = quitStatus;
         this.fileParser = fileParser;
     }
 }

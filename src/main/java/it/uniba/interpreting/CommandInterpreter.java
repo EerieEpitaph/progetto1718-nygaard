@@ -29,10 +29,8 @@ public class CommandInterpreter
         //Argomenti singoli immessi
         if(baseArgs.isActive())
         {
-            if(baseArgs.getQuitStatus())
-                newControl.setQuitStatus(true);
 
-            else if(baseArgs.getDropStatus())
+            if(baseArgs.getDropStatus())
                 newControl = dropWorkspace(newControl);
         }
         
@@ -50,7 +48,7 @@ public class CommandInterpreter
             }	
         }
         
-        //-w inserito
+        //-w nomeWorkspace inserito
         else if(workspace.isActive())
         {
             String workspaceName = workspace.getWorkspaceName();
