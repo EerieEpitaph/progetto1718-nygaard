@@ -42,7 +42,7 @@ class pairDict {
     	return channels;
     }
 }
-public class Sysworkspace {
+public class WorkspaceSys {
 	
 	/*
 	 * Comandi: 
@@ -64,12 +64,15 @@ public class Sysworkspace {
 	
 	private String currentPath; // path dell'applicazione
 	private String currentOs;   // os corrente
+	private String pathws; // path dove salvare tuti i workspace creati 
 	
 	//il costruttore imposta il path corrente dell'applicativo e l'os su cui sta girando 
-	public Sysworkspace()
+	public WorkspaceSys()
 	{
 		currentPath = System.getProperty("user.dir");
+		pathws = currentPath;
 		currentOs = System.getProperty("os.nio ame"); 
+		loadWorkspace();
 	}
 	
 	public Map<String,String> getWorkarea()
@@ -142,8 +145,7 @@ public class Sysworkspace {
          }
 	}
 	
-	// Dato un workspace deserializza i due dizionari e li restituisce  
-	
+	// Dato un workspace deserializza i due dizionari e li restituisce 
 	public pairDict getDicts(String namews)
 	{
 		
@@ -178,7 +180,7 @@ public class Sysworkspace {
 		return worksdata;  // restituisce la tupla contenente il dizionario users e channels 
 	}
 	
-	void delWorkspace(String namews)
+	public void delWorkspace(String namews)
 	{
 		//dato un workspace elimino i dizionari creati e la sua cartella nascosta 
 		
@@ -192,6 +194,55 @@ public class Sysworkspace {
 		}
 		pathFile.delete(); // eliminio infine la directory del workspace 
 		workarea.remove(namews); // elimino il riferimento nel dizionario del workspace 
+	}
+	
+	public void loadWorkspace()
+	{
+		pathws = pathws + "/.dictws.ser";
+		File f = new File(pathws);
+		
+		if(workarea.isEmpty() && f.exists()) // leggo dal file solo se non ci sono workspace ed esite il path di salvataggio 
+		{
+			try
+			{
+				String member = workarea.get(pathws); // prende il path del workspace e il percorso del dizionario users 
+				FileInputStream fis = new FileInputStream(member); // imposta l'input stream sui cui leggere il dizionario users
+				ObjectInputStream ois = new ObjectInputStream(fis); // crea dallo stream input l'ObjectInputStream che leggerà un oggetto sullo stream 
+				workarea = (HashMap)ois.readObject();
+
+				fis.close();
+				ois.close();
+			}
+			catch(IOException ioe)
+			{
+				ioe.printStackTrace();
+
+			}
+			catch(ClassNotFoundException c)
+			{
+				System.out.println("Class not found");
+				c.printStackTrace();
+			}
+		}
+	}
+	
+	// da richiamare ogni qualvolta che si esce dall'applicativo [da ottimizzare le scritture]
+	public void saveWorkspace()
+	{
+		try
+		{
+			 pathws = pathws + "/.dictws.ser";
+        	 FileOutputStream fos = new FileOutputStream(pathws); // prende un stream su cui scrivere il dizionario users
+        	 ObjectOutputStream oos = new ObjectOutputStream(fos); // crea dallo stream output l'ObjectOutputStream che scriverà un oggetto sullo stream 
+        	 oos.writeObject(workarea);
+        	 
+        	 fos.close();getClass();
+        	 oos.close();
+		}
+		catch(IOException ioe)
+		{
+			ioe.printStackTrace();
+		}
 	}
 	
 }

@@ -4,12 +4,17 @@ import java.io.File;
 
 import it.uniba.controller.DataController;
 import it.uniba.controller.FlowController;
+import it.uniba.model.WorkspaceSys;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.CommandParser.*;
 import it.uniba.parsing.ZipParser;
 
 public class CommandInterpreter
 {
+	WorkspaceSys worksys;
+	
+	 
+	
     public FlowController executeCommands(CommandParser parser, FlowController control)
     {
         FlowController newControl = control;
@@ -19,6 +24,7 @@ public class CommandInterpreter
         CommMembers members = parser.getCommMembers();
         CommChannels channels = parser.getCommChannels();
         
+         
         //Argomenti singoli immessi
         if(baseArgs.isActive())
         {
@@ -34,7 +40,13 @@ public class CommandInterpreter
         {
             //Percorso valido
             if(load.getPathToZip() != null)
+            {
                 newControl = loadWorkspace(load.getPathToZip(), newControl);   
+                worksys = new WorkspaceSys(); 
+                
+                //creo la directory nascosta su cui memorizzare a fine esecuzione users e channels 
+                worksys.makedirArea(newControl.getCurrWorkspace()); 
+            }	
         }
         
         //Members inserito
@@ -90,6 +102,7 @@ public class CommandInterpreter
         {
             File tempFile = new File(path);
             String fileName = tempFile.getName();
+            // ## attenzione a questi scope 
             if(fileName != null)
                 control.setCurrWorkspace(fileName);
             else
@@ -98,4 +111,9 @@ public class CommandInterpreter
         
         return control;
     }
+
+	public WorkspaceSys getSysws() {
+		// TODO Auto-generated method stub
+		return worksys;
+	}
 }
