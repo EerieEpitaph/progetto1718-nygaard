@@ -52,7 +52,7 @@ public class WorkspaceSys {
 	 * 			#Esempi user Story: 
 	 * 			    -w "NomeWorkspace" -m			    |  mostro tutti membri del workspace
 	 * 				-w "NomeWorkspace" -c 			    |  mostro tutti channels  del workspace
-	 * 				-w "NomeWorkspace" -m -c            |  mostro i membri raggruppati per canali 
+	 * 				-w "NomeWorkspace" -c -m            |  mostro i canali raggruppati per membri 
 	 * 				-w "NomeWorkspace" -m -c "nygaard"  | mostro tutti i membri di un particolare channel	  
 	 * 				
 	 */

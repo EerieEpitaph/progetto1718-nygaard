@@ -10,6 +10,9 @@ public class CommandParser
     {
         private Boolean active = false;
         
+        @Option(names = "show")
+        private boolean showStatus;
+        
         @Option(names = "drop")
         private boolean dropStatus;
         
@@ -19,6 +22,11 @@ public class CommandParser
         public Boolean isActive()
         {
             return active;
+        }
+        
+        public Boolean getShowStatus()
+        {
+            return showStatus;
         }
         
         public Boolean getDropStatus()
@@ -47,6 +55,24 @@ public class CommandParser
         public String getPathToZip()
         {
             return pathToZip;
+        }
+    }
+    
+    public class CommWorkspace
+    {
+        private Boolean active = false;
+        
+        @Parameters(index = "0")
+        String workspaceName;
+        
+        public Boolean isActive()
+        {
+            return active;
+        }
+        
+        public String getWorkspaceName()
+        {
+            return workspaceName;
         }
     }
     
@@ -88,6 +114,7 @@ public class CommandParser
     
     private CommBaseArgs baseArgs;
     private CommLoad load;
+    private CommWorkspace workspace;
     private CommMembers members;
     private CommChannels channels;
     
@@ -100,8 +127,9 @@ public class CommandParser
         
         CommandLine commandLine = new CommandLine(baseArgs)
                 .addSubcommand("load", load)
-                .addSubcommand("members", members)
-                .addSubcommand("channels", channels);
+                .addSubcommand("-w", workspace)
+                .addSubcommand("-m", members)
+                .addSubcommand("-c", channels);
         
         List<CommandLine> result = commandLine.parse(args);
         
@@ -116,6 +144,11 @@ public class CommandParser
             {
                 load = (CommLoad) x.getCommand();
                 load.active = true;
+            }
+            else if(x.getCommand().getClass() == CommWorkspace.class)
+            {
+                workspace = (CommWorkspace) x.getCommand();
+                workspace.active = true;
             }
             else if(x.getCommand().getClass() == CommMembers.class)
             {
@@ -138,6 +171,11 @@ public class CommandParser
     public CommLoad getCommLoad()
     {
         return load;
+    }
+    
+    public CommWorkspace getCommWorkspace()
+    {
+        return workspace;
     }
     
     public CommMembers getCommMembers()

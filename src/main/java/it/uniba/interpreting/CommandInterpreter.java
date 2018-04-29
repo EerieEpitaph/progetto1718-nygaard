@@ -21,6 +21,7 @@ public class CommandInterpreter
         
         CommBaseArgs baseArgs = parser.getBaseArgs();
         CommLoad load = parser.getCommLoad();
+        CommWorkspace workspace = parser.getCommWorkspace();
         CommMembers members = parser.getCommMembers();
         CommChannels channels = parser.getCommChannels();
         
@@ -35,7 +36,7 @@ public class CommandInterpreter
                 newControl = dropWorkspace(newControl);
         }
         
-        //Load inserito
+        //load inserito
         if(load.isActive())
         {
             //Percorso valido
@@ -49,13 +50,23 @@ public class CommandInterpreter
             }	
         }
         
-        //Members inserito
+        //-w inserito
+        else if(workspace.isActive())
+        {
+            String workspaceName = workspace.getWorkspaceName();
+            
+            //Tutto tuo, Giova'!
+        }
+        
+        //-m inserito
         else if(members.isActive())
         {
             if(control.getFileParser().hasLoaded())
             {
+                //Nessun filtro inserito
                 if(members.getChannelFilter() == null)
                     DataController.printMembers(newControl.getFileParser());
+                //Canale filtro inserito
                 else
                     DataController.channelMembers(newControl.getFileParser(), members.getChannelFilter());
             }
@@ -63,13 +74,15 @@ public class CommandInterpreter
                 System.out.println("No workspace loaded");
         }
         
-        //Channels inserito
+        //-c inserito
         else if(channels.isActive())
         {
             if(control.getFileParser().hasLoaded())
             {
+                //Channels estesi inseriti
                 if(!channels.getExtendedStatus())
                     DataController.printChannels(newControl.getFileParser());
+                //Channels estesi non inseriti
                 else
                     DataController.members4Channel(newControl.getFileParser());
             }

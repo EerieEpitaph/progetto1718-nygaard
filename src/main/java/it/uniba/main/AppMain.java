@@ -18,17 +18,10 @@ public final class AppMain
 		CommandParser commandParser = null;
 		CommandInterpreter interpreter = null;
 
-		//Main loop
-
-		//Printa il workspace caricato
-		System.out.print(" >> ");
-		//Regex per ignorare gli spazi tra quotes ("Tipo questo")
-		String[] currParams = scanLine.nextLine().split("\\s(?=(?:[^'\"`]*(['\"`])[^'\"`]*\\1)*[^'\"`]*$)");
-
 		try
 		{
 			//Valida gli argomenti, riesegue il loop se trova discordanze
-			commandParser = new CommandParser(currParams);
+			commandParser = new CommandParser(args);
 		}
 		catch(Exception e)
 		{
@@ -37,7 +30,6 @@ public final class AppMain
 
 		interpreter = new CommandInterpreter();
 		control = interpreter.executeCommands(commandParser, control);
-		scanLine.close();
 		
 		// salvataggio dei dizionari e dei workspace creati 
 		interpreter.getSysws().DictSerial(control.getCurrWorkspace(), control.getFileParser());
