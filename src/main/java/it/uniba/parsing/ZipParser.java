@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.nio.file.InvalidPathException;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.zip.ZipEntry;
@@ -46,76 +45,56 @@ public class ZipParser
         return channels;
     }
     
-    public void load(String path) 
+    public void load(String path) throws ZipException, IOException
     {
         Boolean loadedSomething = false;
-        
-        try 
-        {
+ 
 //            int count = 0;
-            ZipFile zip = new ZipFile(path);
-            Enumeration <? extends ZipEntry> entries = zip.entries();
+        ZipFile zip = new ZipFile(path);
+        Enumeration <? extends ZipEntry> entries = zip.entries();
 
-            while (entries.hasMoreElements()) 
+        while (entries.hasMoreElements()) 
+        {
+            ZipEntry entry = entries.nextElement();
+            
+            if (entry.getName().equals("channels.json") || entry.getName().equals("users.json")) 
             {
-                ZipEntry entry = entries.nextElement();
-                
-                if (entry.getName().equals("channels.json") || entry.getName().equals("users.json")) 
-                {
-                    loadedSomething = true;
-                    InputStream stream = zip.getInputStream(entry);
-                    Reader lecturer = new InputStreamReader(stream);
+                loadedSomething = true;
+                InputStream stream = zip.getInputStream(entry);
+                Reader lecturer = new InputStreamReader(stream);
 //                    System.out.println(entry.getName() + " " + ++count);
 
-                    GsonBuilder builder = new GsonBuilder();
-                    Gson gson = builder.create();
+                GsonBuilder builder = new GsonBuilder();
+                Gson gson = builder.create();
 
-                    if (entry.getName().equals("users.json")) 
+                if (entry.getName().equals("users.json")) 
+                {
+                    User[] tempUser = gson.fromJson(lecturer, User[].class);
+                    for(User x : tempUser)
                     {
-                        User[] tempUser = gson.fromJson(lecturer, User[].class);
-                        for(User x : tempUser)
-                        {
 //                            System.out.println(x.getId());
-                        	 users.put(x.getId(), x);
-                        }     
-                    } 
-                    else 
+                    	 users.put(x.getId(), x);
+                    }     
+                } 
+                else 
+                {
+                    Channel[] tempUser = gson.fromJson(lecturer, Channel[].class);
+                    for(Channel x : tempUser)
                     {
-                        Channel[] tempUser = gson.fromJson(lecturer, Channel[].class);
-                        for(Channel x : tempUser)
-                        {
 //                            System.out.println(x.getId());
-                            channels.put(x.getName(), x);
-                        }     
-                    } 
+                        channels.put(x.getName(), x);
+                    }     
+                } 
 
-                    lecturer.close();
-                    //Non ho trovato i file che ci servono
-                    if(!loadedSomething) throw new ZipException();
-                }
+                lecturer.close();
+                //Non ho trovato i file che ci servono
+                if(!loadedSomething) throw new ZipException();
             }
-            File tempFile = new File(zip.getName());
-            workspaceLoaded = tempFile.getName().replaceFirst("[.][^.]+$", "");
+        }
+        File tempFile = new File(zip.getName());
+        workspaceLoaded = tempFile.getName().replaceFirst("[.][^.]+$", "");
 //            System.out.println(workspaceLoaded);
-            zip.close();
-        } 
-        catch (NullPointerException e) 
-        {System.out.println("Specify zip file to load");} 
-        catch (ZipException e) 
-        {System.out.println("Unable to analyze. Damaged or wrong file");} 
-        catch (InvalidPathException e) 
-        {System.out.println("Illegal char used in path");} 
-        catch (IOException e) 
-        {System.out.println("Invalid file. Usage: load \"path\\to\\file.zip\"");} 
-        catch (JsonParseException e) 
-        {System.out.println( e.toString() );} 
-        catch (Exception e) 
-        {System.out.println("Critical exception, I'm out!");}
+        zip.close();
+        
     }
-    
-    
-   
-    
-   
- 
 }

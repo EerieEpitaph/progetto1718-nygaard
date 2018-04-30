@@ -37,7 +37,7 @@ public class DataController
     
     public static void channelMembers(ZipParser fileParser,String channel)
     {
-        if(channel != "")
+        if(channel != "" && existsChannel(fileParser, channel))
         {
             System.out.print(" + " + channel + "\n");
             // -l "/home/phinkie/Downloads/ingsw.zip"
@@ -52,6 +52,15 @@ public class DataController
         }
     }
     
+    private static Boolean existsChannel(ZipParser fileParser, String channel)
+    {
+        for(Channel x : fileParser.getChannels().values())
+            if(x.getName().equals(channel))
+                return true;
+        
+        System.out.println("There is no channel " + channel);
+        return false;
+    }
     /*
     public static void printUsers(ZipParser fileParser)
     {
