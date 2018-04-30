@@ -17,6 +17,9 @@ public class CommandParser
         @Option(names = "show")
         private boolean showStatus;
         
+        @Option(names = "help")
+        private boolean helpStatus;
+        
         public Boolean isActive()
         {
             return active;
@@ -25,6 +28,11 @@ public class CommandParser
         public Boolean getShowStatus()
         {
             return showStatus;
+        }
+        
+        public Boolean getHelpStatus()
+        {
+            return helpStatus;
         }
     }
     
@@ -106,7 +114,7 @@ public class CommandParser
     private CommMembers members;
     private CommChannels channels;
     
-    public CommandParser(String[] args)
+    public CommandParser(String[] args) throws Exception
     {
         baseArgs = new CommBaseArgs();
         load = new CommLoad();
@@ -126,6 +134,7 @@ public class CommandParser
         {
             //Gli "argomenti base" sarebbero sempre true, per com'è strutturata la libreria.
             //In questo if setto la loro attività = true solo se, usando la riflessione, uno dei loro field è true
+            //Se più di un field e true, throwo direttamente un'eccezione.
             if(x.getCommand().getClass() == CommBaseArgs.class)
             {
                 baseArgs = (CommBaseArgs) x.getCommand();
@@ -142,10 +151,12 @@ public class CommandParser
                     {
                         if(y.get(baseArgs).toString().equals("true"))
                         {
-                            baseArgs.active = true;
-                            y.setAccessible(false);
-                            break;
+                            if(baseArgs.active)
+                                throw new IllegalStateException(); //CATCHED
+                            else
+                                baseArgs.active = true;             
                         }
+                            
                         y.setAccessible(false);
                     } 
                     catch (IllegalArgumentException e)
