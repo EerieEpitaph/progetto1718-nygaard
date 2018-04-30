@@ -22,11 +22,9 @@ import it.uniba.workdata.User;
 
 public class ZipParser implements Serializable 
 {
-    //I due dizionari da riempire
+   
     private String workspaceLoaded = "";
-//    private Map<String, User> users = new HashMap<String, User>();
-    //private Map<String, Channel> channels = new HashMap<String, Channel>();;
-
+    //I due dizionari users e channels 
     private UsersMap usersdict = new UsersMap();
     private ChannelsMap channelsdict = new ChannelsMap();
     
@@ -45,6 +43,16 @@ public class ZipParser implements Serializable
     public Map<String, Channel> getChannels()
     {
         return channelsdict.getChannelsMap();
+    }
+    
+    public UsersMap getUsersMap()
+    {
+    	return usersdict;
+    }
+    
+    public ChannelsMap getChannelsMap() 
+    {
+    	return channelsdict; 
     }
     
     public void load(String path) 
@@ -78,7 +86,7 @@ public class ZipParser implements Serializable
                         for(User x : tempUser)
                         {
 //                            System.out.println(x.getId());
-                        	parser.put(x.getId(), x);
+                        	 usersdict.put(x.getId(), x);
                         }     
                     } 
                     else 
@@ -87,7 +95,7 @@ public class ZipParser implements Serializable
                         for(Channel x : tempUser)
                         {
 //                            System.out.println(x.getId());
-                            channels.put(x.getName(), x);
+                            channelsdict.put(x.getName(), x);
                         }     
                     } 
 

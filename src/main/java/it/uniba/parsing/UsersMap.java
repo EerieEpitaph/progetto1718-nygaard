@@ -67,5 +67,10 @@ public class UsersMap implements Serializable {
 	{
 		return users;
 	}
+	
+//	public UsersMap getUsersObj()
+//	{
+//		return this; 
+//	}
 	  
 }

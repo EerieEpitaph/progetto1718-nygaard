@@ -1,11 +1,14 @@
 package it.uniba.workdata;
 
-public final class User 
+import java.io.Serializable;
+
+public final class User implements Serializable
 {
 	private String id;
 	private String team_id;
 	private String name;
 	private String real_name;
+	private static final long serialVersionUID = 1L;
 	
 	public User(String _id, String _teams, String _name, String _real_name)
 	{
