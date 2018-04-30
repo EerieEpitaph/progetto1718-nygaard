@@ -1,101 +1,120 @@
 package it.uniba.interpreting;
 
-import java.io.File;
-
 import it.uniba.controller.DataController;
-import it.uniba.controller.FlowController;
+import it.uniba.model.WorkspaceSys;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.CommandParser.*;
 import it.uniba.parsing.ZipParser;
 
 public class CommandInterpreter
 {
-    public FlowController executeCommands(CommandParser parser, FlowController control)
+	WorkspaceSys worksys; // Istanza del fileSystem corrente dell'applicativo #### 
+
+    public void executeCommands(CommandParser parser, ZipParser fileParser)
     {
-        FlowController newControl = control;
-        
         CommBaseArgs baseArgs = parser.getBaseArgs();
         CommLoad load = parser.getCommLoad();
-        CommMembers members = parser.getCommMembers();
-        CommChannels channels = parser.getCommChannels();
-        
+        CommDelete delete = parser.getCommDelete();
+        CommWorkspace workspace = parser.getCommWorkspace();
+         
         //Argomenti singoli immessi
         if(baseArgs.isActive())
         {
-            if(baseArgs.getQuitStatus())
-                newControl.setQuitStatus(true);
-
-            else if(baseArgs.getDropStatus())
-                newControl = dropWorkspace(newControl);
+            //Ho chiesto lo show
+            if(baseArgs.getShowStatus())
+            {
+            	worksys = new WorkspaceSys();
+            	worksys.shoWorkspace();
+            }
+            
+            //Ho chiesto help
+            else if(baseArgs.getHelpStatus())
+                showHelp();
         }
         
-        //Load inserito
-        if(load.isActive())
+        //-l inserito
+        else if(load.isActive())
         {
             //Percorso valido
             if(load.getPathToZip() != null)
-                newControl = loadWorkspace(load.getPathToZip(), newControl);   
+            {
+                fileParser.load(load.getPathToZip());
+                worksys = new WorkspaceSys(); 
+                //creo la directory nascosta su cui memorizzare a fine esecuzione users e channels 
+                worksys.makedirArea(fileParser.getWorkspaceName()); 
+            }	
+            else
+                throw new IllegalStateException();
         }
         
-        //Members inserito
-        else if(members.isActive())
+        //-d nomeWorkspace inserito
+        else if(delete.isActive())
         {
-            if(control.getFileParser().hasLoaded())
+            //Ho specificato un workspace
+            if(delete.getWorkspaceName() != null)
             {
-                if(members.getChannelFilter() == null)
-                    DataController.printMembers(newControl.getFileParser());
+                worksys = new WorkspaceSys();
+                worksys.delWorkspace(delete.getWorkspaceName());
+            }
+            else throw new IllegalStateException();
+        }
+        
+        //-w nomeWorkspace inserito
+        else if(workspace.isActive())
+        {
+            //nomeWorkspace valido
+            if(workspace.getWorkspaceName() != null)
+            {
+                String workspaceName = workspace.getWorkspaceName();
+                fileParser.setWorkspaceName(workspaceName); // settato il workspace serializza i dati quando snap termina
+               // System.out.println("Nome workspace  " + workspaceName);
+                worksys = new WorkspaceSys();
+                worksys.lectureDicts(workspaceName, fileParser);
+
+                //Fileparser ha caricato qualcosa
+                if(fileParser.hasLoaded())
+                {
+                    //-m inserito
+                    if(workspace.getMembersStatus())
+                        DataController.printMembers(fileParser);
+                    
+                    //-c inserito
+                    else if(workspace.getChannelsStatus())
+                        DataController.printChannels(fileParser);
+                    
+                    //-m -c inserito
+                    else if(workspace.getChannelFilter() != null)
+                        DataController.channelMembers(fileParser, workspace.getChannelFilter());
+                    
+                    //-c -m inserito
+                    else if(workspace.getExtChannelsStatus())
+                        DataController.members4Channel(fileParser);
+                }
                 else
-                    DataController.channelMembers(newControl.getFileParser(), members.getChannelFilter());
+                    throw new IllegalStateException();
             }
             else
-                System.out.println("No workspace loaded");
+                throw new IllegalStateException();
         }
-        
-        //Channels inserito
-        else if(channels.isActive())
-        {
-            if(control.getFileParser().hasLoaded())
-            {
-                if(!channels.getExtendedStatus())
-                    DataController.printChannels(newControl.getFileParser());
-                else
-                    DataController.members4Channel(newControl.getFileParser());
-            }
-            else
-                System.out.println("No workspace loaded");
-        }
-        
-        return newControl;
     }
     
-    private FlowController dropWorkspace(FlowController control)
+    public void showHelp()
     {
-        if(!control.getFileParser().hasLoaded())
-            System.out.println("No workspace to drop");
-        else
-        {
-            control.setFileParser(new ZipParser());
-            control.setCurrWorkspace("");
-        }
-        
-        return control;
+        System.out.println("Usage:");
+        System.out.println("help - shows this help\n");
+        System.out.println("show - shows all loaded workspaces\n");
+        System.out.println("-l \"path\\to\\file.zip\" - loads and parses a zip file\n");
+        System.out.println("-w \"workspaceName\" ( -c | -m | -mc \"channelFilter\" | -cm )");
+        System.out.println("-\tw caches a previously loaded workspace");
+        System.out.println("-\tc prints all the channels in the specified workspace");
+        System.out.println("-\tm prints all the members in the specified workspace");
+        System.out.println("-\tmc \"channelFilter\" prints all the members in the specified channel ");
+        System.out.println("-\tcm prints all the channels with their members\n");
+        System.out.println("-d \"workspaceName\" - deletes a loaded workspace");
     }
-    
-    private FlowController loadWorkspace(String path, FlowController control)
-    {
-        control.getFileParser().load(path);    
-        
-        //Aggiorna il nome del workspace corrente if il comando "load" e' andato a buon fine
-        if(control.getFileParser().hasLoaded())
-        {
-            File tempFile = new File(path);
-            String fileName = tempFile.getName();
-            if(fileName != null)
-                control.setCurrWorkspace(fileName);
-            else
-                control.setCurrWorkspace(path);
-        }
-        
-        return control;
-    }
+
+	public WorkspaceSys getSysws()
+	{
+		return worksys;
+	}
 }

@@ -1,13 +1,14 @@
 package it.uniba.parsing;
 
 import java.util.Map;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.Serializable;
 import java.nio.file.InvalidPathException;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
@@ -17,29 +18,59 @@ import com.google.gson.*;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
-public class ZipParser 
+public class ZipParser implements Serializable 
 {
-    //I due dizionari da riempire
-    private boolean loadedSomething = false;
-    private boolean loadSuccessful = false;
-    private Map<String, User> users = new HashMap<String, User>();
-    private Map<String, Channel> channels = new HashMap<String, Channel>();;
-
-    public boolean hasLoaded()
+    private static final long serialVersionUID = 1L;
+    private String workspaceLoaded = "";
+    //I due dizionari users e channels 
+    private UsersMap usersdict = new UsersMap();
+    private ChannelsMap channelsdict = new ChannelsMap();
+    
+    public void setUserDict(UsersMap _value)
     {
-        return loadSuccessful;
+    	usersdict = _value;
+    }
+    
+    public void setChannelDict(ChannelsMap _value)
+    {
+    	channelsdict = _value;
+    }
+    public void setWorkspaceName(String _value)
+    {
+    	workspaceLoaded = _value; 
+    }
+    public String getWorkspaceName()
+    {
+        return workspaceLoaded;
+    }
+    public Boolean hasLoaded()
+    {
+        return (workspaceLoaded != "");
     }
     public Map<String, User> getUsers()
     {
-        return users;
+        return usersdict.getUsersMap();
     }
     public Map<String, Channel> getChannels()
     {
-        return channels;
+        return channelsdict.getChannelsMap();
+    }
+    
+    public UsersMap getUsersMap()
+    {
+    	return usersdict;
+    }
+    
+    public ChannelsMap getChannelsMap() 
+    {
+    	return channelsdict; 
     }
     
     public void load(String path) 
     {
+        Boolean loadedSomething = false;
+        
+        
         try 
         {
 //            int count = 0;
@@ -66,7 +97,7 @@ public class ZipParser
                         for(User x : tempUser)
                         {
 //                            System.out.println(x.getId());
-                            users.put(x.getId(), x);
+                        	 usersdict.put(x.getId(), x);
                         }     
                     } 
                     else 
@@ -75,7 +106,7 @@ public class ZipParser
                         for(Channel x : tempUser)
                         {
 //                            System.out.println(x.getId());
-                            channels.put(x.getName(), x);
+                            channelsdict.put(x.getName(), x);
                         }     
                     } 
 
@@ -84,8 +115,9 @@ public class ZipParser
                     if(!loadedSomething) throw new ZipException();
                 }
             }
-            
-            loadSuccessful = true;
+            File tempFile = new File(zip.getName());
+            workspaceLoaded = tempFile.getName().replaceFirst("[.][^.]+$", "");
+//            System.out.println(workspaceLoaded);
             zip.close();
         } 
         catch (NullPointerException e) 
@@ -101,4 +133,10 @@ public class ZipParser
         catch (Exception e) 
         {System.out.println("Critical exception, I'm out!");}
     }
+    
+    
+   
+    
+   
+ 
 }

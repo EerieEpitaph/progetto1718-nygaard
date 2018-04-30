@@ -1,34 +1,38 @@
 package it.uniba.parsing;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import it.uniba.parsing.CommandLine.*;
 
 public class CommandParser
 {
+    //Comandi booleani senza parametri
     public class CommBaseArgs
     {
         private Boolean active = false;
         
-        @Option(names = "drop")
-        private boolean dropStatus;
+        @Option(names = "show")
+        private boolean showStatus;
         
-        @Option(names = "quit")
-        private boolean quitStatus;
+        @Option(names = "help")
+        private boolean helpStatus;
         
         public Boolean isActive()
         {
             return active;
         }
         
-        public Boolean getDropStatus()
+        public Boolean getShowStatus()
         {
-            return dropStatus;
+            return showStatus;
         }
         
-        public Boolean getQuitStatus()
+        public Boolean getHelpStatus()
         {
-            return quitStatus;
+            return helpStatus;
         }
     }
     
@@ -50,82 +54,147 @@ public class CommandParser
         }
     }
     
-    public class CommMembers
+    public class CommDelete
     {
         private Boolean active = false;
         
-        @Option(names = "-c", arity = "0..1", description = "Optional filtering by channel")
-        private String filterBy;
+        @Parameters(index = "0")    
+        String workspaceName;
 
         public Boolean isActive()
         {
             return active;
+        }
+        
+        public String getWorkspaceName()
+        {
+            return workspaceName;
+        }
+    }
+    
+    public class CommWorkspace
+    {
+        private Boolean active = false;
+        
+        @Parameters(index = "0")
+        String workspaceName;
+        
+        @Option(names = "-m", arity = "0..1")
+        private boolean membersStatus;
+        
+        @Option(names = "-c", arity = "0..1")
+        private boolean channelsStatus;
+        
+        @Option(names = "-mc", arity = "0..1")
+        private String channelFilter;
+        
+        @Option(names = "-cm", arity = "0..1")
+        private boolean extChannelsStatus;
+        
+        public Boolean isActive()
+        {
+            return active;
+        }
+        
+        public String getWorkspaceName()
+        {
+            return workspaceName;
+        }
+        
+        public Boolean getMembersStatus()
+        {
+            return membersStatus;
+        }
+        
+        public Boolean getChannelsStatus()
+        {
+            return channelsStatus;
         }
         
         public String getChannelFilter()
         {
-            return filterBy;
-        }
-    }
-    
-    public class CommChannels
-    {
-        private Boolean active = false;
-        
-        @Option(names = "-m", arity = "0..1", description = "Optional printing of channels and associated members")
-        private boolean extendedStatus;
-
-        public Boolean isActive()
-        {
-            return active;
+            return channelFilter;
         }
         
-        public Boolean getExtendedStatus()
+        public Boolean getExtChannelsStatus()
         {
-            return extendedStatus;
+            return extChannelsStatus;
         }
     }
     
     private CommBaseArgs baseArgs;
     private CommLoad load;
-    private CommMembers members;
-    private CommChannels channels;
+    private CommDelete delete;
+    private CommWorkspace workspace;
     
-    public CommandParser(String[] args)
+    public CommandParser(String[] args) throws IllegalStateException
     {
         baseArgs = new CommBaseArgs();
         load = new CommLoad();
-        members = new CommMembers();
-        channels = new CommChannels();
+        delete = new CommDelete();
+        workspace = new CommWorkspace();
         
         CommandLine commandLine = new CommandLine(baseArgs)
-                .addSubcommand("load", load)
-                .addSubcommand("members", members)
-                .addSubcommand("channels", channels);
+                .addSubcommand("-l", load)
+                .addSubcommand("-d", delete)
+                .addSubcommand("-w", workspace);
         
         List<CommandLine> result = commandLine.parse(args);
         
         for(CommandLine x : result)
         {
+            //Gli "argomenti base" sarebbero sempre true, per com'è strutturata la libreria.
+            //In questo if setto la loro attività = true solo se, usando la riflessione, uno dei loro field è true
+            //Se più di un field e' true, throwo direttamente un'eccezione.
             if(x.getCommand().getClass() == CommBaseArgs.class)
             {
                 baseArgs = (CommBaseArgs) x.getCommand();
-                baseArgs.active = true;
+                
+                ArrayList<Field> baseFields = new ArrayList<Field>(Arrays.asList(CommBaseArgs.class.getDeclaredFields()));
+                baseFields.remove(0);
+                baseFields.remove(baseFields.size()-1);
+                
+                for(Field y : baseFields)
+                {
+//                    System.out.println(y.getName());
+                    y.setAccessible(true);
+                    try
+                    {
+                        if(y.get(baseArgs).toString().equals("true"))
+                        {
+                            if(baseArgs.active)
+                                throw new IllegalStateException(); //CATCHED
+                            else
+                                baseArgs.active = true;             
+                        }
+                            
+                        y.setAccessible(false);
+                    } 
+                    catch (IllegalArgumentException e)
+                    {e.printStackTrace();} catch (IllegalAccessException e)
+                    {e.printStackTrace();}
+                }
             }
+            
+            //Il comando parsato è "-l"
             else if(x.getCommand().getClass() == CommLoad.class)
             {
                 load = (CommLoad) x.getCommand();
                 load.active = true;
             }
-            else if(x.getCommand().getClass() == CommMembers.class)
+            
+            //Il comando parsato e' "-d"
+            else if(x.getCommand().getClass() == CommDelete.class)
             {
-                members = (CommMembers) x.getCommand();
-                members.active = true;
+                delete = (CommDelete) x.getCommand();
+                delete.active = true;
             }
-            else if(x.getCommand().getClass() == CommChannels.class)
+            
+            //Il comando parsato è "-w"
+            else if(x.getCommand().getClass() == CommWorkspace.class)
             {
-                channels = (CommChannels) x.getCommand();
-                channels.active = true;
+                workspace = (CommWorkspace) x.getCommand();
+                workspace.active = true;
             }
         }
     }
@@ -140,13 +209,13 @@ public class CommandParser
         return load;
     }
     
-    public CommMembers getCommMembers()
+    public CommDelete getCommDelete()
     {
-        return members;
+        return delete;
     }
     
-    public CommChannels getCommChannels()
+    public CommWorkspace getCommWorkspace()
     {
-        return channels;
+        return workspace;
     }
 }
