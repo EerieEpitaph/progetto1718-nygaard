@@ -49,11 +49,11 @@ public class CommandParser
         @Option(names = "-c", arity = "0..1")
         private boolean channelsStatus;
         
-        @Option(names = "-mc", arity = "0..1")
-        private String channelFilter;
-        
         @Option(names = "-cm", arity = "0..1")
         private boolean extChannelsStatus;
+        
+        @Option(names = "-mc", arity = "0..1")
+        private String channelFilter;
         
         public Boolean isActive()
         {
@@ -75,14 +75,14 @@ public class CommandParser
             return channelsStatus;
         }
         
-        public String getChannelFilter()
-        {
-            return channelFilter;
-        }
-        
         public Boolean getExtChannelsStatus()
         {
             return extChannelsStatus;
+        }
+        
+        public String getChannelFilter()
+        {
+            return channelFilter;
         }
     }
     

@@ -1,5 +1,8 @@
 package it.uniba.interpreting;
 
+import java.io.IOException;
+import java.util.zip.ZipException;
+
 import it.uniba.controller.DataController;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.CommandParser.*;
@@ -7,7 +10,7 @@ import it.uniba.parsing.ZipParser;
 
 public class CommandInterpreter
 {
-    public void executeCommands(CommandParser parser, ZipParser fileParser)
+    public void executeCommands(CommandParser parser, ZipParser fileParser) throws ZipException, IOException
     {
         CommBaseArgs baseArgs = parser.getBaseArgs();
         CommWorkspace workspace = parser.getCommWorkspace();
@@ -40,13 +43,18 @@ public class CommandInterpreter
                     else if(workspace.getChannelsStatus())
                         DataController.printChannels(fileParser);
                     
-                    //-m -c inserito
-                    else if(workspace.getChannelFilter() != null)
-                        DataController.channelMembers(fileParser, workspace.getChannelFilter());
-                    
-                    //-c -m inserito
+                    //-cm inserito
                     else if(workspace.getExtChannelsStatus())
                         DataController.members4Channel(fileParser);
+                    
+                    //-mc inserito
+                    else 
+                    {
+                        if(workspace.getChannelFilter() != "")
+                            DataController.channelMembers(fileParser, workspace.getChannelFilter());
+                        else
+                            throw new IllegalStateException();
+                    }    
                 }
                 else
                     throw new IllegalStateException();
