@@ -28,6 +28,19 @@ public class ZipParser implements Serializable
     private UsersMap usersdict = new UsersMap();
     private ChannelsMap channelsdict = new ChannelsMap();
     
+    public void setUserDict(UsersMap _value)
+    {
+    	usersdict = _value;
+    }
+    
+    public void setChannelDict(ChannelsMap _value)
+    {
+    	channelsdict = _value;
+    }
+    public void setWorkspaceName(String _value)
+    {
+    	workspaceLoaded = _value; 
+    }
     public String getWorkspaceName()
     {
         return workspaceLoaded;

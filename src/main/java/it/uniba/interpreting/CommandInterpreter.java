@@ -24,9 +24,7 @@ public class CommandInterpreter
         {
             if(baseArgs.getShowStatus())
             {
-            	System.out.println("Show command");
             	worksys = new WorkspaceSys();
-//            	//worksys.loadWorkspace();
             	worksys.shoWorkspace();
             }
             else if(baseArgs.getHelpStatus())
@@ -52,8 +50,12 @@ public class CommandInterpreter
         else if(workspace.isActive())
         {
             String workspaceName = workspace.getWorkspaceName();
+            fileParser.setWorkspaceName(workspaceName);
+            System.out.println("Nome workspace	" + workspaceName);
+            worksys = new WorkspaceSys();
+            worksys.lectureDicts(workspaceName, fileParser);
+            //Tutto tuo, Giova'!  lettura dei dizionari 
             
-            //Tutto tuo, Giova'!
         }
         
         //-m inserito

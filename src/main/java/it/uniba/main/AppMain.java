@@ -30,10 +30,8 @@ public final class AppMain
 		{
 		    System.out.println(e.getStackTrace());
 			System.out.println("Invalid syntax. Refer to 'help' command");
-		}
-
-		// salvataggio dei dizionari e dei workspace creati 
-		//interpreter.getSysws().DictSerial(fileParser.getWorkspaceName(), fileParser);
-		//interpreter.getSysws().saveWorkspace();
+		}	
+		interpreter.getSysws().DictSerial(fileParser.getWorkspaceName(), fileParser);
+		interpreter.getSysws().saveWorkspace();
 	}
 }

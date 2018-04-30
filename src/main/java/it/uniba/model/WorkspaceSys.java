@@ -123,49 +123,28 @@ public class WorkspaceSys {
 	public void DictSerial(String namews, ZipParser fileParser) 
 	{
 		//salvataggio degli utenti 
-		String pathdicts = workarea.get(namews) + "/members.ser";
-		fileParser.getUsersMap().save(pathdicts);
-		
-		// salvataggio dei canali 
-		pathdicts = workarea.get(namews) + "/channels.ser";
-	    fileParser.getChannelsMap().save(pathdicts);
+		if(namews != "")
+		{
+			String pathdicts = workarea.get(namews) + "/members.ser";
+			fileParser.getUsersMap().save(pathdicts);
+
+			// salvataggio dei canali 
+			pathdicts = workarea.get(namews) + "/channels.ser";
+			fileParser.getChannelsMap().save(pathdicts);
+		}
 	}
 	
-	// Dato un workspace deserializza i due dizionari e li restituisce 
-	public pairDict getDicts(String namews)
+	public void lectureDicts(String namews, ZipParser fileParser)
 	{
+		// carico il dizionario dei membri 
+		String pathdata = workarea.get(namews) + "/members.ser";	 
+		fileParser.setUserDict(fileParser.getUsersMap().Load(pathdata));
 		
-		pairDict worksdata = new pairDict();
-		
-		try
-		{
-			String member = workarea.get(namews) + "/members.ser"; // prende il path del workspace e il percorso del dizionario users 
-			FileInputStream fis = new FileInputStream(member); // imposta l'input stream sui cui leggere il dizionario users
-			ObjectInputStream ois = new ObjectInputStream(fis); // crea dallo stream input l'ObjectInputStream che leggerà un oggetto sullo stream 
-			worksdata.setDictUser((HashMap)ois.readObject()); // legge il  dizionario e lo iposta come campo della tupla pairDicts
-			
-			String channel = workarea.get(namews) + "/channels.ser";
-			fis = new FileInputStream(channel);
-			ois = new ObjectInputStream(fis);
-			worksdata.setDictChannel((HashMap)ois.readObject());
-			
-			// Chiude gli stream 
-			ois.close();
-			fis.close();
-		}
-		catch(IOException ioe)
-		{
-			ioe.printStackTrace();
-			
-		}
-		catch(ClassNotFoundException c)
-		{
-			System.out.println("Class not found");
-			c.printStackTrace();
-		}
-		return worksdata;  // restituisce la tupla contenente il dizionario users e channels 
+		// carico il dizionario dei canali 
+		pathdata =  workarea.get(namews) + "/channels.ser";
+		fileParser.setChannelDict(fileParser.getChannelsMap().Load(pathdata));
 	}
-	
+	 
 	public void delWorkspace(String namews)
 	{
 		//dato un workspace elimino i dizionari creati e la sua cartella nascosta 
@@ -181,13 +160,15 @@ public class WorkspaceSys {
 		pathFile.delete(); // eliminio infine la directory del workspace 
 		workarea.remove(namews); // elimino il riferimento nel dizionario del workspace 
 	}
+	
+	
 	public void shoWorkspace()
 	{
 		if(!workarea.isEmpty())
 		{
-			System.out.println("WorkSpace Attivi: ");
+			System.out.println("WorkSpace Attivi: \n\tNome Workspace\t Path Workspace");
 			for(String ws : workarea.keySet())
-				System.out.println(" " + ws  + "\t" + workarea.get(ws));
+				System.out.println("\t" + ws  + "\t\t  " + workarea.get(ws));
 		}
 		else
 			System.out.println("Non sono presenti workspace caricati su disco");

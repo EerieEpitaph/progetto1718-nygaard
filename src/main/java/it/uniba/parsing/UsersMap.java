@@ -32,14 +32,14 @@ public class UsersMap implements Serializable {
 
 	public void save(String filePath)
 	{
-		System.out.println("Trying to save");
+		 
 		try
 		{
 			ObjectOutputStream out = new ObjectOutputStream
 					( new FileOutputStream(filePath,true));
 			out.writeObject(this);
 			out.close();
-			System.out.printf("Serialized data is saved in "+filePath);
+			//System.out.printf("Serialized data is saved in "+filePath);
 		}
 		catch(IOException e)
 		{
@@ -49,7 +49,7 @@ public class UsersMap implements Serializable {
 	// attenzione  a questo metodo 
 	public static UsersMap Load(String filePath) 
 	{
-		System.out.println("Trying to load");
+		 
 		UsersMap usersDict = null;
 		try
 		{
@@ -57,10 +57,12 @@ public class UsersMap implements Serializable {
 					(new FileInputStream(filePath));
 			usersDict = (UsersMap) in.readObject();
 			in.close();
+			 
 		}catch(IOException | ClassNotFoundException e)
 		{
 			e.printStackTrace();
 		}
+		
 		return usersDict;
 	}
 	
