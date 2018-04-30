@@ -1,11 +1,13 @@
 package it.uniba.parsing;
 
 import java.util.Map;
+import java.util.Set;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.Serializable;
 import java.nio.file.InvalidPathException;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -18,13 +20,16 @@ import com.google.gson.*;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
-public class ZipParser 
+public class ZipParser implements Serializable 
 {
     //I due dizionari da riempire
     private String workspaceLoaded = "";
-    private Map<String, User> users = new HashMap<String, User>();
-    private Map<String, Channel> channels = new HashMap<String, Channel>();;
+//    private Map<String, User> users = new HashMap<String, User>();
+    //private Map<String, Channel> channels = new HashMap<String, Channel>();;
 
+    private UsersMap usersdict = new UsersMap();
+    private ChannelsMap channelsdict = new ChannelsMap();
+    
     public String getWorkspaceName()
     {
         return workspaceLoaded;
@@ -35,16 +40,18 @@ public class ZipParser
     }
     public Map<String, User> getUsers()
     {
-        return users;
+        return usersdict.getUsersMap();
     }
     public Map<String, Channel> getChannels()
     {
-        return channels;
+        return channelsdict.getChannelsMap();
     }
     
     public void load(String path) 
     {
         Boolean loadedSomething = false;
+        
+        
         try 
         {
 //            int count = 0;
@@ -71,7 +78,7 @@ public class ZipParser
                         for(User x : tempUser)
                         {
 //                            System.out.println(x.getId());
-                            users.put(x.getId(), x);
+                        	parser.put(x.getId(), x);
                         }     
                     } 
                     else 
@@ -107,4 +114,10 @@ public class ZipParser
         catch (Exception e) 
         {System.out.println("Critical exception, I'm out!");}
     }
+    
+    
+   
+    
+   
+ 
 }

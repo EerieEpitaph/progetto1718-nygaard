@@ -15,6 +15,9 @@ import it.uniba.parsing.ZipParser;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
+// filepath load "/home/phinkie/Downloads/ingsw.zip" 
+
+
 // coppia dei dizionari members-channels 
 class pairDict {
 	
@@ -119,30 +122,44 @@ public class WorkspaceSys {
 	// dato un workspace e un fileParser serializza i due dizionari 
 	public void DictSerial(String namews, ZipParser fileParser) 
 	{
-		 try
+		 
+         try
          {
-        	 String pathMember = workarea.get(namews) + "/members.ser";
-        	 //pathMember = pathMember +  "/members.ser";
-        	 FileOutputStream fos = new FileOutputStream(pathMember ); // prende un stream su cui scrivere il dizionario users
-        	 ObjectOutputStream oos = new ObjectOutputStream(fos); // crea dallo stream output l'ObjectOutputStream che scriverà un oggetto sullo stream 
-        	 oos.writeObject(fileParser.getUsers()); // scrive il dizionario users  
-        	  
-        	 
-        	 String pathChannel = workarea.get(namews) +  "/channels.ser";
-        	// pathChannel = pathChannel +  "/channels.ser";
-        	 
-        	 fos = new FileOutputStream(pathChannel); // imposta lo stream output su cui scrivere il dizionario channels
-        	 oos = new ObjectOutputStream(fos);  // crea dallo stream output l'ObjectOutputStream che scriverà un oggetto sullo stream 
-        	 oos.writeObject(fileParser.getChannels()); //scrive il dizionario channels  
-        	 
-        	 // Chiusura degli output streams
-        	 oos.close(); 
-        	 fos.close();
-         }
-         catch(IOException ioe)
+        	String pathMember = workarea.get(namews) + "/members.ser";
+            ObjectOutputStream out = new ObjectOutputStream
+            ( new FileOutputStream(pathMember,true)); // true for append file 
+            out.writeObject(fileParser.getUsers());
+            out.close();
+            
+         }catch(IOException e)
          {
-        	 ioe.printStackTrace();
+             e.printStackTrace();
          }
+//		 try
+//         {
+//        	 String pathMember = workarea.get(namews) + "/members.ser";
+//        	 System.out.println("Path member dict: " + pathMember);
+//        	 //pathMember = pathMember +  "/members.ser";
+//        	 FileOutputStream fos = new FileOutputStream(pathMember ); // prende un stream su cui scrivere il dizionario users
+//        	 ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(pathMember,true)); // crea dallo stream output l'ObjectOutputStream che scriverà un oggetto sullo stream 
+//        	 oos.writeObject(fileParser.getUsers()); // scrive il dizionario users  
+//        	 System.out.println("Dizionario scritto");
+//        	 
+////        	 String pathChannel = workarea.get(namews) +  "/channels.ser";
+////        	// pathChannel = pathChannel +  "/channels.ser";
+////        	 
+////        	 fos = new FileOutputStream(pathChannel); // imposta lo stream output su cui scrivere il dizionario channels
+////        	 oos = new ObjectOutputStream(fos);  // crea dallo stream output l'ObjectOutputStream che scriverà un oggetto sullo stream 
+////        	 oos.writeObject(fileParser.getChannels()); //scrive il dizionario channels  
+//        	 
+//        	 // Chiusura degli output streams
+//        	 oos.close(); 
+//        	 fos.close();
+//         }
+//         catch(IOException ioe)
+//         {
+//        	 ioe.printStackTrace();
+//         }
 	}
 	
 	// Dato un workspace deserializza i due dizionari e li restituisce 
