@@ -12,7 +12,7 @@ public final class AppMain
 		ZipParser fileParser = new ZipParser();
 
 		CommandParser commandParser = null;
-		CommandInterpreter interpreter = null;
+		CommandInterpreter interpreter = new CommandInterpreter();
 
 //		for(String x : args)
 //		    System.out.println(x + " ");
@@ -21,15 +21,17 @@ public final class AppMain
 		try
 		{
 			commandParser = new CommandParser(args);
+			if(args.length != 0)
+			    interpreter.executeCommands(commandParser, fileParser);
+			else
+			    interpreter.showHelp();
 		}
 		catch(Exception e)
 		{
+		    System.out.println(e.getStackTrace());
 			System.out.println("Invalid syntax. Refer to 'help' command");
 		}
 
-		interpreter = new CommandInterpreter();
-		interpreter.executeCommands(commandParser, fileParser);
-		
 		// salvataggio dei dizionari e dei workspace creati 
 		interpreter.getSysws().DictSerial(fileParser.getWorkspaceName(), fileParser);
 		interpreter.getSysws().saveWorkspace();

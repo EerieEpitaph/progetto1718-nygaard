@@ -22,7 +22,10 @@ public class CommandInterpreter
         //Argomenti singoli immessi
         if(baseArgs.isActive())
         {
-            
+            if(baseArgs.getShowStatus())
+                ;//(Fai lo show)
+            else if(baseArgs.getHelpStatus())
+                showHelp();
         }
         
         //load inserito
@@ -42,7 +45,7 @@ public class CommandInterpreter
         }
         
         //-w nomeWorkspace inserito
-        if(workspace.isActive())
+        else if(workspace.isActive())
         {
             String workspaceName = workspace.getWorkspaceName();
             
@@ -80,6 +83,19 @@ public class CommandInterpreter
             else
                 System.out.println("No workspace loaded");
         }
+    }
+    
+    public void showHelp()
+    {
+        System.out.println("Usage:");
+        System.out.println("\thelp - Shows this help\n");
+        System.out.println("\tload \"path\\to\\file.zip\" - Loads and parses a zip file\n");
+        System.out.println("\t-w \"workspaceName\" (-c [-m] | -m [-c \"channelFilter\"])");
+        System.out.println("\t-w caches a previously loaded workspace");
+        System.out.println("\t-c prints all the channels in the specified workspace");
+        System.out.println("\t\t [-m prints channels with their members] ");
+        System.out.println("\t-m prints all the members in the specified workspace");
+        System.out.println("\t\t [-c \"channelFilter\" prints members of a channel]");
     }
 
 	public WorkspaceSys getSysws() {
