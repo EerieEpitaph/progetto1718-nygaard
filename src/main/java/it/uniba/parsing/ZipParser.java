@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.Serializable;
 import java.nio.file.InvalidPathException;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
@@ -18,23 +18,13 @@ import com.google.gson.*;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
-public class ZipParser implements Serializable 
+public class ZipParser
 {
-    private static final long serialVersionUID = 1L;
     private String workspaceLoaded = "";
     //I due dizionari users e channels 
-    private UsersMap usersdict = new UsersMap();
-    private ChannelsMap channelsdict = new ChannelsMap();
-    
-    public void setUserDict(UsersMap _value)
-    {
-    	usersdict = _value;
-    }
-    
-    public void setChannelDict(ChannelsMap _value)
-    {
-    	channelsdict = _value;
-    }
+    private HashMap<String, User> users = new HashMap<String, User>();
+    private HashMap<String, Channel> channels = new HashMap<String, Channel>();
+   
     public void setWorkspaceName(String _value)
     {
     	workspaceLoaded = _value; 
@@ -49,27 +39,16 @@ public class ZipParser implements Serializable
     }
     public Map<String, User> getUsers()
     {
-        return usersdict.getUsersMap();
+        return users;
     }
     public Map<String, Channel> getChannels()
     {
-        return channelsdict.getChannelsMap();
-    }
-    
-    public UsersMap getUsersMap()
-    {
-    	return usersdict;
-    }
-    
-    public ChannelsMap getChannelsMap() 
-    {
-    	return channelsdict; 
+        return channels;
     }
     
     public void load(String path) 
     {
         Boolean loadedSomething = false;
-        
         
         try 
         {
@@ -97,7 +76,7 @@ public class ZipParser implements Serializable
                         for(User x : tempUser)
                         {
 //                            System.out.println(x.getId());
-                        	 usersdict.put(x.getId(), x);
+                        	 users.put(x.getId(), x);
                         }     
                     } 
                     else 
@@ -106,7 +85,7 @@ public class ZipParser implements Serializable
                         for(Channel x : tempUser)
                         {
 //                            System.out.println(x.getId());
-                            channelsdict.put(x.getName(), x);
+                            channels.put(x.getName(), x);
                         }     
                     } 
 

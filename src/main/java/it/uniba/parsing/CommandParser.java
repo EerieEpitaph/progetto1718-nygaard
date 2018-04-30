@@ -36,42 +36,6 @@ public class CommandParser
         }
     }
     
-    public class CommLoad
-    {
-        private Boolean active = false;
-        
-        @Parameters(index = "0")    
-        String pathToZip;
-
-        public Boolean isActive()
-        {
-            return active;
-        }
-        
-        public String getPathToZip()
-        {
-            return pathToZip;
-        }
-    }
-    
-    public class CommDelete
-    {
-        private Boolean active = false;
-        
-        @Parameters(index = "0")    
-        String workspaceName;
-
-        public Boolean isActive()
-        {
-            return active;
-        }
-        
-        public String getWorkspaceName()
-        {
-            return workspaceName;
-        }
-    }
-    
     public class CommWorkspace
     {
         private Boolean active = false;
@@ -123,20 +87,14 @@ public class CommandParser
     }
     
     private CommBaseArgs baseArgs;
-    private CommLoad load;
-    private CommDelete delete;
     private CommWorkspace workspace;
     
     public CommandParser(String[] args) throws IllegalStateException
     {
         baseArgs = new CommBaseArgs();
-        load = new CommLoad();
-        delete = new CommDelete();
         workspace = new CommWorkspace();
         
         CommandLine commandLine = new CommandLine(baseArgs)
-                .addSubcommand("-l", load)
-                .addSubcommand("-d", delete)
                 .addSubcommand("-w", workspace);
         
         List<CommandLine> result = commandLine.parse(args);
@@ -176,20 +134,6 @@ public class CommandParser
                 }
             }
             
-            //Il comando parsato è "-l"
-            else if(x.getCommand().getClass() == CommLoad.class)
-            {
-                load = (CommLoad) x.getCommand();
-                load.active = true;
-            }
-            
-            //Il comando parsato e' "-d"
-            else if(x.getCommand().getClass() == CommDelete.class)
-            {
-                delete = (CommDelete) x.getCommand();
-                delete.active = true;
-            }
-            
             //Il comando parsato è "-w"
             else if(x.getCommand().getClass() == CommWorkspace.class)
             {
@@ -202,16 +146,6 @@ public class CommandParser
     public CommBaseArgs getBaseArgs()
     {
         return baseArgs;
-    }
-    
-    public CommLoad getCommLoad()
-    {
-        return load;
-    }
-    
-    public CommDelete getCommDelete()
-    {
-        return delete;
     }
     
     public CommWorkspace getCommWorkspace()
