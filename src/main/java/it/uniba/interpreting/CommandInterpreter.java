@@ -14,24 +14,25 @@ public class CommandInterpreter
     {
         CommBaseArgs baseArgs = parser.getBaseArgs();
         CommLoad load = parser.getCommLoad();
+        CommDelete delete = parser.getCommDelete();
         CommWorkspace workspace = parser.getCommWorkspace();
-        CommMembers members = parser.getCommMembers();
-        CommChannels channels = parser.getCommChannels();
-        
          
         //Argomenti singoli immessi
         if(baseArgs.isActive())
         {
+            //Ho chiesto lo show
             if(baseArgs.getShowStatus())
             {
             	worksys = new WorkspaceSys();
             	worksys.shoWorkspace();
             }
+            
+            //Ho chiesto help
             else if(baseArgs.getHelpStatus())
                 showHelp();
         }
         
-        //load inserito
+        //-l inserito
         else if(load.isActive())
         {
             //Percorso valido
@@ -43,65 +44,70 @@ public class CommandInterpreter
                 worksys.makedirArea(fileParser.getWorkspaceName()); 
             }	
             else
-                System.out.println("Invalid syntax. Refer to 'help' command");
+                throw new IllegalStateException();
+        }
+        
+        //-d nomeWorkspace inserito
+        else if(delete.isActive())
+        {
+            //Ho specificato un workspace
+            if(delete.getWorkspaceName() != null)
+            {
+                //Elimina il workspace
+            }
+            else throw new IllegalStateException();
         }
         
         //-w nomeWorkspace inserito
         else if(workspace.isActive())
         {
-            String workspaceName = workspace.getWorkspaceName();
-            fileParser.setWorkspaceName(workspaceName);
-            System.out.println("Nome workspace	" + workspaceName);
-            worksys = new WorkspaceSys();
-            worksys.lectureDicts(workspaceName, fileParser);
-            //Tutto tuo, Giova'!  lettura dei dizionari 
-            
-        }
-        
-        //-m inserito
-        if(members.isActive())
-        {
-            if(fileParser.hasLoaded())
+            //nomeWorkspace valido
+            if(workspace.getWorkspaceName() != null)
             {
-                //Nessun filtro inserito
-                if(members.getChannelFilter() == null)
-                    DataController.printMembers(fileParser);
-                //Canale filtro inserito
+                String workspaceName = workspace.getWorkspaceName();
+                fileParser.setWorkspaceName(workspaceName);
+                System.out.println("Nome workspace  " + workspaceName);
+                worksys = new WorkspaceSys();
+                worksys.lectureDicts(workspaceName, fileParser);
+
+                //Fileparser ha caricato qualcosa
+                if(fileParser.hasLoaded())
+                {
+                    //-m inserito
+                    if(workspace.getMembersStatus())
+                        DataController.printMembers(fileParser);
+                    
+                    //-c inserito
+                    else if(workspace.getChannelsStatus())
+                        DataController.printChannels(fileParser);
+                    
+                    //-m -c inserito
+                    else if(workspace.getChannelFilter() != null)
+                        DataController.channelMembers(fileParser, workspace.getChannelFilter());
+                    
+                    //-c -m inserito
+                    else if(workspace.getExtChannelsStatus())
+                        DataController.members4Channel(fileParser);
+                }
                 else
-                    DataController.channelMembers(fileParser, members.getChannelFilter());
+                    throw new IllegalStateException();
             }
             else
-                System.out.println("No workspace loaded");
-        }
-        
-        //-c inserito
-        if(channels.isActive())
-        {
-            if(fileParser.hasLoaded())
-            {
-                //Channels estesi inseriti
-                if(!channels.getExtendedStatus())
-                    DataController.printChannels(fileParser);
-                //Channels estesi non inseriti
-                else
-                    DataController.members4Channel(fileParser);
-            }
-            else
-                System.out.println("No workspace loaded");
+                throw new IllegalStateException();
         }
     }
     
     public void showHelp()
     {
         System.out.println("Usage:");
-        System.out.println("\thelp - Shows this help\n");
-        System.out.println("\tload \"path\\to\\file.zip\" - Loads and parses a zip file\n");
-        System.out.println("\t-w \"workspaceName\" (-c [-m] | -m [-c \"channelFilter\"])");
-        System.out.println("\t-w caches a previously loaded workspace");
-        System.out.println("\t-c prints all the channels in the specified workspace");
-        System.out.println("\t\t [-m prints channels with their members] ");
-        System.out.println("\t-m prints all the members in the specified workspace");
-        System.out.println("\t\t [-c \"channelFilter\" prints members of a channel]");
+        System.out.println("help - shows this help\n");
+        System.out.println("load \"path\\to\\file.zip\" - loads and parses a zip file\n");
+        System.out.println("-w \"workspaceName\" (-c [-m] | -m [-c \"channelFilter\"])");
+        System.out.println("-w caches a previously loaded workspace");
+        System.out.println("-c prints all the channels in the specified workspace");
+        System.out.println("\t [-m prints channels with their members] ");
+        System.out.println("-m prints all the members in the specified workspace");
+        System.out.println("\t [-c \"channelFilter\" prints members of a channel]");
     }
 
 	public WorkspaceSys getSysws()

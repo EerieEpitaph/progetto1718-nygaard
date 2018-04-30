@@ -1,7 +1,6 @@
 package it.uniba.parsing;
 
 import java.util.Map;
-import java.util.Set;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +9,6 @@ import java.io.Reader;
 import java.io.Serializable;
 import java.nio.file.InvalidPathException;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
@@ -22,7 +20,7 @@ import it.uniba.workdata.User;
 
 public class ZipParser implements Serializable 
 {
-   
+    private static final long serialVersionUID = 1L;
     private String workspaceLoaded = "";
     //I due dizionari users e channels 
     private UsersMap usersdict = new UsersMap();

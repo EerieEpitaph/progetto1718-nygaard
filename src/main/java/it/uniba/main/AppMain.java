@@ -28,9 +28,10 @@ public final class AppMain
 		}
 		catch(Exception e)
 		{
-		    System.out.println(e.getStackTrace());
+		    System.out.println(e);
 			System.out.println("Invalid syntax. Refer to 'help' command");
 		}	
+		
 		interpreter.getSysws().DictSerial(fileParser.getWorkspaceName(), fileParser);
 		interpreter.getSysws().saveWorkspace();
 	}

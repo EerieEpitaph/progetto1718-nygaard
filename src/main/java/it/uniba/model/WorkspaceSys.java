@@ -166,12 +166,12 @@ public class WorkspaceSys {
 	{
 		if(!workarea.isEmpty())
 		{
-			System.out.println("WorkSpace Attivi: \n\tNome Workspace\t Path Workspace");
+			System.out.println("Workspaces: \n\tNome Workspace\t Path Workspace");
 			for(String ws : workarea.keySet())
 				System.out.println("\t" + ws  + "\t\t  " + workarea.get(ws));
 		}
 		else
-			System.out.println("Non sono presenti workspace caricati su disco");
+			System.out.println("No workspaces loaded");
 	}
 	
 	public void loadWorkspace()
