@@ -13,10 +13,6 @@ public final class AppMain
 
 		CommandParser commandParser = null;
 		CommandInterpreter interpreter = new CommandInterpreter();
-
-//		for(String x : args)
-//		    System.out.println(x + " ");
-//		System.out.println(" ");
 		
 		try
 		{
@@ -31,8 +27,11 @@ public final class AppMain
 		    System.out.println(e);
 			System.out.println("Invalid syntax. Refer to 'help' command");
 		}	
-		
-		interpreter.getSysws().DictSerial(fileParser.getWorkspaceName(), fileParser);
-		interpreter.getSysws().saveWorkspace();
+		 
+		if(interpreter.getSysws() != null)
+		{
+			interpreter.getSysws().DictSerial(fileParser.getWorkspaceName(), fileParser);
+			interpreter.getSysws().saveWorkspace();
+		}
 	}
 }

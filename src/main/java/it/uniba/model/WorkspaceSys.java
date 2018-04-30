@@ -122,7 +122,7 @@ public class WorkspaceSys {
 	// dato un workspace e un fileParser serializza i due dizionari 
 	public void DictSerial(String namews, ZipParser fileParser) 
 	{
-		//salvataggio degli utenti 
+		//salvataggio degli utenti e deu canali 
 		if(namews != "")
 		{
 			String pathdicts = workarea.get(namews) + "/members.ser";
