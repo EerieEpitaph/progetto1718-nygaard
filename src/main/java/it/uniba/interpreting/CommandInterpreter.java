@@ -102,13 +102,15 @@ public class CommandInterpreter
     {
         System.out.println("Usage:");
         System.out.println("help - shows this help\n");
-        System.out.println("load \"path\\to\\file.zip\" - loads and parses a zip file\n");
-        System.out.println("-w \"workspaceName\" (-c [-m] | -m [-c \"channelFilter\"])");
-        System.out.println("-w caches a previously loaded workspace");
-        System.out.println("-c prints all the channels in the specified workspace");
-        System.out.println("\t [-m prints channels with their members] ");
-        System.out.println("-m prints all the members in the specified workspace");
-        System.out.println("\t [-c \"channelFilter\" prints members of a channel]");
+        System.out.println("show - shows all loaded workspaces\n");
+        System.out.println("-l \"path\\to\\file.zip\" - loads and parses a zip file\n");
+        System.out.println("-w \"workspaceName\" ( -c | -m | -mc \"channelFilter\" | -cm )");
+        System.out.println("-\tw caches a previously loaded workspace");
+        System.out.println("-\tc prints all the channels in the specified workspace");
+        System.out.println("-\tm prints all the members in the specified workspace");
+        System.out.println("-\tmc \"channelFilter\" prints all the members in the specified channel ");
+        System.out.println("-\tcm prints all the channels with their members\n");
+        System.out.println("-d \"workspaceName\" - deletes a loaded workspace");
     }
 
 	public WorkspaceSys getSysws()
