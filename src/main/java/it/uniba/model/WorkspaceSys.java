@@ -122,10 +122,13 @@ public class WorkspaceSys {
 	// dato un workspace e un fileParser serializza i due dizionari 
 	public void DictSerial(String namews, ZipParser fileParser) 
 	{
+		//salvataggio degli utenti 
 		String pathdicts = workarea.get(namews) + "/members.ser";
-		fileParser.getChannelsMap().save(pathdicts, fileParser.getChannelsMap().getChannelsObj());
+		fileParser.getUsersMap().save(pathdicts);
+		
+		// salvataggio dei canali 
 		pathdicts = workarea.get(namews) + "/channels.ser";
-	    fileParser.getUsersMap().save(pathdicts);
+	    fileParser.getChannelsMap().save(pathdicts);
 	}
 	
 	// Dato un workspace deserializza i due dizionari e li restituisce 
@@ -178,6 +181,17 @@ public class WorkspaceSys {
 		pathFile.delete(); // eliminio infine la directory del workspace 
 		workarea.remove(namews); // elimino il riferimento nel dizionario del workspace 
 	}
+	public void shoWorkspace()
+	{
+		if(!workarea.isEmpty())
+		{
+			System.out.println("WorkSpace Attivi: ");
+			for(String ws : workarea.keySet())
+				System.out.println(" " + ws  + "\t" + workarea.get(ws));
+		}
+		else
+			System.out.println("Non sono presenti workspace caricati su disco");
+	}
 	
 	public void loadWorkspace()
 	{
@@ -188,11 +202,10 @@ public class WorkspaceSys {
 		{
 			try
 			{
-				String member = workarea.get(pathws); // prende il path del workspace e il percorso del dizionario users 
-				FileInputStream fis = new FileInputStream(member); // imposta l'input stream sui cui leggere il dizionario users
-				ObjectInputStream ois = new ObjectInputStream(fis); // crea dallo stream input l'ObjectInputStream che leggerà un oggetto sullo stream 
+				FileInputStream fis = new FileInputStream(pathws); 
+				ObjectInputStream ois = new ObjectInputStream(fis); 
 				workarea = (HashMap)ois.readObject();
-
+				
 				fis.close();
 				ois.close();
 			}
@@ -214,12 +227,12 @@ public class WorkspaceSys {
 	{
 		try
 		{
-			 pathws = pathws + "/.dictws.ser";
+			 //System.out.println("Current path: " + pathws);
         	 FileOutputStream fos = new FileOutputStream(pathws); // prende un stream su cui scrivere il dizionario users
         	 ObjectOutputStream oos = new ObjectOutputStream(fos); // crea dallo stream output l'ObjectOutputStream che scriverà un oggetto sullo stream 
         	 oos.writeObject(workarea);
         	 
-        	 fos.close();getClass();
+        	 fos.close();
         	 oos.close();
 		}
 		catch(IOException ioe)

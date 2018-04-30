@@ -33,7 +33,7 @@ public final class AppMain
 		}
 
 		// salvataggio dei dizionari e dei workspace creati 
-		interpreter.getSysws().DictSerial(fileParser.getWorkspaceName(), fileParser);
+		//interpreter.getSysws().DictSerial(fileParser.getWorkspaceName(), fileParser);
 		//interpreter.getSysws().saveWorkspace();
 	}
 }

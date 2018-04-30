@@ -8,7 +8,7 @@ import it.uniba.parsing.ZipParser;
 
 public class CommandInterpreter
 {
-	WorkspaceSys worksys;
+	WorkspaceSys worksys; // Istanza del fileSystem corrente dell'applicativo #### 
 
     public void executeCommands(CommandParser parser, ZipParser fileParser)
     {
@@ -23,7 +23,12 @@ public class CommandInterpreter
         if(baseArgs.isActive())
         {
             if(baseArgs.getShowStatus())
-                ;//(Fai lo show)
+            {
+            	System.out.println("Show command");
+            	worksys = new WorkspaceSys();
+//            	//worksys.loadWorkspace();
+            	worksys.shoWorkspace();
+            }
             else if(baseArgs.getHelpStatus())
                 showHelp();
         }
@@ -97,8 +102,8 @@ public class CommandInterpreter
         System.out.println("\t\t [-c \"channelFilter\" prints members of a channel]");
     }
 
-	public WorkspaceSys getSysws() {
-		// TODO Auto-generated method stub
+	public WorkspaceSys getSysws()
+	{
 		return worksys;
 	}
 }

@@ -28,14 +28,14 @@ public class ChannelsMap implements Serializable {
 		return channels.get(id);
 	}
 	
-	public void save(String filePath, ChannelsMap chan)
+	public void save(String filePath)
 	{
 		System.out.println("Trying to save");
 		try
 		{
 			ObjectOutputStream out = new ObjectOutputStream
 					( new FileOutputStream(filePath,true));
-			out.writeObject(chan);
+			out.writeObject(this);
 			out.close();
 			System.out.printf("Serialized data is saved in "+filePath);
 		}
@@ -45,7 +45,8 @@ public class ChannelsMap implements Serializable {
 		}
     }
 	// attenzione  a questo metodo 
-	public static ChannelsMap Load(String filePath) {
+	public static ChannelsMap Load(String filePath)
+	{
         System.out.println("Trying to load");
         ChannelsMap channelsDict = null;
         try
@@ -64,10 +65,5 @@ public class ChannelsMap implements Serializable {
 	public Map<String,Channel> getChannelsMap()
 	{
 		return channels;
-	}
-	
-	public ChannelsMap getChannelsObj()
-	{
-		return this;
 	}
 }

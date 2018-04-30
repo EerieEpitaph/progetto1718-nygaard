@@ -13,8 +13,7 @@ import java.util.Set;
 import it.uniba.workdata.User;
 
 public class UsersMap implements Serializable {
-	
-	
+
 	private static final long serialVersionUID = 1L;
 	private Map<String,User> users = new HashMap<>();
 
@@ -30,7 +29,7 @@ public class UsersMap implements Serializable {
 	public User get(String id) {
 		return users.get(id);
 	}
-	
+
 	public void save(String filePath)
 	{
 		System.out.println("Trying to save");
@@ -46,31 +45,27 @@ public class UsersMap implements Serializable {
 		{
 			e.printStackTrace();
 		}
-    }
+	}
 	// attenzione  a questo metodo 
-	public static UsersMap Load(String filePath) {
-        System.out.println("Trying to load");
-        UsersMap usersDict = null;
-        try
-        {
-            ObjectInputStream in = new ObjectInputStream
-                 (new FileInputStream(filePath));
-            usersDict = (UsersMap) in.readObject();
-            in.close();
-        }catch(IOException | ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-        return usersDict;
-    }
+	public static UsersMap Load(String filePath) 
+	{
+		System.out.println("Trying to load");
+		UsersMap usersDict = null;
+		try
+		{
+			ObjectInputStream in = new ObjectInputStream
+					(new FileInputStream(filePath));
+			usersDict = (UsersMap) in.readObject();
+			in.close();
+		}catch(IOException | ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		return usersDict;
+	}
+	
 	public Map<String,User> getUsersMap()
 	{
 		return users;
 	}
-	
-//	public UsersMap getUsersObj()
-//	{
-//		return this; 
-//	}
-	  
 }
