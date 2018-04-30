@@ -1,16 +1,14 @@
 package it.uniba.workdata;
 
-import java.io.Serializable;
 import java.util.LinkedList;
 
-public final class Channel  implements Serializable
+public final class Channel
 {
 	private String id;
 	private Long created;
 	private String creator;
 	private LinkedList<String> members = new LinkedList<String>();
 	private String name;
-	private static final long serialVersionUID = 1L;
 			
 	public Channel(String _id, Long _created, String _creator, LinkedList<String> _members, String _name)
 	{

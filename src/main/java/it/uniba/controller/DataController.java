@@ -15,8 +15,7 @@ public class DataController
     {
          for( User utente : fileParser.getUsers().values())
          { 
-             System.out.println(utente.getId() +"\t"+ utente.getName() 
-                +"\t"+  utente.getRealName() +"\t"+  utente.getTeamId());
+             System.out.println(utente.getRealName() +"\t@"+  utente.getName());
          }
     }
  // Channel:
@@ -38,16 +37,19 @@ public class DataController
     
     public static void channelMembers(ZipParser fileParser,String channel)
     {
-    	System.out.print(" + " + channel + "\n");
-    	// -l "/home/phinkie/Downloads/ingsw.zip"
- 
-    	 
-    	for(String key : fileParser.getChannels().get(channel).getMemberList()) // key from value 
-    	{
-    		User utente = fileParser.getUsers().get(key);
-    		System.out.print("\t -" + utente.getRealName() + " @" + utente.getName() + "\n");
-    	}
-    	System.out.println();
+        if(channel != "")
+        {
+            System.out.print(" + " + channel + "\n");
+            // -l "/home/phinkie/Downloads/ingsw.zip"
+     
+             
+            for(String key : fileParser.getChannels().get(channel).getMemberList()) // key from value 
+            {
+                User utente = fileParser.getUsers().get(key);
+                System.out.print("\t -" + utente.getRealName() + " @" + utente.getName() + "\n");
+            }
+            System.out.println();
+        }
     }
     
     /*
