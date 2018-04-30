@@ -159,6 +159,7 @@ public class WorkspaceSys {
 		}
 		pathFile.delete(); // eliminio infine la directory del workspace 
 		workarea.remove(namews); // elimino il riferimento nel dizionario del workspace 
+		saveWorkspace(); // salva le modifiche sul dizionario dei path dei workspace 
 	}
 	
 	

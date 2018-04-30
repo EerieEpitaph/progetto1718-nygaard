@@ -53,7 +53,8 @@ public class CommandInterpreter
             //Ho specificato un workspace
             if(delete.getWorkspaceName() != null)
             {
-                //Elimina il workspace
+                worksys = new WorkspaceSys();
+                worksys.delWorkspace(delete.getWorkspaceName());
             }
             else throw new IllegalStateException();
         }
@@ -65,8 +66,8 @@ public class CommandInterpreter
             if(workspace.getWorkspaceName() != null)
             {
                 String workspaceName = workspace.getWorkspaceName();
-                fileParser.setWorkspaceName(workspaceName);
-                System.out.println("Nome workspace  " + workspaceName);
+                fileParser.setWorkspaceName(workspaceName); // settato il workspace serializza i dati quando snap termina
+               // System.out.println("Nome workspace  " + workspaceName);
                 worksys = new WorkspaceSys();
                 worksys.lectureDicts(workspaceName, fileParser);
 
