@@ -18,9 +18,7 @@ public class DataController
              System.out.println(utente.getRealName() +"\t@"+  utente.getName());
          }
     }
- // Channel:
-	// -Membro
-	// -Membro 
+
     public static void members4Channel(ZipParser fileParser)
     {
     	for (Channel canale : fileParser.getChannels().values())
@@ -37,11 +35,9 @@ public class DataController
     
     public static void channelMembers(ZipParser fileParser,String channel)
     {
-        if(channel != "" && existsChannel(fileParser, channel))
+        if(channel != "" && fileParser.getChannels().containsKey(channel))
         {
             System.out.print(" + " + channel + "\n");
-            // -l "/home/phinkie/Downloads/ingsw.zip"
-     
              
             for(String key : fileParser.getChannels().get(channel).getMemberList()) // key from value 
             {
@@ -51,21 +47,4 @@ public class DataController
             System.out.println();
         }
     }
-    
-    private static Boolean existsChannel(ZipParser fileParser, String channel)
-    {
-        for(Channel x : fileParser.getChannels().values())
-            if(x.getName().equals(channel))
-                return true;
-        
-        System.out.println("There is no channel " + channel);
-        return false;
-    }
-    /*
-    public static void printUsers(ZipParser fileParser)
-    {
-        for(User x : fileParser.getUsers().values())
-            System.out.println(x.getName());
-    }
-    */
 }
