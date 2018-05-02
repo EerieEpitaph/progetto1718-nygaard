@@ -46,5 +46,7 @@ public class DataController
             }
             System.out.println();
         }
+        else
+            System.out.println("There is no channel " + channel);
     }
 }

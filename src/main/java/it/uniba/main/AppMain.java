@@ -7,6 +7,7 @@ import java.util.zip.ZipException;
 import com.google.gson.JsonParseException;
 
 import it.uniba.interpreting.CommandInterpreter;
+import it.uniba.parsing.CommandLine.UnmatchedArgumentException;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.ZipParser;
 
@@ -38,9 +39,11 @@ public final class AppMain
         {System.out.println("Invalid file. Usage: load \"path\\to\\file.zip\"");} 
         catch (JsonParseException e) 
         {System.out.println( e.toString() );} 
-        catch(IllegalStateException e)
+        catch(UnmatchedArgumentException e)
         {System.out.println("Invalid syntax. Refer to 'help' command");}
+        catch(IllegalStateException e)
+        {System.out.println("Invalid semantics. Refer to 'help' command");}
         catch (Exception e) 
-        {System.out.println("Critical exception, I'm out!");}
+        {System.out.println("Unexpected exception encountered");}
 	}
 }
