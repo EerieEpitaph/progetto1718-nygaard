@@ -14,20 +14,12 @@ public class CommandParser
     {
         private Boolean active = false;
         
-        @Option(names = "show")
-        private boolean showStatus;
-        
         @Option(names = "help")
         private boolean helpStatus;
         
         public Boolean isActive()
         {
             return active;
-        }
-        
-        public Boolean getShowStatus()
-        {
-            return showStatus;
         }
         
         public Boolean getHelpStatus()
