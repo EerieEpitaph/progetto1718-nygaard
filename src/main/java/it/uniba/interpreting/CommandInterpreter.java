@@ -68,11 +68,11 @@ public class CommandInterpreter
     {
         System.out.println("Usage:");
         System.out.println("help - shows this help\n");
-        System.out.println("-w \"workspaceName\" ( -c | -m | -mc \"channelFilter\" | -cm )");
+        System.out.println("-w \"\\path\\to\\file.zip\" ( -c | -m | -mc channelFilter | -cm )");
         System.out.println("-\tw parses a workspace");
         System.out.println("-\tc prints all the channels in the specified workspace");
         System.out.println("-\tm prints all the members in the specified workspace");
-        System.out.println("-\tmc \"channelFilter\" prints all the members in the specified channel ");
+        System.out.println("-\tmc channelFilter prints all the members in the specified channel ");
         System.out.println("-\tcm prints all the channels with their members\n");
     }
 }
