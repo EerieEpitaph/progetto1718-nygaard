@@ -33,7 +33,7 @@ public class DataController
     	}
     }
     
-    public static void channelMembers(ZipParser fileParser,String channel)
+    public static void channelMembers(ZipParser fileParser, String channel)
     {
         if(channel != "" && fileParser.getChannels().containsKey(channel))
         {
@@ -47,6 +47,6 @@ public class DataController
             System.out.println();
         }
         else
-            System.out.println("There is no channel " + channel);
+            System.out.println("There is no channel \""+ channel + "\"");
     }
 }

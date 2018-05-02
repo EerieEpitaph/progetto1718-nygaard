@@ -48,13 +48,10 @@ public class CommandInterpreter
                         DataController.members4Channel(fileParser);
                     
                     //-mc inserito
-                    else 
-                    {
-                        if(workspace.getChannelFilter() != "")
-                            DataController.channelMembers(fileParser, workspace.getChannelFilter());
-                        else
-                            throw new IllegalStateException();
-                    }    
+                    else if(workspace.getChannelFilter() != null)
+                        DataController.channelMembers(fileParser, workspace.getChannelFilter());
+                    else
+                        throw new IllegalStateException();
                 }
                 else
                     throw new IllegalStateException();
