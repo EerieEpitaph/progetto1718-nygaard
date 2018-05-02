@@ -57,6 +57,11 @@ public class CommandParser
             return workspaceName;
         }
         
+        public Boolean isValidWorkspace()
+        {
+            return (workspaceName != null && workspaceName != "");
+        }
+        
         public Boolean getMembersStatus()
         {
             return membersStatus;
@@ -75,6 +80,11 @@ public class CommandParser
         public String getChannelFilter()
         {
             return channelFilter;
+        }
+        
+        public Boolean isValidFilter()
+        {
+            return (channelFilter != null && channelFilter != "");
         }
     }
     
