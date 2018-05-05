@@ -65,11 +65,11 @@ public class CommandInterpreter
     {
         System.out.println("Usage:");
         System.out.println("help - shows this help\n");
-        System.out.println("-w \"path\\to\\file.zip\" ( -c | -m | -mc (channelFilter) | -cm )");
+        System.out.println("-w \"path\\to\\file.zip\" ( -c | -u | -uc (channelFilter) | -cu )");
         System.out.println("-\tw parses a workspace");
         System.out.println("-\tc prints all the channels in the specified workspace");
-        System.out.println("-\tm prints all the members in the specified workspace");
-        System.out.println("-\tmc (channelFilter) prints all the members in the specified channel ");
-        System.out.println("-\tcm prints all the channels with their members\n");
+        System.out.println("-\tu prints all the users in the specified workspace");
+        System.out.println("-\tuc (channelFilter) prints all the users in the specified channel ");
+        System.out.println("-\tcu prints all the channels with their users\n");
     }
 }
