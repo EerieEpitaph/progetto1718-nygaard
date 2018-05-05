@@ -33,12 +33,12 @@ public class DataController
     	}
     }
     
-    public static void channelMembers(ZipParser fileParser,String channel)
+    public static void channelMembers(ZipParser fileParser, String channel)
     {
-        if(channel != "" && fileParser.getChannels().containsKey(channel))
+        if(fileParser.getChannels().containsKey(channel))
         {
             System.out.print(" + " + channel + "\n");
-             
+            
             for(String key : fileParser.getChannels().get(channel).getMemberList()) // key from value 
             {
                 User utente = fileParser.getUsers().get(key);
@@ -46,5 +46,7 @@ public class DataController
             }
             System.out.println();
         }
+        else
+            System.out.println("There is no channel \""+ channel + "\"");
     }
 }

@@ -14,20 +14,12 @@ public class CommandParser
     {
         private Boolean active = false;
         
-        @Option(names = "show")
-        private boolean showStatus;
-        
         @Option(names = "help")
         private boolean helpStatus;
         
         public Boolean isActive()
         {
             return active;
-        }
-        
-        public Boolean getShowStatus()
-        {
-            return showStatus;
         }
         
         public Boolean getHelpStatus()
@@ -65,6 +57,11 @@ public class CommandParser
             return workspaceName;
         }
         
+        public Boolean isValidWorkspace()
+        {
+            return (workspaceName != null && workspaceName != "");
+        }
+        
         public Boolean getMembersStatus()
         {
             return membersStatus;
@@ -83,6 +80,11 @@ public class CommandParser
         public String getChannelFilter()
         {
             return channelFilter;
+        }
+        
+        public Boolean isValidFilter()
+        {
+            return (channelFilter != null && channelFilter != "");
         }
     }
     
