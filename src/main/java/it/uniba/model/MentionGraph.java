@@ -16,24 +16,26 @@ public class MentionGraph {
 	
 	public MentionGraph(ArrayList<Message> message,HashMap<String, User> users )
 	{
-		parseMessage(message,users);
+		parseMessages(message,users);
 	}
 	
-	void parseMessage(ArrayList<Message> message,HashMap<String, User> users )
+	void parseMessages(ArrayList<Message> message,HashMap<String, User> users )
 	{
 		Pattern pattern = Pattern.compile("\\<@.*?\\>");
-		//Matcher matcher;
-		
+		 
+		 
 		for(Message msg : message)
-		{
+		{	
+			 
 			/* controlli esistenza dei nodi prima di inserirli */ 
 			if(msg.getText().contains("<@"))
 			{
+	
 				User utenteu = users.get(msg.getUser());
 				if(!snagraph.nodes().contains(utenteu))
 						snagraph.addNode(utenteu);
 				
-				Matcher matcher = pattern.matcher(msg.getText());
+			    Matcher matcher = pattern.matcher(msg.getText()); // msg.getText
 				
 				if(matcher.find())
 				{
@@ -56,7 +58,7 @@ public class MentionGraph {
 						}
 					}		
  				}
-				
+ 
 					
 			}	
 		}

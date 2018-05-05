@@ -16,6 +16,7 @@ import java.util.zip.ZipFile;
 import com.google.gson.*;
 
 import it.uniba.workdata.Message;
+import it.uniba.model.MentionGraph;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
@@ -26,7 +27,10 @@ public class ZipParser
     private HashMap<String, User> users = new HashMap<String, User>();
     private HashMap<String, Channel> channels = new HashMap<String, Channel>();
     private ArrayList<Message> messages = new ArrayList<Message>();
-   
+    
+    private  MentionGraph grmention;
+    
+    
     public void setWorkspaceName(String _value)
     {
     	workspaceLoaded = _value; 
@@ -115,6 +119,7 @@ public class ZipParser
         workspaceLoaded = tempFile.getName().replaceFirst("[.][^.]+$", "");
 //            System.out.println(workspaceLoaded);
         zip.close();
-        
+        /* solo per testare il grafo */
+        //grmention = new MentionGraph(messages,users);
     }
 }
