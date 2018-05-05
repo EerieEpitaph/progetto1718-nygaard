@@ -32,19 +32,19 @@ public class CommandParser
     {
         private Boolean active = false;
         
-        @Parameters(index = "0")
+        @Parameters(index = "0", arity = "1")
         String workspaceName;
         
-        @Option(names = "-m", arity = "0..1")
+        @Option(names = "-u", arity = "0..1")
         private boolean membersStatus;
         
         @Option(names = "-c", arity = "0..1")
         private boolean channelsStatus;
         
-        @Option(names = "-cm", arity = "0..1")
+        @Option(names = "-cu", arity = "0..1")
         private boolean extChannelsStatus;
         
-        @Option(names = "-mc", arity = "0..1")
+        @Option(names = "-uc", arity = "1")
         private String channelFilter;
         
         public Boolean isActive()

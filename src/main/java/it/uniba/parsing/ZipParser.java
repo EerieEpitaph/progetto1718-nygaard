@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.zip.ZipEntry;
@@ -14,6 +15,7 @@ import java.util.zip.ZipFile;
 
 import com.google.gson.*;
 
+import it.uniba.workdata.Message;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
@@ -23,6 +25,7 @@ public class ZipParser
     //I due dizionari users e channels 
     private HashMap<String, User> users = new HashMap<String, User>();
     private HashMap<String, Channel> channels = new HashMap<String, Channel>();
+    private ArrayList<Message> messages = new ArrayList<Message>();
    
     public void setWorkspaceName(String _value)
     {
@@ -45,6 +48,11 @@ public class ZipParser
         return channels;
     }
     
+    public ArrayList<Message> getMessages()
+    {
+        return messages;
+    }
+    
     public void load(String path) throws ZipException, IOException
     {
         Boolean loadedSomething = false;
@@ -57,7 +65,7 @@ public class ZipParser
         {
             ZipEntry entry = entries.nextElement();
             
-            if (entry.getName().equals("channels.json") || entry.getName().equals("users.json")) 
+            if ( !entry.isDirectory() && !entry.getName().equals("integration_logs.json") ) 
             {
                 loadedSomething = true;
                 InputStream stream = zip.getInputStream(entry);
@@ -72,19 +80,31 @@ public class ZipParser
                     User[] tempUser = gson.fromJson(lecturer, User[].class);
                     for(User x : tempUser)
                     {
-//                            System.out.println(x.getId());
-                    	 users.put(x.getId(), x);
+//                        System.out.println(x.getId());
+                    	users.put(x.getId(), x);
                     }     
                 } 
-                else 
+                else if(entry.getName().equals("channels.json"))
                 {
-                    Channel[] tempUser = gson.fromJson(lecturer, Channel[].class);
-                    for(Channel x : tempUser)
+                    Channel[] tempChannel = gson.fromJson(lecturer, Channel[].class);
+                    for(Channel x : tempChannel)
                     {
-//                            System.out.println(x.getId());
+//                        System.out.println(x.getId());
                         channels.put(x.getName(), x);
                     }     
                 } 
+                else
+                {
+                    Message[] tempMessage = gson.fromJson(lecturer, Message[].class);
+                    for(Message x : tempMessage)
+                    {
+//                        System.out.println(x.getType());
+//                        System.out.println(x.getUser());
+//                        System.out.println(x.getText());
+//                        System.out.println("=====================");
+                        messages.add(x);
+                    }
+                }
 
                 lecturer.close();
                 //Non ho trovato i file che ci servono
