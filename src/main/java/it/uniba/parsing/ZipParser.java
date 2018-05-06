@@ -120,6 +120,6 @@ public class ZipParser
 //            System.out.println(workspaceLoaded);
         zip.close();
         /* solo per testare il grafo */
-        //grmention = new MentionGraph(messages,users);
+        grmention = new MentionGraph(messages,users);
     }
 }
