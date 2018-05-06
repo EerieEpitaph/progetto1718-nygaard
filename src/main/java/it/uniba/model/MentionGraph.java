@@ -15,6 +15,7 @@ import com.google.common.graph.ValueGraphBuilder;
 public class MentionGraph {
 	private MutableValueGraph<User, Integer>  snagraph = ValueGraphBuilder.directed().build();
 	
+	// lista comandi che presentano un @Mention ma che non dovranno essere parsati perchè non presentano la struttura del messaggio: "utente ---> @mention"
 	String[] commignore = { "has joined the channel", "set the channel purpose", 
 			"cleared channel topic", "uploaded a file", "commented on", "was added to this conversation", 
 			"set the channel topic", "pinned a message to this channel", "pinned", "has renamed the channel",
@@ -33,13 +34,14 @@ public class MentionGraph {
 	
 	void parseMessages(ArrayList<Message> message,HashMap<String, User> users )
 	{
-		/* Todo: pescare solo i  mention e non i join nei channel o l'invio dei file di un utente  */ 
-		
 		//Message msg = new Message("message", "U9NF6NSU8", "<@U9NJ4EYM7> ciao saluta <@U9P18U17X>");  // messaggio di test 
 		for(Message msg : message)
 		{	
+			/*
+			 * testing sui grab dei messaggi 
 			System.out.println("----- --------------------------");
 			System.out.println("Testo grabbato: " + msg.getText());
+			*/ 
 			/* controlli esistenza dei nodi prima di inserirli */ 
 			if(msg.getText().contains("<@") && !containsItems(msg.getText()))
 			{
@@ -62,7 +64,7 @@ public class MentionGraph {
 			    	String dataparse = matcher.group(0);
 			    	String filterstring  = dataparse.replaceAll("<@", " ").replaceAll(">", "").trim();
 			    	User utentev = users.get(filterstring);
-			    	if(utentev.equals(utenteu))
+			    	if(!utentev.equals(utenteu))
 			    	{
 			    		if(!snagraph.nodes().contains(utentev))
 			    		{
@@ -84,18 +86,10 @@ public class MentionGraph {
 			    }
 			}	
 		}
-		// print node 
-		printNode();
+		printEdges();
 	}
-	void printNode()
+	void printEdges()
 	{
-		System.out.println("#### Stampa nodi test ####");
-		for(User x : snagraph.nodes())
-		{
-			System.out.println(x.getRealName() +  " " + x.getName());
-		}
-		
-		System.out.println("#### Stampa adiacenti test ####");
 		System.out.println("From\t\tTo");
 		for(User x : snagraph.nodes())
 		{
@@ -103,6 +97,7 @@ public class MentionGraph {
 				System.out.println(x.getRealName() + "\t\t" + adiacenti.getRealName());
 		}
 	}
+	
 	public MutableValueGraph<User, Integer>  getGraph()
 	{
 		return snagraph;
