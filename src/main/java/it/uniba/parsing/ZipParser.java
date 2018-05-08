@@ -28,7 +28,7 @@ public class ZipParser
     private HashMap<String, User> users = new HashMap<String, User>();
     private HashMap<String, Channel> channels = new HashMap<String, Channel>();
     private ArrayList<Message> messages = new ArrayList<Message>();
-//    private  MentionGraph grmention;
+    private MentionGraph grmention = new MentionGraph();
     
     
     public void setWorkspaceName(String _value)
@@ -43,13 +43,17 @@ public class ZipParser
     {
         return (workspaceLoaded != "");
     }
-    public Map<String, User> getUsers()
+    public HashMap<String, User> getUsers()
     {
         return users;
     }
     public Map<String, Channel> getChannels()
     {
         return channels;
+    }
+    public MentionGraph getMentionGraph()
+    {
+    	return grmention;
     }
     
     public ArrayList<Message> getMessages()
@@ -127,8 +131,5 @@ public class ZipParser
         workspaceLoaded = tempFile.getName().replaceFirst("[.][^.]+$", "");
 //            System.out.println(workspaceLoaded);
         zip.close();
-        
-        /* solo per testare il grafo */
-//        grmention = new MentionGraph(messages,users);
     }
 }
