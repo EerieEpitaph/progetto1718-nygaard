@@ -14,7 +14,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 import com.google.gson.*;
-import com.sun.org.apache.xml.internal.serializer.utils.Messages;
+
 
 import it.uniba.workdata.Message;
 import it.uniba.workdata.Message.gsonMessage;
@@ -129,8 +129,7 @@ public class ZipParser
                             	messages.put(currChannel, msg);
                             }
                             	
-                            //messages.add(tempMes);
-                            
+                            //messages.add(tempMes);                      
                             
 //                            System.out.println(tempMes.getChannel());
 //                            System.out.println(tempMes.getType());
@@ -139,7 +138,6 @@ public class ZipParser
 //                            System.out.println("=====================");
                         }
                     }
-
                     lecturer.close();
                     //Non ho trovato i file che ci servono
                     if(!loadedSomething) throw new ZipException();

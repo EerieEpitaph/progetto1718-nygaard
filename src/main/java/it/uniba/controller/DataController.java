@@ -52,7 +52,7 @@ public class DataController
     
     public static void printMention(ZipParser fileParser)
     {
-    	// fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers());
+    	fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(),"");
     	fileParser.getMentionGraph().printEdges();
     }
     
@@ -60,8 +60,8 @@ public class DataController
     {
     	if(fileParser.getChannels().containsKey(inChannel))
     	{
-    		
-    	}
-    	
+        	fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel);
+        	fileParser.getMentionGraph().printEdges();
+    	}    	
     }
 }

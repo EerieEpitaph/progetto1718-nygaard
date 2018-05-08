@@ -31,7 +31,7 @@ public class Message
         }
     }
     
-    private String channel;
+//    private String channel;
     private gsonMessage message;
     
     public Message(gsonMessage _message)

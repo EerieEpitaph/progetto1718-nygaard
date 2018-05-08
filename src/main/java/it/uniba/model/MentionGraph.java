@@ -31,17 +31,21 @@ public class MentionGraph {
 	    return Arrays.stream(commignore).parallel().anyMatch(inputStr::contains);
 	} 
 	
-	public void parseMessages(ArrayList<Message> message, HashMap<String, User> users )
+	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users, String inChannel)
 	{
 		//Message msg = new Message("message", "U9NF6NSU8", "<@U9NJ4EYM7> ciao saluta <@U9P18U17X>");  // messaggio di test 
-		for(Message msg : message)
-		{	
-			/*
-			 * testing sui grab dei messaggi 
-			System.out.println("----- --------------------------");
-			System.out.println("Testo grabbato: " + msg.getText());
-			*/ 
-			/* controlli esistenza dei nodi prima di inserirli */ 
+		if(inChannel == "")
+			for(ArrayList<Message> mess : message.values())
+				parsing(mess,users);
+		else
+			if(message.containsKey(inChannel))
+				parsing(message.get(inChannel),users);
+	}
+	
+	void parsing(ArrayList<Message> mess, HashMap<String, User> users)
+	{
+		for(Message msg : mess)
+		{
 			if(msg.getText().contains("<@") && !containsItems(msg.getText()))
 			{	
 				User utenteu = users.get(msg.getUser());				
@@ -74,7 +78,7 @@ public class MentionGraph {
 			    		}
 			    	}
 			    }
-			}	
+			}
 		}
 	}
 	public void printEdges()
