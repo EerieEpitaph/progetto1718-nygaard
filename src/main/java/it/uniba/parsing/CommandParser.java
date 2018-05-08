@@ -46,6 +46,9 @@ public class CommandParser
         
         @Option(names = "-uc", arity = "1")
         private String channelFilter;
+       
+        @Option(names = "-m", arity = "0..4")
+        private String[] mentionParams;
         
         public Boolean isActive()
         {
@@ -85,6 +88,11 @@ public class CommandParser
         public Boolean isValidFilter()
         {
             return (channelFilter != null && channelFilter != "");
+        }
+        
+        public String[] getMentionParams()
+        {
+            return mentionParams;
         }
     }
     
@@ -131,7 +139,8 @@ public class CommandParser
                         y.setAccessible(false);
                     } 
                     catch (IllegalArgumentException e)
-                    {e.printStackTrace();} catch (IllegalAccessException e)
+                    {e.printStackTrace();} 
+                    catch (IllegalAccessException e)
                     {e.printStackTrace();}
                 }
             }

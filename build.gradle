@@ -109,7 +109,6 @@ pmd {
             'java-codesize',
             //'java-comments',
             //'java-controversial',
-            //'java-coupling',
             'java-design',
             'java-empty',
             'java-finalizers',
