@@ -52,7 +52,16 @@ public class DataController
     
     public static void printMention(ZipParser fileParser)
     {
-    	fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers());
+    	// fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers());
     	fileParser.getMentionGraph().printEdges();
+    }
+    
+    public static void printMentionFrom(ZipParser fileParser, String inChannel)
+    {
+    	if(fileParser.getChannels().containsKey(inChannel))
+    	{
+    		
+    	}
+    	
     }
 }

@@ -34,16 +34,16 @@ public class Message
     private String channel;
     private gsonMessage message;
     
-    public Message(String _channel, gsonMessage _message)
+    public Message(gsonMessage _message)
     {
-        channel = _channel;
+        //channel = _channel;
         message = _message;
     }
     
-    public String getChannel()
-    {
-        return channel;
-    }
+//    public String getChannel()
+//    {
+//        return channel;
+//    }
 
     public String getType()
     {

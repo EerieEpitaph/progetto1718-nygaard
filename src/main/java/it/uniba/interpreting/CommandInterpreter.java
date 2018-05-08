@@ -58,14 +58,15 @@ public class CommandInterpreter
                         if(workspace.getMentionParams().length == 0)
                         {
                             //Stampa tutti i mention
-//                        	fileParser.getMentionGraph().printEdges();
                         	DataController.printMention(fileParser);
                         }                        
                         //-m in x
                         else if(wantsIn(workspace.getMentionParams()))
                         {
                             String inChannel = workspace.getMentionParams()[1];
+                            
                             //Stampa tutti i mention in un channel x
+                        	DataController.printMentionFrom(fileParser, inChannel);
                         }
                         
                         //issue#38

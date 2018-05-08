@@ -14,6 +14,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 import com.google.gson.*;
+import com.sun.org.apache.xml.internal.serializer.utils.Messages;
 
 import it.uniba.workdata.Message;
 import it.uniba.workdata.Message.gsonMessage;
@@ -27,7 +28,9 @@ public class ZipParser
     //I due dizionari users e channels 
     private HashMap<String, User> users = new HashMap<String, User>();
     private HashMap<String, Channel> channels = new HashMap<String, Channel>();
-    private ArrayList<Message> messages = new ArrayList<Message>();
+    private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
+    
+    //private ArrayList<Message> messages = new ArrayList<Message>();
     private MentionGraph grmention = new MentionGraph();
     
     
@@ -56,7 +59,7 @@ public class ZipParser
     	return grmention;
     }
     
-    public ArrayList<Message> getMessages()
+    public HashMap<String, ArrayList<Message>> getMessages()
     {
         return messages;
     }
@@ -108,10 +111,26 @@ public class ZipParser
                     else
                     {
                         gsonMessage[] tempMessage = gson.fromJson(lecturer, gsonMessage[].class);
+                        //ArrayList<Message> msg = new ArrayList<Message>();
+                        
                         for(gsonMessage x : tempMessage)
                         {
-                            Message tempMes = new Message(currChannel, x);
-                            messages.add(tempMes);
+                        	// currChannel nome channel 
+                            Message tempMes = new Message(x);
+                            //msg.add(tempMes); 
+                            if(messages.containsKey(currChannel))
+                            {
+                            	messages.get(currChannel).add(tempMes); 
+                            }
+                            else
+                            {	
+                            	ArrayList<Message> msg = new ArrayList<Message>();
+                            	msg.add(tempMes);
+                            	messages.put(currChannel, msg);
+                            }
+                            	
+                            //messages.add(tempMes);
+                            
                             
 //                            System.out.println(tempMes.getChannel());
 //                            System.out.println(tempMes.getType());
