@@ -14,9 +14,7 @@ public class DataController
     public static void printMembers(ZipParser fileParser)
     {
          for( User utente : fileParser.getUsers().values())
-         { 
              System.out.println(utente.getRealName() +"\t@"+  utente.getName());
-         }
     }
 
     public static void members4Channel(ZipParser fileParser)
@@ -50,18 +48,57 @@ public class DataController
             System.out.println("There is no channel \""+ channel + "\"");
     }
     
-    public static void printMention(ZipParser fileParser)
+    public static void printMention(ZipParser fileParser, String inChannel)
     {
-    	fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(),"");
-    	fileParser.getMentionGraph().printEdges();
+    	if(inChannel.equals(""))
+    	{
+    		fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(),"");
+    		fileParser.getMentionGraph().printEdges(null);
+    	}
+    	else
+    	{ // validazione canale 
+    		if(fileParser.getChannels().containsKey(inChannel))
+    		{
+    			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel);
+    			fileParser.getMentionGraph().printEdges(null);
+    		}
+    	}
+    }
+
+    
+    public static void printMentionFromUser(ZipParser fileParser, String user, String inChannel)
+    {
+    	String idUser = getUserFromId(fileParser, user);
+    	if(inChannel.equals(""))
+    	{
+    		if(fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
+    		{
+    			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), ""); // parse dei mention sul grafo
+    			fileParser.getMentionGraph().printEdges(fileParser.getUsers().get(idUser));
+    		}
+    	}
+    	else
+    	{
+    		if(fileParser.getUsers().containsKey(idUser) && fileParser.getChannels().containsKey(inChannel))
+    		{
+    			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel); // parse dei mention sul grafo
+    			fileParser.getMentionGraph().printEdges(fileParser.getUsers().get(idUser));
+    		}
+    	}
+    	
     }
     
-    public static void printMentionFrom(ZipParser fileParser, String inChannel)
+    static String getUserFromId(ZipParser fileParser, String name)
     {
-    	if(fileParser.getChannels().containsKey(inChannel))
+    	for(User x : fileParser.getUsers().values())
     	{
-        	fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel);
-        	fileParser.getMentionGraph().printEdges();
-    	}    	
+    		//System.out.println(x.getName());
+    		if(x.getName().equals(name))
+    			return x.getId();
+    	}
+    	return "";
     }
+ 
+    
+    
 }
