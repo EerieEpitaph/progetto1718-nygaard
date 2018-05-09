@@ -50,6 +50,7 @@ public class DataController
     
     public static void printMention(ZipParser fileParser, String inChannel)
     {
+    	// channel diverso da "" 
     	if(inChannel.equals(""))
     	{
     		fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(),"");
