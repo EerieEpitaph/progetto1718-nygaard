@@ -15,6 +15,7 @@ import java.util.zip.ZipFile;
 
 import com.google.gson.*;
 
+
 import it.uniba.workdata.Message;
 import it.uniba.workdata.Message.gsonMessage;
 import it.uniba.model.MentionGraph;
@@ -27,8 +28,10 @@ public class ZipParser
     //I due dizionari users e channels 
     private HashMap<String, User> users = new HashMap<String, User>();
     private HashMap<String, Channel> channels = new HashMap<String, Channel>();
-    private ArrayList<Message> messages = new ArrayList<Message>();
-//    private  MentionGraph grmention;
+    private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
+    
+    //private ArrayList<Message> messages = new ArrayList<Message>();
+    private MentionGraph grmention = new MentionGraph();
     
     
     public void setWorkspaceName(String _value)
@@ -43,7 +46,7 @@ public class ZipParser
     {
         return (workspaceLoaded != "");
     }
-    public Map<String, User> getUsers()
+    public HashMap<String, User> getUsers()
     {
         return users;
     }
@@ -51,8 +54,12 @@ public class ZipParser
     {
         return channels;
     }
+    public MentionGraph getMentionGraph()
+    {
+    	return grmention;
+    }
     
-    public ArrayList<Message> getMessages()
+    public HashMap<String, ArrayList<Message>> getMessages()
     {
         return messages;
     }
@@ -104,10 +111,25 @@ public class ZipParser
                     else
                     {
                         gsonMessage[] tempMessage = gson.fromJson(lecturer, gsonMessage[].class);
+                        //ArrayList<Message> msg = new ArrayList<Message>();
+                        
                         for(gsonMessage x : tempMessage)
                         {
-                            Message tempMes = new Message(currChannel, x);
-                            messages.add(tempMes);
+                        	// currChannel nome channel 
+                            Message tempMes = new Message(x);
+                            //msg.add(tempMes); 
+                            if(messages.containsKey(currChannel))
+                            {
+                            	messages.get(currChannel).add(tempMes); 
+                            }
+                            else
+                            {	
+                            	ArrayList<Message> msg = new ArrayList<Message>();
+                            	msg.add(tempMes);
+                            	messages.put(currChannel, msg);
+                            }
+                            	
+                            //messages.add(tempMes);                      
                             
 //                            System.out.println(tempMes.getChannel());
 //                            System.out.println(tempMes.getType());
@@ -116,7 +138,6 @@ public class ZipParser
 //                            System.out.println("=====================");
                         }
                     }
-
                     lecturer.close();
                     //Non ho trovato i file che ci servono
                     if(!loadedSomething) throw new ZipException();
@@ -127,8 +148,5 @@ public class ZipParser
         workspaceLoaded = tempFile.getName().replaceFirst("[.][^.]+$", "");
 //            System.out.println(workspaceLoaded);
         zip.close();
-        
-        /* solo per testare il grafo */
-//        grmention = new MentionGraph(messages,users);
     }
 }

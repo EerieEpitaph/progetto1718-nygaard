@@ -53,48 +53,50 @@ public class CommandInterpreter
                     
                     //-m riconosciuto
                     else if(workspace.getMentionParams() != null)
-                    {
+                    {	//issue#37
                         //-m
                         if(workspace.getMentionParams().length == 0)
                         {
-                            //TODO
-                        }
-                        
-                        //-m from x 
-                        else if(wantsFrom(workspace.getMentionParams()))
-                        {
-                            String fromWho = workspace.getMentionParams()[1];
-                            //TODO
-                        }
-                        
-                        //-m to x
-                        else if(wantsTo(workspace.getMentionParams()))
-                        {
-                            String toWho = workspace.getMentionParams()[1];
-                            //TODO
-                        }
-                        
+                            //Stampa tutti i mention
+                        	DataController.printMention(fileParser);
+                        }                        
                         //-m in x
                         else if(wantsIn(workspace.getMentionParams()))
                         {
                             String inChannel = workspace.getMentionParams()[1];
-                            //TODO
+                            
+                            //Stampa tutti i mention in un channel x
+                        	DataController.printMentionFrom(fileParser, inChannel);
                         }
                         
+                        //issue#38
+                        //-m from x 
+                        else if(wantsFrom(workspace.getMentionParams()))
+                        {
+                            String fromWho = workspace.getMentionParams()[1];
+                            //Stampa tutti i mention effettuati da x
+                        }   
                         //-m from x in y
                         else if(wantsFromIn(workspace.getMentionParams()))
                         {
                             String fromWho = workspace.getMentionParams()[1];
                             String inChannel = workspace.getMentionParams()[3];
-                            //TODO
+                            //Stampa tutti i mention effettuati da x nel channel y
                         }
+                        //issue#39
+                        //-m to x
+                        else if(wantsTo(workspace.getMentionParams()))
+                        {
+                            String toWho = workspace.getMentionParams()[1];
+                            //Stampa tutti i mention in cui viene menzionato x
+                        } 
                         
                         //-m to x in y
                         else if(wantsToIn(workspace.getMentionParams()))
                         {
                             String toWho = workspace.getMentionParams()[1];
                             String inChannel = workspace.getMentionParams()[3];
-                            //TODO
+                            //Stampa tutti i mention in cui è menzionato x nel channel y
                         }
                         else
                             throw new IllegalStateException();

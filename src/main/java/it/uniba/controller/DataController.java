@@ -49,4 +49,19 @@ public class DataController
         else
             System.out.println("There is no channel \""+ channel + "\"");
     }
+    
+    public static void printMention(ZipParser fileParser)
+    {
+    	fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(),"");
+    	fileParser.getMentionGraph().printEdges();
+    }
+    
+    public static void printMentionFrom(ZipParser fileParser, String inChannel)
+    {
+    	if(fileParser.getChannels().containsKey(inChannel))
+    	{
+        	fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel);
+        	fileParser.getMentionGraph().printEdges();
+    	}    	
+    }
 }
