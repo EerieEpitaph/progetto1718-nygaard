@@ -56,7 +56,7 @@ public class DataController
     		fileParser.getMentionGraph().printEdges(null);
     	}
     	else
-    	{ // validazione canale 
+    	{ 	// validazione canale 
     		if(fileParser.getChannels().containsKey(inChannel))
     		{
     			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel);
