@@ -33,7 +33,7 @@ public class ZipParser
     //private ArrayList<Message> messages = new ArrayList<Message>();
     private MentionGraph grmention = new MentionGraph();
     
-    
+     
     public void setWorkspaceName(String _value)
     {
     	workspaceLoaded = _value; 
@@ -93,9 +93,10 @@ public class ZipParser
                     if (entry.getName().equals("users.json")) 
                     {
                         User[] tempUser = gson.fromJson(lecturer, User[].class);
+                        
                         for(User x : tempUser)
                         {
-//                            System.out.println(x.getId());
+                            //System.out.println(x.getId() + " " + x.getDisplayNameNormalized());
                             users.put(x.getId(), x);
                         }     
                     } 

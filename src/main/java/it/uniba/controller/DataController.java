@@ -10,7 +10,7 @@ public class DataController
         for(Channel x : fileParser.getChannels().values())
             System.out.println(x.getName());
     }
-    
+     
     public static void printMembers(ZipParser fileParser)
     {
          for( User utente : fileParser.getUsers().values())
@@ -68,7 +68,7 @@ public class DataController
     			System.out.println("The channel specified doesn't exist.");
     		}
     	}
-    }
+    } 
 
     
     public static void printMentionFromUser(ZipParser fileParser, String user, String inChannel)
@@ -83,6 +83,7 @@ public class DataController
     		}
     		else
     		{
+    			
 				System.out.println("The user specified doesn't exist.");    			
     		}
     	}
@@ -109,7 +110,7 @@ public class DataController
     	for(User x : fileParser.getUsers().values())
     	{
     		//System.out.println(x.getName());
-    		if(x.getName().equals(name))
+    		if(x.getRealName().equals(name))
     			return x.getId();
     	}
     	return "";

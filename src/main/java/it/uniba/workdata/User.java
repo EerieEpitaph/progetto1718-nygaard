@@ -6,7 +6,8 @@ public final class User
 	private String team_id;
 	private String name;
 	private String real_name;
-	
+	 
+	 
 	public User(String _id, String _teams, String _name, String _real_name)
 	{
 		id = _id;
@@ -14,9 +15,18 @@ public final class User
 		real_name = _real_name;
 		team_id = _teams;
 	}
+	public String getDisplayNameNormalized()
+	{
+		return display_name_normalized; 
+	}
+	
+	public void setDisplayNameNormalized(String value)
+	{
+		display_name_normalized = value;
+	}
 	
 	@Override
-    public int hashCode() { 
+    public int hashCode() {  
         return id.hashCode(); 
     }
     @Override

@@ -18,7 +18,7 @@ public class CommandInterpreter
         //Argomenti singoli immessi
         if(baseArgs.isActive())
         {
-            //Ho chiesto help
+            //Ho chiesto help 
             if(baseArgs.getHelpStatus())
                 showHelp();
         }
