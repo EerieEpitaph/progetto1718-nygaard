@@ -63,6 +63,10 @@ public class DataController
     			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel);
     			fileParser.getMentionGraph().printEdges(null);
     		}
+    		else 
+    		{
+    			System.out.println("The channel specified doesn't exist.");
+    		}
     	}
     }
 
@@ -77,6 +81,10 @@ public class DataController
     			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), ""); // parse dei mention sul grafo
     			fileParser.getMentionGraph().printEdges(fileParser.getUsers().get(idUser));
     		}
+    		else
+    		{
+				System.out.println("The user specified doesn't exist.");    			
+    		}
     	}
     	else
     	{
@@ -84,6 +92,13 @@ public class DataController
     		{
     			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel); // parse dei mention sul grafo
     			fileParser.getMentionGraph().printEdges(fileParser.getUsers().get(idUser));
+    		}
+    		else 
+    		{
+    			if(!fileParser.getUsers().containsKey(idUser))
+    				System.out.println("The user specified doesn't exist.");
+				if(!fileParser.getChannels().containsKey(inChannel))
+					System.out.println("The channel specified doesn't exist.");    			
     		}
     	}
     	
