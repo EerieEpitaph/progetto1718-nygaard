@@ -15,12 +15,12 @@ import com.google.common.graph.ValueGraphBuilder;
 public class MentionGraph {
 	private MutableValueGraph<User, Integer>  snagraph = ValueGraphBuilder.directed().build();
 	
-	// lista comandi che presentano un @Mention ma che non dovranno essere parsati perchè non presentano la struttura del messaggio: "utente ---> @mention"
+	//lista comandi che presentano un @Mention ma che non dovranno essere parsati perchè non presentano la struttura del messaggio: "utente ---> @mention"
 	String[] commignore = { "has joined the channel", "set the channel purpose", 
 			"cleared channel topic", "uploaded a file", "commented on", "was added to this conversation", 
 			"set the channel topic", "pinned a message to this channel", "pinned", "has renamed the channel",
 			"un-archived the channel", "archived the channel", "cleared channel purpose"};
-	
+	// aggiornare lista comandi da ignorare {deleted} 
 	public MentionGraph() {}
 //	public MentionGraph(ArrayList<Message> message,HashMap<String, User> users )
 //	{
@@ -34,8 +34,7 @@ public class MentionGraph {
 	
 	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users, String inChannel)
 	{
-		//Message msg = new Message("message", "U9NF6NSU8", "<@U9NJ4EYM7> ciao saluta <@U9P18U17X>");  // messaggio di test 
-		if(inChannel == "")
+ 		if(inChannel == "")
 			for(ArrayList<Message> mess : message.values())
 				parsing(mess,users);
 		else
@@ -106,7 +105,7 @@ public class MentionGraph {
  			{
 				for(User adiacenti : snagraph.adjacentNodes(user))
 					if(snagraph.hasEdgeConnecting(user, adiacenti))
-					{
+					{ 
 						System.out.println("From: " + user.getRealName() +
 							"\tTo: " + adiacenti.getRealName() +"\t n. mention: "
 								+ snagraph.edgeValue(user, adiacenti).get());

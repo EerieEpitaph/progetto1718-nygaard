@@ -10,7 +10,7 @@ public class DataController
         for(Channel x : fileParser.getChannels().values())
             System.out.println(x.getName());
     }
-    
+     
     public static void printMembers(ZipParser fileParser)
     {
          for( User utente : fileParser.getUsers().values())
@@ -63,8 +63,12 @@ public class DataController
     			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel);
     			fileParser.getMentionGraph().printEdges(null);
     		}
+    		else 
+    		{
+    			System.out.println("The channel specified doesn't exist.");
+    		}
     	}
-    }
+    } 
 
     
     public static void printMentionFromUser(ZipParser fileParser, String user, String inChannel)
@@ -77,6 +81,11 @@ public class DataController
     			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), ""); // parse dei mention sul grafo
     			fileParser.getMentionGraph().printEdges(fileParser.getUsers().get(idUser));
     		}
+    		else
+    		{
+    			
+				System.out.println("The user specified doesn't exist.");    			
+    		}
     	}
     	else
     	{
@@ -85,21 +94,24 @@ public class DataController
     			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel); // parse dei mention sul grafo
     			fileParser.getMentionGraph().printEdges(fileParser.getUsers().get(idUser));
     		}
+    		else 
+    		{
+    			if(!fileParser.getUsers().containsKey(idUser))
+    				System.out.println("The user specified doesn't exist.");
+				if(!fileParser.getChannels().containsKey(inChannel))
+					System.out.println("The channel specified doesn't exist.");    			
+    		}
     	}
-    	
     }
     
     static String getUserFromId(ZipParser fileParser, String name)
     {
     	for(User x : fileParser.getUsers().values())
-    	{
+    	{ 
     		//System.out.println(x.getName());
-    		if(x.getName().equals(name))
+    		if(x.getDisplayNameNorm().equals(name) ||  x.getRealName().equals(name) ||  x.getName().equals(name))
     			return x.getId();
     	}
     	return "";
     }
- 
-    
-    
 }
