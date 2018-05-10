@@ -96,7 +96,7 @@ public class ZipParser
                         
                         for(User x : tempUser)
                         {
-                            //System.out.println(x.getId() + " " + x.getDisplayNameNormalized());
+//                            System.out.println(x.getId() + " " + x.getDisplayNameNorm());
                             users.put(x.getId(), x);
                         }     
                     } 

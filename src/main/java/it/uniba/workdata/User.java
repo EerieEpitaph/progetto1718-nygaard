@@ -2,11 +2,25 @@ package it.uniba.workdata;
 
 public final class User
 {
+    public final class Profile
+    {
+        private String display_name_normalized;
+        
+        public Profile(String _display_name_normalized)
+        {
+            display_name_normalized = _display_name_normalized;
+        }
+        
+        public String getDisplayNameNorm()
+        {
+            return display_name_normalized;
+        }
+    }
 	private String id;
 	private String team_id;
 	private String name;
 	private String real_name;
-	 
+	private Profile profile;
 	 
 	public User(String _id, String _teams, String _name, String _real_name)
 	{
@@ -14,15 +28,6 @@ public final class User
 		name = _name;
 		real_name = _real_name;
 		team_id = _teams;
-	}
-	public String getDisplayNameNormalized()
-	{
-		return display_name_normalized; 
-	}
-	
-	public void setDisplayNameNormalized(String value)
-	{
-		display_name_normalized = value;
 	}
 	
 	@Override
@@ -49,6 +54,11 @@ public final class User
 	public String getRealName()
 	{
 		return real_name;
+	}
+	
+	public String getDisplayNameNorm()
+	{
+	    return profile.getDisplayNameNorm();
 	}
 
 	/****************** SETTER  **************************/
