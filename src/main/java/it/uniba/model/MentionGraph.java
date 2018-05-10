@@ -105,7 +105,7 @@ public class MentionGraph {
  			{
 				for(User adiacenti : snagraph.adjacentNodes(user))
 					if(snagraph.hasEdgeConnecting(user, adiacenti))
-					{
+					{ 
 						System.out.println("From: " + user.getRealName() +
 							"\tTo: " + adiacenti.getRealName() +"\t n. mention: "
 								+ snagraph.edgeValue(user, adiacenti).get());

@@ -102,20 +102,16 @@ public class DataController
 					System.out.println("The channel specified doesn't exist.");    			
     		}
     	}
-    	
     }
     
     static String getUserFromId(ZipParser fileParser, String name)
     {
     	for(User x : fileParser.getUsers().values())
-    	{
+    	{ 
     		//System.out.println(x.getName());
-    		if(x.getRealName().equals(name))
+    		if(x.getDisplayNameNorm().equals(name) ||  x.getRealName().equals(name) ||  x.getName().equals(name))
     			return x.getId();
     	}
     	return "";
     }
- 
-    
-    
 }
