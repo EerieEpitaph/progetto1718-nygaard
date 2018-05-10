@@ -20,6 +20,7 @@ public class MentionGraph {
 			"cleared channel topic", "uploaded a file", "commented on", "was added to this conversation", 
 			"set the channel topic", "pinned a message to this channel", "pinned", "has renamed the channel",
 			"un-archived the channel", "archived the channel", "cleared channel purpose"};
+	
 	public MentionGraph() {}
 //	public MentionGraph(ArrayList<Message> message,HashMap<String, User> users )
 //	{
@@ -81,15 +82,48 @@ public class MentionGraph {
 			}
 		}
 	}
-	public void printEdges()
-	{
-		for(User x : snagraph.nodes())
-			for(User adiacenti : snagraph.adjacentNodes(x))
-				if(snagraph.hasEdgeConnecting(x, adiacenti))
-					System.out.println("From: " + x.getRealName() +
-						"\tTo: " + adiacenti.getRealName() +"\t N° mention: "+ snagraph.edgeValue(x, adiacenti).get());
-	}
 	
+	public int printEdges(User user)
+	{	
+		int numNodesPrinted = 0;
+ 		if(user == null)			
+ 		{
+			for(User x : snagraph.nodes())
+				for(User adiacenti : snagraph.adjacentNodes(x))
+					if(snagraph.hasEdgeConnecting(x, adiacenti))
+					{
+						System.out.println("From: " + x.getRealName() +
+							"\tTo: " + adiacenti.getRealName() +"\t n. mention: "
+								+ snagraph.edgeValue(x, adiacenti).get());
+						numNodesPrinted++;
+					}
+			if(numNodesPrinted == 0)	//eccezione: non ci sono mention nel workspace
+				System.out.println("There aren't mention.");
+ 		}
+ 		else 
+ 		{
+ 			if(snagraph.nodes().contains(user))
+ 			{
+				for(User adiacenti : snagraph.adjacentNodes(user))
+					if(snagraph.hasEdgeConnecting(user, adiacenti))
+					{
+						System.out.println("From: " + user.getRealName() +
+							"\tTo: " + adiacenti.getRealName() +"\t n. mention: "
+								+ snagraph.edgeValue(user, adiacenti).get());
+						numNodesPrinted++;
+					}
+				if(numNodesPrinted == 0) //eccezione: non ci sono mention nel channel specificato
+					System.out.println("There aren't mention in the channel specified.");
+ 			}
+ 			else
+ 			{
+ 				//eccezione : user non presente nel canale specificato
+				System.out.println("The user specified doesn't belong to this channel.");
+ 			}
+ 		}
+ 		return numNodesPrinted;
+	}
+ 
 	public MutableValueGraph<User, Integer>  getGraph()
 	{
 		return snagraph;

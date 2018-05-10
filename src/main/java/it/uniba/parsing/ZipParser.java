@@ -25,7 +25,7 @@ import it.uniba.workdata.User;
 public class ZipParser
 {
     private String workspaceLoaded = "";
-    //I due dizionari users e channels 
+    //I tre dizionari users, channels e i messaggi
     private HashMap<String, User> users = new HashMap<String, User>();
     private HashMap<String, Channel> channels = new HashMap<String, Channel>();
     private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
