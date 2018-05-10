@@ -190,3 +190,10 @@ test {
 // Main class
 mainClassName = 'it.uniba.main/AppMain'
 
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
