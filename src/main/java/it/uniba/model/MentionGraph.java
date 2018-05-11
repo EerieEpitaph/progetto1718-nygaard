@@ -5,6 +5,7 @@ import it.uniba.workdata.User;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,6 +22,7 @@ public class MentionGraph {
 			"set the channel topic", "pinned a message to this channel", "pinned", "has renamed the channel",
 			"un-archived the channel", "archived the channel", "cleared channel purpose"};
 	// aggiornare lista comandi da ignorare {deleted} 
+	
 	public MentionGraph() {}
 //	public MentionGraph(ArrayList<Message> message,HashMap<String, User> users )
 //	{
@@ -46,6 +48,7 @@ public class MentionGraph {
 	{
 		for(Message msg : mess)
 		{
+			// eliminare i mention ignore scritte dal prof 
 			if(msg.getText().contains("<@") && !containsItems(msg.getText()))
 			{	
 				User utenteu = users.get(msg.getUser());				
@@ -80,6 +83,29 @@ public class MentionGraph {
 			    }
 			}
 		}
+	}
+	
+	public int printEdgesInDegree(User user)
+	{
+		// controllo se esiste il nodo nel grafo è ha almeno un arco in entrata
+		if(snagraph.nodes().contains(user) && (snagraph.inDegree(user) > 0)) // attenzione al controllo > 0
+		{
+			int inEdges = snagraph.inDegree(user); // ok 
+			Iterator<User> it = snagraph.nodes().iterator();
+			// fin quando ci sono archi in entrata, enumero tutti i nodi in cerca di connessioni 
+			String nameUser = user.getRealName();
+			while(inEdges > 0 && it.hasNext())
+			{
+				if(snagraph.hasEdgeConnecting(it.next(), user))
+				{
+					System.out.println("From: " + it.next().getRealName() +
+							"\tTo: " +  nameUser + "\t n. mention: "
+								+ snagraph.edgeValue(it.next(), user).orElse(1));
+					inEdges--;
+				}
+			}
+		}
+		return 0;
 	}
 	
 	public int printEdges(User user)

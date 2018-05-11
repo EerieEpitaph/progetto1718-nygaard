@@ -57,7 +57,7 @@ public class CommandInterpreter
                         //-m
                         if(workspace.getMentionParams().length == 0)
                         {
-                            //Stampa tutti i mention
+                            //Stampa tutti i mention del workspace 
                         	DataController.printMention(fileParser,"");
                         }                        
                         //-m in x
@@ -75,7 +75,7 @@ public class CommandInterpreter
                         {
                             String fromWho = workspace.getMentionParams()[1];
                             //Stampa tutti i mention effettuati da x
-                            DataController.printMentionFromUser(fileParser, fromWho, "");
+                            DataController.mentionsFromUser(fileParser, fromWho, "");
                         }   
                         //-m from x in y
                         else if(wantsFromIn(workspace.getMentionParams()))
@@ -83,7 +83,7 @@ public class CommandInterpreter
                             String fromWho = workspace.getMentionParams()[1];
                             String inChannel = workspace.getMentionParams()[3];
                             if(!inChannel.equals(""))
-                            	DataController.printMentionFromUser(fileParser, fromWho,inChannel);
+                            	DataController.mentionsFromUser(fileParser, fromWho,inChannel);
                             //Stampa tutti i mention effettuati da x nel channel y
                             
                         } 
@@ -92,6 +92,8 @@ public class CommandInterpreter
                         else if(wantsTo(workspace.getMentionParams()))
                         {
                             String toWho = workspace.getMentionParams()[1];
+                            DataController.mentionsToUser(fileParser, toWho, "");
+                         
                             //Stampa tutti i mention in cui viene menzionato x
                         } 
                         
@@ -100,6 +102,7 @@ public class CommandInterpreter
                         {
                             String toWho = workspace.getMentionParams()[1];
                             String inChannel = workspace.getMentionParams()[3];
+                            DataController.mentionsToUser(fileParser, toWho, inChannel);
                             //Stampa tutti i mention in cui � menzionato x nel channel y
                         }
                         else
