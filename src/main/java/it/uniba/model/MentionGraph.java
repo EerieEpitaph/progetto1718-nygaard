@@ -97,7 +97,7 @@ public class MentionGraph {
 		}
 		
 	}
-	
+	// issue#39
 	public void printEdgesInDegree(User user)
 	{
 		if(snagraph.nodes().contains(user)) 
