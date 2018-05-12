@@ -11,11 +11,11 @@ import it.uniba.parsing.CommandLine.UnmatchedArgumentException;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.ZipParser;
 
-public final class AppMain 
+public final class AppMain  
 {
 	// path zip : /home/phinkie/Downloads/ingsw.zip 
 	public static void main(final String[] args) 
-	{ 
+	{  
 		ZipParser fileParser = new ZipParser();
 
 		CommandParser commandParser = null;

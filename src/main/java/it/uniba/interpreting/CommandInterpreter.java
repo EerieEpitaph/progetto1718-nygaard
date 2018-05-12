@@ -93,7 +93,6 @@ public class CommandInterpreter
                         {
                             String toWho = workspace.getMentionParams()[1];
                             DataController.mentionsToUser(fileParser, toWho, "");
-                         
                             //Stampa tutti i mention in cui viene menzionato x
                         } 
                         

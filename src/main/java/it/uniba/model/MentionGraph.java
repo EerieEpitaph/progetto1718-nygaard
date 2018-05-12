@@ -20,7 +20,8 @@ public class MentionGraph {
 	String[] commignore = { "has joined the channel", "set the channel purpose", 
 			"cleared channel topic", "uploaded a file", "commented on", "was added to this conversation", 
 			"set the channel topic", "pinned a message to this channel", "pinned", "has renamed the channel",
-			"un-archived the channel", "archived the channel", "cleared channel purpose"};
+			"un-archived the channel", "archived the channel", "cleared channel purpose",
+			"shared a file" };
 	// aggiornare lista comandi da ignorare {deleted} 
 	
 	public MentionGraph() {}
@@ -38,19 +39,22 @@ public class MentionGraph {
 	{
  		if(inChannel == "")
 			for(ArrayList<Message> mess : message.values())
-				parsing(mess,users);
+				parsing(mess,users); 
 		else
 			if(message.containsKey(inChannel))
 				parsing(message.get(inChannel),users);
 	}
 	
 	void parsing(ArrayList<Message> mess, HashMap<String, User> users)
-	{
+	{ 
 		for(Message msg : mess)
 		{
 			// eliminare i mention ignore scritte dal prof 
 			if(msg.getText().contains("<@") && !containsItems(msg.getText()))
 			{	
+				
+//				System.out.println("----------- Testo Grabbato: \n" + msg.getText());
+//				System.out.println("\t\t Scritto da:   " +  msg.getUser() + "\n ############# \n\n");
 				User utenteu = users.get(msg.getUser());				
 				/* controlli esistenza dei nodi prima di inserirli */ 
 				if(!snagraph.nodes().contains(utenteu))
@@ -70,6 +74,14 @@ public class MentionGraph {
 			    		
 			    		/* controllo se esiste gia un arco tra i due utenti: Se esiste aggiungo 
 						 +1 al mention altrimenti se non esiste creo l'arco */
+			    		
+			    		//System.out.println("Arco tra: " + utenteu.getRealName() + " E --> " + utentev.getRealName());
+//			    		if(utentev.getRealName().equals("Filippo") && !snagraph.hasEdgeConnecting(utenteu, utentev))
+//			    		{
+//			    			ester++;
+//			    			System.out.println("----------- Testo Grabbato: \n" + msg.getText());
+//							System.out.println("\t\t Scritto da:   " +  utenteu.getRealName() + "\n ############# \n\n");
+//			    		}
 			    		if(!snagraph.hasEdgeConnecting(utenteu, utentev))
 			    			snagraph.putEdgeValue(utenteu, utentev, 1); //dobbiamo pescarlo dal grafo e poi inserire l'arco (pot ghess) 
 			    		else
@@ -83,32 +95,37 @@ public class MentionGraph {
 			    }
 			}
 		}
+		
 	}
 	
-	public int printEdgesInDegree(User user)
+	public void printEdgesInDegree(User user)
 	{
-		// controllo se esiste il nodo nel grafo è ha almeno un arco in entrata
-		if(snagraph.nodes().contains(user) && (snagraph.inDegree(user) > 0)) // attenzione al controllo > 0
+		if(snagraph.nodes().contains(user)) 
 		{
-			int inEdges = snagraph.inDegree(user); // ok 
-			Iterator<User> it = snagraph.nodes().iterator();
-			// fin quando ci sono archi in entrata, enumero tutti i nodi in cerca di connessioni 
-			String nameUser = user.getRealName();
-			while(inEdges > 0 && it.hasNext())
+			if(snagraph.inDegree(user) > 0)
 			{
-				if(snagraph.hasEdgeConnecting(it.next(), user))
+				int inEdges = snagraph.inDegree(user); // ok
+				String nameUser = user.getRealName();
+				for(User to : snagraph.nodes())
 				{
-					System.out.println("From: " + it.next().getRealName() +
-							"\tTo: " +  nameUser + "\t n. mention: "
-								+ snagraph.edgeValue(it.next(), user).orElse(1));
-					inEdges--;
+					if (snagraph.hasEdgeConnecting(to, user)) 
+					{
+						System.out.println("From: " + to.getRealName() + "\tTo: " + nameUser + "\t n. mention: "
+								+ snagraph.edgeValue(to, user).get());
+						inEdges--;
+						if(inEdges == 0)
+							break;
+					}
 				}
 			}
+			else
+				System.out.println("There aren't mention.");
 		}
-		return 0;
+		else
+			System.out.println("The user specified doesn't belong to this channel.");
 	}
 	
-	public int printEdges(User user)
+	public void printEdges(User user)
 	{	
 		int numNodesPrinted = 0;
  		if(user == null)			
@@ -146,7 +163,6 @@ public class MentionGraph {
 				System.out.println("The user specified doesn't belong to this channel.");
  			}
  		}
- 		return numNodesPrinted;
 	}
  
 	public MutableValueGraph<User, Integer>  getGraph()
