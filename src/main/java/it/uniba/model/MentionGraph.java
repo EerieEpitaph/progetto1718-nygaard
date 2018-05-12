@@ -5,6 +5,7 @@ import it.uniba.workdata.User;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,13 +20,12 @@ public class MentionGraph {
 	String[] commignore = { "has joined the channel", "set the channel purpose", 
 			"cleared channel topic", "uploaded a file", "commented on", "was added to this conversation", 
 			"set the channel topic", "pinned a message to this channel", "pinned", "has renamed the channel",
-			"un-archived the channel", "archived the channel", "cleared channel purpose"};
-	// aggiornare lista comandi da ignorare {deleted} 
+			"un-archived the channel", "archived the channel", "cleared channel purpose","has left the channel",
+			"shared a file" };
+	// aggiornare lista comandi da ignorare {deleted} trovare riferimento ufficiale 
+	
 	public MentionGraph() {}
-//	public MentionGraph(ArrayList<Message> message,HashMap<String, User> users )
-//	{
-//		parseMessages(message,users);
-//	}
+
 	
 	public boolean containsItems(String inputStr) 
 	{
@@ -36,18 +36,21 @@ public class MentionGraph {
 	{
  		if(inChannel == "")
 			for(ArrayList<Message> mess : message.values())
-				parsing(mess,users);
+				parsing(mess,users); 
 		else
 			if(message.containsKey(inChannel))
 				parsing(message.get(inChannel),users);
 	}
 	
 	void parsing(ArrayList<Message> mess, HashMap<String, User> users)
-	{
+	{ 
 		for(Message msg : mess)
 		{
 			if(msg.getText().contains("<@") && !containsItems(msg.getText()))
 			{	
+				/* Attivare le due stampe in caso di null pointer per vedere eventuali stringhe di controllo usate da slack per gestire il singolo utente */
+//				System.out.println("----------- Testo Grabbato: \n" + msg.getText());
+//				System.out.println("\t\t Scritto da:   " +  msg.getUser() + "\n ############# \n\n");
 				User utenteu = users.get(msg.getUser());				
 				/* controlli esistenza dei nodi prima di inserirli */ 
 				if(!snagraph.nodes().contains(utenteu))
@@ -80,9 +83,39 @@ public class MentionGraph {
 			    }
 			}
 		}
+		
+	}
+	// issue#39
+	public void printEdgesInDegree(User user)
+	{
+		if(snagraph.nodes().contains(user)) 
+		{
+			if(snagraph.inDegree(user) > 0)
+			{
+				int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in analisi
+				String nameUser = user.getRealName();
+				for(User to : snagraph.nodes())  // per ogni nodo nel grafo controllo se ha un arco con l'utente presoin analisi
+				{
+					if (snagraph.hasEdgeConnecting(to, user)) 
+					{
+						// stampo l'arco  tra i due utenti interessati 
+						System.out.println("From: " + to.getRealName() + "\tTo: " + nameUser + "\t n. mention: "
+								+ snagraph.edgeValue(to, user).get());
+						inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0
+						if(inEdges == 0)
+							break;
+					}
+				}
+			}
+			else
+				System.out.println("There aren't mention.");
+		}
+		else
+			System.out.println("The user specified doesn't belong to this channel.");
 	}
 	
-	public int printEdges(User user)
+	//issue37 && issue#38
+	public void printEdges(User user)
 	{	
 		int numNodesPrinted = 0;
  		if(user == null)			
@@ -120,7 +153,6 @@ public class MentionGraph {
 				System.out.println("The user specified doesn't belong to this channel.");
  			}
  		}
- 		return numNodesPrinted;
 	}
  
 	public MutableValueGraph<User, Integer>  getGraph()

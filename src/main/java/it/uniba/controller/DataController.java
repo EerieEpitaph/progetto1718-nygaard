@@ -70,8 +70,8 @@ public class DataController
     	}
     } 
 
-    
-    public static void printMentionFromUser(ZipParser fileParser, String user, String inChannel)
+    // #38 
+    public static void mentionsFromUser(ZipParser fileParser, String user, String inChannel)
     {
     	String idUser = getUserFromId(fileParser, user);
     	if(inChannel.equals(""))
@@ -83,7 +83,6 @@ public class DataController
     		}
     		else
     		{
-    			
 				System.out.println("The user specified doesn't exist.");    			
     		}
     	}
@@ -104,13 +103,56 @@ public class DataController
     	}
     }
     
+    // #39 
+    public static void mentionsToUser(ZipParser fileParser, String user, String inChannel)
+    {
+    	String idUser = getUserFromId(fileParser, user);
+    	if(inChannel.equals(""))
+    	{
+    		if(fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
+    		{
+    			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), ""); // parse dei mention sul grafo
+     			fileParser.getMentionGraph().printEdgesInDegree(fileParser.getUsers().get(idUser));
+    		}
+    		else
+    		{
+				System.out.println("The user specified doesn't exist.");    			
+    		}
+    	}
+    	else
+    	{
+    		if(fileParser.getUsers().containsKey(idUser) && fileParser.getChannels().containsKey(inChannel))
+    		{
+    			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel); // parse dei mention sul grafo
+    			fileParser.getMentionGraph().printEdgesInDegree(fileParser.getUsers().get(idUser));
+    		}
+    		else 
+    		{
+    			if(!fileParser.getUsers().containsKey(idUser))
+    				System.out.println("The user specified doesn't exist.");
+				if(!fileParser.getChannels().containsKey(inChannel))
+					System.out.println("The channel specified doesn't exist.");    			
+    		}
+    	}
+    }
     static String getUserFromId(ZipParser fileParser, String name)
     {
+    	// possiamo aggiunger eccezione 
     	for(User x : fileParser.getUsers().values())
     	{ 
-    		//System.out.println(x.getName());
-    		if(x.getDisplayNameNorm().equals(name) ||  x.getRealName().equals(name) ||  x.getName().equals(name))
-    			return x.getId();
+    		String disName = x.getDisplayNameNorm();
+    		String rn = x.getRealName();
+    		String _name = x.getName();
+    		
+    		if(disName != null)
+    			if(disName.equals(name))
+    				return x.getId();
+    		if(rn != null)
+    			if(rn.equals(name))
+    				return x.getId();
+    		if(_name != null)
+    			if(_name.equals(name))
+    				return x.getId(); 
     	}
     	return "";
     }
