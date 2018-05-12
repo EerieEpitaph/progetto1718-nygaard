@@ -22,13 +22,10 @@ public class MentionGraph {
 			"set the channel topic", "pinned a message to this channel", "pinned", "has renamed the channel",
 			"un-archived the channel", "archived the channel", "cleared channel purpose","has left the channel",
 			"shared a file" };
-	// aggiornare lista comandi da ignorare {deleted} 
+	// aggiornare lista comandi da ignorare {deleted} trovare riferimento ufficiale 
 	
 	public MentionGraph() {}
-//	public MentionGraph(ArrayList<Message> message,HashMap<String, User> users )
-//	{
-//		parseMessages(message,users);
-//	}
+
 	
 	public boolean containsItems(String inputStr) 
 	{
@@ -49,7 +46,6 @@ public class MentionGraph {
 	{ 
 		for(Message msg : mess)
 		{
-			// eliminare i mention ignore scritte dal prof 
 			if(msg.getText().contains("<@") && !containsItems(msg.getText()))
 			{	
 				/* Attivare le due stampe in caso di null pointer per vedere eventuali stringhe di controllo usate da slack per gestire il singolo utente */
@@ -74,14 +70,6 @@ public class MentionGraph {
 			    		
 			    		/* controllo se esiste gia un arco tra i due utenti: Se esiste aggiungo 
 						 +1 al mention altrimenti se non esiste creo l'arco */
-			    		
-			    		//System.out.println("Arco tra: " + utenteu.getRealName() + " E --> " + utentev.getRealName());
-//			    		if(utentev.getRealName().equals("Filippo") && !snagraph.hasEdgeConnecting(utenteu, utentev))
-//			    		{
-//			    			ester++;
-//			    			System.out.println("----------- Testo Grabbato: \n" + msg.getText());
-//							System.out.println("\t\t Scritto da:   " +  utenteu.getRealName() + "\n ############# \n\n");
-//			    		}
 			    		if(!snagraph.hasEdgeConnecting(utenteu, utentev))
 			    			snagraph.putEdgeValue(utenteu, utentev, 1); //dobbiamo pescarlo dal grafo e poi inserire l'arco (pot ghess) 
 			    		else
@@ -104,15 +92,16 @@ public class MentionGraph {
 		{
 			if(snagraph.inDegree(user) > 0)
 			{
-				int inEdges = snagraph.inDegree(user); // ok
+				int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in analisi
 				String nameUser = user.getRealName();
-				for(User to : snagraph.nodes())
+				for(User to : snagraph.nodes())  // per ogni nodo nel grafo controllo se ha un arco con l'utente presoin analisi
 				{
 					if (snagraph.hasEdgeConnecting(to, user)) 
 					{
+						// stampo l'arco  tra i due utenti interessati 
 						System.out.println("From: " + to.getRealName() + "\tTo: " + nameUser + "\t n. mention: "
 								+ snagraph.edgeValue(to, user).get());
-						inEdges--;
+						inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0
 						if(inEdges == 0)
 							break;
 					}
@@ -125,6 +114,7 @@ public class MentionGraph {
 			System.out.println("The user specified doesn't belong to this channel.");
 	}
 	
+	//issue37 && issue#38
 	public void printEdges(User user)
 	{	
 		int numNodesPrinted = 0;
