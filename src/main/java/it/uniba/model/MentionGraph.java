@@ -20,7 +20,7 @@ public class MentionGraph {
 	String[] commignore = { "has joined the channel", "set the channel purpose", 
 			"cleared channel topic", "uploaded a file", "commented on", "was added to this conversation", 
 			"set the channel topic", "pinned a message to this channel", "pinned", "has renamed the channel",
-			"un-archived the channel", "archived the channel", "cleared channel purpose",
+			"un-archived the channel", "archived the channel", "cleared channel purpose","has left the channel",
 			"shared a file" };
 	// aggiornare lista comandi da ignorare {deleted} 
 	
@@ -52,7 +52,7 @@ public class MentionGraph {
 			// eliminare i mention ignore scritte dal prof 
 			if(msg.getText().contains("<@") && !containsItems(msg.getText()))
 			{	
-				
+				/* Attivare le due stampe in caso di null pointer per vedere eventuali stringhe di controllo usate da slack per gestire il singolo utente */
 //				System.out.println("----------- Testo Grabbato: \n" + msg.getText());
 //				System.out.println("\t\t Scritto da:   " +  msg.getUser() + "\n ############# \n\n");
 				User utenteu = users.get(msg.getUser());				

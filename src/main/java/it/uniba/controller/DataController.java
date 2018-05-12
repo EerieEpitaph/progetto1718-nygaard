@@ -83,7 +83,6 @@ public class DataController
     		}
     		else
     		{
-    			
 				System.out.println("The user specified doesn't exist.");    			
     		}
     	}
@@ -138,11 +137,22 @@ public class DataController
     }
     static String getUserFromId(ZipParser fileParser, String name)
     {
+    	// possiamo aggiunger eccezione 
     	for(User x : fileParser.getUsers().values())
     	{ 
-    		//System.out.println(x.getName());
-    		if(x.getDisplayNameNorm().equals(name) ||  x.getRealName().equals(name) ||  x.getName().equals(name))
-    			return x.getId();
+    		String disName = x.getDisplayNameNorm();
+    		String rn = x.getRealName();
+    		String _name = x.getName();
+    		
+    		if(disName != null)
+    			if(disName.equals(name))
+    				return x.getId();
+    		if(rn != null)
+    			if(rn.equals(name))
+    				return x.getId();
+    		if(_name != null)
+    			if(_name.equals(name))
+    				return x.getId(); 
     	}
     	return "";
     }
