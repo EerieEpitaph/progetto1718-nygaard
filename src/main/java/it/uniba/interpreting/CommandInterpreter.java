@@ -131,9 +131,10 @@ public class CommandInterpreter
         System.out.println("\t-uc (channelFilter) prints all the users in the specified channel ");
         System.out.println("\t-cu prints all the channels with their users\n");
         System.out.println("\t-m prints all the mentions in a workspace");
-        System.out.println("\t\t-m [from] filters the mentioner");
-        System.out.println("\t\t-m [to] filters the mentioned");
-        System.out.println("\t\t-m [int] filters the channel");
+        System.out.println("\t\t-m from <user> filters the mentioner");
+        System.out.println("\t\t-m to <user> filters the mentioned");
+        System.out.println("\t\t-m in filters the channel");
+        System.out.println("\t\t-m from <user> OR to <user> in <channel> filters the mentioner or mentioned in the channel");
     }
     
     private Boolean wantsFrom(String[] mentionParams)
