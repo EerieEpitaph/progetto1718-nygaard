@@ -124,7 +124,7 @@ public class CommandInterpreter
     {
         System.out.println("Usage:");
         System.out.println("help - shows this help\n");
-        System.out.println("-w \"path\\to\\file.zip\" ( -c | -u | -uc <channelFilter> | -cu | -m [from <x>] [to <y>] [in <z>])");
+        System.out.println("-w \"path\\to\\file.zip\" ( -c | -u | -uc <channelFilter> | -cu | -m [from <x>] | [to <y>] [in <z>])");
         System.out.println("\t-w parses a workspace");
         System.out.println("\t-c prints all the channels in the specified workspace");
         System.out.println("\t-u prints all the users in the specified workspace");
