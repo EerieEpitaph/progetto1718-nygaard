@@ -49,3 +49,4 @@ local.properties
 /build/scripts
 
 /build/test-results
+/build/

@@ -3,17 +3,19 @@ package it.uniba.model;
 import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
 
+import it.uniba.model.Edge;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
 
-public class MentionGraph {
+public class MentionGraph extends AbstractGraph {
 	private MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
 
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
@@ -29,6 +31,14 @@ public class MentionGraph {
 
 	public boolean containsItems(String inputStr) {
 		return Arrays.stream(commignore).parallel().anyMatch(inputStr::contains);
+	}
+
+	public boolean containsNode(User node) {
+		return snagraph.nodes().contains(node);
+	}
+
+	public void generate() {
+
 	}
 
 	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users,
@@ -86,39 +96,45 @@ public class MentionGraph {
 	}
 
 	// issue#39
-	public void printEdgesInDegree(User user) {
+	public ArrayList<Edge> edgesInDegree(User user) {
+		ArrayList<Edge> edges = new ArrayList<Edge>();
 		if (snagraph.nodes().contains(user)) {
 			if (snagraph.inDegree(user) > 0) {
 				int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in
-														// analisi
-				String nameUser = user.getRealName();
+													// analisi
+//				String nameUser = user.getRealName();
 				for (User to : snagraph.nodes()) // per ogni nodo nel grafo controllo se ha un arco con l'utente presoin
 													// analisi
 				{
 					if (snagraph.hasEdgeConnecting(to, user)) {
 						// stampo l'arco tra i due utenti interessati
-						System.out.println("From: " + to.getRealName() + "\tTo: " + nameUser + "\t n. mention: "
-								+ snagraph.edgeValue(to, user).get());
+//						System.out.println("From: " + to.getRealName() + "\tTo: " + nameUser + "\t n. mention: "
+//								+ snagraph.edgeValue(to, user).get());
+						edges.add(new Edge(to, user, (float) snagraph.edgeValue(to, user).get())); 
 						inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0
 						if (inEdges == 0)
 							break;
 					}
 				}
-			} else
-				System.out.println("There aren't mention.");
-		} else
-			System.out.println("The user specified doesn't belong to this channel.");
+			}// else
+//				System.out.println("There aren't mention.");
+		}// else
+//			System.out.println("The user specified doesn't belong to this channel.");
+		return edges;
 	}
 
 	// issue37 && issue#38
-	public void printEdges(User user) {
+	public ArrayList<Edge> edgesOutDegree(User user) {
+		ArrayList<Edge> edges = new ArrayList<Edge>();
 		int numNodesPrinted = 0;
 		if (user == null) {
 			for (User x : snagraph.nodes())
 				for (User adiacenti : snagraph.adjacentNodes(x))
 					if (snagraph.hasEdgeConnecting(x, adiacenti)) {
-						System.out.println("From: " + x.getRealName() + "\tTo: " + adiacenti.getRealName()
-								+ "\t n. mention: " + snagraph.edgeValue(x, adiacenti).get());
+						// System.out.println("From: " + x.getRealName() + "\tTo: " +
+						// adiacenti.getRealName()
+						// + "\t n. mention: " + snagraph.edgeValue(x, adiacenti).get());
+						edges.add(new Edge(x, adiacenti, (float) snagraph.edgeValue(x, adiacenti).get()));
 						numNodesPrinted++;
 					}
 			if (numNodesPrinted == 0) // eccezione: non ci sono mention nel workspace
@@ -127,20 +143,23 @@ public class MentionGraph {
 			if (snagraph.nodes().contains(user)) {
 				for (User adiacenti : snagraph.adjacentNodes(user))
 					if (snagraph.hasEdgeConnecting(user, adiacenti)) {
-						System.out.println("From: " + user.getRealName() + "\tTo: " + adiacenti.getRealName()
-								+ "\t n. mention: " + snagraph.edgeValue(user, adiacenti).get());
+//						System.out.println("From: " + user.getRealName() + "\tTo: " + adiacenti.getRealName()
+//								+ "\t n. mention: " + snagraph.edgeValue(user, adiacenti).get());
+						edges.add(new Edge(user, adiacenti, (float) snagraph.edgeValue(user, adiacenti).get()));
 						numNodesPrinted++;
 					}
-				if (numNodesPrinted == 0) // eccezione: non ci sono mention nel channel specificato
-					System.out.println("There aren't mention in the channel specified.");
-			} else {
+//				if (numNodesPrinted == 0) // eccezione: non ci sono mention nel channel specificato
+//					System.out.println("There aren't mention in the channel specified.");
+			}// else {
 				// eccezione : user non presente nel canale specificato
-				System.out.println("The user specified doesn't belong to this channel.");
-			}
+//				System.out.println("The user specified doesn't belong to this channel.");
+//			}
 		}
+		return edges;
 	}
 
-	public MutableValueGraph<User, Integer> getGraph() {
-		return snagraph;
-	}
+//	public MutableValueGraph<User, Integer> getGraph() {
+//		return snagraph;
+//	}
+
 }

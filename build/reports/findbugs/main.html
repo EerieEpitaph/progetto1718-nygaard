@@ -71,15 +71,15 @@
 <p>FindBugs version: 3.0.1</p>
 <p>Code analyzed:</p>
 <ul>
-<li>D:\Files\Progetti\Gradle\progetto1718-nygaard\build\classes\java\main</li>
+<li>C:\1Università\Ingegneria del Software\progetto1718-nygaard\build\classes\java\main</li>
 </ul>
 <p>
 <br/>
 <br/>
 </p>
 <h2>Metrics</h2>
-<p>4710 lines of code analyzed,
-	in 133 classes, 
+<p>4773 lines of code analyzed,
+	in 134 classes, 
 	in 6 packages.</p>
 <table width="500" cellpadding="5" cellspacing="2">
 <tr class="tableheader">
@@ -90,22 +90,22 @@
 <tr class="tablerow0">
 <td>High Priority Warnings</td>
 <td align="right">6</td>
-<td align="right">1.27</td>
+<td align="right">1.26</td>
 </tr>
 <tr class="tablerow1">
 <td>Medium Priority Warnings</td>
-<td align="right">17</td>
-<td align="right">3.61</td>
+<td align="right">18</td>
+<td align="right">3.77</td>
 </tr>
 <tr class="$totalClass">
 <td>
 <b>Total Warnings</b>
 </td>
 <td align="right">
-<b>23</b>
+<b>24</b>
 </td>
 <td align="right">
-<b>4.88</b>
+<b>5.03</b>
 </td>
 </tr>
 </table>
@@ -120,6 +120,9 @@
 <ul>
 <li>
 <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</li>
+<li>
+<a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
 </li>
 <li>
 <a href="#Warnings_I18N">Internationalization Warnings</a>
@@ -147,38 +150,44 @@
 <td>
 <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
 </td>
-<td align="right">12</td>
+<td align="right">11</td>
 </tr>
 <tr class="tablerow1">
 <td>
-<a href="#Warnings_I18N">Internationalization Warnings</a>
+<a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
 </td>
 <td align="right">2</td>
 </tr>
 <tr class="tablerow0">
 <td>
-<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+<a href="#Warnings_I18N">Internationalization Warnings</a>
 </td>
-<td align="right">3</td>
+<td align="right">2</td>
 </tr>
 <tr class="tablerow1">
 <td>
-<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
 </td>
 <td align="right">3</td>
 </tr>
 <tr class="tablerow0">
 <td>
-<a href="#Warnings_STYLE">Dodgy code Warnings</a>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
 </td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="tablerow1">
+<td>
+<a href="#Warnings_STYLE">Dodgy code Warnings</a>
+</td>
+<td align="right">2</td>
+</tr>
+<tr class="tablerow0">
 <td>
 <b>Total</b>
 </td>
 <td align="right">
-<b>23</b>
+<b>24</b>
 </td>
 </tr>
 </table>
@@ -192,7 +201,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66922');">
+<tr class="tablerow1" onclick="toggleRow('N66817');">
 <td>
 <span class="priority-2">BC</span>
 </td>
@@ -201,12 +210,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66922" style="display: none;">
+<p id="N66817" style="display: none;">
 <a href="#BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS">Bug type BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS (click for details)</a>
-<br/>In class it.uniba.workdata.User<br/>In method it.uniba.workdata.User.equals(Object)<br/>At User.java:[line 24]</p>
+<br/>In class it.uniba.workdata.User<br/>In method it.uniba.workdata.User.equals(Object)<br/>At User.java:[line 36]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N65970');">
+<tr class="tablerow0" onclick="toggleRow('N65900');">
 <td>
 <span class="priority-1">DE</span>
 </td>
@@ -215,12 +224,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N65970" style="display: none;">
+<p id="N65900" style="display: none;">
 <a href="#DE_MIGHT_IGNORE">Bug type DE_MIGHT_IGNORE (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Interpreter<br/>In method it.uniba.parsing.CommandLine$Interpreter.expandValidArgumentFile(String, File, List, Set)<br/>Exception class java.lang.Exception<br/>At CommandLine.java:[line 4742]<br/>At CommandLine.java:[line 4742]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N65644');">
+<tr class="tablerow1" onclick="toggleRow('N65574');">
 <td>
 <span class="priority-1">ES</span>
 </td>
@@ -229,12 +238,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N65644" style="display: none;">
+<p id="N65574" style="display: none;">
 <a href="#ES_COMPARING_PARAMETER_STRING_WITH_EQ">Bug type ES_COMPARING_PARAMETER_STRING_WITH_EQ (click for details)</a>
-<br/>In class it.uniba.model.MentionGraph<br/>In method it.uniba.model.MentionGraph.parseMessages(HashMap, HashMap, String)<br/>Actual type String<br/>String constant ""<br/>Value loaded from inChannel<br/>At MentionGraph.java:[line 38]</p>
+<br/>In class it.uniba.model.MentionGraph<br/>In method it.uniba.model.MentionGraph.parseMessages(HashMap, HashMap, String)<br/>Actual type String<br/>String constant ""<br/>Value loaded from inChannel<br/>At MentionGraph.java:[line 36]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66513');">
+<tr class="tablerow0" onclick="toggleRow('N66443');">
 <td>
 <span class="priority-2">ES</span>
 </td>
@@ -243,12 +252,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66513" style="display: none;">
+<p id="N66443" style="display: none;">
 <a href="#ES_COMPARING_STRINGS_WITH_EQ">Bug type ES_COMPARING_STRINGS_WITH_EQ (click for details)</a>
-<br/>In class it.uniba.parsing.CommandParser$CommWorkspace<br/>In method it.uniba.parsing.CommandParser$CommWorkspace.isValidFilter()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.parsing.CommandParser$CommWorkspace.channelFilter<br/>At CommandParser.java:[line 90]</p>
+<br/>In class it.uniba.parsing.CommandParser$CommWorkspace<br/>In method it.uniba.parsing.CommandParser$CommWorkspace.isValidFilter()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.parsing.CommandParser$CommWorkspace.channelFilter<br/>At CommandParser.java:[line 77]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66603');">
+<tr class="tablerow1" onclick="toggleRow('N66533');">
 <td>
 <span class="priority-2">ES</span>
 </td>
@@ -257,12 +266,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66603" style="display: none;">
+<p id="N66533" style="display: none;">
 <a href="#ES_COMPARING_STRINGS_WITH_EQ">Bug type ES_COMPARING_STRINGS_WITH_EQ (click for details)</a>
-<br/>In class it.uniba.parsing.CommandParser$CommWorkspace<br/>In method it.uniba.parsing.CommandParser$CommWorkspace.isValidWorkspace()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.parsing.CommandParser$CommWorkspace.workspaceName<br/>At CommandParser.java:[line 65]</p>
+<br/>In class it.uniba.parsing.CommandParser$CommWorkspace<br/>In method it.uniba.parsing.CommandParser$CommWorkspace.isValidWorkspace()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.parsing.CommandParser$CommWorkspace.workspaceName<br/>At CommandParser.java:[line 57]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66762');">
+<tr class="tablerow0" onclick="toggleRow('N66692');">
 <td>
 <span class="priority-2">ES</span>
 </td>
@@ -271,93 +280,116 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66762" style="display: none;">
+<p id="N66692" style="display: none;">
 <a href="#ES_COMPARING_STRINGS_WITH_EQ">Bug type ES_COMPARING_STRINGS_WITH_EQ (click for details)</a>
-<br/>In class it.uniba.parsing.ZipParser<br/>In method it.uniba.parsing.ZipParser.hasLoaded()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.parsing.ZipParser.workspaceLoaded<br/>At ZipParser.java:[line 47]</p>
+<br/>In class it.uniba.parsing.ZipParser<br/>In method it.uniba.parsing.ZipParser.hasLoaded()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.parsing.ZipParser.workspaceLoaded<br/>At ZipParser.java:[line 43]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66852');">
-<td>
-<span class="priority-2">Nm</span>
-</td>
-<td>The class name it.uniba.workdata.Message$gsonMessage doesn't start with an upper case letter</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N66852" style="display: none;">
-<a href="#NM_CLASS_NAMING_CONVENTION">Bug type NM_CLASS_NAMING_CONVENTION (click for details)</a>
-<br/>In class it.uniba.workdata.Message$gsonMessage<br/>At Message.java:[lines 12-30]</p>
-</td>
-</tr>
-<tr class="tablerow0" onclick="toggleRow('N66975');">
+<tr class="tablerow1" onclick="toggleRow('N66870');">
 <td>
 <span class="priority-1">NP</span>
 </td>
 <td>it.uniba.workdata.User.equals(Object) does not check for null argument</td>
 </tr>
-<tr class="detailrow0">
+<tr class="detailrow1">
 <td/>
 <td>
-<p id="N66975" style="display: none;">
+<p id="N66870" style="display: none;">
 <a href="#NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT">Bug type NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT (click for details)</a>
-<br/>In class it.uniba.workdata.User<br/>In method it.uniba.workdata.User.equals(Object)<br/>Parameter obj<br/>At User.java:[line 24]</p>
+<br/>In class it.uniba.workdata.User<br/>In method it.uniba.workdata.User.equals(Object)<br/>Parameter obj<br/>At User.java:[line 36]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N65849');">
+<tr class="tablerow0" onclick="toggleRow('N65779');">
 <td>
 <span class="priority-2">RV</span>
 </td>
 <td>it.uniba.parsing.CommandLine$Help$SortByShortestOptionNameAlphabetically.compare(CommandLine$Model$OptionSpec, CommandLine$Model$OptionSpec) negates the return value of String.compareTo(String)</td>
 </tr>
-<tr class="detailrow1">
+<tr class="detailrow0">
 <td/>
 <td>
-<p id="N65849" style="display: none;">
+<p id="N65779" style="display: none;">
 <a href="#RV_NEGATING_RESULT_OF_COMPARETO">Bug type RV_NEGATING_RESULT_OF_COMPARETO (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Help$SortByShortestOptionNameAlphabetically<br/>In method it.uniba.parsing.CommandLine$Help$SortByShortestOptionNameAlphabetically.compare(CommandLine$Model$OptionSpec, CommandLine$Model$OptionSpec)<br/>Called method String.compareTo(String)<br/>Return value of String.compareTo(String) of type int<br/>At CommandLine.java:[line 6960]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N65779');">
+<tr class="tablerow1" onclick="toggleRow('N65709');">
 <td>
 <span class="priority-2">Se</span>
 </td>
 <td>it.uniba.parsing.CommandLine$Help$ShortestFirst implements Comparator but not Serializable</td>
 </tr>
-<tr class="detailrow0">
+<tr class="detailrow1">
 <td/>
 <td>
-<p id="N65779" style="display: none;">
+<p id="N65709" style="display: none;">
 <a href="#SE_COMPARATOR_SHOULD_BE_SERIALIZABLE">Bug type SE_COMPARATOR_SHOULD_BE_SERIALIZABLE (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Help$ShortestFirst<br/>At CommandLine.java:[lines 6937-6949]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N65814');">
+<tr class="tablerow0" onclick="toggleRow('N65744');">
 <td>
 <span class="priority-2">Se</span>
 </td>
 <td>it.uniba.parsing.CommandLine$Help$SortByOptionArityAndNameAlphabetically implements Comparator but not Serializable</td>
 </tr>
-<tr class="detailrow1">
+<tr class="detailrow0">
 <td/>
 <td>
-<p id="N65814" style="display: none;">
+<p id="N65744" style="display: none;">
 <a href="#SE_COMPARATOR_SHOULD_BE_SERIALIZABLE">Bug type SE_COMPARATOR_SHOULD_BE_SERIALIZABLE (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Help$SortByOptionArityAndNameAlphabetically<br/>At CommandLine.java:[lines 6965-6977]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N65935');">
+<tr class="tablerow1" onclick="toggleRow('N65865');">
 <td>
 <span class="priority-2">Se</span>
 </td>
 <td>it.uniba.parsing.CommandLine$Help$SortByShortestOptionNameAlphabetically implements Comparator but not Serializable</td>
 </tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65865" style="display: none;">
+<a href="#SE_COMPARATOR_SHOULD_BE_SERIALIZABLE">Bug type SE_COMPARATOR_SHOULD_BE_SERIALIZABLE (click for details)</a>
+<br/>In class it.uniba.parsing.CommandLine$Help$SortByShortestOptionNameAlphabetically<br/>At CommandLine.java:[lines 6954-6961]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_CORRECTNESS">Correctness Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66931');">
+<td>
+<span class="priority-2">NP</span>
+</td>
+<td>Read of unwritten field profile in it.uniba.workdata.User.getDisplayNameNorm()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66931" style="display: none;">
+<a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class it.uniba.workdata.User<br/>In method it.uniba.workdata.User.getDisplayNameNorm()<br/>Field it.uniba.workdata.User.profile<br/>At User.java:[line 57]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66999');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: it.uniba.workdata.User.profile</td>
+</tr>
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N65935" style="display: none;">
-<a href="#SE_COMPARATOR_SHOULD_BE_SERIALIZABLE">Bug type SE_COMPARATOR_SHOULD_BE_SERIALIZABLE (click for details)</a>
-<br/>In class it.uniba.parsing.CommandLine$Help$SortByShortestOptionNameAlphabetically<br/>At CommandLine.java:[lines 6954-6961]</p>
+<p id="N66999" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class it.uniba.workdata.User<br/>Field it.uniba.workdata.User.profile<br/>At User.java:[line 57]</p>
 </td>
 </tr>
 </table>
@@ -369,7 +401,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66048');">
+<tr class="tablerow1" onclick="toggleRow('N65978');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -378,12 +410,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66048" style="display: none;">
+<p id="N65978" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Interpreter<br/>In method it.uniba.parsing.CommandLine$Interpreter.expandValidArgumentFile(String, File, List, Set)<br/>Called method new java.io.FileReader(File)<br/>At CommandLine.java:[line 4728]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66693');">
+<tr class="tablerow0" onclick="toggleRow('N66623');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -392,9 +424,9 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66693" style="display: none;">
+<p id="N66623" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-<br/>In class it.uniba.parsing.ZipParser<br/>In method it.uniba.parsing.ZipParser.load(String)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At ZipParser.java:[line 88]</p>
+<br/>In class it.uniba.parsing.ZipParser<br/>In method it.uniba.parsing.ZipParser.load(String)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At ZipParser.java:[line 79]</p>
 </td>
 </tr>
 </table>
@@ -406,7 +438,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66238');">
+<tr class="tablerow1" onclick="toggleRow('N66168');">
 <td>
 <span class="priority-2">EI</span>
 </td>
@@ -415,12 +447,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66238" style="display: none;">
+<p id="N66168" style="display: none;">
 <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Model$CommandSpec<br/>In method it.uniba.parsing.CommandLine$Model$CommandSpec.version()<br/>Field it.uniba.parsing.CommandLine$Model$CommandSpec.version<br/>At CommandLine.java:[line 2924]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66377');">
+<tr class="tablerow0" onclick="toggleRow('N66307');">
 <td>
 <span class="priority-2">EI</span>
 </td>
@@ -429,12 +461,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66377" style="display: none;">
+<p id="N66307" style="display: none;">
 <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Model$OptionSpec$Builder<br/>In method it.uniba.parsing.CommandLine$Model$OptionSpec$Builder.names()<br/>Field it.uniba.parsing.CommandLine$Model$OptionSpec$Builder.names<br/>At CommandLine.java:[line 3906]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66445');">
+<tr class="tablerow1" onclick="toggleRow('N66375');">
 <td>
 <span class="priority-2">EI</span>
 </td>
@@ -443,9 +475,9 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66445" style="display: none;">
+<p id="N66375" style="display: none;">
 <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
-<br/>In class it.uniba.parsing.CommandParser$CommWorkspace<br/>In method it.uniba.parsing.CommandParser$CommWorkspace.getMentionParams()<br/>Field it.uniba.parsing.CommandParser$CommWorkspace.mentionParams<br/>At CommandParser.java:[line 95]</p>
+<br/>In class it.uniba.parsing.CommandParser$CommWorkspace<br/>In method it.uniba.parsing.CommandParser$CommWorkspace.getMentionParams()<br/>Field it.uniba.parsing.CommandParser$CommWorkspace.mentionParams<br/>At CommandParser.java:[line 81]</p>
 </td>
 </tr>
 </table>
@@ -457,7 +489,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66117');">
+<tr class="tablerow1" onclick="toggleRow('N66047');">
 <td>
 <span class="priority-2">SBSC</span>
 </td>
@@ -466,35 +498,49 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66117" style="display: none;">
+<p id="N66047" style="display: none;">
 <a href="#SBSC_USE_STRINGBUFFER_CONCATENATION">Bug type SBSC_USE_STRINGBUFFER_CONCATENATION (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Interpreter<br/>In method it.uniba.parsing.CommandLine$Interpreter.assertNoMissingParameters(CommandLine$Model$ArgSpec, CommandLine$Range, Stack)<br/>At CommandLine.java:[line 5558]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66887');">
+<tr class="tablerow0" onclick="toggleRow('N66782');">
 <td>
 <span class="priority-2">SIC</span>
 </td>
-<td>Should it.uniba.workdata.Message$gsonMessage be a _static_ inner class?</td>
+<td>Should it.uniba.workdata.Message$GsonMessage be a _static_ inner class?</td>
 </tr>
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66887" style="display: none;">
+<p id="N66782" style="display: none;">
 <a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
-<br/>In class it.uniba.workdata.Message$gsonMessage<br/>At Message.java:[lines 12-30]</p>
+<br/>In class it.uniba.workdata.Message$GsonMessage<br/>At Message.java:[lines 9-24]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N65726');">
+<tr class="tablerow1" onclick="toggleRow('N67050');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should it.uniba.workdata.User$Profile be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67050" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class it.uniba.workdata.User$Profile<br/>At User.java:[lines 7-12]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N65656');">
 <td>
 <span class="priority-2">WMI</span>
 </td>
 <td>it.uniba.parsing.CommandLine.getMixins() makes inefficient use of keySet iterator instead of entrySet iterator</td>
 </tr>
-<tr class="detailrow1">
+<tr class="detailrow0">
 <td/>
 <td>
-<p id="N65726" style="display: none;">
+<p id="N65656" style="display: none;">
 <a href="#WMI_WRONG_MAP_ITERATOR">Bug type WMI_WRONG_MAP_ITERATOR (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine<br/>In method it.uniba.parsing.CommandLine.getMixins()<br/>At CommandLine.java:[line 186]</p>
 </td>
@@ -508,44 +554,30 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N65574');">
-<td>
-<span class="priority-2">DLS</span>
-</td>
-<td>Dead store to inChannel in it.uniba.interpreting.CommandInterpreter.executeCommands(CommandParser, ZipParser)</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N65574" style="display: none;">
-<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
-<br/>In class it.uniba.interpreting.CommandInterpreter<br/>In method it.uniba.interpreting.CommandInterpreter.executeCommands(CommandParser, ZipParser)<br/>Local variable named inChannel<br/>At CommandInterpreter.java:[line 102]</p>
-</td>
-</tr>
-<tr class="tablerow0" onclick="toggleRow('N66306');">
+<tr class="tablerow1" onclick="toggleRow('N66236');">
 <td>
 <span class="priority-2">RCN</span>
 </td>
 <td>Redundant nullcheck of it.uniba.parsing.CommandLine$Model$ArgSpec.toString(), which is known to be non-null in new it.uniba.parsing.CommandLine$Model$OptionSpec(CommandLine$Model$OptionSpec$Builder)</td>
 </tr>
-<tr class="detailrow0">
+<tr class="detailrow1">
 <td/>
 <td>
-<p id="N66306" style="display: none;">
+<p id="N66236" style="display: none;">
 <a href="#RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE">Bug type RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Model$OptionSpec<br/>In method new it.uniba.parsing.CommandLine$Model$OptionSpec(CommandLine$Model$OptionSpec$Builder)<br/>Return value of it.uniba.parsing.CommandLine$Model$ArgSpec.toString() of type String<br/>Redundant null check at CommandLine.java:[line 3829]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66170');">
+<tr class="tablerow0" onclick="toggleRow('N66100');">
 <td>
 <span class="priority-1">UC</span>
 </td>
 <td>Useless condition: it's known that cluster.length() &gt; 0 at this point</td>
 </tr>
-<tr class="detailrow1">
+<tr class="detailrow0">
 <td/>
 <td>
-<p id="N66170" style="display: none;">
+<p id="N66100" style="display: none;">
 <a href="#UC_USELESS_CONDITION">Bug type UC_USELESS_CONDITION (click for details)</a>
 <br/>In class it.uniba.parsing.CommandLine$Interpreter<br/>In method it.uniba.parsing.CommandLine$Interpreter.processClusteredShortOptions(Collection, Set, String, Stack)<br/>Value cluster.length() &gt; 0<br/>Unreachable code at CommandLine.java:[line 5018]<br/>At CommandLine.java:[line 5018]</p>
 </td>
@@ -572,23 +604,6 @@ false if <code>o</code> is not the same type as <code>this</code>.
   <p> This method might ignore an exception.&nbsp; In general, exceptions
   should be handled or reported in some way, or they should be thrown
   out of the method.</p>
-
-    
-<h2>
-<a name="DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE: Dead store to local variable</a>
-</h2>
-
-<p>
-This instruction assigns a value to a local variable,
-but the value is not read or used in any subsequent instruction.
-Often, this indicates an error, because the value computed is never
-used.
-</p>
-<p>
-Note that Sun's javac compiler often generates dead stores for
-final local variables.  Because FindBugs is a bytecode-based tool,
-there is no easy way to eliminate these false positives.
-</p>
 
     
 <h2>
@@ -635,14 +650,6 @@ using the <code>equals(Object)</code> method instead.</p>
 
     
 <h2>
-<a name="NM_CLASS_NAMING_CONVENTION">NM_CLASS_NAMING_CONVENTION: Class names should start with an upper case letter</a>
-</h2>
-
-  <p> Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words-avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
-</p>
-
-    
-<h2>
 <a name="NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT">NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT: equals() method does not check for null argument</a>
 </h2>
       
@@ -654,6 +661,16 @@ using the <code>equals(Object)</code> method instead.</p>
       </p>
       
    
+<h2>
+<a name="NP_UNWRITTEN_FIELD">NP_UNWRITTEN_FIELD: Read of unwritten field</a>
+</h2>
+
+  <p> The program is dereferencing a field that does not seem to ever have a non-null value written to it.
+Unless the field is initialized via some mechanism not seen by the analysis,
+dereferencing this value will generate a null pointer exception.
+</p>
+
+    
 <h2>
 <a name="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE">RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE: Redundant nullcheck of value known to be non-null</a>
 </h2>
@@ -736,6 +753,14 @@ is generally easy and good defensive programming.
 
 <p>This condition always produces the same result as the value of the involved variable was narrowed before. 
 Probably something else was meant or condition can be removed.</p>
+
+    
+<h2>
+<a name="UWF_UNWRITTEN_FIELD">UWF_UNWRITTEN_FIELD: Unwritten field</a>
+</h2>
+
+  <p> This field is never written.&nbsp; All reads of it will return the default
+value. Check for errors (should it have been initialized?), or remove it if it is useless.</p>
 
     
 <h2>

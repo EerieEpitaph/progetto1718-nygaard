@@ -6,7 +6,7 @@ public class Message {
 		private String user;
 		private String text;
 
-		public GsonMessage(String _type, String _user, String _text) {
+		public GsonMessage(final String _type, final String _user, final String _text) {
 			type = _type;
 			user = _user;
 			text = _text;
