@@ -38,7 +38,7 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	public void generate() {
-
+//		parseMessages()
 	}
 
 	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users,
@@ -92,7 +92,6 @@ public class MentionGraph extends AbstractGraph {
 				}
 			}
 		}
-
 	}
 
 	// issue#39

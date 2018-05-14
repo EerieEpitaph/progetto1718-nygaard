@@ -13,19 +13,27 @@ public class Model {
 	private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
 
 	MentionGraph snagraph = new MentionGraph();
-	
-//	public Model(HashMap<String, User>)
-	
+
+	public Model(HashMap<String, User> _users, HashMap<String, Channel> _channels,
+			HashMap<String, ArrayList<Message>> _messages) {
+		users = _users;
+		channels = _channels;
+		messages = _messages;
+	}
+
 	public HashMap<String, User> getUser() {
 		return users;
 	}
-	
+
 	public HashMap<String, Channel> getChannel() {
 		return channels;
 	}
-	
+
 	public HashMap<String, ArrayList<Message>> getMessages() {
 		return messages;
 	}
-	
+
+	public void generateGraph() {
+		snagraph.generate();
+	}
 }
