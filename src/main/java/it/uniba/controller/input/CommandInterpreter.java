@@ -4,22 +4,15 @@ import java.io.IOException;
 import java.util.zip.ZipException;
 
 import it.uniba.controller.DataController;
-<<<<<<< HEAD:src/main/java/it/uniba/interpreting/CommandInterpreter.java
-import it.uniba.parsing.CommandParser;
-import it.uniba.parsing.CommandParser.*;
-=======
+
+
+
 import it.uniba.controller.input.CommandParser;
 import it.uniba.controller.input.CommandParser.*;
->>>>>>> refCtr#MVC:src/main/java/it/uniba/controller/input/CommandInterpreter.java
 import it.uniba.parsing.ZipParser;
 
 // da prendere datacontroller 
 public class CommandInterpreter {
-<<<<<<< HEAD:src/main/java/it/uniba/interpreting/CommandInterpreter.java
-	DataController controller = new DataController();
-=======
-	// DataController controller = new DataController(); #va  nel controller 
->>>>>>> refCtr#MVC:src/main/java/it/uniba/controller/input/CommandInterpreter.java
 	
 	public void executeCommands(CommandParser parser, DataController dataCtr, ZipParser fileParser) throws ZipException, IOException {
 		CommBaseArgs baseArgs = parser.getBaseArgs();
