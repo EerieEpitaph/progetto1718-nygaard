@@ -2,12 +2,13 @@ package it.uniba.controller;
 
 import it.uniba.view.View;
 
-import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
-import java.util.Set;
-
 import it.uniba.model.Model;
+
+import java.util.Collection;
+
+import it.uniba.model.Edge;
 import it.uniba.parsing.ZipParser;
 
 public class Controller {
@@ -39,72 +40,63 @@ public class Controller {
 	}
 
 	public void printMention(ZipParser fileParser, final String _inChannel) {
-		if (_inChannel.equals("")) {//-m
+		if (_inChannel.equals("")) {// -m
 			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
-
-			fileParser.getMentionGraph().edgesOutDegree(null);
-			// fileParser.getMentionGraph().printEdges(null);
+			view.printMention(fileParser.getMentionGraph().edgesOutDegree(null), false);
 		} else { // validazione canale -m in _inChannel
 			if (fileParser.getChannels().containsKey(_inChannel)) {
 				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), _inChannel);
+				view.printMention(fileParser.getMentionGraph().edgesOutDegree(null), false);
 			} else {
-				System.out.println("The channel specified doesn't exist.");
+				View.missingChannel(_inChannel);
 			}
 		}
 	}
 
 	// #38
-	public void printMentionsFromUser(ZipParser fileParser, String user, String inChannel) {
-		String idUser = getUserFromId(fileParser, user);
-		if (inChannel.equals("")) {
-			if (fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
-			{
-				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
-				// parse
-				// dei
-				// mention
-				// sul
-				// grafo
-				// fileParser.getMentionGraph().printEdges(fileParser.getUsers().get(idUser));
-			} else {
-				System.out.println("The user specified doesn't exist.");
+	public void printMentionsFromUser(ZipParser fileParser, final String _user, final String _inChannel,
+			final boolean _from, final boolean _weigth) {
+		String idUser = getUserFromId(fileParser, _user);
+		if (fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
+		{
+			if (fileParser.getChannels().containsKey(_inChannel) || (_inChannel.equals("") || _inChannel == null)) {
+				Collection<Edge> edgesneeded;
+				if (_from) {
+					edgesneeded = fileParser.getMentionGraph().edgesOutDegree(fileParser.getUsers().get(idUser));
+				} else {
+					edgesneeded = fileParser.getMentionGraph().edgesInDegree(fileParser.getUsers().get(idUser));
+				}
+				if (_inChannel.equals("") || _inChannel == null) { // -m from (User) x
+					fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
+				} else { // -m from (User) x in (Channel) y
+					fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(),
+							_inChannel);
+				}
+
+				view.printMention(edgesneeded, _weigth);
 			}
 		} else {
-			if (fileParser.getUsers().containsKey(idUser) && fileParser.getChannels().containsKey(inChannel)) {
-				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel); // parse
-																														// dei
-																														// mention
-																														// sul
-																														// grafo
-				// fileParser.getMentionGraph().printEdges(fileParser.getUsers().get(idUser));
-			} else {
-				if (!fileParser.getUsers().containsKey(idUser))
-					System.out.println("The user specified doesn't exist.");
-				if (!fileParser.getChannels().containsKey(inChannel))
-					System.out.println("The channel specified doesn't exist.");
-			}
+			View.missingUser(_user);
+		}
+		if (!(_inChannel.equals("") || _inChannel == null) && (!fileParser.getChannels().containsKey(_inChannel))) {
+			View.missingChannel(_inChannel);
 		}
 	}
 
 	// #39
-	public void printMentionsToUser(ZipParser fileParser, String user, String inChannel) {
-		String idUser = getUserFromId(fileParser, user);
-		if (inChannel.equals("")) {
+	public void printMentionsToUser(ZipParser fileParser, final String _user, final String _inChannel) {
+		String idUser = getUserFromId(fileParser, _user);
+		if (_inChannel.equals("")) {
 			if (fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
 			{
 				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
-				// parse
-				// dei
-				// mention
-				// sul
-				// grafo
-				// fileParser.getMentionGraph().printEdgesInDegree(fileParser.getUsers().get(idUser));
+
 			} else {
 				System.out.println("The user specified doesn't exist.");
 			}
 		} else {
-			if (fileParser.getUsers().containsKey(idUser) && fileParser.getChannels().containsKey(inChannel)) {
-				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), inChannel);
+			if (fileParser.getUsers().containsKey(idUser) && fileParser.getChannels().containsKey(_inChannel)) {
+				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), _inChannel);
 				// parse
 				// dei
 				// mention
@@ -114,7 +106,7 @@ public class Controller {
 			} else {
 				if (!fileParser.getUsers().containsKey(idUser))
 					System.out.println("The user specified doesn't exist.");
-				if (!fileParser.getChannels().containsKey(inChannel))
+				if (!fileParser.getChannels().containsKey(_inChannel))
 					System.out.println("The channel specified doesn't exist.");
 			}
 		}

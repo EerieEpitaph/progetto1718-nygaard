@@ -7,9 +7,7 @@ import it.uniba.model.Edge;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,12 +44,12 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users,
-			String inChannel) {
-		if (inChannel.equals("") || inChannel == null)
+			final String _inChannel) { //TODO _inChannel default = null || ""
+		if (_inChannel.equals("") || _inChannel == null)
 			for (ArrayList<Message> mess : message.values())
 				parsing(mess, users);
-		else if (message.containsKey(inChannel))
-			parsing(message.get(inChannel), users);
+		else if (message.containsKey(_inChannel))
+			parsing(message.get(_inChannel), users);
 	}
 
 	void parsing(ArrayList<Message> mess, HashMap<String, User> users) {
@@ -101,12 +99,6 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	// issue#39
-	// public ArrayList<Edge> edges() {
-	// ArrayList<Edge> tmp = new ArrayList<Edge>();
-	// snagraph.edges();
-	//
-	// return tmp;
-	// }
 	public ArrayList<Edge> edgesInDegree(User user) {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		if (snagraph.nodes().contains(user)) {
@@ -137,7 +129,7 @@ public class MentionGraph extends AbstractGraph {
 	public ArrayList<Edge> edgesOutDegree(User user) {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		int numNodesPrinted = 0;
-		if (user == null) {
+		if (user == null) { //se non è speficato restituisce tutti gli archi
 			for (User x : snagraph.nodes())
 				for (User adiacenti : snagraph.adjacentNodes(x))
 					if (snagraph.hasEdgeConnecting(x, adiacenti)) {
