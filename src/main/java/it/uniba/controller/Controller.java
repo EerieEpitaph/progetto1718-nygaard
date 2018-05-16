@@ -12,10 +12,12 @@ import it.uniba.model.Edge;
 import it.uniba.parsing.ZipParser;
 
 public class Controller {
-	Model mod = new Model();
-	View view = new View();
+	Model mod;
+	View view;
 
-	public Controller() {
+	public Controller(Model _mod, View _view) {
+		mod = _mod;
+		view = _view;
 	}
 
 	// o utenti e channel e messaggi?
@@ -40,7 +42,7 @@ public class Controller {
 	}
 
 	public void printMention(ZipParser fileParser, final String _inChannel) {
-		if (_inChannel.equals("")) {// -m
+		if (_inChannel.equals("") || _inChannel == null) {// -m
 			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
 			view.printMention(fileParser.getMentionGraph().edgesOutDegree(null), false);
 		} else { // validazione canale -m in _inChannel
@@ -59,7 +61,7 @@ public class Controller {
 		String idUser = getUserFromId(fileParser, _user);
 		if (fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
 		{
-			if (fileParser.getChannels().containsKey(_inChannel) || (_inChannel.equals("") || _inChannel == null)) {
+			if ((_inChannel == null ||_inChannel.equals("")) || fileParser.getChannels().containsKey(_inChannel)) {
 				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(),
 						_inChannel);
 //				if (_inChannel.equals("") || _inChannel == null) { // -m from (User) x
@@ -78,13 +80,13 @@ public class Controller {
 		} else {
 			View.missingUser(_user);
 		}
-		if (!(_inChannel.equals("") || _inChannel == null) && (!fileParser.getChannels().containsKey(_inChannel))) {
+		if (!(_inChannel == null  || (_inChannel.equals(""))) && (!fileParser.getChannels().containsKey(_inChannel))) {
 			View.missingChannel(_inChannel);
 		}
 	}
 	
 	public void printMentionsFromUser(ZipParser fileParser, final String _user, final String _inChannel) {
-		printMentionsFromToUser(fileParser, _user,_inChannel, true, false);
+		printMentionsFromToUser(fileParser, _user,null, true, false);
 	}
 
 	// #39
@@ -116,6 +118,12 @@ public class Controller {
 			}
 		}
 	*/}
+	public void printMentionsFromUserWeigthed(ZipParser fileParser, final String _user, final String _inChannel) {
+		printMentionsFromToUser(fileParser, _user,null, true, true);
+	}
+	public void printMentionsToUserWeigthed(ZipParser fileParser, final String _user, final String _inChannel) {
+		printMentionsFromToUser(fileParser, _user,_inChannel, false, true);
+	}
 	
 
 	static String getUserFromId(ZipParser fileParser, String name) {

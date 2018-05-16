@@ -44,12 +44,17 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users,
-			final String _inChannel) { //TODO _inChannel default = null || ""
-		if (_inChannel.equals("") || _inChannel == null)
-			for (ArrayList<Message> mess : message.values())
+			final String _inChannel) { // TODO _inChannel default = null || ""
+		if (_inChannel == null ||_inChannel.equals("")) {
+			for (ArrayList<Message> mess : message.values()) {
 				parsing(mess, users);
-		else if (message.containsKey(_inChannel))
-			parsing(message.get(_inChannel), users);
+			}
+		} else {
+			if (message.containsKey(_inChannel)) {
+				parsing(message.get(_inChannel), users);
+			}
+		}
+
 	}
 
 	void parsing(ArrayList<Message> mess, HashMap<String, User> users) {
@@ -129,7 +134,7 @@ public class MentionGraph extends AbstractGraph {
 	public ArrayList<Edge> edgesOutDegree(User user) {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		int numNodesPrinted = 0;
-		if (user == null) { //se non è speficato restituisce tutti gli archi
+		if (user == null) { // se non è speficato restituisce tutti gli archi
 			for (User x : snagraph.nodes())
 				for (User adiacenti : snagraph.adjacentNodes(x))
 					if (snagraph.hasEdgeConnecting(x, adiacenti)) {
@@ -150,13 +155,12 @@ public class MentionGraph extends AbstractGraph {
 				// System.out.println("There aren't mention in the channel specified.");
 			} // else {
 				// eccezione : user non presente nel canale specificato
-			// System.out.println("The user specified doesn't belong to this channel.");
-			// }
+				// System.out.println("The user specified doesn't belong to this channel.");
+				// }
 		}
 		return edges;
 	}
 
-	
 	// public MutableValueGraph<User, Integer> getGraph() {
 	// return snagraph;
 	// }
