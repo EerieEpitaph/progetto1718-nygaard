@@ -54,25 +54,25 @@ public class Controller {
 	}
 
 	// #38
-	public void printMentionsFromUser(ZipParser fileParser, final String _user, final String _inChannel,
+	void printMentionsFromToUser(ZipParser fileParser, final String _user, final String _inChannel,
 			final boolean _from, final boolean _weigth) {
 		String idUser = getUserFromId(fileParser, _user);
 		if (fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
 		{
 			if (fileParser.getChannels().containsKey(_inChannel) || (_inChannel.equals("") || _inChannel == null)) {
+				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(),
+						_inChannel);
+//				if (_inChannel.equals("") || _inChannel == null) { // -m from (User) x
+//					fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
+//				} else { // -m from (User) x in (Channel) y
+//					
+//				}
 				Collection<Edge> edgesneeded;
 				if (_from) {
 					edgesneeded = fileParser.getMentionGraph().edgesOutDegree(fileParser.getUsers().get(idUser));
 				} else {
 					edgesneeded = fileParser.getMentionGraph().edgesInDegree(fileParser.getUsers().get(idUser));
 				}
-				if (_inChannel.equals("") || _inChannel == null) { // -m from (User) x
-					fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
-				} else { // -m from (User) x in (Channel) y
-					fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(),
-							_inChannel);
-				}
-
 				view.printMention(edgesneeded, _weigth);
 			}
 		} else {
@@ -82,14 +82,19 @@ public class Controller {
 			View.missingChannel(_inChannel);
 		}
 	}
+	
+	public void printMentionsFromUser(ZipParser fileParser, final String _user, final String _inChannel) {
+		printMentionsFromToUser(fileParser, _user,_inChannel, true, false);
+	}
 
 	// #39
 	public void printMentionsToUser(ZipParser fileParser, final String _user, final String _inChannel) {
-		String idUser = getUserFromId(fileParser, _user);
+		printMentionsFromToUser(fileParser, _user, _inChannel, false, false);
+/*		String idUser = getUserFromId(fileParser, _user);
 		if (_inChannel.equals("")) {
 			if (fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
 			{
-				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
+		fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
 
 			} else {
 				System.out.println("The user specified doesn't exist.");
@@ -110,7 +115,8 @@ public class Controller {
 					System.out.println("The channel specified doesn't exist.");
 			}
 		}
-	}
+	*/}
+	
 
 	static String getUserFromId(ZipParser fileParser, String name) {
 		// possiamo aggiunger eccezione
