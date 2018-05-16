@@ -1,3 +1,11 @@
+env:  
+
+  global:
+
+     - CI_NAME:travis-pro
+
+     - COVERALLS_REPO_TOKEN=UhWiEmPPlgyg7DIrBqldkkAxUu5vjW9av
+
 sudo: required
 
 language: java
@@ -19,4 +27,4 @@ after_success:
       docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
       docker push $DOCKER_ORGANIZATION/$DOCKER_REPO;
     fi
-
+  - ./gradlew jacocoTestReport coveralls 

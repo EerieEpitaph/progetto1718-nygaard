@@ -6,7 +6,9 @@
 - Comunicazione del gruppo su Slack
 - Accettazione progetto e creazione team su GitHub Classroom
 - Configurazione Travis CI
-- Aggiornamento badge in GitHub
+- Aggiornamento badge Travis CI in GitHub
+- Configurazione Coverall
+- Aggiornamento badge Coveralls in GitHub
 - Configurazione locale del progetto
 - Lavoro sul codice dell’applicazione
 - Test automatici e Controlli di Qualità
@@ -16,7 +18,7 @@
 ## Pipeline di progetto
 La creazione e l'aggiornamento degli eseguibili coinvolge una *toolchain* in *pipeline* ovvero una serie di tool collegati in sequenza in modo che l'output del precedente sia l'input del successivo, come da figura.
 ![pipeline](res/img/guida-studente/Pipeline.png)
-Di seguito si riportano le istruzioni dettagliate per attivare la pipeline.
+Di seguito si riportano le istruzioni dettagliate per attivare la pipeline.  
 
 ## Passi preliminari
 È necessario effettuare l’iscrizione a diversi servizi che saranno utilizzati durante tutto lo sviluppo del progetto. In particolare:
@@ -25,6 +27,7 @@ Di seguito si riportano le istruzioni dettagliate per attivare la pipeline.
 - Adesione al workspace Slack di progetto (ingsw1718) mediante link mostrato dal docente a lezione
 - Iscrizione a [**github.com**](https://github.com)
 - Iscrizione a [**education.travis-ci.com**](https://education.travis-ci.com/) (tramite account GitHub)
+- Iscrizione a [**coveralls.io**](https://coveralls.io)(tramite account GitHub)
 - Iscrizione a [**docker.com**](https://www.docker.com) (un account per gruppo)
 
 In aggiunta, occorre installare i seguenti strumenti:
@@ -55,7 +58,7 @@ La schermata che apparirà all’apertura del link sarà simile a questa:
 
 ![](res/img/guida-studente/Schermata1.png)
 
-Sarà necessario aspettare che il docente convalidi la richiesta su GitHub Classroom.
+Sarà necessario aspettare che il docente convalidi la richiesta su GitHub Classroom.  
 Questo passo terminerà con successo se tutti i membri del gruppo potranno accedere al repository con URL ``` https://github.com/softeng-inf-uniba/progetto1718-<nome del gruppo> ```
 
 ## Configurazione Travis CI
@@ -86,7 +89,7 @@ Su invito esplicito del docente, dopo aver effettuato l’iscrizione e il login 
 
 **N.B.:** è fondamentale che i nomi delle variabili d’ambiente siano scritti esattamente come sono riportati in questa guida.
 
-## Aggiornamento badge in GitHub
+### Aggiornamento badge in GitHub
 Per aggiungere il badge di build status di Travis CI nel file README.md del repository su GitHub, a fianco del titolo del progetto (sna4slack), seguire le istruzioni seguenti (vedi anche https://docs.travis-ci.com/user/status-images/):
 - Cliccare sul *badge* accanto al nome della repository nella pagina del progetto su Travis CI (quello in grigio con su scritto (build|unknown)).
 - Selezionare *Markdown*, anziché *Image URL*, nel secondo dropdown.
@@ -94,11 +97,50 @@ Per aggiungere il badge di build status di Travis CI nel file README.md del repo
 
 Il titolo del README.md dovrà apparire come nella seguente figura:
 
-![](res/img/guida-studente/Badge.png)
+![](res/img/guida-studente/BadgeTravis.png)
 
 Il colore e lo stato del badge potranno cambiare dopo ogni build riflettendo lo stato del progetto.
 
-## Configurazione locale del progetto
+## Configurazione Coveralls
+Collegarsi al [sito](https://coveralls.io) (effettuando nuovamente il login tramite account GitHub, se necessario). Nel menu a comparsa sulla sinistra, selezionare la voce **+ ADD REPOS**. 
+Il repository `softeng-inf-uniba/<nomegruppo>` dovrebbe essere immediatamente visibile nella pagina. Se non lo fosse, nel campo di testo digitare le prime lettere per renderlo visibile. Qualora ancora non fosse visibile, andate in fondo alla pagina e cliccata sul bottone **REFRESH PRIVATE REPOS**. 
+Una volta visibile il progetto, cliccate sul tasto OFF, per trasformarlo in ON, come mostrato in figura.
+
+![](res/img/guida-studente/add_repo_coveralls.png)
+
+Una volta attivato, cliccate su **DETAILS** per vedere il _token privato_ associato al repository da ricopiare nei file di configurazione del progetto. Precisamente.
+
+* Aprite il file `.coveralls.yml` nella radice della cartella di progetto e aggiungete il _token privato_ al campo `repo_token:` , come nell'esempio sottostante:
+
+  ```yml
+  service_name: travis-pro
+  repo_token: YOUR-PRIVATE-ALPHANUMERIC-TOKEN
+  ```
+
+* Aprite il file `.travis.yml` e copiate di nuovo il _token privato_ nel campo `COVERALLS_REPO_TOKEN=` come mostrato di seguito:
+
+   ```yml
+   env:
+      global:
+         - CI_NAME:travis-pro
+         - COVERALLS_REPO_TOKEN=YOUR-PRIVATE-ALPHANUMERIC-TOKEN
+   ```
+
+### Aggiornamento badge Coveralls in GitHub
+
+Ritornate sulla pagina details del sito di Coveralls (dove avete copiato il token). Spostatevi in basso, troverete una figura simile a quella mostrata qui sotto, la quale vi avvisa che il vostro progetto non ha ancora nessun badge incorporato nel file `README.md`.
+
+![](res/img/guida-studente/coveralls_no_badge.png)
+
+Cliccate sul tasto **EMBED** e copiate il codice in formato Markdown. Il blocco assomiglierà a quello mostrato di sequito:
+```
+[![Coverage Status](https://coveralls.io/repos/github/softeng-inf-uniba/<NOME-GRUPPO>/badge.svg?branch=master)](https://coveralls.io/github/softeng-inf-uniba/<NOME-GRUPPO>?branch=master)
+```
+Quindi, aprite il file `README.md` del vostro progetto, e incollate il codice di seguito a quello del badge di TRAVIS-CI. Alla fine, il file `README.md` dovrà mostrare due badge, simili a quelli in figura sottostante:
+
+![](res/img/guida-studente/coveralls+travis-badges.png)
+
+ ## Configurazione locale del progetto
 Per rendersi operativi con il progetto in locale, occorre seguire questi passi.
 
 **Clonazione della repository remota**
@@ -144,14 +186,14 @@ Il workflow da utilizzare è il [GitHub Flow](https://guides.github.com/introduc
 - Subito prima di lavorare sul codice, è opportuno eseguire una `git pull` e lavorare sul codice più aggiornato
 - Per ogni nuova *feature* *user story* o *bug fix* occorre creare o scegliere l’issue su cui lavorare su GitHub e segnarsi come **assigned**
 - Creare un nuovo **branch** sul repository locale con il numero dell'issue o il titolo come nome del branch (*issue#n* oppure *titoloissue*) attraverso il comando `git branch <nome branch> `
-- Spostarsi sul nuovo branch appena creato con il comando `git checkout <nome branch>`
+	 Spostarsi sul nuovo branch appena creato con il comando `git checkout <nome branch>` 	
 - Lavorare al codice dell’applicazione. È consigliabile fare piccole **commit** autoconsistenti di volta in volta, con uno scopo ben preciso ed una descrizione dettagliata. *Evitare di fare un’unica grande commit alla fine del lavoro, a meno che la feature o il bug fix non sia davvero di poco conto.*
 - Aggiorna con regolarità il branch sul server origin in GitHub con il comando `git push origin <nome branch>`
 - Quando la modifica è stata correttamente implementata, si consiglia di scrivere adeguati test di unità per validarne la correttezza.
 - Dopo l’esecuzione dei test è possibile lanciare gli strumenti di **Quality Assurance** (checkstyle, pmd, findbugs) per assicurarsi di aver scritto codice di qualità. Leggere la sezione *Controlli di Qualità* per ulteriori informazioni.
 - A questo punto, dunque, si può procedere all'apertura di una pull request, andando su GitHub e posizionandosi sul branch su cui si sta lavorando.
 - Scrivere un titolo conciso ed esplicativo per la pull request e una descrizione significativa per il revisore come commento, incluso un riferimento all'issue nella forma *closes #n*. Scegliere almeno un reviewer tra i componenti del team.
-- Una volta lanciata la pull request, si attiverà la costruzione automatica della build e ci sarà da attendere qualche minuto. In caso di conflitti, bisogna risolverli. Può essere utile consultare la documentazione di GitHub (<https://help.github.com/articles/about-merge-conflicts/>) e comunicare con chi ha effettuato le modifiche in conflitto.
+- Una volta lanciata la pull request, si attiverà la costruzione automatica della build e ci sarà da attendere qualche minuto. In caso di conflitti, bisogna risolverli. Può essere utile consultare la documentazione di GitHub (<https://help.github.com/articles/about-merge-conflicts/>) e comunicare con chi ha effettuato le modifiche in conflitto.  
 - Discutere eventuali commenti dei reviewer e apportare le modifiche se necessarie come commit sul branch di lavoro. Ricordare che i commit aggiuntivi vanno comunque propagati sul repository remoto in GitHub mediante comando `git push origin <nome branch>`.
 - Ricevuta l'approvazione esplicita di almeno un componente del team, si può procedere da GitHub al merge del nuovo *branch* con il *master branch* sul repository remoto.
 - Se il merge è andato a buon fine, per completare il lavoro, cancellare il branch sul repository remoto (mediante interfaccia web di GitHub) e sul repository locale con la sequenza di comandi: `git checkout master`, `git pull` e `git branch -d <nome branch>`.
@@ -162,6 +204,7 @@ Il workflow da utilizzare è il [GitHub Flow](https://guides.github.com/introduc
 - Assicurarsi che sia aperta la vista *Gradle Tasks* in Eclipse. In caso negativo, dal menù *Window*, selezionare *Show View* e poi *Other*. La vista si troverà sotto la voce *Gradle*. Nell’eventualità che la vista non compaia, provare a cambiare *perspective* su Eclipse e selezionare *Java EE*: ciò si può fare o premendo Java EE dal bottone in alto a destra o da menù *Window-\>Perspective-\>Open Perspective-\>Other* e poi *Java EE*.
 - Selezionare il nome del progetto e, tra le diverse opzioni, *verification*.
 - Avviare il controllo attraverso l’operazione di **check**, che eseguirà automaticamente sia la build del progetto, sia i test di unità, sia i controlli di qualità.
+- Aggiungere al controllo di versione la cartella `build/reports/` (**non** tutta la cartella `build/`), contenente i report degli strumenti.
 
  ![](res/img/guida-studente/Java_-_SNA4Slack_src_main_java_main_Main_java_-_Eclipse_IDE.png)
 
