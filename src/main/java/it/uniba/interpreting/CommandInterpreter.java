@@ -3,13 +3,13 @@ package it.uniba.interpreting;
 import java.io.IOException;
 import java.util.zip.ZipException;
 
-import it.uniba.controller.Controller;
+import it.uniba.controller.DataController;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.CommandParser.*;
 import it.uniba.parsing.ZipParser;
 
 public class CommandInterpreter {
-	Controller controller = new Controller();
+	DataController controller = new DataController();
 	
 	public void executeCommands(CommandParser parser, ZipParser fileParser) throws ZipException, IOException {
 		CommBaseArgs baseArgs = parser.getBaseArgs();

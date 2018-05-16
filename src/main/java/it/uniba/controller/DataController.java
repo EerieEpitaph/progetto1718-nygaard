@@ -11,11 +11,11 @@ import java.util.Collection;
 import it.uniba.model.Edge;
 import it.uniba.parsing.ZipParser;
 
-public class Controller {
+public class DataController {
 	Model mod;
 	View view;
 
-	public Controller(Model _mod, View _view) {
+	public DataController(Model _mod, View _view) {
 		mod = _mod;
 		view = _view;
 	}
