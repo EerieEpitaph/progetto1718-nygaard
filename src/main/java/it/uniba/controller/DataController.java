@@ -119,7 +119,7 @@ public class DataController {
 		}
 	*/}
 	public void printMentionsFromUserWeigthed(ZipParser fileParser, final String _user, final String _inChannel) {
-		printMentionsFromToUser(fileParser, _user,null, true, true);
+		printMentionsFromToUser(fileParser, _user,_inChannel, true, true);
 	}
 	public void printMentionsToUserWeigthed(ZipParser fileParser, final String _user, final String _inChannel) {
 		printMentionsFromToUser(fileParser, _user,_inChannel, false, true);

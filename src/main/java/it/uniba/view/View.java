@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import it.uniba.model.Edge;
-import it.uniba.model.MentionGraph;
 import it.uniba.workdata.User;
 import it.uniba.workdata.Channel;
 
@@ -62,21 +61,21 @@ public class View {
 
 	// -m || -m in <channel>
 	// -m in x Tutte le mention in Channel x
-	public void printMention(final MentionGraph _snagraph) {
-
-		// printEdges(_snagraph.edgesInDegree(null));
+	public void printMention(Collection<Edge> edges, final boolean _weigth) {
+		printEdges(edges, _weigth);
 	}
 
 	// -m from x Tutte le mention dall'User x
 	// -m from x in y Tutte le mention dall'User x in Channel y
-	public void printMentionFromUser() {
+//	public void printMentionFromUser() {
+//	}
 
-	}
+	// -m to x Tutte le mention in cui � menzionato User x
+	// -m to x in y Tutte le mention in cui � menzionato User x in Channel y
+//	public void printMentionsToUser() {
+//	}
 
-	public void printMentionsToUser() {
-	}
-
-	public void printEdges(Collection<Edge> edges, final boolean _weigth) {
+	void printEdges(Collection<Edge> edges, final boolean _weigth) {
 		if (!edges.isEmpty()) {
 			for (Edge ed : edges) {
 				System.out.print("From: " + ed.getFrom().getRealName() + "\tTo: " + ed.getTo().getRealName());

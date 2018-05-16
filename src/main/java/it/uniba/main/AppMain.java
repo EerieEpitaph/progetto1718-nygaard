@@ -27,8 +27,8 @@ public final class AppMain {
 				control.controlExecuteCLI(args,fileParser);
 			else
 				control.showHelp();
-		} catch (NullPointerException e) {
-			System.out.println("NullPointer encountered");
+//		}  catch (NullPointerException e) {
+//			System.out.println("NullPointer encountered");
 		} catch (ZipException e) {
 			System.out.println("Unable to analyze. Damaged or wrong file");
 		} catch (InvalidPathException e) {
@@ -41,8 +41,8 @@ public final class AppMain {
 			System.out.println("Invalid syntax. Refer to 'help' command");
 		} catch (IllegalStateException e) {
 			System.out.println("Invalid semantics. Refer to 'help' command");
-		} catch (Exception e) {
-			System.out.println("Unexpected exception encountered");
+//		} catch (Exception e) {
+//			System.out.println("Unexpected exception encountered");
 		}
 	}
 }

@@ -47,7 +47,7 @@ public class MentionGraph extends AbstractGraph {
 
 	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users,
 			String inChannel) {
-		if (inChannel.equals("") || inChannel == null)
+		if (inChannel == null || inChannel.equals(""))
 			for (ArrayList<Message> mess : message.values())
 				parsing(mess, users);
 		else if (message.containsKey(inChannel))
