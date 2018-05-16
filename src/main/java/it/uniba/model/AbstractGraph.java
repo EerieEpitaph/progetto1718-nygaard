@@ -8,6 +8,8 @@ public abstract class AbstractGraph {
 
 	abstract void generate();
 	
+	abstract boolean isEmpty();
+
 	abstract boolean containsNode(User node);
 
 	abstract ArrayList<Edge> edgesOutDegree(User node);

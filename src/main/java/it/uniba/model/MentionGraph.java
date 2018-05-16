@@ -7,8 +7,9 @@ import it.uniba.model.Edge;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
-//import java.util.Iterator;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,7 +18,6 @@ import com.google.common.graph.ValueGraphBuilder;
 
 public class MentionGraph extends AbstractGraph {
 	private MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
-
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
 	// perchè non presentano la struttura del messaggio: "utente ---> @mention"
 	String[] commignore = { "has joined the channel", "set the channel purpose", "cleared channel topic",
@@ -38,12 +38,16 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	public void generate() {
-//		parseMessages()
+		// parseMessages()
+	}
+
+	public boolean isEmpty() {
+		return snagraph.nodes().isEmpty();
 	}
 
 	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users,
 			String inChannel) {
-		if (inChannel == "")
+		if (inChannel.equals("") || inChannel == null)
 			for (ArrayList<Message> mess : message.values())
 				parsing(mess, users);
 		else if (message.containsKey(inChannel))
@@ -71,6 +75,8 @@ public class MentionGraph extends AbstractGraph {
 					String dataparse = matcher.group(0);
 					String filterstring = dataparse.replaceAll("<@", " ").replaceAll(">", "").trim();
 					User utentev = users.get(filterstring);
+					// w grub utentev nelle stringe di controllo di slack
+					// w utentev.equals
 					if (!utentev.equals(utenteu)) {
 						if (!snagraph.nodes().contains(utentev))
 							snagraph.addNode(utentev);
@@ -95,30 +101,35 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	// issue#39
+	// public ArrayList<Edge> edges() {
+	// ArrayList<Edge> tmp = new ArrayList<Edge>();
+	// snagraph.edges();
+	//
+	// return tmp;
+	// }
 	public ArrayList<Edge> edgesInDegree(User user) {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		if (snagraph.nodes().contains(user)) {
 			if (snagraph.inDegree(user) > 0) {
 				int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in
-													// analisi
-//				String nameUser = user.getRealName();
+														// analisi
+				// String nameUser = user.getRealName();
 				for (User to : snagraph.nodes()) // per ogni nodo nel grafo controllo se ha un arco con l'utente presoin
 													// analisi
 				{
 					if (snagraph.hasEdgeConnecting(to, user)) {
 						// stampo l'arco tra i due utenti interessati
-//						System.out.println("From: " + to.getRealName() + "\tTo: " + nameUser + "\t n. mention: "
-//								+ snagraph.edgeValue(to, user).get());
-						edges.add(new Edge(to, user, (float) snagraph.edgeValue(to, user).get())); 
+						// System.out.println("From: " + to.getRealName() + "\tTo: " + nameUser + "\t n.
+						// mention: "
+						// + snagraph.edgeValue(to, user).get());
+						edges.add(new Edge(to, user, (float) snagraph.edgeValue(to, user).get()));
 						inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0
 						if (inEdges == 0)
 							break;
 					}
 				}
-			}// else
-//				System.out.println("There aren't mention.");
-		}// else
-//			System.out.println("The user specified doesn't belong to this channel.");
+			}
+		}
 		return edges;
 	}
 
@@ -130,9 +141,6 @@ public class MentionGraph extends AbstractGraph {
 			for (User x : snagraph.nodes())
 				for (User adiacenti : snagraph.adjacentNodes(x))
 					if (snagraph.hasEdgeConnecting(x, adiacenti)) {
-						// System.out.println("From: " + x.getRealName() + "\tTo: " +
-						// adiacenti.getRealName()
-						// + "\t n. mention: " + snagraph.edgeValue(x, adiacenti).get());
 						edges.add(new Edge(x, adiacenti, (float) snagraph.edgeValue(x, adiacenti).get()));
 						numNodesPrinted++;
 					}
@@ -142,23 +150,23 @@ public class MentionGraph extends AbstractGraph {
 			if (snagraph.nodes().contains(user)) {
 				for (User adiacenti : snagraph.adjacentNodes(user))
 					if (snagraph.hasEdgeConnecting(user, adiacenti)) {
-//						System.out.println("From: " + user.getRealName() + "\tTo: " + adiacenti.getRealName()
-//								+ "\t n. mention: " + snagraph.edgeValue(user, adiacenti).get());
 						edges.add(new Edge(user, adiacenti, (float) snagraph.edgeValue(user, adiacenti).get()));
 						numNodesPrinted++;
 					}
-//				if (numNodesPrinted == 0) // eccezione: non ci sono mention nel channel specificato
-//					System.out.println("There aren't mention in the channel specified.");
-			}// else {
+				// if (numNodesPrinted == 0) // eccezione: non ci sono mention nel channel
+				// specificato
+				// System.out.println("There aren't mention in the channel specified.");
+			} // else {
 				// eccezione : user non presente nel canale specificato
-//				System.out.println("The user specified doesn't belong to this channel.");
-//			}
+			// System.out.println("The user specified doesn't belong to this channel.");
+			// }
 		}
 		return edges;
 	}
 
-//	public MutableValueGraph<User, Integer> getGraph() {
-//		return snagraph;
-//	}
+	
+	// public MutableValueGraph<User, Integer> getGraph() {
+	// return snagraph;
+	// }
 
 }

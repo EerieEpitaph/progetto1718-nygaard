@@ -1,6 +1,6 @@
 package it.uniba.parsing;
 
-import java.util.Map;
+//import java.util.Map;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,7 +47,7 @@ public class ZipParser {
 		return users;
 	}
 
-	public Map<String, Channel> getChannels() {
+	public HashMap<String, Channel> getChannels() {
 		return channels;
 	}
 

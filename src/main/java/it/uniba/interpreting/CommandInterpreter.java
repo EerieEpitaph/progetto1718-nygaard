@@ -3,16 +3,18 @@ package it.uniba.interpreting;
 import java.io.IOException;
 import java.util.zip.ZipException;
 
-import it.uniba.controller.DataController;
+import it.uniba.controller.Controller;
 import it.uniba.parsing.CommandParser;
 import it.uniba.parsing.CommandParser.*;
 import it.uniba.parsing.ZipParser;
 
 public class CommandInterpreter {
+	Controller controller = new Controller();
+	
 	public void executeCommands(CommandParser parser, ZipParser fileParser) throws ZipException, IOException {
 		CommBaseArgs baseArgs = parser.getBaseArgs();
 		CommWorkspace workspace = parser.getCommWorkspace();
-
+		
 		// Argomenti singoli immessi
 		if (baseArgs.isActive()) {
 			// Ho chiesto help
@@ -31,33 +33,33 @@ public class CommandInterpreter {
 				if (fileParser.hasLoaded()) {
 					// -u inserito
 					if (workspace.getMembersStatus())
-						DataController.printMembers(fileParser);
+						controller.printMembers(fileParser);
 
 					// -c inserito
 					else if (workspace.getChannelsStatus())
-						DataController.printChannels(fileParser);
+						controller.printChannels(fileParser);
 
 					// -cu inserito
 					else if (workspace.getExtChannelsStatus())
-						DataController.members4Channel(fileParser);
+						controller.printMembers4Channel(fileParser);
 
 					// -uc inserito
 					else if (workspace.isValidFilter())
-						DataController.channelMembers(fileParser, workspace.getChannelFilter());
+						controller.printChannelMembers(fileParser, workspace.getChannelFilter());
 
 					// -m riconosciuto
 					else if (workspace.getMentionParams() != null) { // issue#37
 																		// -m
 						if (workspace.getMentionParams().length == 0) {
 							// Stampa tutti i mention del workspace
-							DataController.printMention(fileParser, "");
+							controller.printMention(fileParser, "");
 						}
 						// -m in x
 						else if (wantsIn(workspace.getMentionParams())) {
 							String inChannel = workspace.getMentionParams()[1];
 							// Stampa tutti i mention in un channel x
 							if (!inChannel.equals(""))
-								DataController.printMention(fileParser, inChannel);
+								controller.printMention(fileParser, inChannel);
 						}
 
 						// issue#38
@@ -65,14 +67,14 @@ public class CommandInterpreter {
 						else if (wantsFrom(workspace.getMentionParams())) {
 							String fromWho = workspace.getMentionParams()[1];
 							// Stampa tutti i mention effettuati da x
-							DataController.mentionsFromUser(fileParser, fromWho, "");
+							controller.printMentionsFromUser(fileParser, fromWho, "");
 						}
 						// -m from x in y
 						else if (wantsFromIn(workspace.getMentionParams())) {
 							String fromWho = workspace.getMentionParams()[1];
 							String inChannel = workspace.getMentionParams()[3];
 							if (!inChannel.equals(""))
-								DataController.mentionsFromUser(fileParser, fromWho, inChannel);
+								controller.printMentionsFromUser(fileParser, fromWho, inChannel);
 							// Stampa tutti i mention effettuati da x nel channel y
 
 						}
@@ -80,7 +82,7 @@ public class CommandInterpreter {
 						// -m to x
 						else if (wantsTo(workspace.getMentionParams())) {
 							String toWho = workspace.getMentionParams()[1];
-							DataController.mentionsToUser(fileParser, toWho, "");
+							controller.printMentionsToUser(fileParser, toWho, "");
 							// Stampa tutti i mention in cui viene menzionato x
 						}
 
@@ -88,7 +90,7 @@ public class CommandInterpreter {
 						else if (wantsToIn(workspace.getMentionParams())) {
 							String toWho = workspace.getMentionParams()[1];
 							String inChannel = workspace.getMentionParams()[3];
-							DataController.mentionsToUser(fileParser, toWho, inChannel);
+							controller.printMentionsToUser(fileParser, toWho, inChannel);
 							// Stampa tutti i mention in cui � menzionato x nel channel y
 						} else
 							throw new IllegalStateException();
