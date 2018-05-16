@@ -1,11 +1,12 @@
-package it.uniba.parsing;
+package it.uniba.controller.input;
+
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import it.uniba.parsing.CommandLine.*;
+import it.uniba.controller.input.CommandLine.*;
 
 public class CommandParser {
 	// Comandi booleani senza parametri
@@ -94,11 +95,11 @@ public class CommandParser {
 		List<CommandLine> result = commandLine.parse(args);
 
 		for (CommandLine x : result) {
-			// Gli "argomenti base" sarebbero sempre true, per com'è strutturata la
+			// Gli "argomenti base" sarebbero sempre true, per com'ï¿½ strutturata la
 			// libreria.
-			// In questo if setto la loro attività = true solo se, usando la riflessione,
-			// uno dei loro field è true
-			// Se più di un field e' true, throwo direttamente un'eccezione.
+			// In questo if setto la loro attivitï¿½ = true solo se, usando la riflessione,
+			// uno dei loro field ï¿½ true
+			// Se piï¿½ di un field e' true, throwo direttamente un'eccezione.
 			if (x.getCommand().getClass() == CommBaseArgs.class) {
 				baseArgs = (CommBaseArgs) x.getCommand();
 
@@ -127,7 +128,7 @@ public class CommandParser {
 				}
 			}
 
-			// Il comando parsato è "-w"
+			// Il comando parsato ï¿½ "-w"
 			else if (x.getCommand().getClass() == CommWorkspace.class) {
 				workspace = (CommWorkspace) x.getCommand();
 				workspace.active = true;

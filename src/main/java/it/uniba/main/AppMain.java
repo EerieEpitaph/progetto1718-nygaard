@@ -6,25 +6,27 @@ import java.util.zip.ZipException;
 
 import com.google.gson.JsonParseException;
 
-import it.uniba.interpreting.CommandInterpreter;
-import it.uniba.parsing.CommandLine.UnmatchedArgumentException;
-import it.uniba.parsing.CommandParser;
+//import it.uniba.controller.input.*;
+import it.uniba.controller.input.CommandLine.UnmatchedArgumentException;
 import it.uniba.parsing.ZipParser;
+import it.uniba.controller.*;
 
 public final class AppMain {
 	// path zip : /home/phinkie/Downloads/ingsw.zip
 	public static void main(final String[] args) {
 		ZipParser fileParser = new ZipParser();
-
-		CommandParser commandParser = null;
-		CommandInterpreter interpreter = new CommandInterpreter();
+		
+		Controller control = new Controller();
+		// old code -> 
+//		CommandParser commandParser = null;
+//		CommandInterpreter interpreter = new CommandInterpreter();
 
 		try {
-			commandParser = new CommandParser(args);
+			//commandParser = new CommandParser(args);
 			if (args.length != 0)
-				interpreter.executeCommands(commandParser, fileParser);
+				control.controlExecuteCLI(fileParser);
 			else
-				interpreter.showHelp();
+				control.showHelp();
 		} catch (NullPointerException e) {
 			System.out.println("NullPointer encountered");
 		} catch (ZipException e) {

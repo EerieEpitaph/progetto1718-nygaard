@@ -1,17 +1,18 @@
-package it.uniba.interpreting;
+package it.uniba.controller.input;
 
 import java.io.IOException;
 import java.util.zip.ZipException;
 
-import it.uniba.controller.Controller;
-import it.uniba.parsing.CommandParser;
-import it.uniba.parsing.CommandParser.*;
+import it.uniba.controller.DataController;
+import it.uniba.controller.input.CommandParser;
+import it.uniba.controller.input.CommandParser.*;
 import it.uniba.parsing.ZipParser;
 
+// da prendere datacontroller 
 public class CommandInterpreter {
-	Controller controller = new Controller();
+	// DataController controller = new DataController(); #va  nel controller 
 	
-	public void executeCommands(CommandParser parser, ZipParser fileParser) throws ZipException, IOException {
+	public void executeCommands(CommandParser parser, DataController dataCtr, ZipParser fileParser) throws ZipException, IOException {
 		CommBaseArgs baseArgs = parser.getBaseArgs();
 		CommWorkspace workspace = parser.getCommWorkspace();
 		
@@ -33,33 +34,33 @@ public class CommandInterpreter {
 				if (fileParser.hasLoaded()) {
 					// -u inserito
 					if (workspace.getMembersStatus())
-						controller.printMembers(fileParser);
+						dataCtr.printMembers(fileParser);
 
 					// -c inserito
 					else if (workspace.getChannelsStatus())
-						controller.printChannels(fileParser);
+						dataCtr.printChannels(fileParser);
 
 					// -cu inserito
 					else if (workspace.getExtChannelsStatus())
-						controller.printMembers4Channel(fileParser);
+						dataCtr.printMembers4Channel(fileParser);
 
 					// -uc inserito
 					else if (workspace.isValidFilter())
-						controller.printChannelMembers(fileParser, workspace.getChannelFilter());
+						dataCtr.printChannelMembers(fileParser, workspace.getChannelFilter());
 
 					// -m riconosciuto
 					else if (workspace.getMentionParams() != null) { // issue#37
 																		// -m
 						if (workspace.getMentionParams().length == 0) {
 							// Stampa tutti i mention del workspace
-							controller.printMention(fileParser, "");
+							dataCtr.printMention(fileParser, "");
 						}
 						// -m in x
 						else if (wantsIn(workspace.getMentionParams())) {
 							String inChannel = workspace.getMentionParams()[1];
 							// Stampa tutti i mention in un channel x
 							if (!inChannel.equals(""))
-								controller.printMention(fileParser, inChannel);
+								dataCtr.printMention(fileParser, inChannel);
 						}
 
 						// issue#38
@@ -67,14 +68,14 @@ public class CommandInterpreter {
 						else if (wantsFrom(workspace.getMentionParams())) {
 							String fromWho = workspace.getMentionParams()[1];
 							// Stampa tutti i mention effettuati da x
-							controller.printMentionsFromUser(fileParser, fromWho, "");
+							dataCtr.printMentionsFromUser(fileParser, fromWho, "");
 						}
 						// -m from x in y
 						else if (wantsFromIn(workspace.getMentionParams())) {
 							String fromWho = workspace.getMentionParams()[1];
 							String inChannel = workspace.getMentionParams()[3];
 							if (!inChannel.equals(""))
-								controller.printMentionsFromUser(fileParser, fromWho, inChannel);
+								dataCtr.printMentionsFromUser(fileParser, fromWho, inChannel);
 							// Stampa tutti i mention effettuati da x nel channel y
 
 						}
@@ -82,7 +83,7 @@ public class CommandInterpreter {
 						// -m to x
 						else if (wantsTo(workspace.getMentionParams())) {
 							String toWho = workspace.getMentionParams()[1];
-							controller.printMentionsToUser(fileParser, toWho, "");
+							dataCtr.printMentionsToUser(fileParser, toWho, "");
 							// Stampa tutti i mention in cui viene menzionato x
 						}
 
@@ -90,7 +91,7 @@ public class CommandInterpreter {
 						else if (wantsToIn(workspace.getMentionParams())) {
 							String toWho = workspace.getMentionParams()[1];
 							String inChannel = workspace.getMentionParams()[3];
-							controller.printMentionsToUser(fileParser, toWho, inChannel);
+							dataCtr.printMentionsToUser(fileParser, toWho, inChannel);
 							// Stampa tutti i mention in cui � menzionato x nel channel y
 						} else
 							throw new IllegalStateException();
