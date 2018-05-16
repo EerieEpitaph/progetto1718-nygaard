@@ -61,15 +61,12 @@ public class View {
 
 	// -m || -m in <channel>
 	// -m in x Tutte le mention in Channel x
-	public void printMention(Collection<Edge> edges, final boolean _weigth) {
-		printEdges(edges, _weigth);
+	public void printMention(Collection<Edge> edges) {
+		printEdges(edges);
 	}
 
 	// -m from x Tutte le mention dall'User x
 	// -m from x in y Tutte le mention dall'User x in Channel y
-//	public void printMentionFromUser() {
-//	}
-
 
 	// -m to x Tutte le mention in cui � menzionato User x
 	// -m to x in y Tutte le mention in cui � menzionato User x in Channel y
@@ -77,38 +74,15 @@ public class View {
 	// -m to x Tutte le mention in cui � menzionato User x
 	// -m to x in y Tutte le mention in cui � menzionato User x in Channel y
 
-//	public void printMentionsToUser() {
-//	}
-
-	void printEdges(Collection<Edge> edges, final boolean _weigth) {
+	void printEdges(Collection<Edge> edges) {
 		if (!edges.isEmpty()) {
 			for (Edge ed : edges) {
-				System.out.print("From: " + ed.getFrom().getRealName() + "\tTo: " + ed.getTo().getRealName());
-				if (_weigth) {
-					System.out.print("\t n. mention: " + (int) ed.getWeigth());
-				}
-				System.out.println(".");
+				System.out.println("From: " + ed.getFrom().getRealName() + "\tTo: " + ed.getTo().getRealName()
+						+ "\t n. mention: " + (int) ed.getWeigth());
 			}
 		} else {
 			noMention();
 		}
-
-		/*
-		 * int numNodesPrinted = 0; if (user == null) { for (User x : snagraph.nodes())
-		 * for (User adiacenti : snagraph.adjacentNodes(x)) if
-		 * (snagraph.hasEdgeConnecting(x, adiacenti)) { numNodesPrinted++; } if
-		 * (numNodesPrinted == 0) // eccezione: non ci sono mention nel workspace
-		 * System.out.println("There aren't mention."); } else { if
-		 * (snagraph.nodes().contains(user)) { for (User adiacenti :
-		 * snagraph.adjacentNodes(user)) if (snagraph.hasEdgeConnecting(user,
-		 * adiacenti)) { System.out.println("From: " + user.getRealName() + "\tTo: " +
-		 * adiacenti.getRealName() + "\t n. mention: " + snagraph.edgeValue(user,
-		 * adiacenti).get()); numNodesPrinted++; } if (numNodesPrinted == 0) //
-		 * eccezione: non ci sono mention nel channel specificato
-		 * System.out.println("There aren't mention in the channel specified."); } else
-		 * { // eccezione : user non presente nel canale specificato
-		 * System.out.println("The user specified doesn't belong to this channel."); } }
-		 */
 	}
 
 	public static void noMention() {

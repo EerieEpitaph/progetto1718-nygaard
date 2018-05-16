@@ -5,19 +5,18 @@ import java.util.zip.ZipException;
 
 import it.uniba.controller.DataController;
 
-
-
 import it.uniba.controller.input.CommandParser;
 import it.uniba.controller.input.CommandParser.*;
 import it.uniba.parsing.ZipParser;
 
 // da prendere datacontroller 
 public class CommandInterpreter {
-	
-	public void executeCommands(CommandParser parser, DataController dataCtr, ZipParser fileParser) throws ZipException, IOException {
+
+	public void executeCommands(CommandParser parser, DataController dataCtr, ZipParser fileParser)
+			throws ZipException, IOException {
 		CommBaseArgs baseArgs = parser.getBaseArgs();
 		CommWorkspace workspace = parser.getCommWorkspace();
-		
+
 		// Argomenti singoli immessi
 		if (baseArgs.isActive()) {
 			// Ho chiesto help

@@ -1,6 +1,5 @@
 package it.uniba.controller.input;
 
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;

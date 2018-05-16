@@ -14,7 +14,9 @@ public class Model {
 
 	MentionGraph snagraph = new MentionGraph();
 
-	public Model() {}
+	public Model() {
+	}
+
 	public Model(HashMap<String, User> _users, HashMap<String, Channel> _channels,
 			HashMap<String, ArrayList<Message>> _messages) {
 		users = _users;

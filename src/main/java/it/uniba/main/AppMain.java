@@ -12,19 +12,19 @@ import it.uniba.parsing.ZipParser;
 import it.uniba.controller.*;
 
 public final class AppMain {
-	 
+
 	public static void main(final String[] args) {
 		ZipParser fileParser = new ZipParser();
-		
+
 		Controller control = new Controller();
 
 		try {
-	 
+
 			if (args.length != 0)
-				control.controlExecuteCLI(args,fileParser);
+				control.controlExecuteCLI(args, fileParser);
 			else
 				control.showHelp();
-		}  catch (NullPointerException e) {
+		} catch (NullPointerException e) {
 			System.out.println("NullPointer encountered");
 		} catch (ZipException e) {
 			System.out.println("Unable to analyze. Damaged or wrong file");
