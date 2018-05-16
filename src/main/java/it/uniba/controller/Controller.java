@@ -22,12 +22,13 @@ public class Controller {
 	
 	public Controller() {
 		commandParser = null;
-		interpreter = new CommandInterpreter();
 	}
 	
-	public void controlExecuteCLI(ZipParser fileParser) throws ZipException, IOException
+	public void controlExecuteCLI(String[] args,ZipParser fileParser) throws ZipException, IOException
 	{
 		// fileParser deve essere preso dal Model / f
+		commandParser = new CommandParser(args);
+		interpreter = new CommandInterpreter();
 		interpreter.executeCommands(commandParser,dataCtr, fileParser); 
 	}
 	

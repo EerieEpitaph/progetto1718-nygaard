@@ -12,7 +12,10 @@ import it.uniba.parsing.ZipParser;
 public class DataController {
 	Model mod;
 	View view;
-
+	
+	public DataController() {
+		
+	}
 	public DataController(Model _mod, View _view) {
 		mod = _mod;
 		view = _view; 

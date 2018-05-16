@@ -24,7 +24,7 @@ public final class AppMain {
 		try {
 			//commandParser = new CommandParser(args);
 			if (args.length != 0)
-				control.controlExecuteCLI(fileParser);
+				control.controlExecuteCLI(args,fileParser);
 			else
 				control.showHelp();
 		} catch (NullPointerException e) {
