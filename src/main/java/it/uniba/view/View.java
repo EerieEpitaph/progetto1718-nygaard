@@ -70,8 +70,13 @@ public class View {
 //	public void printMentionFromUser() {
 //	}
 
+<<<<<<< HEAD
 	// -m to x Tutte le mention in cui è menzionato User x
 	// -m to x in y Tutte le mention in cui è menzionato User x in Channel y
+=======
+	// -m to x Tutte le mention in cui ï¿½ menzionato User x
+	// -m to x in y Tutte le mention in cui ï¿½ menzionato User x in Channel y
+>>>>>>> refCtr#MVC
 //	public void printMentionsToUser() {
 //	}
 

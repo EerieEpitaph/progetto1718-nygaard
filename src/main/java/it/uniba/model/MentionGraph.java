@@ -7,7 +7,13 @@ import it.uniba.model.Edge;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+<<<<<<< HEAD
 import java.util.HashMap;
+=======
+ 
+import java.util.HashMap;
+ 
+>>>>>>> refCtr#MVC
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,9 +50,15 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users,
+<<<<<<< HEAD
 			final String _inChannel) { // TODO _inChannel default = null || ""
 		if (_inChannel == null ||_inChannel.equals("")) {
 			for (ArrayList<Message> mess : message.values()) {
+=======
+			String inChannel) {
+		if (inChannel == null || inChannel.equals(""))
+			for (ArrayList<Message> mess : message.values())
+>>>>>>> refCtr#MVC
 				parsing(mess, users);
 			}
 		} else {
