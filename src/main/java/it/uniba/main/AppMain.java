@@ -12,23 +12,20 @@ import it.uniba.parsing.ZipParser;
 import it.uniba.controller.*;
 
 public final class AppMain {
-	// path zip : /home/phinkie/Downloads/ingsw.zip
+	 
 	public static void main(final String[] args) {
 		ZipParser fileParser = new ZipParser();
 		
 		Controller control = new Controller();
-		// old code -> 
-//		CommandParser commandParser = null;
-//		CommandInterpreter interpreter = new CommandInterpreter();
 
 		try {
-			//commandParser = new CommandParser(args);
+	 
 			if (args.length != 0)
 				control.controlExecuteCLI(args,fileParser);
 			else
 				control.showHelp();
-//		}  catch (NullPointerException e) {
-//			System.out.println("NullPointer encountered");
+		}  catch (NullPointerException e) {
+			System.out.println("NullPointer encountered");
 		} catch (ZipException e) {
 			System.out.println("Unable to analyze. Damaged or wrong file");
 		} catch (InvalidPathException e) {
@@ -41,8 +38,8 @@ public final class AppMain {
 			System.out.println("Invalid syntax. Refer to 'help' command");
 		} catch (IllegalStateException e) {
 			System.out.println("Invalid semantics. Refer to 'help' command");
-//		} catch (Exception e) {
-//			System.out.println("Unexpected exception encountered");
+		} catch (Exception e) {
+			System.out.println("Unexpected exception encountered");
 		}
 	}
 }
