@@ -24,10 +24,12 @@ buildscript {
 		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.1.0'
 	}
 }
+
 plugins {
     id 'jacoco'
     id 'com.github.kt3k.coveralls' version '2.6.3'
 }
+
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java'
 apply plugin: 'application'
@@ -79,11 +81,9 @@ dependencies {
     compile 'com.google.guava:guava:21.0'
     
     // Compile all jars in the lib directory of the project
-    compile fileTree(dir:'lib', include: ['*.jar'])
-    
+    //compile fileTree(dir:'lib', include: ['*.jar'])
     
     // JUnit Jupiter API and TestEngine implementation
-    
     testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0")
     testCompile("org.junit.platform:junit-platform-runner:1.0.0")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0")
@@ -100,7 +100,7 @@ findbugs {
 
 pmd {
   ignoreFailures = true
-  //pmdTest.enabled=false
+  //pmdTest.enabled = false
   toolVersion = '5.8.1'
   consoleOutput = true
   sourceSets = [sourceSets.main, sourceSets.test]
@@ -160,6 +160,13 @@ task wrapper(type: Wrapper) {
 	gradleVersion = '4.6.1'
 }
 
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
 jacocoTestReport {
     // Show code coverage results
     group = "Reporting"
@@ -192,11 +199,3 @@ test {
 
 // Main class
 mainClassName = 'it.uniba.main/AppMain'
-
-tasks.withType(FindBugs) {
-    reports {
-        xml.enabled false
-        html.enabled true
-    }
-}
-
