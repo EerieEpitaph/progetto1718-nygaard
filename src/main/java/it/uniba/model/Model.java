@@ -8,12 +8,14 @@ import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
 
 public class Model {
+//	WorkData
 	private HashMap<String, User> users = new HashMap<String, User>();
 	private HashMap<String, Channel> channels = new HashMap<String, Channel>();
 	private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
-
+	
+// 		MentionGraph
 	MentionGraph snagraph = new MentionGraph();
-
+	
 	public Model() {
 	}
 
@@ -35,8 +37,8 @@ public class Model {
 	public HashMap<String, ArrayList<Message>> getMessages() {
 		return messages;
 	}
-
-	public void generateGraph() {
-		snagraph.generate();
-	}
+	
+	public MentionGraph getMentionGraph() {
+		return snagraph;
+	}	 
 }

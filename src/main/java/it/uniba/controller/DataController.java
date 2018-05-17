@@ -19,7 +19,7 @@ public class DataController {
 		mod = _mod;
 		view = _view;
 	}
-
+	
 	// o utenti e channel e messaggi?
 	// public static void loadModel(zipParser)
 	public void printMembers(ZipParser fileParser) {
@@ -43,12 +43,12 @@ public class DataController {
 
 	public void printMention(ZipParser fileParser, final String _inChannel) {
 		if (_inChannel.equals("") || _inChannel == null) {// -m
-			fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
-			view.printMention(fileParser.getMentionGraph().edgesOutDegree(null));
+			mod.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
+			view.printMention(mod.getMentionGraph().edgesOutDegree(null));
 		} else { // validazione canale -m in _inChannel
 			if (fileParser.getChannels().containsKey(_inChannel)) {
-				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), _inChannel);
-				view.printMention(fileParser.getMentionGraph().edgesOutDegree(null));
+				mod.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), _inChannel);
+				view.printMention(mod.getMentionGraph().edgesOutDegree(null));
 			} else {
 				View.missingChannel(_inChannel);
 			}
@@ -62,12 +62,12 @@ public class DataController {
 		if (fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
 		{
 			if ((_inChannel == null || _inChannel.equals("")) || fileParser.getChannels().containsKey(_inChannel)) {
-				fileParser.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), _inChannel);
+				mod.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), _inChannel);
 				Collection<Edge> edgesneeded;
 				if (_from) {
-					edgesneeded = fileParser.getMentionGraph().edgesOutDegree(fileParser.getUsers().get(idUser));
+					edgesneeded = mod.getMentionGraph().edgesOutDegree(fileParser.getUsers().get(idUser));
 				} else {
-					edgesneeded = fileParser.getMentionGraph().edgesInDegree(fileParser.getUsers().get(idUser));
+					edgesneeded = mod.getMentionGraph().edgesInDegree(fileParser.getUsers().get(idUser));
 				}
 				view.printMention(edgesneeded);
 			}
@@ -80,7 +80,7 @@ public class DataController {
 	}
 
 	public void printMentionsFromUser(ZipParser fileParser, final String _user, final String _inChannel) {
-		printMentionsFromToUser(fileParser, _user, null, true);
+		printMentionsFromToUser(fileParser, _user, _inChannel, true);
 	}
 
 	// #39

@@ -16,6 +16,8 @@ import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
 
 public class MentionGraph extends AbstractGraph {
+	Model mod;
+	
 	private MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
 	// perchè non presentano la struttura del messaggio: "utente ---> @mention"
@@ -27,7 +29,12 @@ public class MentionGraph extends AbstractGraph {
 
 	public MentionGraph() {
 	}
-
+	
+	
+	public MentionGraph(Model _mod) {
+		mod = _mod;
+	}
+	
 	public boolean containsItems(String inputStr) {
 		return Arrays.stream(commignore).parallel().anyMatch(inputStr::contains);
 	}
@@ -36,8 +43,8 @@ public class MentionGraph extends AbstractGraph {
 		return snagraph.nodes().contains(node);
 	}
 
-	public void generate() {
-		// parseMessages()
+	public void generate(String _inChannel) {
+		 parseMessages(mod.getMessages(),mod.getUser(),_inChannel);
 	}
 
 	public boolean isEmpty() {

@@ -17,7 +17,7 @@ import com.google.gson.*;
 
 import it.uniba.workdata.Message;
 import it.uniba.workdata.Message.GsonMessage;
-import it.uniba.model.MentionGraph;
+//import it.uniba.model.MentionGraph;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
@@ -29,7 +29,7 @@ public class ZipParser {
 	private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
 
 	// private ArrayList<Message> messages = new ArrayList<Message>();
-	private MentionGraph grmention = new MentionGraph();
+//	private MentionGraph grmention = new MentionGraph();
 
 	public void setWorkspaceName(String _value) {
 		workspaceLoaded = _value;
@@ -51,9 +51,9 @@ public class ZipParser {
 		return channels;
 	}
 
-	public MentionGraph getMentionGraph() {
-		return grmention;
-	}
+//	public MentionGraph getMentionGraph() {
+//		return grmention;
+//	}
 
 	public HashMap<String, ArrayList<Message>> getMessages() {
 		return messages;

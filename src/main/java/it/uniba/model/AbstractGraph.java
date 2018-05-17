@@ -6,7 +6,7 @@ import it.uniba.workdata.User;
 
 public abstract class AbstractGraph {
 
-	abstract void generate();
+	abstract void generate(String _inChannel);
 
 	abstract boolean isEmpty();
 
