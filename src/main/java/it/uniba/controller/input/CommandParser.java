@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import it.uniba.controller.input.CommandLine.*;
+import picocli.CommandLine;
+import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
 
-public class CommandParser {
+public class CommandParser implements CommandParserInterface {
 	// Comandi booleani senza parametri
 	public class CommBaseArgs {
 		private Boolean active = false;
@@ -142,4 +144,106 @@ public class CommandParser {
 	public CommWorkspace getCommWorkspace() {
 		return workspace;
 	}
+	
+	//==========================================================
+	//================INTERFACE IMPLEMENTATION==================
+	//==========================================================
+
+    @Override
+    public Boolean help()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Boolean users()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Boolean channels()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Boolean extendedChannels()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Boolean userInChannel()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getChannelFilter()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Boolean mentions()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Boolean from()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getFromWho()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Boolean to()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getToWho()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Boolean in()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String getInWhat()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Boolean weighted()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
