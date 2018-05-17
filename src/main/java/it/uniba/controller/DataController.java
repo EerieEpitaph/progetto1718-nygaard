@@ -6,10 +6,11 @@ import it.uniba.workdata.User;
 
 import it.uniba.model.Model;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.zip.ZipException;
 
 import it.uniba.model.Edge;
-import it.uniba.parsing.ZipParser;
 
 public class DataController {
 	Model mod;
@@ -19,35 +20,43 @@ public class DataController {
 		mod = _mod;
 		view = _view;
 	}
-	
+
+	public void updateModel(String path) throws ZipException, IOException {
+		mod.updateModel(path);
+	}
+
+	public boolean hasLoaded() {
+		return mod.hasLoaded();
+	}
+
 	// o utenti e channel e messaggi?
 	// public static void loadModel(zipParser)
-	public void printMembers(ZipParser fileParser) {
+	public void printMembers() {
 		// model.getUsers()
-		view.printMembers(fileParser.getUsers().values());
+		view.printMembers(mod.getUsers().values());
 	}
 
-	public void printChannels(ZipParser fileParser) {
+	public void printChannels() {
 		// View.printChannels(model.getChannel().values());
-		view.printChannels(fileParser.getChannels().values());
+		view.printChannels(mod.getChannels().values());
 	}
 
-	public void printMembers4Channel(ZipParser fileParser) {
+	public void printMembers4Channel() {
 		// View.printMembers4Channel(model.getUsers.values(),
-		view.printMembers4Channel(fileParser.getUsers(), fileParser.getChannels().values());
+		view.printMembers4Channel(mod.getUsers(), mod.getChannels().values());
 	}
 
-	public void printChannelMembers(ZipParser fileParser, final String _nameChannel) {
-		view.printChannelMembers(fileParser.getUsers(), fileParser.getChannels(), _nameChannel);
+	public void printChannelMembers(final String _nameChannel) {
+		view.printChannelMembers(mod.getUsers(), mod.getChannels(), _nameChannel);
 	}
 
-	public void printMention(ZipParser fileParser, final String _inChannel) {
-		if (_inChannel.equals("") || _inChannel == null) {// -m
-			mod.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), "");
+	public void printMention(final String _inChannel) {
+		if (_inChannel == null || _inChannel.equals("")) {// -m
+			mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), "");
 			view.printMention(mod.getMentionGraph().edgesOutDegree(null));
 		} else { // validazione canale -m in _inChannel
-			if (fileParser.getChannels().containsKey(_inChannel)) {
-				mod.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), _inChannel);
+			if (mod.getChannels().containsKey(_inChannel)) {
+				mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), _inChannel);
 				view.printMention(mod.getMentionGraph().edgesOutDegree(null));
 			} else {
 				View.missingChannel(_inChannel);
@@ -56,36 +65,37 @@ public class DataController {
 	}
 
 	// #38
-	void printMentionsFromToUser(ZipParser fileParser, final String _user, final String _inChannel,
-			final boolean _from) {
-		String idUser = getUserFromId(fileParser, _user);
-		if (fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
-		{
-			if ((_inChannel == null || _inChannel.equals("")) || fileParser.getChannels().containsKey(_inChannel)) {
-				mod.getMentionGraph().parseMessages(fileParser.getMessages(), fileParser.getUsers(), _inChannel);
-				Collection<Edge> edgesneeded;
-				if (_from) {
-					edgesneeded = mod.getMentionGraph().edgesOutDegree(fileParser.getUsers().get(idUser));
-				} else {
-					edgesneeded = mod.getMentionGraph().edgesInDegree(fileParser.getUsers().get(idUser));
+	void printMentionsFromToUser(final String _user, final String _inChannel, final boolean _from) {
+		if (_user != null || _user.equals("")) {
+			String idUser = getUserFromId(_user);
+			if (mod.getUsers().containsKey(idUser)) // l'utente esiste nel workspace
+			{
+				if ((_inChannel == null || _inChannel.equals("")) || mod.getChannels().containsKey(_inChannel)) {
+					mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), _inChannel);
+					Collection<Edge> edgesneeded;
+					if (_from) {
+						edgesneeded = mod.getMentionGraph().edgesOutDegree(mod.getUsers().get(idUser));
+					} else {
+						edgesneeded = mod.getMentionGraph().edgesInDegree(mod.getUsers().get(idUser));
+					}
+					view.printMention(edgesneeded);
 				}
-				view.printMention(edgesneeded);
+			} else {
+				View.missingUser(_user);
 			}
-		} else {
-			View.missingUser(_user);
-		}
-		if (!(_inChannel == null || (_inChannel.equals(""))) && (!fileParser.getChannels().containsKey(_inChannel))) {
-			View.missingChannel(_inChannel);
+			if (!(_inChannel == null || (_inChannel.equals(""))) && (!mod.getChannels().containsKey(_inChannel))) {
+				View.missingChannel(_inChannel);
+			}
 		}
 	}
 
-	public void printMentionsFromUser(ZipParser fileParser, final String _user, final String _inChannel) {
-		printMentionsFromToUser(fileParser, _user, _inChannel, true);
+	public void printMentionsFromUser(final String _user, final String _inChannel) {
+		printMentionsFromToUser(_user, _inChannel, true);
 	}
 
 	// #39
-	public void printMentionsToUser(ZipParser fileParser, final String _user, final String _inChannel) {
-		printMentionsFromToUser(fileParser, _user, _inChannel, false);
+	public void printMentionsToUser(final String _user, final String _inChannel) {
+		printMentionsFromToUser(_user, _inChannel, false);
 		/*
 		 * String idUser = getUserFromId(fileParser, _user); if (_inChannel.equals(""))
 		 * { if (fileParser.getUsers().containsKey(idUser)) // l'utente esiste nel
@@ -106,17 +116,18 @@ public class DataController {
 		 * System.out.println("The channel specified doesn't exist."); } }
 		 */}
 
-	public void printMentionsFromUserWeigthed(ZipParser fileParser, final String _user, final String _inChannel) {
-		printMentionsFromToUser(fileParser, _user, _inChannel, true);
+	public void printMentionsFromUserWeigthed(final String _user, final String _inChannel) {
+		printMentionsFromToUser(_user, _inChannel, true);
 	}
 
-	public void printMentionsToUserWeigthed(ZipParser fileParser, final String _user, final String _inChannel) {
-		printMentionsFromToUser(fileParser, _user, _inChannel, false);
+	public void printMentionsToUserWeigthed(final String _user, final String _inChannel) {
+		printMentionsFromToUser(_user, _inChannel, false);
 	}
 
-	static String getUserFromId(ZipParser fileParser, String name) {
+	String getUserFromId(String name) {
 		// possiamo aggiunger eccezione
-		for (User x : fileParser.getUsers().values()) {
+
+		for (User x : mod.getUsers().values()) {
 			String disName = x.getDisplayNameNorm();
 			String rn = x.getRealName();
 			String _name = x.getName();

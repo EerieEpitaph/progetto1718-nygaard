@@ -44,7 +44,7 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	public void generate(String _inChannel) {
-		 parseMessages(mod.getMessages(),mod.getUser(),_inChannel);
+		 parseMessages(mod.getMessages(),mod.getUsers(),_inChannel);
 	}
 
 	public boolean isEmpty() {

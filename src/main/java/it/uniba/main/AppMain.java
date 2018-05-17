@@ -8,20 +8,19 @@ import com.google.gson.JsonParseException;
 
 //import it.uniba.controller.input.*;
 import it.uniba.controller.input.CommandLine.UnmatchedArgumentException;
-import it.uniba.parsing.ZipParser;
 import it.uniba.controller.*;
 
 public final class AppMain {
 
 	public static void main(final String[] args) {
-		ZipParser fileParser = new ZipParser();
+		 
 
 		Controller control = new Controller();
 
 		try {
 
 			if (args.length != 0)
-				control.controlExecuteCLI(args, fileParser);
+				control.controlExecuteCLI(args);
 			else
 				control.showHelp();
 		} catch (NullPointerException e) {
