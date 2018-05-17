@@ -63,7 +63,7 @@ public class CommandInterpreter {
 							if (!inChannel.equals(""))
 								dataCtr.printMention(fileParser, inChannel);
 						}
-						// 
+						 
 						// issue#38
 						// -m from x
 						else if (wantsFrom(workspace.getMentionParams())) {
