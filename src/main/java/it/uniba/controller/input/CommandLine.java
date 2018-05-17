@@ -13,7 +13,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-package it.uniba.parsing;
+package it.uniba.controller.input;
+
 
 import java.io.*;
 import java.lang.annotation.ElementType;
@@ -46,16 +47,16 @@ import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
-import it.uniba.parsing.CommandLine.Help.Ansi.IStyle;
-import it.uniba.parsing.CommandLine.Help.Ansi.Style;
-import it.uniba.parsing.CommandLine.Help.Ansi.Text;
-import it.uniba.parsing.CommandLine.Model.*;
+import it.uniba.controller.input.CommandLine.Help.Ansi.IStyle;
+import it.uniba.controller.input.CommandLine.Help.Ansi.Style;
+import it.uniba.controller.input.CommandLine.Help.Ansi.Text;
+import it.uniba.controller.input.CommandLine.Model.*;
 
 import static java.util.Locale.ENGLISH;
-import static it.uniba.parsing.CommandLine.Model.ArgsReflection.abbreviate;
-import static it.uniba.parsing.CommandLine.Help.Column.Overflow.SPAN;
-import static it.uniba.parsing.CommandLine.Help.Column.Overflow.TRUNCATE;
-import static it.uniba.parsing.CommandLine.Help.Column.Overflow.WRAP;
+import static it.uniba.controller.input.CommandLine.Model.ArgsReflection.abbreviate;
+import static it.uniba.controller.input.CommandLine.Help.Column.Overflow.SPAN;
+import static it.uniba.controller.input.CommandLine.Help.Column.Overflow.TRUNCATE;
+import static it.uniba.controller.input.CommandLine.Help.Column.Overflow.WRAP;
 
 /**
  * <p>
