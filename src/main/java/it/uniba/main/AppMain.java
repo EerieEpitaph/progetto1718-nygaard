@@ -6,15 +6,13 @@ import java.util.zip.ZipException;
 
 import com.google.gson.JsonParseException;
 
-//import it.uniba.controller.input.*;
-import it.uniba.controller.input.CommandLine.UnmatchedArgumentException;
 import it.uniba.controller.*;
+import picocli.CommandLine.UnmatchedArgumentException;
 
 public final class AppMain {
 
-	public static void main(final String[] args) {
-		 
-
+	public static void main(final String[] args)
+	{
 		Controller control = new Controller();
 
 		try {
@@ -36,7 +34,7 @@ public final class AppMain {
 		} catch (UnmatchedArgumentException e) {
 			System.out.println("Invalid syntax. Refer to 'help' command");
 		} catch (IllegalStateException e) {
-			System.out.println("Invalid semantics. Refer to 'help' command");
+			System.out.println("Invalid syntax. Refer to 'help' command");
 		} catch (Exception e) {
 			System.out.println("Unexpected exception encountered");
 		}
