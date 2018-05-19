@@ -47,7 +47,6 @@ public class CommandInterpreter
                     weight = true;
                 if (bridge.in())
                     in = bridge.getInWhat();
-
                 if (bridge.from())
                 {
                     name = bridge.getFromWho();
