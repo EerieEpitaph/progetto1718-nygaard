@@ -17,44 +17,50 @@ public class CommandInterpreter
     {
         CommandParserInterface bridge = parser;
 
-        if (bridge.help())
-            showHelp();
-
-        else if (bridge.users())
-            dataCtr.printMembers();
-
-        else if (bridge.channels())
-            dataCtr.printChannels();
-
-        else if (bridge.extendedChannels())
-            dataCtr.printMembers4Channel();
-
-        else if (bridge.userInChannel())
-            dataCtr.printChannelMembers(bridge.getChannelFilter());
-
-        else if (bridge.mentions())
+        if (bridge.validWorkspace())
         {
-            Boolean weight = false;
-            String in = "";
-            String name = "";
+            dataCtr.updateModel(bridge.getWorkspace());
 
-            if (bridge.weighted())
-                weight = true;
-            if (bridge.in())
-                in = bridge.getInWhat();
+            if (bridge.help())
+                showHelp();
 
-            if (bridge.from())
+            else if (bridge.users())
+                dataCtr.printMembers();
+
+            else if (bridge.channels())
+                dataCtr.printChannels();
+
+            else if (bridge.extendedChannels())
+                dataCtr.printMembers4Channel();
+
+            else if (bridge.userInChannel())
+                dataCtr.printChannelMembers(bridge.getChannelFilter());
+
+            else if (bridge.mentions())
             {
-                name = bridge.getFromWho();
-                // Qualcosa tipo printMentionsFrom(name, in, weight); TODO
-            } else if (bridge.to())
-            {
-                name = bridge.getToWho();
-                // Qualcosa tipo printMentionsTo(name, in, weight); TODO
+                Boolean weight = false;
+                String in = "";
+                String name = "";
+
+                if (bridge.weighted())
+                    weight = true;
+                if (bridge.in())
+                    in = bridge.getInWhat();
+
+                if (bridge.from())
+                {
+                    name = bridge.getFromWho();
+                    // Qualcosa tipo printMentionsFrom(name, in, weight); TODO
+                } else if (bridge.to())
+                {
+                    name = bridge.getToWho();
+                    // Qualcosa tipo printMentionsTo(name, in, weight); TODO
+                } else
+                {
+                    // Qualcosa tipo printMentions(in, weight); TODO
+                }
             } else
-            {
-                // Qualcosa tipo printMentions(in, weight); TODO
-            }
+                throw new IllegalStateException();
         } else
             throw new IllegalStateException();
     }

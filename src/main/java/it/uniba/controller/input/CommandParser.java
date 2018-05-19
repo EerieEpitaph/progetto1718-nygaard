@@ -113,13 +113,13 @@ public class CommandParser implements CommandParserInterface
 
         for (CommandLine x : result)
         {
-            // Gli "argomenti base" sarebbero sempre true, per com'�
+            // Gli "argomenti base" sarebbero sempre true, per com'e'
             // strutturata la
             // libreria.
-            // In questo if setto la loro attivit� = true solo se, usando la
+            // In questo if setto la loro attivita' = true solo se, usando la
             // riflessione,
-            // uno dei loro field � true
-            // Se pi� di un field e' true, throwo direttamente un'eccezione.
+            // uno dei loro field e' true
+            // Se piu' di un field e' true, throwo direttamente un'eccezione.
             if (x.getCommand().getClass() == CommBaseArgs.class)
             {
                 baseArgs = (CommBaseArgs) x.getCommand();
@@ -178,9 +178,23 @@ public class CommandParser implements CommandParserInterface
     // ==========================================================
 
     @Override
+    public Boolean validWorkspace()
+    {
+        if (workspace.isActive() && workspace.isValidWorkspace())
+            return true;
+        return false;
+    }
+    
+    @Override
+    public String getWorkspace()
+    {
+        return workspace.getWorkspaceName();
+    }
+    
+    @Override
     public Boolean help()
     {
-        if(baseArgs.getHelpStatus())
+        if (baseArgs.getHelpStatus())
             return true;
         return false;
     }
@@ -188,7 +202,7 @@ public class CommandParser implements CommandParserInterface
     @Override
     public Boolean users()
     {
-        if(workspace.getMembersStatus())
+        if (workspace.getMembersStatus())
             return true;
         return false;
     }
@@ -196,7 +210,7 @@ public class CommandParser implements CommandParserInterface
     @Override
     public Boolean channels()
     {
-        if(workspace.getChannelsStatus())
+        if (workspace.getChannelsStatus())
             return true;
         return false;
     }
@@ -204,7 +218,7 @@ public class CommandParser implements CommandParserInterface
     @Override
     public Boolean extendedChannels()
     {
-        if(workspace.getExtChannelsStatus())
+        if (workspace.getExtChannelsStatus())
             return true;
         return false;
     }
@@ -212,7 +226,7 @@ public class CommandParser implements CommandParserInterface
     @Override
     public Boolean userInChannel()
     {
-        if(workspace.isValidFilter())
+        if (workspace.isValidFilter())
             return true;
         return false;
     }
@@ -226,7 +240,7 @@ public class CommandParser implements CommandParserInterface
     @Override
     public Boolean mentions()
     {
-        if(workspace.mentionParams != null)
+        if (workspace.mentionParams != null)
             return true;
         return false;
     }
@@ -235,16 +249,18 @@ public class CommandParser implements CommandParserInterface
     public Boolean from()
     {
         String[] params = workspace.mentionParams;
-        if(params.length >= 2)
+        if (params.length >= 2)
         {
-            if(params[0].equals("from"))
+            if (params[0].equals("from"))
             {
                 try
                 {
-                    if(params[1] != null)
+                    if (params[1] != null)
                         return true;
+                } catch (Exception e)
+                {
+                    throw new IllegalStateException();
                 }
-                catch(Exception e){throw new IllegalStateException();}
             }
         }
         return false;
@@ -256,24 +272,28 @@ public class CommandParser implements CommandParserInterface
         try
         {
             return workspace.mentionParams[1];
+        } catch (Exception e)
+        {
+            throw new IllegalStateException();
         }
-        catch(Exception e) {throw new IllegalStateException();}
     }
 
     @Override
     public Boolean to()
     {
         String[] params = workspace.mentionParams;
-        if(params.length >= 2)
+        if (params.length >= 2)
         {
-            if(params[0].equals("to"))
+            if (params[0].equals("to"))
             {
                 try
                 {
-                    if(params[1] != null)
+                    if (params[1] != null)
                         return true;
+                } catch (Exception e)
+                {
+                    throw new IllegalStateException();
                 }
-                catch(Exception e){throw new IllegalStateException();}
             }
         }
         return false;
@@ -285,23 +305,27 @@ public class CommandParser implements CommandParserInterface
         try
         {
             return workspace.mentionParams[1];
+        } catch (Exception e)
+        {
+            throw new IllegalStateException();
         }
-        catch(Exception e) {throw new IllegalStateException();}
     }
 
     @Override
     public Boolean in()
     {
         String[] params = workspace.mentionParams;
-        for(int i = 0; i < params.length; i++ )
+        for (int i = 0; i < params.length; i++)
         {
             try
             {
-                if(params[i].equals("in"))
-                    if(params[i+1] != null)
+                if (params[i].equals("in"))
+                    if (params[i + 1] != null)
                         return true;
+            } catch (Exception e)
+            {
+                throw new IllegalStateException();
             }
-            catch(Exception e) {throw new IllegalStateException();}
         }
         return false;
     }
@@ -310,15 +334,17 @@ public class CommandParser implements CommandParserInterface
     public String getInWhat()
     {
         String[] params = workspace.mentionParams;
-        for(int i = 0; i < params.length; i++ )
+        for (int i = 0; i < params.length; i++)
         {
             try
             {
-                if(params[i].equals("in"))
-                    if(params[i+1] != null)
-                        return params[i+1];
+                if (params[i].equals("in"))
+                    if (params[i + 1] != null)
+                        return params[i + 1];
+            } catch (Exception e)
+            {
+                throw new IllegalStateException();
             }
-            catch(Exception e) {throw new IllegalStateException();}
         }
         return "";
     }
@@ -326,9 +352,10 @@ public class CommandParser implements CommandParserInterface
     @Override
     public Boolean weighted()
     {
-        if(workspace.mentionParams != null && 
-           workspace.mentionParams.length != 0 &&
-           workspace.mentionParams[workspace.mentionParams.length-1].equals("-n"))
+        if (workspace.mentionParams != null
+                && workspace.mentionParams.length != 0
+                && workspace.mentionParams[workspace.mentionParams.length - 1]
+                        .equals("-n"))
             return true;
         return false;
     }

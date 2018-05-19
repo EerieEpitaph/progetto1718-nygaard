@@ -2,6 +2,9 @@ package it.uniba.controller.input;
 
 public interface CommandParserInterface
 {
+    public Boolean validWorkspace();
+    public String getWorkspace();
+    
     public Boolean help();
     
     public Boolean users();
