@@ -64,27 +64,25 @@ public class MentionGraph extends AbstractGraph {
 	void parsing(ArrayList<Message> mess, HashMap<String, User> users) {
 		for (Message msg : mess) {
 			if (msg.getText().contains("<@") && !containsItems(msg.getText())) {
-				/*
-				 * Attivare le due stampe in caso di null pointer per vedere eventuali stringhe
-				 * di controllo usate da slack per gestire il singolo utente
-				 */
+				/*  Attivare le due stampe in caso di null pointer per vedere eventuali stringhe
+				 * di controllo usate da slack per gestire il singolo utente */
+
 				// System.out.println("----------- Testo Grabbato: \n" + msg.getText());
 				// System.out.println("\t\t Scritto da: " + msg.getUser() + "\n #############
 				// \n\n");
 				User utenteu = users.get(msg.getUser());
-				/* controlli esistenza dei nodi prima di inserirli */
-				if (!snagraph.nodes().contains(utenteu))
+//				Prima di inserire un nuovo utente p  avviene un controllo se è nullo o se esiste già nel grafo 
+				if ((utenteu != null) && !snagraph.nodes().contains(utenteu))
 					snagraph.addNode(utenteu);
 
 				Pattern pattern = Pattern.compile("\\<@.*?\\>");
 				Matcher matcher = pattern.matcher(msg.getText()); // msg.getText
 				while (matcher.find()) {
-					String dataparse = matcher.group(0);
-					String filterstring = dataparse.replaceAll("<@", " ").replaceAll(">", "").trim();
+					String dataparse = matcher.group(0); // filtro l'id dal messaggio 
+					String filterstring = dataparse.replaceAll("<@", " ").replaceAll(">", "").trim(); // pulisco dai tag l'id e lo cerco tra gli user memorizzati 
 					User utentev = users.get(filterstring);
-					// w grub utentev nelle stringe di controllo di slack
-					// w utentev.equals
-					if (!utentev.equals(utenteu)) {
+//					Prima di inserire un nuovo utente q avviene un controllo se è nullo o se esiste già nel grafo 
+					if ((utentev != null) && !utentev.equals(utenteu)) {
 						if (!snagraph.nodes().contains(utentev))
 							snagraph.addNode(utentev);
 
@@ -101,7 +99,7 @@ public class MentionGraph extends AbstractGraph {
 							snagraph.removeEdge(utenteu, utentev);
 							snagraph.putEdgeValue(utenteu, utentev, mentioncount);
 						}
-					}
+					} 
 				}
 			}
 		}
