@@ -38,6 +38,7 @@ public class CommandInterpreter
 
             else if (bridge.mentions())
             {
+                Boolean from = false;
                 Boolean weight = false;
                 String in = "";
                 String name = "";
@@ -50,15 +51,15 @@ public class CommandInterpreter
                 if (bridge.from())
                 {
                     name = bridge.getFromWho();
-                    // Qualcosa tipo printMentionsFrom(name, in, weight); TODO
+                    from = true;
                 } else if (bridge.to())
                 {
                     name = bridge.getToWho();
-                    // Qualcosa tipo printMentionsTo(name, in, weight); TODO
-                } else
-                {
-                    // Qualcosa tipo printMentions(in, weight); TODO
+                    from = false;
                 }
+
+//                dataCtr.printMentions(in, name, from, weight);
+
             } else
                 throw new IllegalStateException();
         } else

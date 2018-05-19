@@ -49,6 +49,33 @@ public class DataController {
 	public void printChannelMembers(final String _nameChannel) {
 		view.printChannelMembers(mod.getUsers(), mod.getChannels(), _nameChannel);
 	}
+	
+	///////////// Uhm, manca qualcosa (?)
+	public void printMentions(String channel, String nome, Boolean from, Boolean weight)
+    {
+        if(nome.equals(""))
+        {
+            printMention(channel);
+        }
+        else
+        {
+            if(weight)
+            {
+                if(from)
+                    printMentionsFromUserWeigthed(nome, channel);
+                else
+                    printMentionsToUser(nome, channel);
+            }
+            else
+            {
+                if(from)
+                    printMentionsFromUser(nome, channel);
+                else
+                    printMentionsToUser(nome, channel);
+            }
+        }
+    }
+	//////////////
 
 	public void printMention(final String _inChannel) {
 		if (_inChannel == null || _inChannel.equals("")) {// -m

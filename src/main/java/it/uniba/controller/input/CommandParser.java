@@ -184,13 +184,13 @@ public class CommandParser implements CommandParserInterface
             return true;
         return false;
     }
-    
+
     @Override
     public String getWorkspace()
     {
         return workspace.getWorkspaceName();
     }
-    
+
     @Override
     public Boolean help()
     {
