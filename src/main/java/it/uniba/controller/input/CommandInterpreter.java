@@ -6,7 +6,6 @@ import java.util.zip.ZipException;
 import it.uniba.controller.DataController;
 
 import it.uniba.controller.input.CommandParser;
-import it.uniba.controller.input.CommandParser.*;
 
 // da prendere datacontroller 
 public class CommandInterpreter

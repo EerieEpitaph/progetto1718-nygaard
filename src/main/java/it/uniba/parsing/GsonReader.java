@@ -45,7 +45,9 @@ public class GsonReader implements JsonParserInterface
     }
 
     @Override
-    public HashMap<String, ArrayList<Message>> populateMessages(HashMap<String, ArrayList<Message>> tempMap, String currChannel, Reader reader)
+    public HashMap<String, ArrayList<Message>> populateMessages(
+            HashMap<String, ArrayList<Message>> tempMap, String currChannel,
+            Reader reader)
     {
         GsonMessage[] tempMessage = gson.fromJson(reader, GsonMessage[].class);
         for (GsonMessage x : tempMessage)
@@ -65,6 +67,5 @@ public class GsonReader implements JsonParserInterface
         }
         return tempMap;
     }
-    
-    
+
 }

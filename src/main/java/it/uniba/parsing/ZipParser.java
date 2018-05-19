@@ -3,7 +3,6 @@ package it.uniba.parsing;
 //import java.util.Map;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
@@ -13,10 +12,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
-import com.google.gson.*;
-
 import it.uniba.workdata.Message;
-import it.uniba.workdata.Message.GsonMessage;
 //import it.uniba.model.MentionGraph;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
@@ -28,9 +24,6 @@ public class ZipParser
     private HashMap<String, User> users = new HashMap<String, User>();
     private HashMap<String, Channel> channels = new HashMap<String, Channel>();
     private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
-
-    // private ArrayList<Message> messages = new ArrayList<Message>();
-    // private MentionGraph grmention = new MentionGraph();
 
     public void setWorkspaceName(String _value)
     {
@@ -56,10 +49,6 @@ public class ZipParser
     {
         return channels;
     }
-
-    // public MentionGraph getMentionGraph() {
-    // return grmention;
-    // }
 
     public HashMap<String, ArrayList<Message>> getMessages()
     {
@@ -88,7 +77,8 @@ public class ZipParser
                 {
                     loadedSomething = true;
                     JsonParserInterface jsonBridge = new GsonReader();
-                    Reader lecturer = new InputStreamReader(zip.getInputStream(entry));
+                    Reader lecturer = new InputStreamReader(
+                            zip.getInputStream(entry));
 
                     if (entry.getName().equals("users.json"))
                         users = jsonBridge.populateUsers(lecturer);
@@ -97,9 +87,11 @@ public class ZipParser
                         channels = jsonBridge.populateChannels(lecturer);
 
                     else
-                        messages = jsonBridge.populateMessages(messages, currChannel, lecturer);
-                    
+                        messages = jsonBridge.populateMessages(messages,
+                                currChannel, lecturer);
+
                     lecturer.close();
+                    
                     // Non ho trovato i file che ci servono
                     if (!loadedSomething)
                         throw new ZipException();
