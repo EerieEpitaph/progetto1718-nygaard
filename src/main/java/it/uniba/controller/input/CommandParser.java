@@ -212,121 +212,124 @@ public class CommandParser implements CommandParserInterface
     @Override
     public Boolean userInChannel()
     {
-        // TODO Auto-generated method stub
-        return null;
+        if(workspace.isValidFilter())
+            return true;
+        return false;
     }
 
     @Override
     public String getChannelFilter()
     {
-        // TODO Auto-generated method stub
-        return null;
+        return workspace.getChannelFilter();
     }
 
     @Override
     public Boolean mentions()
     {
-        // TODO Auto-generated method stub
-        return null;
+        if(workspace.mentionParams != null)
+            return true;
+        return false;
     }
 
     @Override
     public Boolean from()
     {
-        // TODO Auto-generated method stub
-        return null;
+        String[] params = workspace.mentionParams;
+        if(params.length >= 2)
+        {
+            if(params[0].equals("from"))
+            {
+                try
+                {
+                    if(params[1] != null)
+                        return true;
+                }
+                catch(Exception e){throw new IllegalStateException();}
+            }
+        }
+        return false;
     }
 
     @Override
     public String getFromWho()
     {
-        // TODO Auto-generated method stub
-        return null;
+        try
+        {
+            return workspace.mentionParams[1];
+        }
+        catch(Exception e) {throw new IllegalStateException();}
     }
 
     @Override
     public Boolean to()
     {
-        // TODO Auto-generated method stub
-        return null;
+        String[] params = workspace.mentionParams;
+        if(params.length >= 2)
+        {
+            if(params[0].equals("to"))
+            {
+                try
+                {
+                    if(params[1] != null)
+                        return true;
+                }
+                catch(Exception e){throw new IllegalStateException();}
+            }
+        }
+        return false;
     }
 
     @Override
     public String getToWho()
     {
-        // TODO Auto-generated method stub
-        return null;
+        try
+        {
+            return workspace.mentionParams[1];
+        }
+        catch(Exception e) {throw new IllegalStateException();}
     }
 
     @Override
     public Boolean in()
     {
-        // TODO Auto-generated method stub
-        return null;
+        String[] params = workspace.mentionParams;
+        for(int i = 0; i < params.length; i++ )
+        {
+            try
+            {
+                if(params[i].equals("in"))
+                    if(params[i+1] != null)
+                        return true;
+            }
+            catch(Exception e) {throw new IllegalStateException();}
+        }
+        return false;
     }
 
     @Override
     public String getInWhat()
     {
-        // TODO Auto-generated method stub
-        return null;
+        String[] params = workspace.mentionParams;
+        for(int i = 0; i < params.length; i++ )
+        {
+            try
+            {
+                if(params[i].equals("in"))
+                    if(params[i+1] != null)
+                        return params[i+1];
+            }
+            catch(Exception e) {throw new IllegalStateException();}
+        }
+        return "";
     }
 
     @Override
     public Boolean weighted()
     {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    // ==========================================================
-    // ====================INTERFACE HELPERS=====================
-    // ==========================================================
-
-    private Boolean wantsFrom(String[] mentionParams)
-    {
-        if ((mentionParams.length == 2) && mentionParams[0].equals("from")
-                && mentionParams[1] != null)
+        if(workspace.mentionParams != null && 
+           workspace.mentionParams.length != 0 &&
+           workspace.mentionParams[workspace.mentionParams.length-1].equals("-n"))
             return true;
-        else
-            return false;
-    }
-
-    private Boolean wantsTo(String[] mentionParams)
-    {
-        if ((mentionParams.length == 2) && mentionParams[0].equals("to")
-                && mentionParams[1] != null)
-            return true;
-        else
-            return false;
-    }
-
-    private Boolean wantsIn(String[] mentionParams)
-    {
-        if ((mentionParams.length == 2) && mentionParams[0].equals("in")
-                && mentionParams[1] != null)
-            return true;
-        else
-            return false;
-    }
-
-    private Boolean wantsFromIn(String[] mentionParams)
-    {
-        if ((mentionParams.length == 4) && mentionParams[0].equals("from")
-                && mentionParams[1] != null && mentionParams[2].equals("in")
-                && mentionParams[1] != null)
-            return true;
-        else
-            return false;
-    }
-
-    private Boolean wantsToIn(String[] mentionParams)
-    {
-        if ((mentionParams.length == 4) && mentionParams[0].equals("to")
-                && mentionParams[1] != null && mentionParams[2].equals("in")
-                && mentionParams[1] != null)
-            return true;
-        else
-            return false;
+        return false;
     }
 }

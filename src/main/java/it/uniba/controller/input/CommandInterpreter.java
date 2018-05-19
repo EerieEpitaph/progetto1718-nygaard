@@ -17,43 +17,43 @@ public class CommandInterpreter
     {
         CommandParserInterface bridge = parser;
 
-        if (parser.help())
+        if (bridge.help())
             showHelp();
 
-        else if (parser.users())
+        else if (bridge.users())
             dataCtr.printMembers();
 
-        else if (parser.channels())
+        else if (bridge.channels())
             dataCtr.printChannels();
 
-        else if (parser.extendedChannels())
+        else if (bridge.extendedChannels())
             dataCtr.printMembers4Channel();
 
-        else if (parser.userInChannel())
-            dataCtr.printChannelMembers(parser.getChannelFilter());
+        else if (bridge.userInChannel())
+            dataCtr.printChannelMembers(bridge.getChannelFilter());
 
-        else if (parser.mentions())
+        else if (bridge.mentions())
         {
             Boolean weight = false;
             String in = "";
             String name = "";
 
-            if (parser.weighted())
+            if (bridge.weighted())
                 weight = true;
-            if (parser.in())
-                in = parser.getInWhat();
+            if (bridge.in())
+                in = bridge.getInWhat();
 
-            if (parser.from())
+            if (bridge.from())
             {
-                name = parser.getFromWho();
+                name = bridge.getFromWho();
                 // Qualcosa tipo printMentionsFrom(name, in, weight); TODO
-            } else if (parser.to())
+            } else if (bridge.to())
             {
-                name = parser.getToWho();
+                name = bridge.getToWho();
                 // Qualcosa tipo printMentionsTo(name, in, weight); TODO
             } else
             {
-                // Qualcosa tipo printMentions(name, in, weight); TODO
+                // Qualcosa tipo printMentions(in, weight); TODO
             }
         } else
             throw new IllegalStateException();
