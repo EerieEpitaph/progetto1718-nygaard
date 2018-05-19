@@ -87,59 +87,18 @@ public class ZipParser
                 else
                 {
                     loadedSomething = true;
-                    InputStream stream = zip.getInputStream(entry);
-                    Reader lecturer = new InputStreamReader(stream);
-
-                    GsonBuilder builder = new GsonBuilder();
-                    Gson gson = builder.create();
+                    JsonParserInterface jsonBridge = new GsonReader();
+                    Reader lecturer = new InputStreamReader(zip.getInputStream(entry));
 
                     if (entry.getName().equals("users.json"))
-                    {
-                        User[] tempUser = gson.fromJson(lecturer, User[].class);
-
-                        for (User x : tempUser)
-                        {
-                            // System.out.println(x.getId() + " " +
-                            // x.getDisplayNameNorm());
-                            users.put(x.getId(), x);
-                        }
-                    }
+                        users = jsonBridge.populateUsers(lecturer);
 
                     else if (entry.getName().equals("channels.json"))
-                    {
-                        Channel[] tempChannel = gson.fromJson(lecturer,
-                                Channel[].class);
-                        for (Channel x : tempChannel)
-                        {
-                            // System.out.println(x.getId());
-                            channels.put(x.getName(), x);
-                        }
-                    }
+                        channels = jsonBridge.populateChannels(lecturer);
 
                     else
-                    {
-                        GsonMessage[] tempMessage = gson.fromJson(lecturer,
-                                GsonMessage[].class);
-                        // ArrayList<Message> msg = new ArrayList<Message>();
-
-                        for (GsonMessage x : tempMessage)
-                        {
-                            // currChannel nome channel
-                            Message tempMes = new Message(x);
-                            // msg.add(tempMes);
-                            if (messages.containsKey(currChannel))
-                            {
-                                messages.get(currChannel).add(tempMes);
-                            }
-
-                            else
-                            {
-                                ArrayList<Message> msg = new ArrayList<Message>();
-                                msg.add(tempMes);
-                                messages.put(currChannel, msg);
-                            }
-                        }
-                    }
+                        messages = jsonBridge.populateMessages(messages, currChannel, lecturer);
+                    
                     lecturer.close();
                     // Non ho trovato i file che ci servono
                     if (!loadedSomething)

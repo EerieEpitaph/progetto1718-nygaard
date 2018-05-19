@@ -57,7 +57,7 @@ public class CommandInterpreter
                     from = false;
                 }
 
-//                dataCtr.printMentions(in, name, from, weight);
+                dataCtr.printMentions(in, name, from, weight);
 
             } else
                 throw new IllegalStateException();
