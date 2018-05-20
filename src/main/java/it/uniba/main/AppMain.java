@@ -11,12 +11,10 @@ import picocli.CommandLine.UnmatchedArgumentException;
 
 public final class AppMain {
 
-	public static void main(final String[] args)
-	{
+	public static void main(final String[] args) {
 		Controller control = new Controller();
 
 		try {
-
 			if (args.length != 0)
 				control.controlExecuteCLI(args);
 			else

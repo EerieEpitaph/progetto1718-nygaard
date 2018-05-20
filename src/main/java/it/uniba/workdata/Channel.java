@@ -9,7 +9,8 @@ public final class Channel {
 	private LinkedList<String> members = new LinkedList<String>();
 	private String name;
 
-	public Channel(final String _id, final Long _created, final String _creator, final LinkedList<String> _members, final String _name) {
+	public Channel(final String _id, final Long _created, final String _creator, final LinkedList<String> _members,
+			final String _name) {
 		id = _id;
 		created = _created;
 		creator = _creator;

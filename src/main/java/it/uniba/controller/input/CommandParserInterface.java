@@ -1,36 +1,35 @@
 package it.uniba.controller.input;
 
-public interface CommandParserInterface
-{
-    public Boolean validWorkspace();
+public interface CommandParserInterface {
+	public Boolean validWorkspace();
 
-    public String getWorkspace();
+	public String getWorkspace();
 
-    public Boolean help();
+	public Boolean help();
 
-    public Boolean users();
+	public Boolean users();
 
-    public Boolean channels();
+	public Boolean channels();
 
-    public Boolean extendedChannels();
+	public Boolean extendedChannels();
 
-    public Boolean userInChannel();
+	public Boolean userInChannel();
 
-    public String getChannelFilter();
+	public String getChannelFilter();
 
-    public Boolean mentions();
+	public Boolean mentions();
 
-    public Boolean from();
+	public Boolean from();
 
-    public String getFromWho();
+	public String getFromWho();
 
-    public Boolean to();
+	public Boolean to();
 
-    public String getToWho();
+	public String getToWho();
 
-    public Boolean in();
+	public Boolean in();
 
-    public String getInWhat();
+	public String getInWhat();
 
-    public Boolean weighted();
+	public Boolean weighted();
 }

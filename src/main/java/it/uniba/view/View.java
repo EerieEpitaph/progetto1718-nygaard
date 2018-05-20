@@ -61,8 +61,8 @@ public class View {
 
 	// -m || -m in <channel>
 	// -m in x Tutte le mention in Channel x
-	public void printMention(Collection<Edge> edges) {
-		printEdges(edges);
+	public void printMention(Collection<Edge> edges, final boolean _weigth) {
+		printEdges(edges, _weigth);
 	}
 
 	// -m from x Tutte le mention dall'User x
@@ -74,11 +74,13 @@ public class View {
 	// -m to x Tutte le mention in cui � menzionato User x
 	// -m to x in y Tutte le mention in cui � menzionato User x in Channel y
 
-	void printEdges(Collection<Edge> edges) {
+	void printEdges(Collection<Edge> edges, final boolean _weigth) {
 		if (!edges.isEmpty()) {
 			for (Edge ed : edges) {
-				System.out.println("From: " + ed.getFrom().getRealName() + "\tTo: " + ed.getTo().getRealName()
-						+ "\t n. mention: " + (int) ed.getWeigth());
+				System.out.print("From: " + ed.getFrom().getRealName() + "\tTo: " + ed.getTo().getRealName());
+				if (_weigth)
+					System.out.print("\t n. mention: " + (int) ed.getWeigth());
+				System.out.println("");
 			}
 		} else {
 			noMention();
@@ -101,5 +103,25 @@ public class View {
 		System.out.println("The channel '" + _channel + "' doesn't exist.");
 	}
 	// public static void altro() {}
+
+	public static void showHelp() {
+		System.out.println("Usage:");
+		System.out.println("help - Shows this help\n");
+		System.out.println(
+				"-w \"path\\to\\file.zip\" ( -c | -u | -uc <channelFilter> | -cu | -m [from <x>] | [to <y>] [in <z>])");
+		System.out.println("\t-w Parses a workspace.");
+		System.out.println("\t-c Prints all the channels in the specified workspace.");
+		System.out.println("\t-u Prints all the users in the specified workspace.");
+		System.out.println("\t-uc <channelFilter> Prints all the users in the specified channel.");
+		System.out.println("\t-cu Prints all the channels with their users.");
+		System.out.println("\t-m Prints all the mentions in a workspace.");
+		System.out.println("\t\t-m from <user> filters the mentioner.");
+		System.out.println("\t\t-m to <user> filters the mentioned.");
+		System.out.println("\t\t-m in <channel> filters the channel.");
+		System.out.println(
+				"\t\t-m from <user> OR to <user> in <channel> filters the mentioner or mentioned in the channel");
+		System.out.println("\t\t\t using -n show the n. mentions and must be placed at last");
+		System.out.println("\t\t\t (example:  -m <<from/to <user>> <in <channel>> <-n>");
+	}
 
 }

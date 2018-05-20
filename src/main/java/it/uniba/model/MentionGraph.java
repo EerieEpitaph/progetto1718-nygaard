@@ -17,7 +17,7 @@ import com.google.common.graph.ValueGraphBuilder;
 
 public class MentionGraph extends AbstractGraph {
 	Model mod;
-	
+
 	private MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
 	// perchè non presentano la struttura del messaggio: "utente ---> @mention"
@@ -29,12 +29,11 @@ public class MentionGraph extends AbstractGraph {
 
 	public MentionGraph() {
 	}
-	
-	
+
 	public MentionGraph(Model _mod) {
 		mod = _mod;
 	}
-	
+
 	public boolean containsItems(String inputStr) {
 		return Arrays.stream(commignore).parallel().anyMatch(inputStr::contains);
 	}
@@ -44,7 +43,7 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	public void generate(String _inChannel) {
-		 parseMessages(mod.getMessages(),mod.getUsers(),_inChannel);
+		parseMessages(mod.getMessages(), mod.getUsers(), _inChannel);
 	}
 
 	public boolean isEmpty() {
@@ -64,24 +63,32 @@ public class MentionGraph extends AbstractGraph {
 	void parsing(ArrayList<Message> mess, HashMap<String, User> users) {
 		for (Message msg : mess) {
 			if (msg.getText().contains("<@") && !containsItems(msg.getText())) {
-				/*  Attivare le due stampe in caso di null pointer per vedere eventuali stringhe
-				 * di controllo usate da slack per gestire il singolo utente */
+				/*
+				 * Attivare le due stampe in caso di null pointer per vedere eventuali stringhe
+				 * di controllo usate da slack per gestire il singolo utente
+				 */
 
 				// System.out.println("----------- Testo Grabbato: \n" + msg.getText());
 				// System.out.println("\t\t Scritto da: " + msg.getUser() + "\n #############
 				// \n\n");
 				User utenteu = users.get(msg.getUser());
-//				Prima di inserire un nuovo utente p  avviene un controllo se è nullo o se esiste già nel grafo 
+				// Prima di inserire un nuovo utente p avviene un controllo se è nullo o se
+				// esiste già nel grafo
 				if ((utenteu != null) && !snagraph.nodes().contains(utenteu))
 					snagraph.addNode(utenteu);
 
 				Pattern pattern = Pattern.compile("\\<@.*?\\>");
 				Matcher matcher = pattern.matcher(msg.getText()); // msg.getText
 				while (matcher.find()) {
-					String dataparse = matcher.group(0); // filtro l'id dal messaggio 
-					String filterstring = dataparse.replaceAll("<@", " ").replaceAll(">", "").trim(); // pulisco dai tag l'id e lo cerco tra gli user memorizzati 
+					String dataparse = matcher.group(0); // filtro l'id dal messaggio
+					String filterstring = dataparse.replaceAll("<@", " ").replaceAll(">", "").trim(); // pulisco dai tag
+																										// l'id e lo
+																										// cerco tra gli
+																										// user
+																										// memorizzati
 					User utentev = users.get(filterstring);
-//					Prima di inserire un nuovo utente q avviene un controllo se è nullo o se esiste già nel grafo 
+					// Prima di inserire un nuovo utente q avviene un controllo se è nullo o se
+					// esiste già nel grafo
 					if ((utentev != null) && !utentev.equals(utenteu)) {
 						if (!snagraph.nodes().contains(utentev))
 							snagraph.addNode(utentev);
@@ -99,7 +106,7 @@ public class MentionGraph extends AbstractGraph {
 							snagraph.removeEdge(utenteu, utentev);
 							snagraph.putEdgeValue(utenteu, utentev, mentioncount);
 						}
-					} 
+					}
 				}
 			}
 		}
