@@ -28,4 +28,16 @@ public final class Edge {
 	public void changeWeigth(float newWeigth) {
 		_weigth = newWeigth;
 	}
+	
+	
+	public boolean equals(Object obj) {
+		if(_from.equals(((Edge) obj).getFrom()) &&
+				_to.equals(((Edge) obj).getTo()))
+			return true;
+		else
+			return false;
+				
+	}
+	 
+	
 }

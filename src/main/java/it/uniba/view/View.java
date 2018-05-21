@@ -74,7 +74,7 @@ public class View {
 	// -m to x Tutte le mention in cui � menzionato User x
 	// -m to x in y Tutte le mention in cui � menzionato User x in Channel y
 
-	void printEdges(Collection<Edge> edges, final boolean _weigth) {
+	public void printEdges(Collection<Edge> edges, final boolean _weigth) {
 		if (!edges.isEmpty()) {
 			for (Edge ed : edges) {
 				System.out.print("From: " + ed.getFrom().getRealName() + "\tTo: " + ed.getTo().getRealName());
