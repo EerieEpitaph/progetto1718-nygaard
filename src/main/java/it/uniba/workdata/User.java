@@ -1,76 +1,186 @@
 package it.uniba.workdata;
 
+/**
+ * This class models a single user, as found on users.json.
+ */
 public class User {
-	public final class Profile {
-		private String display_name_normalized;
 
-		public Profile(String _display_name_normalized) {
-			display_name_normalized = _display_name_normalized;
+	/**
+	 * User's id.
+	 */
+	private String id;
+
+	/**
+	 * Id of the user's team.
+	 */
+	private String team_id;
+
+	/**
+	 * User's name.
+	 */
+	private String name;
+
+	/**
+	 * User's real name.
+	 */
+	private String real_name;
+
+	/**
+	 * User's sub-profile.
+	 */
+	private final Profile profile;
+
+	/**
+	 * This class models a Profile, which is a sub-object
+	 * inside a json User.
+	 */
+	public static final class Profile {
+		/**
+		 * As found on the .json profile.
+		 */
+		private final String display_name_normalized;
+
+		/**
+		 * Constructor for a new Profile.
+		 * @param displName displayed name
+		 */
+		public Profile(final String displName) {
+			display_name_normalized = displName;
 		}
 
+		/**
+		 * Returns the display name.
+		 * @return display name
+		 */
 		public String getDisplayNameNorm() {
 			return display_name_normalized;
 		}
 	}
 
-	private String id;
-	private String team_id;
-	private String name;
-	private String real_name;
-	private Profile profile;
-
-	public User(final String _id, final String _teams, final String _name, final String _real_name) {
-		id = _id;
-		name = _name;
-		real_name = _real_name;
-		team_id = _teams;
+	/**
+	 * User's constructor.
+	 * @param id2 User identifier
+	 * @param teams2 User team
+	 * @param name2 User name
+	 * @param realName2 User real name
+	 * @param profile2 User profile
+	 */
+	public User(final String id2, final String teams2, final String name2,
+			final String realName2, final Profile profile2) {
+		id = id2;
+		name = name2;
+		real_name = realName2;
+		team_id = teams2;
+		profile = profile2;
 	}
 
+	/**
+	 * User's constructor.
+	 * @param user user to copy
+	 */
+	public User(final User user) {
+		this(user.getId(), user.getTeamId(), user.getName(), user.getRealName(), user.getProfile());
+	}
+
+	/**
+	 * HashCode overriding.
+	 */
 	@Override
 	public int hashCode() {
 		return id.hashCode();
 	}
 
+	/**
+	 * Equals overriding.
+	 */
 	@Override
-	public boolean equals(Object obj) {
-		return id.equals(((User) obj).id);
+	public boolean equals(final Object obj) {
+		if (!(obj instanceof User)) {
+			return false;
+		}
+
+		final User tempUser = new User(((User) obj));
+		final String userId = tempUser.getId();
+		return id.equals(userId);
 	}
 
-	/****************** GETTER **************************/
+	/**
+	 * Returns user id.
+	 * @return User's id
+	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * Returns team id.
+	 * @return User's team id
+	 */
 	public String getTeamId() {
 		return team_id;
 	}
 
+	/**
+	 * Returns user name.
+	 * @return User's name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Returns user real name.
+	 * @return User's real name
+	 */
 	public String getRealName() {
 		return real_name;
 	}
 
+	/**
+	 * Returns user profile normalized name.
+	 * @return User's profile normalized name
+	 */
 	public String getDisplayNameNorm() {
 		return profile.getDisplayNameNorm();
 	}
 
-	/****************** SETTER **************************/
-	public void setId(String value) {
+	/**
+	 * Returns user profile.
+	 * @return User's profile
+	 */
+	public Profile getProfile() {
+		return profile;
+	}
+
+	/**
+	 * Sets a new ID value.
+	 * @param value new ID
+	 */
+	public void setId(final String value) {
 		id = value;
 	}
 
-	public void setTeamId(String value) {
+	/**
+	 * Sets a new team ID.
+	 * @param value new team ID
+	 */
+	public void setTeamId(final String value) {
 		team_id = value;
 	}
 
-	public void setName(String value) {
+	/**
+	 * Sets a new user name.
+	 * @param value new user name
+	 */
+	public void setName(final String value) {
 		name = value;
 	}
 
-	public void setRealName(String value) {
+	/**
+	 * Sets a new user real name.
+	 * @param value new user real name
+	 */
+	public void setRealName(final String value) {
 		real_name = value;
 	}
 

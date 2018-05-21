@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-21T11:53:58.578">
+<pmd version="5.8.1" timestamp="2018-05-21T13:12:31.687">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="26" endline="26" begincolumn="39" endcolumn="51" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
@@ -1426,6 +1426,11 @@ Potential violation of Law of Demeter (method chain calls)
 Avoid using if statements without curly braces
 </violation>
 </file>
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Channel.java">
+<violation beginline="14" endline="14" begincolumn="24" endcolumn="25" rule="ShortVariable" ruleset="Naming" package="it.uniba.workdata" class="Channel" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like id
+</violation>
+</file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Message.java">
 <violation beginline="5" endline="5" begincolumn="32" endcolumn="35" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Message$GsonMessage" variable="type" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'type' could be made final; it is only initialized in the declaration or constructor.
@@ -1453,68 +1458,20 @@ Parameter '_message' is not assigned and could be declared final
 </violation>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
-<violation beginline="3" endline="77" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.workdata" class="User" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
+<violation beginline="6" endline="187" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.workdata" class="User" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
 Avoid short class names like User
 </violation>
-<violation beginline="5" endline="5" begincolumn="32" endcolumn="54" rule="LongVariable" ruleset="Naming" package="it.uniba.workdata" class="User$Profile" variable="display_name_normalized" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#LongVariable" priority="3">
-Avoid excessively long variable names like display_name_normalized
-</violation>
-<violation beginline="5" endline="5" begincolumn="32" endcolumn="54" rule="VariableNamingConventions" ruleset="Naming" package="it.uniba.workdata" class="User$Profile" variable="display_name_normalized" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
-Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'display_name_normalized' is not final.
-</violation>
-<violation beginline="5" endline="5" begincolumn="32" endcolumn="54" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="User$Profile" variable="display_name_normalized" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'display_name_normalized' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="7" endline="7" begincolumn="39" endcolumn="62" rule="LongVariable" ruleset="Naming" package="it.uniba.workdata" class="User$Profile" method="Profile" variable="_display_name_normalized" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#LongVariable" priority="3">
-Avoid excessively long variable names like _display_name_normalized
-</violation>
-<violation beginline="7" endline="7" begincolumn="39" endcolumn="62" rule="VariableNamingConventions" ruleset="Naming" package="it.uniba.workdata" class="User$Profile" method="Profile" variable="_display_name_normalized" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
-Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), '_display_name_normalized' is not final.
-</violation>
-<violation beginline="7" endline="7" begincolumn="32" endcolumn="62" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="it.uniba.workdata" class="User$Profile" method="Profile" variable="_display_name_normalized" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
-Parameter '_display_name_normalized' is not assigned and could be declared final
-</violation>
-<violation beginline="16" endline="16" begincolumn="24" endcolumn="25" rule="ShortVariable" ruleset="Naming" package="it.uniba.workdata" class="User" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+<violation beginline="11" endline="11" begincolumn="24" endcolumn="25" rule="ShortVariable" ruleset="Naming" package="it.uniba.workdata" class="User" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
 Avoid variables with short names like id
 </violation>
-<violation beginline="16" endline="16" begincolumn="17" endcolumn="26" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="it.uniba.workdata" class="User" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
-Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
-</violation>
-<violation beginline="17" endline="17" begincolumn="17" endcolumn="31" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="it.uniba.workdata" class="User" variable="team_id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
-Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
-</violation>
-<violation beginline="17" endline="17" begincolumn="24" endcolumn="30" rule="VariableNamingConventions" ruleset="Naming" package="it.uniba.workdata" class="User" variable="team_id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
+<violation beginline="16" endline="16" begincolumn="24" endcolumn="30" rule="VariableNamingConventions" ruleset="Naming" package="it.uniba.workdata" class="User" variable="team_id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
 Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'team_id' is not final.
 </violation>
-<violation beginline="18" endline="18" begincolumn="17" endcolumn="28" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="it.uniba.workdata" class="User" variable="name" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
-Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
-</violation>
-<violation beginline="19" endline="19" begincolumn="17" endcolumn="33" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="it.uniba.workdata" class="User" variable="real_name" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
-Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
-</violation>
-<violation beginline="19" endline="19" begincolumn="24" endcolumn="32" rule="VariableNamingConventions" ruleset="Naming" package="it.uniba.workdata" class="User" variable="real_name" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
+<violation beginline="26" endline="26" begincolumn="24" endcolumn="32" rule="VariableNamingConventions" ruleset="Naming" package="it.uniba.workdata" class="User" variable="real_name" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
 Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'real_name' is not final.
 </violation>
-<violation beginline="20" endline="20" begincolumn="17" endcolumn="32" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="it.uniba.workdata" class="User" variable="profile" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
-Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
-</violation>
-<violation beginline="35" endline="35" begincolumn="31" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="it.uniba.workdata" class="User" method="equals" variable="obj" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
-Parameter 'obj' is not assigned and could be declared final
-</violation>
-<violation beginline="36" endline="36" begincolumn="24" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.workdata" class="User" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="61" endline="61" begincolumn="27" endcolumn="38" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="it.uniba.workdata" class="User" method="setId" variable="value" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
-Parameter 'value' is not assigned and could be declared final
-</violation>
-<violation beginline="65" endline="65" begincolumn="31" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="it.uniba.workdata" class="User" method="setTeamId" variable="value" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
-Parameter 'value' is not assigned and could be declared final
-</violation>
-<violation beginline="69" endline="69" begincolumn="29" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="it.uniba.workdata" class="User" method="setName" variable="value" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
-Parameter 'value' is not assigned and could be declared final
-</violation>
-<violation beginline="73" endline="73" begincolumn="33" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="it.uniba.workdata" class="User" method="setRealName" variable="value" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
-Parameter 'value' is not assigned and could be declared final
+<violation beginline="41" endline="41" begincolumn="38" endcolumn="60" rule="LongVariable" ruleset="Naming" package="it.uniba.workdata" class="User$Profile" variable="display_name_normalized" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like display_name_normalized
 </violation>
 </file>
 </pmd>

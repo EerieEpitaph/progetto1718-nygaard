@@ -11,7 +11,7 @@ public final class Channel {
 	/**
 	 * Channel identfier as found in "channels.json".
 	 */
-	private String identifier;
+	private String id;
 
 	/**
 	 * Timestamp at which the channel was created.
@@ -41,9 +41,9 @@ public final class Channel {
 	 * @param members2 list of members
 	 * @param name2 channel name
 	 */
-	public Channel(final String identifier2, final Long created2, final String creator2, final List<String> members2,
+	public Channel(final String id2, final Long created2, final String creator2, final List<String> members2,
 			final String name2) {
-		this.identifier = identifier2;
+		this.id = id2;
 		this.created = created2;
 		this.creator = creator2;
 		this.members = members2;
@@ -55,7 +55,7 @@ public final class Channel {
 	 * @return ID as String
 	 */
 	public String getId() {
-		return identifier;
+		return id;
 	}
 
 	/**
@@ -95,7 +95,7 @@ public final class Channel {
 	 * @param value new id
 	 */
 	public void setId(final String value) {
-		identifier = value;
+		id = value;
 	}
 
 	/**
