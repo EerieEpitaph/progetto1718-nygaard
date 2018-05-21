@@ -78,7 +78,7 @@
 <br/>
 </p>
 <h2>Metrics</h2>
-<p>807 lines of code analyzed,
+<p>806 lines of code analyzed,
 	in 21 classes, 
 	in 7 packages.</p>
 <table width="500" cellpadding="5" cellspacing="2">
@@ -94,18 +94,18 @@
 </tr>
 <tr class="tablerow1">
 <td>Medium Priority Warnings</td>
-<td align="right">5</td>
-<td align="right">6.20</td>
+<td align="right">4</td>
+<td align="right">4.96</td>
 </tr>
 <tr class="$totalClass">
 <td>
 <b>Total Warnings</b>
 </td>
 <td align="right">
-<b>6</b>
+<b>5</b>
 </td>
 <td align="right">
-<b>7.43</b>
+<b>6.20</b>
 </td>
 </tr>
 </table>
@@ -126,9 +126,6 @@
 </li>
 <li>
 <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
-</li>
-<li>
-<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
 </li>
 <li>
 <a href="#Details">Details</a>
@@ -160,16 +157,10 @@
 </tr>
 <tr class="tablerow1">
 <td>
-<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
-</td>
-<td align="right">1</td>
-</tr>
-<tr class="tablerow0">
-<td>
 <b>Total</b>
 </td>
 <td align="right">
-<b>6</b>
+<b>5</b>
 </td>
 </tr>
 </table>
@@ -272,29 +263,6 @@
 </td>
 </tr>
 </table>
-<h2>
-<a name="Warnings_PERFORMANCE">Performance Warnings</a>
-</h2>
-<table class="warningtable" width="100%" cellspacing="0">
-<tr class="tableheader">
-<th align="left">Code</th>
-<th align="left">Warning</th>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N65997');">
-<td>
-<span class="priority-2">SIC</span>
-</td>
-<td>Should it.uniba.workdata.Message$GsonMessage be a _static_ inner class?</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N65997" style="display: none;">
-<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
-<br/>In class it.uniba.workdata.Message$GsonMessage<br/>At Message.java:[lines 9-24]</p>
-</td>
-</tr>
-</table>
 <h1>
 <a name="Details">Details</a>
 </h1>
@@ -328,18 +296,6 @@ Unless both strings are either constants in a source file, or have been
 interned using the <code>String.intern()</code> method, the same string
 value may be represented by two different String objects. Consider
 using the <code>equals(Object)</code> method instead.</p>
-
-    
-<h2>
-<a name="SIC_INNER_SHOULD_BE_STATIC">SIC_INNER_SHOULD_BE_STATIC: Should be a static inner class</a>
-</h2>
-
-  <p> This class is an inner class, but does not use its embedded reference
-  to the object which created it.&nbsp; This reference makes the instances
-  of the class larger, and may keep the reference to the creator object
-  alive longer than necessary.&nbsp; If possible, the class should be
-   made static.
-</p>
 
     </body>
 </html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-21T13:12:31.687">
+<pmd version="5.8.1" timestamp="2018-05-21T13:50:33.057">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="26" endline="26" begincolumn="39" endcolumn="51" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
@@ -1429,32 +1429,6 @@ Avoid using if statements without curly braces
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Channel.java">
 <violation beginline="14" endline="14" begincolumn="24" endcolumn="25" rule="ShortVariable" ruleset="Naming" package="it.uniba.workdata" class="Channel" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
 Avoid variables with short names like id
-</violation>
-</file>
-<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Message.java">
-<violation beginline="5" endline="5" begincolumn="32" endcolumn="35" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Message$GsonMessage" variable="type" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'type' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="6" endline="6" begincolumn="32" endcolumn="35" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Message$GsonMessage" variable="user" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'user' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="7" endline="7" begincolumn="32" endcolumn="35" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Message$GsonMessage" variable="text" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'text' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="29" endline="29" begincolumn="17" endcolumn="36" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="it.uniba.workdata" class="Message" variable="message" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
-Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
-</violation>
-<violation beginline="29" endline="29" begincolumn="17" endcolumn="36" rule="AvoidFieldNameMatchingTypeName" ruleset="Naming" package="it.uniba.workdata" class="Message" variable="message" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#AvoidFieldNameMatchingTypeName" priority="3">
-It is somewhat confusing to have a field name matching the declaring class name
-</violation>
-<violation beginline="29" endline="29" begincolumn="29" endcolumn="35" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Message" variable="message" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'message' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="31" endline="31" begincolumn="36" endcolumn="43" rule="VariableNamingConventions" ruleset="Naming" package="it.uniba.workdata" class="Message" method="Message" variable="_message" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
-Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), '_message' is not final.
-</violation>
-<violation beginline="31" endline="31" begincolumn="24" endcolumn="43" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="it.uniba.workdata" class="Message" method="Message" variable="_message" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
-Parameter '_message' is not assigned and could be declared final
 </violation>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
