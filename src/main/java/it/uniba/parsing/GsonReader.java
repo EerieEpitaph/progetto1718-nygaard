@@ -3,6 +3,7 @@ package it.uniba.parsing;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,60 +13,69 @@ import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
 import it.uniba.workdata.Message.GsonMessage;
 
-public class GsonReader implements JsonParserInterface
-{
-    Gson gson = (new GsonBuilder()).create();
+/**
+ * This class implement JsonParserInterface.
+ */
+public class GsonReader implements JsonParserInterface {
 
-    @Override
-    public HashMap<String, User> populateUsers(Reader reader)
-    {
-        HashMap<String, User> tempMap = new HashMap<String, User>();
-        User[] tempUser = gson.fromJson(reader, User[].class);
+	/**
+	 * New object responsible for gson parsing created.
+	 */
+	private final Gson gson = new GsonBuilder().create();
 
-        for (User x : tempUser)
-        {
-            // System.out.println(x.getId() + " " +
-            // x.getDisplayNameNorm());
-            tempMap.put(x.getId(), x);
-        }
-        return tempMap;
-    }
+	/**
+	 * Interface overriding.
+	 * @param reader same as overrided.
+	 */
+	@Override
+	public Map<String, User> populateUsers(final Reader reader) {
+		final HashMap<String, User> tempMap = new HashMap<String, User>();
+		final User[] tempUser = gson.fromJson(reader, User[].class);
 
-    @Override
-    public HashMap<String, Channel> populateChannels(Reader reader)
-    {
-        HashMap<String, Channel> tempMap = new HashMap<String, Channel>();
-        Channel[] tempChannel = gson.fromJson(reader, Channel[].class);
-        for (Channel x : tempChannel)
-        {
-            // System.out.println(x.getId());
-            tempMap.put(x.getName(), x);
-        }
-        return tempMap;
-    }
+		for (final User x : tempUser) {
+			// System.out.println(x.getId() + " " +
+			// x.getDisplayNameNorm());
+			tempMap.put(x.getId(), x);
+		}
+		return tempMap;
+	}
 
-    @Override
-    public HashMap<String, ArrayList<Message>> populateMessages(
-            HashMap<String, ArrayList<Message>> tempMap, String currChannel,
-            Reader reader)
-    {
-        GsonMessage[] tempMessage = gson.fromJson(reader, GsonMessage[].class);
-        for (GsonMessage x : tempMessage)
-        {
-            Message tempMes = new Message(x);
-            if (tempMap.containsKey(currChannel))
-            {
-                tempMap.get(currChannel).add(tempMes);
-            }
+	/**
+	 * Interface overriding.
+	 * @param reader same as overrided.
+	 */
+	@Override
+	public Map<String, Channel> populateChannels(final Reader reader) {
+		final HashMap<String, Channel> tempMap = new HashMap<String, Channel>();
+		final Channel[] tempChannel = gson.fromJson(reader, Channel[].class);
+		for (final Channel x : tempChannel) {
+			// System.out.println(x.getId());
+			tempMap.put(x.getName(), x);
+		}
+		return tempMap;
+	}
 
-            else
-            {
-                ArrayList<Message> msg = new ArrayList<Message>();
-                msg.add(tempMes);
-                tempMap.put(currChannel, msg);
-            }
-        }
-        return tempMap;
-    }
+	/**
+	 * Interface overriding.
+	 * @param reader same as overrided.
+	 */
+	@Override
+	public Map<String, ArrayList<Message>> populateMessages(final Map<String, ArrayList<Message>> tempMap,
+			final String currChannel, final Reader reader) {
+		final GsonMessage[] tempMessage = gson.fromJson(reader, GsonMessage[].class);
+		for (final GsonMessage x : tempMessage) {
+			final Message tempMes = x.toMessage();
+			if (tempMap.containsKey(currChannel)) {
+				final ArrayList<Message> tempMessList = new ArrayList<>(tempMap.get(currChannel));
+				tempMessList.add(tempMes);
+				tempMap.replace(currChannel, tempMessList);
+			} else {
+				final ArrayList<Message> msg = new ArrayList<Message>();
+				msg.add(tempMes);
+				tempMap.put(currChannel, msg);
+			}
+		}
+		return tempMap;
+	}
 
 }

@@ -65,6 +65,14 @@ public class Message {
 		public String getText() {
 			return text;
 		}
+
+		/**
+		 * Wrapper.
+		 * @return this as Message
+		 */
+		public Message toMessage() {
+			return new Message(this);
+		}
 	}
 
 	/**
