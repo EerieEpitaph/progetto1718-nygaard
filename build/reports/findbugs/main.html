@@ -89,23 +89,23 @@
 </tr>
 <tr class="tablerow0">
 <td>High Priority Warnings</td>
-<td align="right">1</td>
-<td align="right">1.24</td>
+<td align="right"/>
+<td align="right">0.00</td>
 </tr>
 <tr class="tablerow1">
 <td>Medium Priority Warnings</td>
-<td align="right">4</td>
-<td align="right">4.94</td>
+<td align="right">3</td>
+<td align="right">3.71</td>
 </tr>
 <tr class="$totalClass">
 <td>
 <b>Total Warnings</b>
 </td>
 <td align="right">
-<b>5</b>
+<b>3</b>
 </td>
 <td align="right">
-<b>6.18</b>
+<b>3.71</b>
 </td>
 </tr>
 </table>
@@ -120,9 +120,6 @@
 <ul>
 <li>
 <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
-</li>
-<li>
-<a href="#Warnings_I18N">Internationalization Warnings</a>
 </li>
 <li>
 <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
@@ -141,26 +138,20 @@
 <td>
 <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
 </td>
-<td align="right">3</td>
+<td align="right">2</td>
 </tr>
 <tr class="tablerow1">
-<td>
-<a href="#Warnings_I18N">Internationalization Warnings</a>
-</td>
-<td align="right">1</td>
-</tr>
-<tr class="tablerow0">
 <td>
 <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
 </td>
 <td align="right">1</td>
 </tr>
-<tr class="tablerow1">
+<tr class="tablerow0">
 <td>
 <b>Total</b>
 </td>
 <td align="right">
-<b>5</b>
+<b>3</b>
 </td>
 </tr>
 </table>
@@ -202,43 +193,6 @@
 <br/>In class it.uniba.controller.input.CommandParser$CommWorkspace<br/>In method it.uniba.controller.input.CommandParser$CommWorkspace.isValidWorkspace()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.controller.input.CommandParser$CommWorkspace.workspaceName<br/>At CommandParser.java:[line 59]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N65907');">
-<td>
-<span class="priority-2">ES</span>
-</td>
-<td>Comparison of String objects using == or != in it.uniba.parsing.ZipParser.hasLoaded() </td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N65907" style="display: none;">
-<a href="#ES_COMPARING_STRINGS_WITH_EQ">Bug type ES_COMPARING_STRINGS_WITH_EQ (click for details)</a>
-<br/>In class it.uniba.parsing.ZipParser<br/>In method it.uniba.parsing.ZipParser.hasLoaded()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.parsing.ZipParser.workspaceLoaded<br/>At ZipParser.java:[line 36]</p>
-</td>
-</tr>
-</table>
-<h2>
-<a name="Warnings_I18N">Internationalization Warnings</a>
-</h2>
-<table class="warningtable" width="100%" cellspacing="0">
-<tr class="tableheader">
-<th align="left">Code</th>
-<th align="left">Warning</th>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N65838');">
-<td>
-<span class="priority-1">Dm</span>
-</td>
-<td>Found reliance on default encoding in it.uniba.parsing.ZipParser.load(String): new java.io.InputStreamReader(InputStream)</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N65838" style="display: none;">
-<a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-<br/>In class it.uniba.parsing.ZipParser<br/>In method it.uniba.parsing.ZipParser.load(String)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At ZipParser.java:[line 68]</p>
-</td>
-</tr>
 </table>
 <h2>
 <a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
@@ -266,13 +220,6 @@
 <h1>
 <a name="Details">Details</a>
 </h1>
-<h2>
-<a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
-</h2>
-
-<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
-
-      
 <h2>
 <a name="EI_EXPOSE_REP">EI_EXPOSE_REP: May expose internal representation by returning reference to mutable object</a>
 </h2>

@@ -24,9 +24,9 @@ public class Model {
 	public void updateModel(String path) throws ZipException, IOException {
 		fileParser.load(path);
 
-		users = fileParser.getUsers();
-		channels = fileParser.getChannels();
-		messages = fileParser.getMessages();
+		users = (HashMap<String, User>) fileParser.getUsers();
+		channels = (HashMap<String, Channel>) fileParser.getChannels();
+		messages = (HashMap<String, ArrayList<Message>>) fileParser.getMessages();
 	}
 
 	public boolean hasLoaded() {

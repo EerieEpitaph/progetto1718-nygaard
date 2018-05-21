@@ -66,9 +66,7 @@ public class GsonReader implements JsonParserInterface {
 		for (final GsonMessage x : tempMessage) {
 			final Message tempMes = x.toMessage();
 			if (tempMap.containsKey(currChannel)) {
-				final ArrayList<Message> tempMessList = new ArrayList<>(tempMap.get(currChannel));
-				tempMessList.add(tempMes);
-				tempMap.replace(currChannel, tempMessList);
+				tempMap.get(currChannel).add(tempMes);
 			} else {
 				final ArrayList<Message> msg = new ArrayList<Message>();
 				msg.add(tempMes);
