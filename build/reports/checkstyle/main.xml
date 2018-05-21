@@ -502,6 +502,9 @@
 <error line="122" severity="error" message="Line is longer than 120 characters (found 130)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Channel.java">
+<error line="38" column="12" severity="error" message="Unused @param tag for &apos;id2&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="44" severity="error" message="Line is longer than 120 characters (found 121)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="44" column="37" severity="error" message="Expected @param tag for &apos;identifier2&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Message.java">
 <error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
