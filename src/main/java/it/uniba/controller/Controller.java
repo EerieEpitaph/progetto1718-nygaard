@@ -11,7 +11,7 @@ import it.uniba.controller.input.CommandInterpreter;
 //import it.uniba.controller.input.CommandParserInterface;
 
 /**
- * This class (following the design pattern MVC (MVP) is used to manage the
+ * This class (following the design pattern MVC (MVP)) is used to manage the
  * command's parsing's side, the model and the view.
  */
 public class Controller {
@@ -30,11 +30,11 @@ public class Controller {
 
 	// CLI
 	/**
-	 * CommandParser used for the commands' parsing.
+	 * Used for the commands' parsing.
 	 */
 	private CommandParser commandParser;
 	/**
-	 * CommandParser used for the commands' interpreting and executing.
+	 * Used for the commands' interpreting and executing.
 	 */
 	private CommandInterpreter interpreter;
 
@@ -50,7 +50,7 @@ public class Controller {
 	 * parsing a zip file, and executing the commands specified.
 	 * 
 	 * @param args
-	 *            a collection of arguments
+	 *           <i>String[]</i> a collection of arguments
 	 * @throws ZipException
 	 *             if file does not exists
 	 * @throws IOException
@@ -63,7 +63,7 @@ public class Controller {
 	}
 
 	/**
-	 * It prints the help's message, calling the view's method.
+	 * Prints the help's message, calling the view's method.
 	 */
 	public void showHelp() {
 		View.showHelp();

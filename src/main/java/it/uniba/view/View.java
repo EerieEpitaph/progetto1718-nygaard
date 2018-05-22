@@ -19,10 +19,10 @@ public class View {
 
 	// -u
 	/**
-	 * It prints a collection of Users.
+	 * Prints a list of <b>users</b>.
 	 * 
 	 * @param users
-	 *            collection of users to print
+	 *            <i>Collection</i> of users to print
 	 */
 	public void printMembers(final Collection<User> users) {
 		for (User us : users) {
@@ -32,10 +32,10 @@ public class View {
 
 	// -c
 	/**
-	 * It prints a collection of Channels.
+	 * Prints a list of <b>channels</b>.
 	 * 
 	 * @param channels
-	 *            collection of channels to print
+	 *            <i>Collection</i> of channels to print
 	 */
 	public void printChannels(final Collection<Channel> channels) {
 		for (Channel ch : channels) {
@@ -45,12 +45,12 @@ public class View {
 
 	// -uc
 	/**
-	 * It prints all the channels and the respective members.
+	 * Prints all the <b>channels</b> and the respective <b>members</b> .
 	 * 
 	 * @param users
-	 *            hashMap of users
+	 *            <i>HashMap</i> of users
 	 * @param channels
-	 *            collection of channels
+	 *            <i>Collection</i> of channels
 	 */
 	public void printMembers4Channel(final HashMap<String, User> users, final Collection<Channel> channels) {
 		for (Channel canale : channels) {
@@ -65,18 +65,18 @@ public class View {
 
 	// -cu <channel>
 	/**
-	 * It prints all the members of a specified channel.
+	 * Prints all the <b>members</b> of a specified <b>channel</b>.
 	 * 
 	 * @param users
-	 *            hashMap of users
+	 *            <i>HashMap</i> of users
 	 * @param channels
-	 *            hashMap of channels
+	 *            <i>HashMap</i> of channels
 	 * @param nameChannel
-	 *            name of the channel specified
+	 *            <i>String</i> name of the channel specified
 	 */
 	public void printChannelMembers(final HashMap<String, User> users, final HashMap<String, Channel> channels,
 			final String nameChannel) {
-		if (channels.containsKey(nameChannel)) {
+		if (nameChannel != null && channels.containsKey(nameChannel)) {
 			System.out.print(" + " + nameChannel + "\n");
 			for (String key : channels.get(nameChannel).getMemberList()) {
 				User utente = users.get(key);
@@ -84,40 +84,31 @@ public class View {
 			}
 			System.out.println();
 		} else {
-			System.out.println("There is no channel \"" + nameChannel + "\"");
+			missingChannel(nameChannel);
 		}
 	}
 
-	// -m || -m in <channel>
-	// -m in x Tutte le mention in Channel x
-	// -m from x Tutte le mention dall'User x
-	// -m from x in y Tutte le mention dall'User x in Channel y
-	// -m to x Tutte le mention in cui e' menzionato User x
-	// -m to x in y Tutte le mention in cui e' menzionato User x in Channel y
-	// -m to x Tutte le mention in cui e' menzionato User x
-	// -m to x in y Tutte le mention in cui e' menzionato User x in Channel y
-
 	/**
-	 * It prints all the mention.
+	 * Prints all the mention (<i>all the 'edges'</i>).
 	 * 
 	 * @param edges
-	 *            Collection of Edges (mentions)
+	 *            <i>Collection</i> of Edges (mentions)
 	 * @param weight
-	 *            boolean used to decide if print the weight of the edges.
+	 *            <i>boolean</i> used to decide if print the weight of the edges.
 	 */
 	public void printMention(final Collection<Edge> edges, final boolean weight) {
 		printEdges(edges, weight);
 	}
 
 	/**
-	 * It prints a collection of edges.
+	 * Prints a collection of edges.
 	 * 
 	 * @param edges
-	 *            Collection of Edges
+	 *            <i>Collection</i> of Edges
 	 * @param weight
-	 *            boolean used to decide if print the weight of the edges.
+	 *            <i>boolean</i> used to decide if print the weight of the edges.
 	 */
-	void printEdges(final Collection<Edge> edges, final boolean weight) {
+	private void printEdges(final Collection<Edge> edges, final boolean weight) {
 		if (!edges.isEmpty()) {
 			for (Edge ed : edges) {
 				System.out.print("From: " + ed.getFrom().getRealName() + "\tTo: " + ed.getTo().getRealName());
@@ -132,30 +123,38 @@ public class View {
 	}
 
 	/**
-	 * It prints a message saying that there aren't mention.
+	 * Prints a message saying that there aren't mention.
 	 */
 	public static void noMention() {
 		System.out.println("There aren't mention.");
 	}
 
 	/**
-	 * It prints a message saying that the user specified is missing.
+	 * Prints a message saying that the <b>user</b> specified is missing.
 	 * 
 	 * @param user
-	 *            specified user's name
+	 *            <i>String</i> specified user's name
 	 */
 	public static void missingUser(final String user) {
 		System.out.println("The user '" + user + "' doesn't exist.");
 	}
 
 	/**
-	 * It prints a message that saying that the user specified doesn't belong to a
-	 * specified channel.
+	 * Prints a message saying that the <b>user</b> specified is invalid.
+	 * 
+	 */
+	public static void invalidUser() {
+		System.out.println("The user specified is invalid.");
+	}
+
+	/**
+	 * Prints a message that saying that the <b>user</b> specified doesn't belong to a
+	 * specified <b>channel</b>.
 	 * 
 	 * @param user
-	 *            specified user's name
+	 *            <i>String</i> specified user's name
 	 * @param channel
-	 *            specified channel's name
+	 *            <i>String</i> specified channel's name
 	 * 
 	 */
 	public static void missingUserInChannel(final String user, final String channel) {
@@ -163,17 +162,17 @@ public class View {
 	}
 
 	/**
-	 * It prints a message saying that the channel specified is missing.
+	 * Prints a message saying that the <b>channel</b> specified is missing.
 	 * 
 	 * @param channel
-	 *            specified channel's name
+	 *            <i>String</i> specified channel's name
 	 */
 	public static void missingChannel(final String channel) {
 		System.out.println("The channel '" + channel + "' doesn't exist.");
 	}
 
 	/**
-	 * It prints the help's message.
+	 * Prints the help's message.
 	 */
 	public static void showHelp() {
 		System.out.println("Usage:");
