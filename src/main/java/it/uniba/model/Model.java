@@ -87,6 +87,7 @@ public class Model {
 	// messages = _messages;
 	// }
 
+	
 	/**
 	 * 
 	 * @return <i>HashMap</i> of Users
@@ -102,7 +103,7 @@ public class Model {
 	public HashMap<String, Channel> getChannels() {
 		return channels;
 	}
-
+	
 	/**
 	 * 
 	 * @return <i>HashMap</i> of all messagges
