@@ -56,7 +56,7 @@ public class CommandParser implements CommandParserInterface {
 		}
 
 		public Boolean isValidWorkspace() {
-			return (workspaceName != null && workspaceName != "");
+			return (workspaceName != null && !workspaceName.equals(""));
 		}
 
 		public Boolean getMembersStatus() {
@@ -76,11 +76,13 @@ public class CommandParser implements CommandParserInterface {
 		}
 
 		public Boolean isValidFilter() {
-			return (channelFilter != null && channelFilter != "");
+			
+			return (channelFilter != null && !channelFilter.equals(""));
 		}
 
 		public String[] getMentionParams() {
-			return mentionParams;
+			String[] mentionParamS = mentionParams;
+			return mentionParamS;
 		}
 	}
 
