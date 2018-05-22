@@ -15,41 +15,100 @@ import java.util.regex.Pattern;
 import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
 
+/**
+ * MentionGraph manage graph of mentions, it use <b>Guava</b> Libraries, an
+ * libraries of Google
+ */
 public class MentionGraph extends AbstractGraph {
+	/**
+	 * An instance of Model
+	 */
 	Model mod;
 
+	/**
+	 * Instance of <i>MutableValueGraph</i> type of <b>Guava</b> libraries witch
+	 * contains nodes(User) and Egde (Integer) weight base on numbers of mention
+	 * from a user
+	 */
 	private MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
 	// perchè non presentano la struttura del messaggio: "utente ---> @mention"
+	/**
+	 * Array of <i>String</i> contains all Slack's commands
+	 */
 	String[] commignore = { "has joined the channel", "set the channel purpose", "cleared channel topic",
 			"uploaded a file", "commented on", "was added to this conversation", "set the channel topic",
 			"pinned a message to this channel", "pinned", "has renamed the channel", "un-archived the channel",
 			"archived the channel", "cleared channel purpose", "has left the channel", "shared a file" };
 	// aggiornare lista comandi da ignorare {deleted} trovare riferimento ufficiale
 
+	/**
+	 * Default costructor of MentionGraph
+	 */
 	public MentionGraph() {
 	}
 
+	/**
+	 * @param _mod
+	 *            <i>Model</i> witch contains Data such as <i>Users,Channel and
+	 *            Messages</i>
+	 */
 	public MentionGraph(Model _mod) {
 		mod = _mod;
 	}
 
+	/**
+	 * Check if command is present in the message
+	 * 
+	 * @param inputStr
+	 *            Slack's commands to ignore
+	 * @return <i>boolean</i> if commands is present in the current message
+	 */
 	public boolean containsItems(String inputStr) {
 		return Arrays.stream(commignore).parallel().anyMatch(inputStr::contains);
 	}
 
+	/**
+	 * Check if Node is present in the graph
+	 * 
+	 * @param node
+	 *            User in the graph
+	 * @return <i>boolean</i> if <b>Node</b> is present in the graph
+	 */
 	public boolean containsNode(User node) {
 		return snagraph.nodes().contains(node);
 	}
 
+	/**
+	 * Parse all messages of specified channel in the graph
+	 * 
+	 * @param _inChannel
+	 *            <i>String</i> Parse message of a specified channel
+	 * 
+	 */
 	public void generate(String _inChannel) {
 		parseMessages(mod.getMessages(), mod.getUsers(), _inChannel);
 	}
 
+	/**
+	 * Check if graph is empty
+	 * 
+	 * @return <i>boolean</i> if graph is Empty
+	 */
 	public boolean isEmpty() {
 		return snagraph.nodes().isEmpty();
 	}
 
+	/**
+	 * Call <i>parsing</i> for all workspace or specified channel
+	 * 
+	 * @param message
+	 *            <i>HashMap<i> of <b>Channels and Messages</b>
+	 * @param users
+	 *            <i>HashMap<i> of <b>Users</b>
+	 * @param _inChannel
+	 *            <i>String</i> specified channel to parsing messages
+	 */
 	public void parseMessages(HashMap<String, ArrayList<Message>> message, HashMap<String, User> users,
 			final String _inChannel) { // TODO _inChannel default = null || ""
 		if (_inChannel == null || _inChannel.equals("")) {
@@ -60,6 +119,16 @@ public class MentionGraph extends AbstractGraph {
 		}
 	}
 
+	/**
+	 * Find all mention in the message, identifies: the user write
+	 * mention(<i><b>From</b></i>), the user mentioned (<i><b>To</b></i>) and the
+	 * number of mentions
+	 * 
+	 * @param mess
+	 *            <i>HashMap<i> of <b>Channels and Messages</b>
+	 * @param users
+	 *            <i>HashMap<i> of <b>Users</b>
+	 */
 	void parsing(ArrayList<Message> mess, HashMap<String, User> users) {
 		for (Message msg : mess) {
 			if (msg.getText().contains("<@") && !containsItems(msg.getText())) {
@@ -113,6 +182,14 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	// issue#39
+	/**
+	 * Find all edge in degree of specified user
+	 * 
+	 * @param user
+	 *            <b>User</b>
+	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
+	 *         edge
+	 */
 	public ArrayList<Edge> edgesInDegree(User user) {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		if (snagraph.nodes().contains(user)) {
@@ -140,6 +217,14 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	// issue37 && issue#38
+	/**
+	 * Find all edge out degree of specified user
+	 * 
+	 * @param user
+	 *            <b>User</b>
+	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
+	 *         edge
+	 */
 	public ArrayList<Edge> edgesOutDegree(User user) {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		int numNodesPrinted = 0;
