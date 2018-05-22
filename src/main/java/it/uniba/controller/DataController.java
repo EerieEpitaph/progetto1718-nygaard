@@ -123,7 +123,7 @@ public class DataController {
 	}
 
 	/**
-	 * This function prints all the mention in a channel. It decides if to print the
+	 * Prints all the mention in a channel. It decides if to print the
 	 * mention <i>from</i> or <i>to</i> a user (<b>from</b>) and if to print the
 	 * number of mentions (<b>weight</b>).
 	 *

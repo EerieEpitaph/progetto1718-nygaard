@@ -6,19 +6,42 @@ import java.util.zip.ZipException;
 
 import com.google.gson.JsonParseException;
 
-import it.uniba.controller.*;
+import it.uniba.controller.Controller;
 import picocli.CommandLine.UnmatchedArgumentException;
 
+/**
+ * The AppMain of the project SNA4Slack implements a SNA (Social Network
+ * Analysis) based on the results (message, mention, etc) of the platform Slack.
+ * 
+ * @author Curci Nicola
+ * @author Dimeo Giovanni
+ * @author Lagatta Valentina
+ * @author Lischio Ottavio
+ */
 public final class AppMain {
+	/**
+	 */
+	private AppMain() {
+	}
+
+	/**
+	 * Main of the SNA4Slack. The behavior of the program is based on the
+	 * <b>args</b> in input.
+	 * 
+	 * 
+	 * @param args
+	 *            <i>String[]</i> list of arguments
+	 */
 
 	public static void main(final String[] args) {
 		Controller control = new Controller();
 
 		try {
-			if (args.length != 0)
+			if (args.length != 0) {
 				control.controlExecuteCLI(args);
-			else
+			} else {
 				control.showHelp();
+			}
 		} catch (NullPointerException e) {
 			System.out.println("NullPointer encountered");
 		} catch (ZipException e) {
