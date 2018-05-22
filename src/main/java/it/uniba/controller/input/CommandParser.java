@@ -9,85 +9,175 @@ import picocli.CommandLine;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-public class CommandParser implements CommandParserInterface {
-	// Comandi booleani senza parametri
-	public class CommBaseArgs {
+/**
+ *This class manages the parsing of command line arguments.
+ */
+public final class CommandParser implements CommandParserInterface {
+	/**
+	 *This class manages no-parameter commands.
+	 */
+	public final class CommBaseArgs {
+		/**
+		 *Activity notifier.
+		 */
 		private Boolean active = false;
 
+		/**
+		 *Help found.
+		 */
 		@Option(names = "help")
 		private boolean helpStatus;
 
+		/**
+		 *Gives activity status.
+		 *@return active status
+		 */
 		public Boolean isActive() {
 			return active;
 		}
 
+		/**
+		 *Gives help status.
+		 *@return helpstatus
+		 */
 		public Boolean getHelpStatus() {
 			return helpStatus;
 		}
 	}
 
-	public class CommWorkspace {
+	/**
+	 *This class manages workspace-related commands.
+	 */
+	public final class CommWorkspace {
+		/**
+		 *Activity notifier.
+		 */
 		private Boolean active = false;
 
+		/**
+		 *Name of the current workspace.
+		 */
 		@Parameters(index = "0", arity = "1")
-		String workspaceName;
+		private String workspaceName;
 
+		/**
+		 *Status of member command.
+		 */
 		@Option(names = "-u", arity = "0..1")
 		private boolean membersStatus;
 
+		/**
+		 *Status of channels command.
+		 */
 		@Option(names = "-c", arity = "0..1")
 		private boolean channelsStatus;
 
+		/**
+		 *Status of extended channels command.
+		 */
 		@Option(names = "-cu", arity = "0..1")
 		private boolean extChannelsStatus;
 
+		/**
+		 *Name of channel filter.
+		 */
 		@Option(names = "-uc", arity = "1")
 		private String channelFilter;
 
+		/**
+		 *Parameters passed at mention command.
+		 */
 		@Option(names = "-m", arity = "0..5")
 		private String[] mentionParams;
 
+		/**
+		 *Activity getter.
+		 *@return active status
+		 */
 		public Boolean isActive() {
 			return active;
 		}
 
+		/**
+		 *Worskpace getter.
+		 *@return name of workspace
+		 */
 		public String getWorkspaceName() {
 			return workspaceName;
 		}
 
+		/**
+		 *Workspace validity getter.
+		 *@return workspace validity
+		 */
 		public Boolean isValidWorkspace() {
-			return (workspaceName != null && workspaceName != "");
+			return (workspaceName != null && !"".equals(workspaceName));
 		}
 
+		/**
+		 *Member status getter.
+		 *@return memberStatus value
+		 */
 		public Boolean getMembersStatus() {
 			return membersStatus;
 		}
 
+		/**
+		 *Channel status getter.
+		 *@return channelStatus value
+		 */
 		public Boolean getChannelsStatus() {
 			return channelsStatus;
 		}
 
+		/**
+		 *Extended channel status getter.
+		 *@return extChannelStatus value
+		 */
 		public Boolean getExtChannelsStatus() {
 			return extChannelsStatus;
 		}
 
+		/**
+		 *Channel filter getter.
+		 *@return channelFilter value
+		 */
 		public String getChannelFilter() {
 			return channelFilter;
 		}
 
+		/**
+		 *Channel filter validity getter.
+		 *@return channelFilter validity
+		 */
 		public Boolean isValidFilter() {
-			return (channelFilter != null && channelFilter != "");
+			return (channelFilter != null && !"".equals(channelFilter));
 		}
 
+		/**
+		 *Mention params getter.
+		 *@return array of parameters passed after mention command
+		 */
 		public String[] getMentionParams() {
-			return mentionParams;
+			return Arrays.copyOf(mentionParams, mentionParams.length);
 		}
 	}
 
+	/**
+	 *Base commands representer.
+	 */
 	private CommBaseArgs baseArgs;
+	/**
+	 *Workspace command representer.
+	 */
 	private CommWorkspace workspace;
 
-	public CommandParser(String[] args) throws IllegalStateException {
+	/**
+	 *CommandParser constructor.
+	 *@param args array of command line arguments
+	 *@throws IllegalStateException if conflicting commands parsed
+	 */
+	public CommandParser(final String[] args) throws IllegalStateException {
 		baseArgs = new CommBaseArgs();
 		workspace = new CommWorkspace();
 
@@ -116,10 +206,11 @@ public class CommandParser implements CommandParserInterface {
 					y.setAccessible(true);
 					try {
 						if (y.get(baseArgs).toString().equals("true")) {
-							if (baseArgs.active)
+							if (baseArgs.active) {
 								throw new IllegalStateException(); // CATCHED
-							else
+							} else {
 								baseArgs.active = true;
+							}
 						}
 
 						y.setAccessible(false);
@@ -129,20 +220,25 @@ public class CommandParser implements CommandParserInterface {
 						e.printStackTrace();
 					}
 				}
-			}
-
-			// Il comando parsato � "-w"
-			else if (x.getCommand().getClass() == CommWorkspace.class) {
+			} else if (x.getCommand().getClass() == CommWorkspace.class) {
 				workspace = (CommWorkspace) x.getCommand();
 				workspace.active = true;
 			}
 		}
 	}
 
+	/**
+	 *Base args getter.
+	 *@return base commands
+	 */
 	public CommBaseArgs getBaseArgs() {
 		return baseArgs;
 	}
 
+	/**
+	 *Workspace command getter.
+	 *@return workspace command representer
+	 */
 	public CommWorkspace getCommWorkspace() {
 		return workspace;
 	}
@@ -151,133 +247,112 @@ public class CommandParser implements CommandParserInterface {
 	// ================INTERFACE IMPLEMENTATION==================
 	// ==========================================================
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public Boolean validWorkspace() {
-		if (workspace.isActive() && workspace.isValidWorkspace())
+		if (workspace.isActive() && workspace.isValidWorkspace()) {
 			return true;
+		}
 		return false;
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public String getWorkspace() {
 		return workspace.getWorkspaceName();
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public Boolean help() {
-		if (baseArgs.getHelpStatus())
+		if (baseArgs.getHelpStatus()) {
 			return true;
+		}
 		return false;
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public Boolean users() {
-		if (workspace.getMembersStatus())
+		if (workspace.getMembersStatus()) {
 			return true;
+		}
 		return false;
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public Boolean channels() {
-		if (workspace.getChannelsStatus())
+		if (workspace.getChannelsStatus()) {
 			return true;
+		}
 		return false;
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public Boolean extendedChannels() {
-		if (workspace.getExtChannelsStatus())
+		if (workspace.getExtChannelsStatus()) {
 			return true;
+		}
 		return false;
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
-	public Boolean userInChannel() {
-		if (workspace.isValidFilter())
+	public Boolean usersInChannel() {
+		if (workspace.isValidFilter()) {
 			return true;
+		}
 		return false;
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public String getChannelFilter() {
 		return workspace.getChannelFilter();
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public Boolean mentions() {
-		if (workspace.mentionParams != null)
+		if (workspace.mentionParams != null) {
 			return true;
+		}
 		return false;
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public Boolean from() {
-        String[] params = workspace.mentionParams;
-        for (int i = 0; i < params.length; i++) {
-            try {
-                if (params[i].equals("from"))
-                    if (params[i + 1] != null)
-                        return true;
-            } catch (Exception e) {
-                throw new IllegalStateException();
-            }
-        }
-        return false;
-	}
-
-	@Override
-	public String getFromWho() {
-        String[] params = workspace.mentionParams;
-        for (int i = 0; i < params.length; i++) {
-            try {
-                if (params[i].equals("from"))
-                    if (params[i + 1] != null)
-                        return params[i + 1];
-            } catch (Exception e) {
-                throw new IllegalStateException();
-            }
-        }
-        return "";
-	}
-
-	@Override
-	public Boolean to() {
-        String[] params = workspace.mentionParams;
-        for (int i = 0; i < params.length; i++) {
-            try {
-                if (params[i].equals("to"))
-                    if (params[i + 1] != null)
-                        return true;
-            } catch (Exception e) {
-                throw new IllegalStateException();
-            }
-        }
-        return false;
-	}
-
-	@Override
-	public String getToWho() {
-        String[] params = workspace.mentionParams;
-        for (int i = 0; i < params.length; i++) {
-            try {
-                if (params[i].equals("to"))
-                    if (params[i + 1] != null)
-                        return params[i + 1];
-            } catch (Exception e) {
-                throw new IllegalStateException();
-            }
-        }
-        return "";
-	}
-
-	@Override
-	public Boolean in() {
 		String[] params = workspace.mentionParams;
 		for (int i = 0; i < params.length; i++) {
 			try {
-				if (params[i].equals("in"))
-					if (params[i + 1] != null)
+				if (params[i].equals("from")) {
+					if (params[i + 1] != null) {
 						return true;
+					}
+				}
 			} catch (Exception e) {
 				throw new IllegalStateException();
 			}
@@ -285,14 +360,19 @@ public class CommandParser implements CommandParserInterface {
 		return false;
 	}
 
+	/**
+	 *Interface overriding.
+	 */
 	@Override
-	public String getInWhat() {
+	public String getFromWho() {
 		String[] params = workspace.mentionParams;
 		for (int i = 0; i < params.length; i++) {
 			try {
-				if (params[i].equals("in"))
-					if (params[i + 1] != null)
+				if (params[i].equals("from")) {
+					if (params[i + 1] != null) {
 						return params[i + 1];
+					}
+				}
 			} catch (Exception e) {
 				throw new IllegalStateException();
 			}
@@ -300,11 +380,95 @@ public class CommandParser implements CommandParserInterface {
 		return "";
 	}
 
+	/**
+	 *Interface overriding.
+	 */
+	@Override
+	public Boolean to() {
+		String[] params = workspace.mentionParams;
+		for (int i = 0; i < params.length; i++) {
+			try {
+				if (params[i].equals("to")) {
+					if (params[i + 1] != null) {
+						return true;
+					}
+				}
+			} catch (Exception e) {
+				throw new IllegalStateException();
+			}
+		}
+		return false;
+	}
+
+	/**
+	 *Interface overriding.
+	 */
+	@Override
+	public String getToWho() {
+		String[] params = workspace.mentionParams;
+		for (int i = 0; i < params.length; i++) {
+			try {
+				if (params[i].equals("to")) {
+					if (params[i + 1] != null) {
+						return params[i + 1];
+					}
+				}
+			} catch (Exception e) {
+				throw new IllegalStateException();
+			}
+		}
+		return "";
+	}
+
+	/**
+	 *Interface overriding.
+	 */
+	@Override
+	public Boolean in() {
+		String[] params = workspace.mentionParams;
+		for (int i = 0; i < params.length; i++) {
+			try {
+				if (params[i].equals("in")) {
+					if (params[i + 1] != null) {
+						return true;
+					}
+				}
+			} catch (Exception e) {
+				throw new IllegalStateException();
+			}
+		}
+		return false;
+	}
+
+	/**
+	 *Interface overriding.
+	 */
+	@Override
+	public String getInWhat() {
+		String[] params = workspace.mentionParams;
+		for (int i = 0; i < params.length; i++) {
+			try {
+				if (params[i].equals("in")) {
+					if (params[i + 1] != null) {
+						return params[i + 1];
+					}
+				}
+			} catch (Exception e) {
+				throw new IllegalStateException();
+			}
+		}
+		return "";
+	}
+
+	/**
+	 *Interface overriding.
+	 */
 	@Override
 	public Boolean weighted() {
 		if (workspace.mentionParams != null && workspace.mentionParams.length != 0
-				&& workspace.mentionParams[workspace.mentionParams.length - 1].equals("-n"))
+				&& workspace.mentionParams[workspace.mentionParams.length - 1].equals("-n")) {
 			return true;
+		}
 		return false;
 	}
 }

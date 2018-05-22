@@ -1,35 +1,102 @@
 package it.uniba.controller.input;
 
+/**
+ * This interface provides general methods to parse a command.
+ */
 public interface CommandParserInterface {
-	public Boolean validWorkspace();
+	/**
+	 * Provides info on workspace validity.
+	 * @return true if a valid workspace has been loaded, false every other time
+	 */
+	Boolean validWorkspace();
 
-	public String getWorkspace();
+	/**
+	 * Provides name of current workspace.
+	 * @return name of current loaded workspace
+	 */
+	String getWorkspace();
 
-	public Boolean help();
+	/**
+	 * Provides info on called help command.
+	 * @return true if help called, false every other time
+	 */
+	Boolean help();
 
-	public Boolean users();
+	/**
+	 * Provides info on user command.
+	 * @return true if user called, false every other time
+	 */
+	Boolean users();
 
-	public Boolean channels();
+	/**
+	 * Provides info on channels command.
+	 * @return true if channels called, false every other time
+	 */
+	Boolean channels();
 
-	public Boolean extendedChannels();
+	/**
+	 * Provides info on extended channels command.
+	 * @return true if extended channel called, false every other time
+	 */
+	Boolean extendedChannels();
 
-	public Boolean userInChannel();
+	/**
+	 * Provides info on users in channel command.
+	 * @return true if users in channel called
+	 */
+	Boolean usersInChannel();
 
-	public String getChannelFilter();
+	/**
+	 * Provides filtered channel.
+	 * @return name of asked filter
+	 */
+	String getChannelFilter();
 
-	public Boolean mentions();
+	/**
+	 * Provides info on mention command.
+	 * @return true if mention called, false every other time
+	 */
+	Boolean mentions();
 
-	public Boolean from();
+	/**
+	 * Provides info on from command.
+	 * @return true if from called, false every other time
+	 */
+	Boolean from();
 
-	public String getFromWho();
+	/**
+	 * Provides name of user from which mentions are to be parsed.
+	 * @return name of asked user
+	 */
+	String getFromWho();
 
-	public Boolean to();
+	/**
+	 * Provides info on to command.
+	 * @return true if to called, false every other time
+	 */
+	Boolean to();
 
-	public String getToWho();
+	/**
+	 * Provides name of user to which mentions are to be parsed.
+	 * @return name of asked user
+	 */
+	String getToWho();
 
-	public Boolean in();
+	/**
+	 * Provides info on in command.
+	 * @return true if in called, false every other time
+	 */
+	Boolean in();
 
-	public String getInWhat();
+	/**
+	 * Provides name of channel in which mentions are to be parsed.
+	 * @return name of asked channel
+	 */
+	String getInWhat();
 
-	public Boolean weighted();
+	/**
+	 * Provides info on weighted command.
+	 * @return true if weighted called, false every other time
+	 */
+	Boolean weighted();
 }
