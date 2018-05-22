@@ -1,5 +1,7 @@
 package it.uniba.workdata;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * This class models a single user, as found on users.json.
  */
@@ -13,7 +15,9 @@ public class User {
 	/**
 	 * Id of the user's team.
 	 */
-	private String team_id;
+	
+	@SerializedName (value = "team_id")
+	private String teamId;
 
 	/**
 	 * User's name.
@@ -23,7 +27,8 @@ public class User {
 	/**
 	 * User's real name.
 	 */
-	private String real_name;
+	@SerializedName (value = "real_name")
+	private String realName;
 
 	/**
 	 * User's sub-profile.
@@ -38,14 +43,15 @@ public class User {
 		/**
 		 * As found on the .json profile.
 		 */
-		private final String display_name_normalized;
+		@SerializedName (value = "display_name_normalized")
+		private final String displayNameNormalized;
 
 		/**
 		 * Constructor for a new Profile.
 		 * @param displName displayed name
 		 */
 		public Profile(final String displName) {
-			display_name_normalized = displName;
+			displayNameNormalized = displName;
 		}
 
 		/**
@@ -53,7 +59,7 @@ public class User {
 		 * @return display name
 		 */
 		public String getDisplayNameNorm() {
-			return display_name_normalized;
+			return displayNameNormalized;
 		}
 	}
 
@@ -69,8 +75,8 @@ public class User {
 			final String realName2, final Profile profile2) {
 		id = id2;
 		name = name2;
-		real_name = realName2;
-		team_id = teams2;
+		realName = realName2;
+		teamId = teams2;
 		profile = profile2;
 	}
 
@@ -117,7 +123,7 @@ public class User {
 	 * @return User's team id
 	 */
 	public String getTeamId() {
-		return team_id;
+		return teamId;
 	}
 
 	/**
@@ -133,7 +139,7 @@ public class User {
 	 * @return User's real name
 	 */
 	public String getRealName() {
-		return real_name;
+		return realName;
 	}
 
 	/**
@@ -165,7 +171,7 @@ public class User {
 	 * @param value new team ID
 	 */
 	public void setTeamId(final String value) {
-		team_id = value;
+		teamId = value;
 	}
 
 	/**
@@ -181,7 +187,7 @@ public class User {
 	 * @param value new user real name
 	 */
 	public void setRealName(final String value) {
-		real_name = value;
+		realName = value;
 	}
 
 }
