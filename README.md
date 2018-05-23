@@ -1,4 +1,4 @@
-# sna4slack [![Build Status](https://travis-ci.com/softeng-inf-uniba/progetto1718-nygaard.svg?token=Fb9WxfqDkAYKbxzd96zJ&branch=master)](https://travis-ci.com/softeng-inf-uniba/progetto1718-nygaard) [![Coverage Status](https://coveralls.io/repos/github/softeng-inf-uniba/progetto1718-nygaard/badge.svg?t=C3ZiQ3&service=github)](https://coveralls.io/github/softeng-inf-uniba/progetto1718-nygaard)
+# sna4slack [![Build Status](https://travis-ci.com/softeng-inf-uniba/progetto1718-nygaard.svg?token=Fb9WxfqDkAYKbxzd96zJ&branch=master)](https://travis-ci.com/softeng-inf-uniba/progetto1718-nygaard) [![Coverage Status](https://coveralls.io/repos/github/softeng-inf-uniba/progetto1718-nygaard/badge.svg?t=C3ZiQ3&service=github)](https://coveralls.io/github/softeng-inf-uniba/progetto1718-nygaard?branch=master)
 La struttura della repository si presenta nel seguente modo:
 ```
 |-- build
