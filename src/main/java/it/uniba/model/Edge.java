@@ -85,15 +85,11 @@ public final class Edge {
 	 */
 	@Override
 	public boolean equals(final Object obj) {
-		// if (!(obj instanceof Edge)) {
-		// return false;
-		// }
-//		if ((from.equals(((Edge) obj).getFrom())) && (to.equals(((Edge) obj).getTo()))) {
+		if (obj instanceof Edge) {
 			return ((from.equals(((Edge) obj).getFrom())) && (to.equals(((Edge) obj).getTo())));
-//		} else {
-//			return false;
-//		}
-
+		} else {
+			return false;
+		}
 	}
 
 }
