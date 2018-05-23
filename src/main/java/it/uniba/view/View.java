@@ -99,7 +99,6 @@ public class View {
 	public void printMention(final Collection<Edge> edges, final boolean weight) {
 		printEdges(edges, weight);
 	}
-
 	/**
 	 * Prints a collection of edges.
 	 * 
