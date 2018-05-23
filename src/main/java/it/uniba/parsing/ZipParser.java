@@ -1,106 +1,146 @@
 package it.uniba.parsing;
 
-//import java.util.Map;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 import it.uniba.workdata.Message;
-//import it.uniba.model.MentionGraph;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 
-public class ZipParser
-{
-    private String workspaceLoaded = "";
-    // I tre dizionari users, channels e i messaggi
-    private HashMap<String, User> users = new HashMap<String, User>();
-    private HashMap<String, Channel> channels = new HashMap<String, Channel>();
-    private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
+/**
+ * This class parses a zipped workspace and populated our datastructures.
+ */
+public class ZipParser {
 
-    public void setWorkspaceName(String _value)
-    {
-        workspaceLoaded = _value;
-    }
+	/*
+	 * Current workspace.
+	 */
+	private String workspaceLoaded = "";
 
-    public String getWorkspaceName()
-    {
-        return workspaceLoaded;
-    }
+	// I tre dizionari users, channels e i messaggi
+	/*
+	 * Map of users.
+	 */
+	private Map<String, User> users = new HashMap<String, User>();
 
-    public Boolean hasLoaded()
-    {
-        return (workspaceLoaded != "");
-    }
+	/*
+	 * Map of channels.
+	 */
+	private Map<String, Channel> channels = new HashMap<String, Channel>();
 
-    public HashMap<String, User> getUsers()
-    {
-        return users;
-    }
+	/*
+	 * Map of lists of messages.
+	 */
+	private Map<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
 
-    public HashMap<String, Channel> getChannels()
-    {
-        return channels;
-    }
+	/**
+	 * Sets a new current workspace.
+	 * @param value workspace name
+	 */
+	public void setWorkspaceName(final String value) {
+		workspaceLoaded = value;
+	}
 
-    public HashMap<String, ArrayList<Message>> getMessages()
-    {
-        return messages;
-    }
+	/**
+	 * Return current workspace name.
+	 * @return current workspace name
+	 */
+	public String getWorkspaceName() {
+		return workspaceLoaded;
+	}
 
-    public void load(String path) throws ZipException, IOException
-    {
-        Boolean loadedSomething = false;
+	/**
+	 * Loader monitor.
+	 * @return true if a workspace was loaded, false if not.
+	 */
+	public Boolean hasLoaded() {
+		return !"".equals(workspaceLoaded);
+	}
 
-        String currChannel = "";
-        ZipFile zip = new ZipFile(path);
-        Enumeration<? extends ZipEntry> entries = zip.entries();
+	/**
+	 * User getter.
+	 * @return map of users
+	 */
+	public Map<String, User> getUsers() {
+		return users;
+	}
 
-        while (entries.hasMoreElements())
-        {
-            ZipEntry entry = entries.nextElement();
-            // System.out.println(entry.getName() + " ");
+	/**
+	 * Channel getter.
+	 * @return map of channels
+	 */
+	public Map<String, Channel> getChannels() {
+		return channels;
+	}
 
-            if (!entry.getName().equals("integration_logs.json"))
-            {
-                if (entry.isDirectory())
-                    currChannel = entry.getName().substring(0,
-                            entry.getName().length() - 1);
-                else
-                {
-                    loadedSomething = true;
-                    JsonParserInterface jsonBridge = new GsonReader();
-                    Reader lecturer = new InputStreamReader(
-                            zip.getInputStream(entry));
+	/**
+	 * Messages getter.
+	 * @return map of lists of messages
+	 */
+	public Map<String, ArrayList<Message>> getMessages() {
+		return messages;
+	}
 
-                    if (entry.getName().equals("users.json"))
-                        users = jsonBridge.populateUsers(lecturer);
+	/**
+	 * This function loads a zipped file and inflates it in central memory.
+	 * After inflating, it parses every useful json and populates our structures.
+	 * @param path the path of the .zipped file
+	 * @throws ZipException if file does not exists
+	 * @throws IOException for errors at OS level
+	 */
+	public void load(final String path) throws ZipException, IOException {
+		Boolean loadedSomething = false;
 
-                    else if (entry.getName().equals("channels.json"))
-                        channels = jsonBridge.populateChannels(lecturer);
+		String currChannel = "";
+		final ZipFile zip = new ZipFile(path);
+		final Enumeration<? extends ZipEntry> entries = zip.entries();
 
-                    else
-                        messages = jsonBridge.populateMessages(messages,
-                                currChannel, lecturer);
+		while (entries.hasMoreElements()) {
+			final ZipEntry entry = entries.nextElement();
+			// System.out.println(entry.getName() + " ");
 
-                    lecturer.close();
-                    
-                    // Non ho trovato i file che ci servono
-                    if (!loadedSomething)
-                        throw new ZipException();
-                }
-            }
-        }
-        File tempFile = new File(zip.getName());
-        workspaceLoaded = tempFile.getName().replaceFirst("[.][^.]+$", "");
-        // System.out.println(workspaceLoaded);
-        zip.close();
-    }
+			if (!entry.getName().equals("integration_logs.json")) {
+				if (entry.isDirectory()) {
+					currChannel = entry.getName().substring(0, entry.getName().length() - 1);
+				} else {
+					loadedSomething = true;
+					final JsonParserInterface jsonBridge = new GsonReader();
+					final Reader lecturer = new InputStreamReader(zip.getInputStream(entry),
+							StandardCharsets.UTF_8);
+
+					if (entry.getName().equals("users.json")) {
+						users = (HashMap<String, User>) jsonBridge.populateUsers(lecturer);
+					} else if (entry.getName()
+							.equals("channels.json")) {
+						channels = (HashMap<String, Channel>)
+								jsonBridge.populateChannels(lecturer);
+					} else {
+						messages = (HashMap<String, ArrayList<Message>>) jsonBridge
+								.populateMessages(messages, currChannel, lecturer);
+					}
+
+					lecturer.close();
+
+					// Non ho trovato i file che ci servono
+					if (!loadedSomething) {
+						throw new ZipException();
+					}
+				}
+			}
+		}
+		final File tempFile = new File(zip.getName());
+		workspaceLoaded = tempFile.getName().replaceFirst("[.][^.]+$", "");
+		// System.out.println(workspaceLoaded);
+		zip.close();
+	}
 }

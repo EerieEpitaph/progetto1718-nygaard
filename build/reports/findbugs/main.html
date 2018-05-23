@@ -78,7 +78,7 @@
 <br/>
 </p>
 <h2>Metrics</h2>
-<p>798 lines of code analyzed,
+<p>822 lines of code analyzed,
 	in 21 classes, 
 	in 7 packages.</p>
 <table width="500" cellpadding="5" cellspacing="2">
@@ -89,23 +89,23 @@
 </tr>
 <tr class="tablerow0">
 <td>High Priority Warnings</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
+<td align="right"/>
+<td align="right">0.00</td>
 </tr>
 <tr class="tablerow1">
 <td>Medium Priority Warnings</td>
-<td align="right">10</td>
-<td align="right">12.53</td>
+<td align="right"/>
+<td align="right">0.00</td>
 </tr>
 <tr class="$totalClass">
 <td>
 <b>Total Warnings</b>
 </td>
 <td align="right">
-<b>11</b>
+<b>0</b>
 </td>
 <td align="right">
-<b>13.78</b>
+<b>0.00</b>
 </td>
 </tr>
 </table>
@@ -119,21 +119,6 @@
 <h2>Contents</h2>
 <ul>
 <li>
-<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
-</li>
-<li>
-<a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
-</li>
-<li>
-<a href="#Warnings_I18N">Internationalization Warnings</a>
-</li>
-<li>
-<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
-</li>
-<li>
-<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
-</li>
-<li>
 <a href="#Details">Details</a>
 </li>
 </ul>
@@ -145,330 +130,17 @@
 </tr>
 <tr class="tablerow0">
 <td>
-<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
-</td>
-<td align="right">5</td>
-</tr>
-<tr class="tablerow1">
-<td>
-<a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
-</td>
-<td align="right">2</td>
-</tr>
-<tr class="tablerow0">
-<td>
-<a href="#Warnings_I18N">Internationalization Warnings</a>
-</td>
-<td align="right">1</td>
-</tr>
-<tr class="tablerow1">
-<td>
-<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
-</td>
-<td align="right">1</td>
-</tr>
-<tr class="tablerow0">
-<td>
-<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
-</td>
-<td align="right">2</td>
-</tr>
-<tr class="tablerow1">
-<td>
 <b>Total</b>
 </td>
 <td align="right">
-<b>11</b>
+<b>0</b>
 </td>
 </tr>
 </table>
 <h1>Warnings</h1>
 <p>Click on a warning row to see full context information.</p>
-<h2>
-<a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
-</h2>
-<table class="warningtable" width="100%" cellspacing="0">
-<tr class="tableheader">
-<th align="left">Code</th>
-<th align="left">Warning</th>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N66032');">
-<td>
-<span class="priority-2">BC</span>
-</td>
-<td>Equals method for it.uniba.workdata.User assumes the argument is of type User</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N66032" style="display: none;">
-<a href="#BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS">Bug type BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS (click for details)</a>
-<br/>In class it.uniba.workdata.User<br/>In method it.uniba.workdata.User.equals(Object)<br/>At User.java:[line 36]</p>
-</td>
-</tr>
-<tr class="tablerow0" onclick="toggleRow('N65658');">
-<td>
-<span class="priority-2">ES</span>
-</td>
-<td>Comparison of String objects using == or != in it.uniba.controller.input.CommandParser$CommWorkspace.isValidFilter() </td>
-</tr>
-<tr class="detailrow0">
-<td/>
-<td>
-<p id="N65658" style="display: none;">
-<a href="#ES_COMPARING_STRINGS_WITH_EQ">Bug type ES_COMPARING_STRINGS_WITH_EQ (click for details)</a>
-<br/>In class it.uniba.controller.input.CommandParser$CommWorkspace<br/>In method it.uniba.controller.input.CommandParser$CommWorkspace.isValidFilter()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.controller.input.CommandParser$CommWorkspace.channelFilter<br/>At CommandParser.java:[line 79]</p>
-</td>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N65748');">
-<td>
-<span class="priority-2">ES</span>
-</td>
-<td>Comparison of String objects using == or != in it.uniba.controller.input.CommandParser$CommWorkspace.isValidWorkspace() </td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N65748" style="display: none;">
-<a href="#ES_COMPARING_STRINGS_WITH_EQ">Bug type ES_COMPARING_STRINGS_WITH_EQ (click for details)</a>
-<br/>In class it.uniba.controller.input.CommandParser$CommWorkspace<br/>In method it.uniba.controller.input.CommandParser$CommWorkspace.isValidWorkspace()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.controller.input.CommandParser$CommWorkspace.workspaceName<br/>At CommandParser.java:[line 59]</p>
-</td>
-</tr>
-<tr class="tablerow0" onclick="toggleRow('N65907');">
-<td>
-<span class="priority-2">ES</span>
-</td>
-<td>Comparison of String objects using == or != in it.uniba.parsing.ZipParser.hasLoaded() </td>
-</tr>
-<tr class="detailrow0">
-<td/>
-<td>
-<p id="N65907" style="display: none;">
-<a href="#ES_COMPARING_STRINGS_WITH_EQ">Bug type ES_COMPARING_STRINGS_WITH_EQ (click for details)</a>
-<br/>In class it.uniba.parsing.ZipParser<br/>In method it.uniba.parsing.ZipParser.hasLoaded()<br/>Actual type String<br/>String constant ""<br/>Value loaded from field it.uniba.parsing.ZipParser.workspaceLoaded<br/>At ZipParser.java:[line 40]</p>
-</td>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N66085');">
-<td>
-<span class="priority-2">NP</span>
-</td>
-<td>it.uniba.workdata.User.equals(Object) does not check for null argument</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N66085" style="display: none;">
-<a href="#NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT">Bug type NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT (click for details)</a>
-<br/>In class it.uniba.workdata.User<br/>In method it.uniba.workdata.User.equals(Object)<br/>Parameter obj<br/>At User.java:[line 36]</p>
-</td>
-</tr>
-</table>
-<h2>
-<a name="Warnings_CORRECTNESS">Correctness Warnings</a>
-</h2>
-<table class="warningtable" width="100%" cellspacing="0">
-<tr class="tableheader">
-<th align="left">Code</th>
-<th align="left">Warning</th>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N66146');">
-<td>
-<span class="priority-2">NP</span>
-</td>
-<td>Read of unwritten field profile in it.uniba.workdata.User.getDisplayNameNorm()</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N66146" style="display: none;">
-<a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
-<br/>In class it.uniba.workdata.User<br/>In method it.uniba.workdata.User.getDisplayNameNorm()<br/>Field it.uniba.workdata.User.profile<br/>At User.java:[line 57]</p>
-</td>
-</tr>
-<tr class="tablerow0" onclick="toggleRow('N66214');">
-<td>
-<span class="priority-2">UwF</span>
-</td>
-<td>Unwritten field: it.uniba.workdata.User.profile</td>
-</tr>
-<tr class="detailrow0">
-<td/>
-<td>
-<p id="N66214" style="display: none;">
-<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
-<br/>In class it.uniba.workdata.User<br/>Field it.uniba.workdata.User.profile<br/>At User.java:[line 57]</p>
-</td>
-</tr>
-</table>
-<h2>
-<a name="Warnings_I18N">Internationalization Warnings</a>
-</h2>
-<table class="warningtable" width="100%" cellspacing="0">
-<tr class="tableheader">
-<th align="left">Code</th>
-<th align="left">Warning</th>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N65838');">
-<td>
-<span class="priority-1">Dm</span>
-</td>
-<td>Found reliance on default encoding in it.uniba.parsing.ZipParser.load(String): new java.io.InputStreamReader(InputStream)</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N65838" style="display: none;">
-<a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-<br/>In class it.uniba.parsing.ZipParser<br/>In method it.uniba.parsing.ZipParser.load(String)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At ZipParser.java:[line 81]</p>
-</td>
-</tr>
-</table>
-<h2>
-<a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
-</h2>
-<table class="warningtable" width="100%" cellspacing="0">
-<tr class="tableheader">
-<th align="left">Code</th>
-<th align="left">Warning</th>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N65590');">
-<td>
-<span class="priority-2">EI</span>
-</td>
-<td>it.uniba.controller.input.CommandParser$CommWorkspace.getMentionParams() may expose internal representation by returning CommandParser$CommWorkspace.mentionParams</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N65590" style="display: none;">
-<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
-<br/>In class it.uniba.controller.input.CommandParser$CommWorkspace<br/>In method it.uniba.controller.input.CommandParser$CommWorkspace.getMentionParams()<br/>Field it.uniba.controller.input.CommandParser$CommWorkspace.mentionParams<br/>At CommandParser.java:[line 83]</p>
-</td>
-</tr>
-</table>
-<h2>
-<a name="Warnings_PERFORMANCE">Performance Warnings</a>
-</h2>
-<table class="warningtable" width="100%" cellspacing="0">
-<tr class="tableheader">
-<th align="left">Code</th>
-<th align="left">Warning</th>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N65997');">
-<td>
-<span class="priority-2">SIC</span>
-</td>
-<td>Should it.uniba.workdata.Message$GsonMessage be a _static_ inner class?</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N65997" style="display: none;">
-<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
-<br/>In class it.uniba.workdata.Message$GsonMessage<br/>At Message.java:[lines 9-24]</p>
-</td>
-</tr>
-<tr class="tablerow0" onclick="toggleRow('N66265');">
-<td>
-<span class="priority-2">SIC</span>
-</td>
-<td>Should it.uniba.workdata.User$Profile be a _static_ inner class?</td>
-</tr>
-<tr class="detailrow0">
-<td/>
-<td>
-<p id="N66265" style="display: none;">
-<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
-<br/>In class it.uniba.workdata.User$Profile<br/>At User.java:[lines 7-12]</p>
-</td>
-</tr>
-</table>
 <h1>
 <a name="Details">Details</a>
 </h1>
-<h2>
-<a name="BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS">BC_EQUALS_METHOD_SHOULD_WORK_FOR_ALL_OBJECTS: Equals method should not assume anything about the type of its argument</a>
-</h2>
-
-<p>
-The <code>equals(Object o)</code> method shouldn't make any assumptions
-about the type of <code>o</code>. It should simply return
-false if <code>o</code> is not the same type as <code>this</code>.
-</p>
-
-    
-<h2>
-<a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
-</h2>
-
-<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
-
-      
-<h2>
-<a name="EI_EXPOSE_REP">EI_EXPOSE_REP: May expose internal representation by returning reference to mutable object</a>
-</h2>
-
-  <p> Returning a reference to a mutable object value stored in one of the object's fields
-  exposes the internal representation of the object.&nbsp;
-   If instances
-   are accessed by untrusted code, and unchecked changes to
-   the mutable object would compromise security or other
-   important properties, you will need to do something different.
-  Returning a new copy of the object is better approach in many situations.</p>
-
-    
-<h2>
-<a name="ES_COMPARING_STRINGS_WITH_EQ">ES_COMPARING_STRINGS_WITH_EQ: Comparison of String objects using == or !=</a>
-</h2>
-
-  <p>This code compares <code>java.lang.String</code> objects for reference
-equality using the == or != operators.
-Unless both strings are either constants in a source file, or have been
-interned using the <code>String.intern()</code> method, the same string
-value may be represented by two different String objects. Consider
-using the <code>equals(Object)</code> method instead.</p>
-
-    
-<h2>
-<a name="NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT">NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT: equals() method does not check for null argument</a>
-</h2>
-      
-      <p>
-      This implementation of equals(Object) violates the contract defined
-      by java.lang.Object.equals() because it does not check for null
-      being passed as the argument.  All equals() methods should return
-      false if passed a null value.
-      </p>
-      
-   
-<h2>
-<a name="NP_UNWRITTEN_FIELD">NP_UNWRITTEN_FIELD: Read of unwritten field</a>
-</h2>
-
-  <p> The program is dereferencing a field that does not seem to ever have a non-null value written to it.
-Unless the field is initialized via some mechanism not seen by the analysis,
-dereferencing this value will generate a null pointer exception.
-</p>
-
-    
-<h2>
-<a name="SIC_INNER_SHOULD_BE_STATIC">SIC_INNER_SHOULD_BE_STATIC: Should be a static inner class</a>
-</h2>
-
-  <p> This class is an inner class, but does not use its embedded reference
-  to the object which created it.&nbsp; This reference makes the instances
-  of the class larger, and may keep the reference to the creator object
-  alive longer than necessary.&nbsp; If possible, the class should be
-   made static.
-</p>
-
-    
-<h2>
-<a name="UWF_UNWRITTEN_FIELD">UWF_UNWRITTEN_FIELD: Unwritten field</a>
-</h2>
-
-  <p> This field is never written.&nbsp; All reads of it will return the default
-value. Check for errors (should it have been initialized?), or remove it if it is useless.</p>
-
-    </body>
+</body>
 </html>
