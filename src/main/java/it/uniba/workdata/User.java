@@ -7,48 +7,49 @@ import com.google.gson.annotations.SerializedName;
  */
 public class User {
 
-	/**
+	/*
 	 * User's id.
 	 */
 	private String id;
 
-	/**
+	/*
 	 * Id of the user's team.
 	 */
-	
-	@SerializedName (value = "team_id")
+
+	@SerializedName(value = "team_id")
 	private String teamId;
 
-	/**
+	/*
 	 * User's name.
 	 */
 	private String name;
 
-	/**
+	/*
 	 * User's real name.
 	 */
-	@SerializedName (value = "real_name")
+	@SerializedName(value = "real_name")
 	private String realName;
 
-	/**
+	/*
 	 * User's sub-profile.
 	 */
 	private final Profile profile;
 
 	/**
-	 * This class models a Profile, which is a sub-object
-	 * inside a json User.
+	 * This class models a Profile, which is a sub-object inside a json User.
 	 */
 	public static final class Profile {
-		/**
+		/*
 		 * As found on the .json profile.
 		 */
-		@SerializedName (value = "display_name_normalized")
+		@SerializedName(value = "display_name_normalized")
 		private final String displayNameNormalized;
 
 		/**
 		 * Constructor for a new Profile.
-		 * @param displName displayed name
+		 * 
+		 * @param displName
+		 *            displayed name
 		 */
 		public Profile(final String displName) {
 			displayNameNormalized = displName;
@@ -56,6 +57,7 @@ public class User {
 
 		/**
 		 * Returns the display name.
+		 * 
 		 * @return display name
 		 */
 		public String getDisplayNameNorm() {
@@ -65,14 +67,20 @@ public class User {
 
 	/**
 	 * User's constructor.
-	 * @param id2 User identifier
-	 * @param teams2 User team
-	 * @param name2 User name
-	 * @param realName2 User real name
-	 * @param profile2 User profile
+	 * 
+	 * @param id2
+	 *            User identifier
+	 * @param teams2
+	 *            User team
+	 * @param name2
+	 *            User name
+	 * @param realName2
+	 *            User real name
+	 * @param profile2
+	 *            User profile
 	 */
-	public User(final String id2, final String teams2, final String name2,
-			final String realName2, final Profile profile2) {
+	public User(final String id2, final String teams2, final String name2, final String realName2,
+			final Profile profile2) {
 		id = id2;
 		name = name2;
 		realName = realName2;
@@ -82,7 +90,9 @@ public class User {
 
 	/**
 	 * User's constructor.
-	 * @param user user to copy
+	 * 
+	 * @param user
+	 *            user to copy
 	 */
 	public User(final User user) {
 		this(user.getId(), user.getTeamId(), user.getName(), user.getRealName(), user.getProfile());
@@ -112,6 +122,7 @@ public class User {
 
 	/**
 	 * Returns user id.
+	 * 
 	 * @return User's id
 	 */
 	public String getId() {
@@ -120,6 +131,7 @@ public class User {
 
 	/**
 	 * Returns team id.
+	 * 
 	 * @return User's team id
 	 */
 	public String getTeamId() {
@@ -128,6 +140,7 @@ public class User {
 
 	/**
 	 * Returns user name.
+	 * 
 	 * @return User's name
 	 */
 	public String getName() {
@@ -136,6 +149,7 @@ public class User {
 
 	/**
 	 * Returns user real name.
+	 * 
 	 * @return User's real name
 	 */
 	public String getRealName() {
@@ -144,6 +158,7 @@ public class User {
 
 	/**
 	 * Returns user profile normalized name.
+	 * 
 	 * @return User's profile normalized name
 	 */
 	public String getDisplayNameNorm() {
@@ -152,6 +167,7 @@ public class User {
 
 	/**
 	 * Returns user profile.
+	 * 
 	 * @return User's profile
 	 */
 	public Profile getProfile() {
@@ -160,7 +176,9 @@ public class User {
 
 	/**
 	 * Sets a new ID value.
-	 * @param value new ID
+	 * 
+	 * @param value
+	 *            new ID
 	 */
 	public void setId(final String value) {
 		id = value;
@@ -168,7 +186,9 @@ public class User {
 
 	/**
 	 * Sets a new team ID.
-	 * @param value new team ID
+	 * 
+	 * @param value
+	 *            new team ID
 	 */
 	public void setTeamId(final String value) {
 		teamId = value;
@@ -176,7 +196,9 @@ public class User {
 
 	/**
 	 * Sets a new user name.
-	 * @param value new user name
+	 * 
+	 * @param value
+	 *            new user name
 	 */
 	public void setName(final String value) {
 		name = value;
@@ -184,7 +206,9 @@ public class User {
 
 	/**
 	 * Sets a new user real name.
-	 * @param value new user real name
+	 * 
+	 * @param value
+	 *            new user real name
 	 */
 	public void setRealName(final String value) {
 		realName = value;

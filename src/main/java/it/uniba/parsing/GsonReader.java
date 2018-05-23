@@ -18,7 +18,7 @@ import it.uniba.workdata.Message.GsonMessage;
  */
 public class GsonReader implements JsonParserInterface {
 
-	/**
+	/*
 	 * New object responsible for gson parsing created.
 	 */
 	private final Gson gson = new GsonBuilder().create();

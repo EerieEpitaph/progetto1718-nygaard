@@ -8,6 +8,7 @@ import com.google.gson.JsonParseException;
 
 import it.uniba.controller.Controller;
 import picocli.CommandLine.UnmatchedArgumentException;
+import picocli.CommandLine.MissingParameterException;
 
 /**
  * The AppMain of the project SNA4Slack implements a SNA (Social Network
@@ -19,8 +20,7 @@ import picocli.CommandLine.UnmatchedArgumentException;
  * @author Lischio Ottavio
  */
 public final class AppMain {
-	/**
-	 */
+
 	private AppMain() {
 	}
 
@@ -32,7 +32,6 @@ public final class AppMain {
 	 * @param args
 	 *            <i>String[]</i> list of arguments
 	 */
-
 	public static void main(final String[] args) {
 		Controller control = new Controller();
 
@@ -54,6 +53,8 @@ public final class AppMain {
 			System.out.println(e.toString());
 		} catch (UnmatchedArgumentException e) {
 			System.out.println("Invalid syntax. Refer to 'help' command");
+		} catch (MissingParameterException e) {
+			System.out.println("Invalid syntax: there are missing parameters. Refer to 'help' command");
 		} catch (IllegalStateException e) {
 			System.out.println("Invalid syntax. Refer to 'help' command");
 		} catch (Exception e) {

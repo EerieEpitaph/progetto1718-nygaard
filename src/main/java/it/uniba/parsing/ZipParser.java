@@ -22,23 +22,23 @@ import it.uniba.workdata.User;
  */
 public class ZipParser {
 
-	/**
+	/*
 	 * Current workspace.
 	 */
 	private String workspaceLoaded = "";
 
 	// I tre dizionari users, channels e i messaggi
-	/**
+	/*
 	 * Map of users.
 	 */
 	private Map<String, User> users = new HashMap<String, User>();
 
-	/**
+	/*
 	 * Map of channels.
 	 */
 	private Map<String, Channel> channels = new HashMap<String, Channel>();
 
-	/**
+	/*
 	 * Map of lists of messages.
 	 */
 	private Map<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();

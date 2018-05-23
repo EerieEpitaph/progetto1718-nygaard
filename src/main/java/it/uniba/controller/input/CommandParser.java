@@ -17,12 +17,12 @@ public final class CommandParser implements CommandParserInterface {
 	 *This class manages no-parameter commands.
 	 */
 	public final class CommBaseArgs {
-		/**
+		/*
 		 *Activity notifier.
 		 */
 		private Boolean active = false;
 
-		/**
+		/*
 		 *Help found.
 		 */
 		@Option(names = "help")
@@ -49,42 +49,42 @@ public final class CommandParser implements CommandParserInterface {
 	 *This class manages workspace-related commands.
 	 */
 	public final class CommWorkspace {
-		/**
+		/*
 		 *Activity notifier.
 		 */
 		private Boolean active = false;
 
-		/**
+		/*
 		 *Name of the current workspace.
 		 */
 		@Parameters(index = "0", arity = "1")
 		private String workspaceName;
 
-		/**
+		/*
 		 *Status of member command.
 		 */
 		@Option(names = "-u", arity = "0..1")
 		private boolean membersStatus;
 
-		/**
+		/*
 		 *Status of channels command.
 		 */
 		@Option(names = "-c", arity = "0..1")
 		private boolean channelsStatus;
 
-		/**
+		/*
 		 *Status of extended channels command.
 		 */
 		@Option(names = "-cu", arity = "0..1")
 		private boolean extChannelsStatus;
 
-		/**
+		/*
 		 *Name of channel filter.
 		 */
 		@Option(names = "-uc", arity = "1")
 		private String channelFilter;
 
-		/**
+		/*
 		 *Parameters passed at mention command.
 		 */
 		@Option(names = "-m", arity = "0..5")
@@ -163,11 +163,11 @@ public final class CommandParser implements CommandParserInterface {
 		}
 	}
 
-	/**
+	/*
 	 *Base commands representer.
 	 */
 	private CommBaseArgs baseArgs;
-	/**
+	/*
 	 *Workspace command representer.
 	 */
 	private CommWorkspace workspace;

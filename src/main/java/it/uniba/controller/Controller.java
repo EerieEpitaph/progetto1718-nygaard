@@ -15,25 +15,25 @@ import it.uniba.controller.input.CommandInterpreter;
  * command's parsing's side, the model and the view.
  */
 public class Controller {
-	/**
+	/*
 	 * Model used for the representation of the data.
 	 */
 	private Model mod = new Model();
-	/**
+	/*
 	 * View used for the output of the data.
 	 */
 	private View view = new View();
-	/**
+	/*
 	 * DataController used for manage the logic's side of the MVC(MVP).
 	 */
 	private DataController dataCtr = new DataController(mod, view);
 
 	// CLI
-	/**
+	/*
 	 * Used for the commands' parsing.
 	 */
 	private CommandParser commandParser;
-	/**
+	/*
 	 * Used for the commands' interpreting and executing.
 	 */
 	private CommandInterpreter interpreter;

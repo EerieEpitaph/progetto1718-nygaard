@@ -5,7 +5,6 @@ import java.util.zip.ZipException;
 
 import it.uniba.controller.DataController;
 
-// da prendere datacontroller
 /**
  *This class interprets commands based on current interface rules.
  */

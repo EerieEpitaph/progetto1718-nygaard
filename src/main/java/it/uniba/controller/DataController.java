@@ -18,11 +18,11 @@ import it.uniba.model.Edge;
  * the project.
  */
 public class DataController {
-	/**
+	/*
 	 * Used for the representation of the data.
 	 */
 	private Model mod;
-	/**
+	/*
 	 * Used for the output of the data.
 	 */
 	private View view;
@@ -122,7 +122,7 @@ public class DataController {
 		}
 	}
 
-	/**
+	/*
 	 * Prints all the mention in a channel. It decides if to print the
 	 * mention <i>from</i> or <i>to</i> a user (<b>from</b>) and if to print the
 	 * number of mentions (<b>weight</b>).
@@ -257,7 +257,7 @@ public class DataController {
 		printMentionsFromToUser(user, "", false, true);
 	}
 
-	/**
+	/*
 	 * Returns the id the user with the name specified or a empty string <i>("")</i>
 	 * if it doesn't found it.
 	 * 
