@@ -16,39 +16,39 @@ import it.uniba.workdata.User;
 
 public class Model {
 	// WorkData
-	/**
+	/*
 	 * Map of <i>Users</i>
 	 */
 	private HashMap<String, User> users = new HashMap<String, User>();
-	/**
+	/*
 	 * Map of <i>Channels</i>
 	 */
 	private HashMap<String, Channel> channels = new HashMap<String, Channel>();
-	/**
+	/*
 	 * Map of <i>Messages</i> group by channels
 	 */
 	private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
 
-	/**
+	/*
 	 * Graph of all mentions present in the workspace
 	 */
-	MentionGraph snagraph = new MentionGraph();
+	private MentionGraph snagraph = new MentionGraph();
 
-	/**
+	/*
 	 * ZipParser for loading data from zip file
 	 */
-	ZipParser fileParser = new ZipParser();
+	private ZipParser fileParser = new ZipParser();
 
 	/**
 	 * Load all data of Model from procedure load of class ZipParser
 	 * 
-	 * @param path
-	 *            <i>String</i> Path of Zipfile
-	 * @throws ZipException
-	 *             Exception of ZipParser
-	 * @throws IOException
+	 * @param path <i>String</i> Path of Zipfile
+	 * 
+	 * @throws ZipException Exception of ZipParser
+	 * 
+	 * @throws IOException Exception of IOFileException
 	 */
-	public void updateModel(String path) throws ZipException, IOException {
+	public void updateModel(final String path) throws ZipException, IOException {
 		fileParser.load(path);
 
 		users = fileParser.getUsers();
@@ -87,7 +87,6 @@ public class Model {
 	// messages = _messages;
 	// }
 
-	
 	/**
 	 * 
 	 * @return <i>HashMap</i> of Users
@@ -103,7 +102,7 @@ public class Model {
 	public HashMap<String, Channel> getChannels() {
 		return channels;
 	}
-	
+
 	/**
 	 * 
 	 * @return <i>HashMap</i> of all messagges

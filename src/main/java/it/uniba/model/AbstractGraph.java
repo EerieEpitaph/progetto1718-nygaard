@@ -13,10 +13,10 @@ public abstract class AbstractGraph {
 	/**
 	 * Generate a graph of mentions starting with an specified Channel
 	 * 
-	 * @param _inChannel
+	 * @param inChannel
 	 *            <i>String</i> specified channel to parse
 	 */
-	abstract void generate(String _inChannel);
+	abstract void generate(String inChannel);
 
 	/**
 	 * Check if the graph is Empty

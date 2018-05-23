@@ -7,34 +7,40 @@ import it.uniba.workdata.User;
  * user mentioned (<i>To</i>) and numbers of mention (<i>weight</i>)
  */
 public final class Edge {
-	/**
+	/*
 	 * <b>User</b> user write mention
 	 */
-	final User _from;
-	/**
+	private final User from;
+	/*
 	 * <b>User</b> user mentioned by _from
 	 */
-	final User _to;
-	/**
+	private final User to;
+	/*
 	 * numbers of mention of user
 	 */
-	float _weigth;
+	private float weight;
 
 	/**
 	 * Costructor of Edge
+	 * 
+	 * @param fromIn
+	 *            <b>User</b> user write mention
+	 * @param toIn
+	 *            <b>User</b> user mentioned by fromIn
+	 * @param weightIn
+	 *            <i>float</i> numbers of mention
 	 */
-	public Edge(final User _fromIn, final User _toIn, final float _weigthIn) {
-		_from = _fromIn;
-		_to = _toIn;
-		_weigth = _weigthIn;
+	public Edge(final User fromIn, final User toIn, final float weightIn) {
+		from = fromIn;
+		to = toIn;
+		weight = weightIn;
 	}
 
 	/**
-	 * 
 	 * @return <b>User</b> write mention
 	 */
 	public User getFrom() {
-		return _from;
+		return from;
 	}
 
 	/**
@@ -42,7 +48,7 @@ public final class Edge {
 	 * @return <b> user mentioned by <i>_from</i>
 	 */
 	public User getTo() {
-		return _to;
+		return to;
 	}
 
 	/**
@@ -50,7 +56,7 @@ public final class Edge {
 	 * @return number of mention by _from
 	 */
 	public float getWeigth() {
-		return _weigth;
+		return weight;
 	}
 
 	/**
@@ -59,21 +65,34 @@ public final class Edge {
 	 * @param newWeigth
 	 *            <i>float</i> is the new weight
 	 */
-	public void changeWeigth(float newWeigth) {
-		_weigth = newWeigth;
+	public void changeWeigth(final float newWeigth) {
+		weight = newWeigth;
+	}
+
+	// Se ci sono problemi
+	@Override
+	public int hashCode() {
+		return from.hashCode();
 	}
 
 	/**
 	 * Ovverride of Equal now two edge are equal if they have same user _from and
 	 * same user _to
 	 * 
+	 * @param obj
+	 *            <b>Edge</b> to analyze
 	 * @return <i>boolean<i> if two edge are equal
 	 */
-	public boolean equals(Object obj) {
-		if (_from.equals(((Edge) obj).getFrom()) && _to.equals(((Edge) obj).getTo()))
-			return true;
-		else
-			return false;
+	@Override
+	public boolean equals(final Object obj) {
+		// if (!(obj instanceof Edge)) {
+		// return false;
+		// }
+//		if ((from.equals(((Edge) obj).getFrom())) && (to.equals(((Edge) obj).getTo()))) {
+			return ((from.equals(((Edge) obj).getFrom())) && (to.equals(((Edge) obj).getTo())));
+//		} else {
+//			return false;
+//		}
 
 	}
 
