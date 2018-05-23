@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Message.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.workdata</a> &gt; <span class="el_source">Message.java</span></div><h1>Message.java</h1><pre class="source lang-java linenums">package it.uniba.workdata;
+
+/**
+ * This class wraps GsonMessage to better present it.
+ */
+public class Message {
+
+	/**
+	 * Gson message to wrap.
+	 */
+	private final GsonMessage toWrap;
+
+	/**
+	 * This class models a message (.json files inside folders).
+	 */
+	public static final class GsonMessage {
+
+		/**
+		 * Type of message.
+		 */
+		private final String type;
+
+		/**
+		 * User id that sent it.
+		 */
+		private final String user;
+
+		/**
+		 * Message text.
+		 */
+		private final String text;
+
+		/**
+		 * GsonMessage constructor.
+		 * @param type2 message type
+		 * @param user2 user id
+		 * @param text2 message text
+		 */
+<span class="nc" id="L39">		public GsonMessage(final String type2, final String user2, final String text2) {</span>
+<span class="nc" id="L40">			type = type2;</span>
+<span class="nc" id="L41">			user = user2;</span>
+<span class="nc" id="L42">			text = text2;</span>
+<span class="nc" id="L43">		}</span>
+
+		/**
+		 * Type getter.
+		 * @return message type as String
+		 */
+		public String getType() {
+<span class="nc" id="L50">			return type;</span>
+		}
+
+		/**
+		 * User getter.
+		 * @return user id as String
+		 */
+		public String getUser() {
+<span class="fc" id="L58">			return user;</span>
+		}
+
+		/**
+		 * Text getter.
+		 * @return message text as String
+		 */
+		public String getText() {
+<span class="fc" id="L66">			return text;</span>
+		}
+
+		/**
+		 * Wrapper.
+		 * @return this as Message
+		 */
+		public Message toMessage() {
+<span class="fc" id="L74">			return new Message(this);</span>
+		}
+	}
+
+	/**
+	 * Message constructor.
+	 * @param message2 message to wrap
+	 */
+<span class="fc" id="L82">	public Message(final GsonMessage message2) {</span>
+		// channel = _channel;
+<span class="fc" id="L84">		toWrap = message2;</span>
+<span class="fc" id="L85">	}</span>
+
+	/**
+	 * Wrapper type returner.
+	 * @return GsonMessage type
+	 */
+	public String getType() {
+<span class="nc" id="L92">		return toWrap.getType();</span>
+	}
+
+	/**
+	 * Wrapper user returner.
+	 * @return GsonMessage user
+	 */
+	public String getUser() {
+<span class="fc" id="L100">		return toWrap.getUser();</span>
+	}
+
+	/**
+	 * Wrapper text returner.
+	 * @return GsonMessage text
+	 */
+	public String getText() {
+<span class="fc" id="L108">		return toWrap.getText();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

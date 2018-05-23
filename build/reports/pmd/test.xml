@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.8.1" timestamp="2018-05-23T23:21:25.304">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\model\MentionGraphTest.java">
+<violation beginline="6" endline="6" begincolumn="1" endcolumn="20" rule="UnusedImports" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.io.File'
+</violation>
+<violation beginline="6" endline="6" begincolumn="1" endcolumn="20" rule="UnusedImports" ruleset="Import Statements" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.io.File'
+</violation>
+<violation beginline="14" endline="14" begincolumn="1" endcolumn="27" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
+No need to import a type that lives in the same package
+</violation>
+<violation beginline="15" endline="15" begincolumn="1" endcolumn="28" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
+No need to import a type that lives in the same package
+</violation>
+<violation beginline="20" endline="20" begincolumn="9" endcolumn="34" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="20" endline="20" begincolumn="9" endcolumn="34" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="21" endline="21" begincolumn="9" endcolumn="23" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="21" endline="21" begincolumn="9" endcolumn="23" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="21" endline="21" begincolumn="25" endcolumn="26" rule="ShortVariable" ruleset="Naming" package="it.uniba.model" class="MentionGraphTest" variable="ed" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like ed
+</violation>
+<violation beginline="25" endline="25" begincolumn="14" endcolumn="14" rule="ShortVariable" ruleset="Naming" package="it.uniba.model" class="MentionGraphTest" variable="u" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like u
+</violation>
+<violation beginline="26" endline="26" begincolumn="14" endcolumn="14" rule="ShortVariable" ruleset="Naming" package="it.uniba.model" class="MentionGraphTest" variable="v" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like v
+</violation>
+<violation beginline="29" endline="29" begincolumn="14" endcolumn="19" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.model" class="MentionGraphTest" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="32" endline="32" begincolumn="4" endcolumn="77" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="34" endline="34" begincolumn="8" endcolumn="38" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="35" endline="35" begincolumn="8" endcolumn="38" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="37" endline="37" begincolumn="8" endcolumn="38" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="43" endline="43" begincolumn="8" endcolumn="38" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="44" endline="44" begincolumn="8" endcolumn="38" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="52" endline="52" begincolumn="13" endcolumn="43" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="edgesOutDegreeTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="53" endline="53" begincolumn="9" endcolumn="75" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="edgesOutDegreeTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="53" endline="53" begincolumn="36" endcolumn="74" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="edgesOutDegreeTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="58" endline="58" begincolumn="14" endcolumn="44" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="edgesInDegreeTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="59" endline="59" begincolumn="10" endcolumn="75" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="edgesInDegreeTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="59" endline="59" begincolumn="37" endcolumn="74" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraphTest" method="edgesInDegreeTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+</file>
+</pmd>

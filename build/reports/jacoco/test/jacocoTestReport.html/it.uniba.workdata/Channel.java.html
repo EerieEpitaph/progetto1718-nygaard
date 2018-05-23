@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Channel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.workdata</a> &gt; <span class="el_source">Channel.java</span></div><h1>Channel.java</h1><pre class="source lang-java linenums">package it.uniba.workdata;
+
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * Models a single workspace channel.
+ */
+public final class Channel {
+
+	/**
+	 * Channel identfier as found in &quot;channels.json&quot;.
+	 */
+	private String id;
+
+	/**
+	 * Timestamp at which the channel was created.
+	 */
+	private Long created;
+
+	/**
+	 * User identifier of the creator.
+	 */
+	private String creator;
+
+	/**
+	 * Members of the channel listed by their user identifier.
+	 */
+<span class="nc" id="L29">	private List&lt;String&gt; members = new LinkedList&lt;String&gt;();</span>
+
+	/**
+	 * Channel identfier as found in channels.json.
+	 */
+	private String name;
+
+	/**
+	 * Constructs a new Channel.
+	 * @param id2 channel id
+	 * @param created2 creation timestamp
+	 * @param creator2 founder's id
+	 * @param members2 list of members
+	 * @param name2 channel name
+	 */
+	public Channel(final String id2, final Long created2, final String creator2, final List&lt;String&gt; members2,
+<span class="nc" id="L45">			final String name2) {</span>
+<span class="nc" id="L46">		this.id = id2;</span>
+<span class="nc" id="L47">		this.created = created2;</span>
+<span class="nc" id="L48">		this.creator = creator2;</span>
+<span class="nc" id="L49">		this.members = members2;</span>
+<span class="nc" id="L50">		this.name = name2;</span>
+<span class="nc" id="L51">	}</span>
+
+	/**
+	 * Returns the channel ID as String.
+	 * @return ID as String
+	 */
+	public String getId() {
+<span class="nc" id="L58">		return id;</span>
+	}
+
+	/**
+	 * Returns the list of members.
+	 * @return List&lt;String&gt; of IDs
+	 */
+	public List&lt;String&gt; getMemberList() {
+<span class="nc" id="L66">		return members;</span>
+	}
+
+	/**
+	 * Returns the name of the channel as String.
+	 * @return channel name as String
+	 */
+	public String getName() {
+<span class="fc" id="L74">		return name;</span>
+	}
+
+	/**
+	 * Returns the channel timestamp as Long.
+	 * @return timestamp as Long
+	 */
+	public Long getDateCreation() {
+<span class="nc" id="L82">		return created;</span>
+	}
+
+	/**
+	 * Return the founder's ID as String.
+	 * @return founder's ID as String
+	 */
+	public String getCreator() {
+<span class="nc" id="L90">		return creator;</span>
+	}
+
+	/**
+	 * Sets a new ID.
+	 * @param value new id
+	 */
+	public void setId(final String value) {
+<span class="nc" id="L98">		id = value;</span>
+<span class="nc" id="L99">	}</span>
+
+	/**
+	 * Sets a new member list.
+	 * @param value new list
+	 */
+	public void setMembeList(final List&lt;String&gt; value) {
+<span class="nc" id="L106">		members = value;</span>
+<span class="nc" id="L107">	}</span>
+
+	/**
+	 * Sets a new channel name.
+	 * @param value new channel name
+	 */
+	public void setName(final String value) {
+<span class="nc" id="L114">		name = value;</span>
+<span class="nc" id="L115">	}</span>
+
+	/**
+	 * Sets a new founded.
+	 * @param value new founder id
+	 */
+	public void setCreator(final String value) {
+<span class="nc" id="L122">		creator = value;</span>
+<span class="nc" id="L123">	}</span>
+
+	/**
+	 * Sets a new creation time.
+	 * @param value new timestamp as Long
+	 */
+	public void setDateCreation(final Long value) {
+<span class="nc" id="L130">		created = value;</span>
+<span class="nc" id="L131">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

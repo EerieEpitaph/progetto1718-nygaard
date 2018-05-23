@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Model.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.model</a> &gt; <span class="el_source">Model.java</span></div><h1>Model.java</h1><pre class="source lang-java linenums">package it.uniba.model;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.zip.ZipException;
+
+import it.uniba.parsing.ZipParser;
+import it.uniba.workdata.Channel;
+import it.uniba.workdata.Message;
+import it.uniba.workdata.User;
+
+/**
+ * &lt;i&gt;Model&lt;/i&gt; storage and manipulate Data
+ */
+
+public class Model {
+	// WorkData
+	/*
+	 * Map of &lt;i&gt;Users&lt;/i&gt;
+	 */
+<span class="fc" id="L22">	private HashMap&lt;String, User&gt; users = new HashMap&lt;String, User&gt;();</span>
+	/*
+	 * Map of &lt;i&gt;Channels&lt;/i&gt;
+	 */
+<span class="fc" id="L26">	private HashMap&lt;String, Channel&gt; channels = new HashMap&lt;String, Channel&gt;();</span>
+	/*
+	 * Map of &lt;i&gt;Messages&lt;/i&gt; group by channels
+	 */
+<span class="fc" id="L30">	private HashMap&lt;String, ArrayList&lt;Message&gt;&gt; messages = new HashMap&lt;String, ArrayList&lt;Message&gt;&gt;();</span>
+
+	/*
+	 * Graph of all mentions present in the workspace
+	 */
+<span class="fc" id="L35">	private MentionGraph snagraph = new MentionGraph();</span>
+
+	/*
+	 * ZipParser for loading data from zip file
+	 */
+<span class="fc" id="L40">	private ZipParser fileParser = new ZipParser();</span>
+
+	/**
+	 * Load all data of Model from procedure load of class ZipParser
+	 * 
+	 * @param path &lt;i&gt;String&lt;/i&gt; Path of Zipfile
+	 * 
+	 * @throws ZipException Exception of ZipParser
+	 * 
+	 * @throws IOException Exception of IOFileException
+	 */
+	public void updateModel(final String path) throws ZipException, IOException {
+<span class="fc" id="L52">		fileParser.load(path);</span>
+
+<span class="fc" id="L54">		users = (HashMap&lt;String, User&gt;) fileParser.getUsers();</span>
+<span class="fc" id="L55">		channels = (HashMap&lt;String, Channel&gt;) fileParser.getChannels();</span>
+<span class="fc" id="L56">		messages = (HashMap&lt;String, ArrayList&lt;Message&gt;&gt;) fileParser.getMessages();</span>
+<span class="fc" id="L57">	}</span>
+
+	/**
+	 * Check if fileParser has load data from zip file
+	 * 
+	 * @return &lt;i&gt;boolean&lt;/i&gt; if fileParser has load data from zip file
+	 */
+	public boolean hasLoaded() {
+<span class="nc" id="L65">		return fileParser.hasLoaded();</span>
+	}
+
+	/**
+	 * Default costructor of Model
+	 */
+<span class="fc" id="L71">	public Model() {</span>
+<span class="fc" id="L72">	}</span>
+
+	// /**
+	// * Initialize a generic model after load the data
+	// * @param _users &lt;i&gt;HashMap&lt;/i&gt; of all &lt;b&gt;user&lt;/b&gt; present in the workspace
+	// * @param _channels &lt;i&gt;HashMap&lt;/i&gt; of all &lt;b&gt;channels&lt;/b&gt; present in the
+	// workspace
+	// * @param _messages &lt;i&gt;HashMap&lt;/i&gt; of all &lt;b&gt;Messages&lt;/b&gt; present in the
+	// workspace
+	// */
+	// public Model(HashMap&lt;String, User&gt; _users, HashMap&lt;String, Channel&gt;
+	// _channels,
+	// HashMap&lt;String, ArrayList&lt;Message&gt;&gt; _messages) {
+	// users = _users;
+	// channels = _channels;
+	// messages = _messages;
+	// }
+
+	/**
+	 * 
+	 * @return &lt;i&gt;HashMap&lt;/i&gt; of Users
+	 */
+	public HashMap&lt;String, User&gt; getUsers() {
+<span class="fc" id="L95">		return users;</span>
+	}
+
+	/**
+	 * 
+	 * @return &lt;i&gt;HashMap&lt;/i&gt; of all Channels
+	 */
+	public HashMap&lt;String, Channel&gt; getChannels() {
+<span class="nc" id="L103">		return channels;</span>
+	}
+
+	/**
+	 * 
+	 * @return &lt;i&gt;HashMap&lt;/i&gt; of all messagges
+	 */
+	public HashMap&lt;String, ArrayList&lt;Message&gt;&gt; getMessages() {
+<span class="fc" id="L111">		return messages;</span>
+	}
+
+	/**
+	 * 
+	 * @return &lt;i&gt;MentionGraph&lt;/i&gt; an instance of MentionGraph witch contains all
+	 *         mentions
+	 */
+	public MentionGraph getMentionGraph() {
+<span class="fc" id="L120">		return snagraph;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
