@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-25T21:24:41.165">
+<pmd version="5.8.1" timestamp="2018-05-25T21:27:24.778">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="21" endline="21" begincolumn="23" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.controller" class="Controller" variable="mod" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'mod' could be made final; it is only initialized in the declaration or constructor.
@@ -950,6 +950,21 @@ Potential violation of Law of Demeter (method chain calls)
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Channel.java">
 <violation beginline="14" endline="14" begincolumn="24" endcolumn="25" rule="ShortVariable" ruleset="Naming" package="it.uniba.workdata" class="Channel" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
 Avoid variables with short names like id
+</violation>
+<violation beginline="14" endline="14" begincolumn="24" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+Private field 'id' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="19" endline="19" begincolumn="22" endcolumn="28" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="created" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+Private field 'created' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="24" endline="24" begincolumn="24" endcolumn="30" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="creator" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+Private field 'creator' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="29" endline="29" begincolumn="30" endcolumn="36" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="members" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+Private field 'members' could be made final; it is only initialized in the declaration or constructor.
+</violation>
+<violation beginline="34" endline="34" begincolumn="24" endcolumn="27" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="name" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+Private field 'name' could be made final; it is only initialized in the declaration or constructor.
 </violation>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
