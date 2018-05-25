@@ -33,5 +33,6 @@
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Message.java">
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
+<error line="0" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 </file>
 </checkstyle>

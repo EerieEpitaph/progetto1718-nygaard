@@ -89,45 +89,4 @@ public final class Channel {
 	public String getCreator() {
 		return creator;
 	}
-
-	/**
-	 * Sets a new ID.
-	 * @param value new id
-	 */
-	public void setId(final String value) {
-		id = value;
-	}
-
-	/**
-	 * Sets a new member list.
-	 * @param value new list
-	 */
-	public void setMembeList(final List<String> value) {
-		members = value;
-	}
-
-	/**
-	 * Sets a new channel name.
-	 * @param value new channel name
-	 */
-	public void setName(final String value) {
-		name = value;
-	}
-
-	/**
-	 * Sets a new founded.
-	 * @param value new founder id
-	 */
-	public void setCreator(final String value) {
-		creator = value;
-	}
-
-	/**
-	 * Sets a new creation time.
-	 * @param value new timestamp as Long
-	 */
-	public void setDateCreation(final Long value) {
-		created = value;
-	}
-
 }

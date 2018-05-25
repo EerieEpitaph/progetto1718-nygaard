@@ -16,11 +16,11 @@ public final class CommandParser implements CommandParserInterface {
 	/**
 	 *This class manages no-parameter commands.
 	 */
-<span class="nc" id="L19">	public final class CommBaseArgs {</span>
+<span class="fc" id="L19">	public final class CommBaseArgs {</span>
 		/*
 		 *Activity notifier.
 		 */
-<span class="nc" id="L23">		private Boolean active = false;</span>
+<span class="fc" id="L23">		private Boolean active = false;</span>
 
 		/*
 		 *Help found.
@@ -41,18 +41,18 @@ public final class CommandParser implements CommandParserInterface {
 		 *@return helpstatus
 		 */
 		public Boolean getHelpStatus() {
-<span class="nc" id="L44">			return helpStatus;</span>
+<span class="fc" id="L44">			return helpStatus;</span>
 		}
 	}
 
 	/**
 	 *This class manages workspace-related commands.
 	 */
-<span class="nc" id="L51">	public final class CommWorkspace {</span>
+<span class="fc" id="L51">	public final class CommWorkspace {</span>
 		/*
 		 *Activity notifier.
 		 */
-<span class="nc" id="L55">		private Boolean active = false;</span>
+<span class="fc" id="L55">		private Boolean active = false;</span>
 
 		/*
 		 *Name of the current workspace.
@@ -95,7 +95,7 @@ public final class CommandParser implements CommandParserInterface {
 		 *@return active status
 		 */
 		public Boolean isActive() {
-<span class="nc" id="L98">			return active;</span>
+<span class="fc" id="L98">			return active;</span>
 		}
 
 		/**
@@ -103,7 +103,7 @@ public final class CommandParser implements CommandParserInterface {
 		 *@return name of workspace
 		 */
 		public String getWorkspaceName() {
-<span class="nc" id="L106">			return workspaceName;</span>
+<span class="fc" id="L106">			return workspaceName;</span>
 		}
 
 		/**
@@ -111,7 +111,7 @@ public final class CommandParser implements CommandParserInterface {
 		 *@return workspace validity
 		 */
 		public Boolean isValidWorkspace() {
-<span class="nc bnc" id="L114" title="All 4 branches missed.">			return (workspaceName != null &amp;&amp; !&quot;&quot;.equals(workspaceName));</span>
+<span class="pc bpc" id="L114" title="1 of 4 branches missed.">			return (workspaceName != null &amp;&amp; !&quot;&quot;.equals(workspaceName));</span>
 		}
 
 		/**
@@ -119,7 +119,7 @@ public final class CommandParser implements CommandParserInterface {
 		 *@return memberStatus value
 		 */
 		public Boolean getMembersStatus() {
-<span class="nc" id="L122">			return membersStatus;</span>
+<span class="fc" id="L122">			return membersStatus;</span>
 		}
 
 		/**
@@ -127,7 +127,7 @@ public final class CommandParser implements CommandParserInterface {
 		 *@return channelStatus value
 		 */
 		public Boolean getChannelsStatus() {
-<span class="nc" id="L130">			return channelsStatus;</span>
+<span class="fc" id="L130">			return channelsStatus;</span>
 		}
 
 		/**
@@ -135,7 +135,7 @@ public final class CommandParser implements CommandParserInterface {
 		 *@return extChannelStatus value
 		 */
 		public Boolean getExtChannelsStatus() {
-<span class="nc" id="L138">			return extChannelsStatus;</span>
+<span class="fc" id="L138">			return extChannelsStatus;</span>
 		}
 
 		/**
@@ -143,7 +143,7 @@ public final class CommandParser implements CommandParserInterface {
 		 *@return channelFilter value
 		 */
 		public String getChannelFilter() {
-<span class="nc" id="L146">			return channelFilter;</span>
+<span class="fc" id="L146">			return channelFilter;</span>
 		}
 
 		/**
@@ -151,7 +151,7 @@ public final class CommandParser implements CommandParserInterface {
 		 *@return channelFilter validity
 		 */
 		public Boolean isValidFilter() {
-<span class="nc bnc" id="L154" title="All 4 branches missed.">			return (channelFilter != null &amp;&amp; !&quot;&quot;.equals(channelFilter));</span>
+<span class="pc bpc" id="L154" title="1 of 4 branches missed.">			return (channelFilter != null &amp;&amp; !&quot;&quot;.equals(channelFilter));</span>
 		}
 
 		/**
@@ -177,15 +177,15 @@ public final class CommandParser implements CommandParserInterface {
 	 *@param args array of command line arguments
 	 *@throws IllegalStateException if conflicting commands parsed
 	 */
-<span class="nc" id="L180">	public CommandParser(final String[] args) throws IllegalStateException {</span>
-<span class="nc" id="L181">		baseArgs = new CommBaseArgs();</span>
-<span class="nc" id="L182">		workspace = new CommWorkspace();</span>
+<span class="fc" id="L180">	public CommandParser(final String[] args) throws IllegalStateException {</span>
+<span class="fc" id="L181">		baseArgs = new CommBaseArgs();</span>
+<span class="fc" id="L182">		workspace = new CommWorkspace();</span>
 
-<span class="nc" id="L184">		CommandLine commandLine = new CommandLine(baseArgs).addSubcommand(&quot;-w&quot;, workspace);</span>
+<span class="fc" id="L184">		CommandLine commandLine = new CommandLine(baseArgs).addSubcommand(&quot;-w&quot;, workspace);</span>
 
-<span class="nc" id="L186">		List&lt;CommandLine&gt; result = commandLine.parse(args);</span>
+<span class="fc" id="L186">		List&lt;CommandLine&gt; result = commandLine.parse(args);</span>
 
-<span class="nc bnc" id="L188" title="All 2 branches missed.">		for (CommandLine x : result) {</span>
+<span class="fc bfc" id="L188" title="All 2 branches covered.">		for (CommandLine x : result) {</span>
 			// Gli &quot;argomenti base&quot; sarebbero sempre true, per com'e'
 			// strutturata la
 			// libreria.
@@ -193,39 +193,39 @@ public final class CommandParser implements CommandParserInterface {
 			// riflessione,
 			// uno dei loro field e' true
 			// Se piu' di un field e' true, throwo direttamente un'eccezione.
-<span class="nc bnc" id="L196" title="All 2 branches missed.">			if (x.getCommand().getClass() == CommBaseArgs.class) {</span>
-<span class="nc" id="L197">				baseArgs = (CommBaseArgs) x.getCommand();</span>
+<span class="fc bfc" id="L196" title="All 2 branches covered.">			if (x.getCommand().getClass() == CommBaseArgs.class) {</span>
+<span class="fc" id="L197">				baseArgs = (CommBaseArgs) x.getCommand();</span>
 
-<span class="nc" id="L199">				ArrayList&lt;Field&gt; baseFields = new ArrayList&lt;Field&gt;(</span>
-<span class="nc" id="L200">						Arrays.asList(CommBaseArgs.class.getDeclaredFields()));</span>
-<span class="nc" id="L201">				baseFields.remove(0);</span>
-<span class="nc" id="L202">				baseFields.remove(baseFields.size() - 1);</span>
+<span class="fc" id="L199">				ArrayList&lt;Field&gt; baseFields = new ArrayList&lt;Field&gt;(</span>
+<span class="fc" id="L200">						Arrays.asList(CommBaseArgs.class.getDeclaredFields()));</span>
+<span class="fc" id="L201">				baseFields.remove(0);</span>
+<span class="fc" id="L202">				baseFields.remove(baseFields.size() - 1);</span>
 
-<span class="nc bnc" id="L204" title="All 2 branches missed.">				for (Field y : baseFields) {</span>
+<span class="fc bfc" id="L204" title="All 2 branches covered.">				for (Field y : baseFields) {</span>
 					// System.out.println(y.getName());
-<span class="nc" id="L206">					y.setAccessible(true);</span>
+<span class="fc" id="L206">					y.setAccessible(true);</span>
 					try {
-<span class="nc bnc" id="L208" title="All 2 branches missed.">						if (y.get(baseArgs).toString().equals(&quot;true&quot;)) {</span>
-<span class="nc bnc" id="L209" title="All 2 branches missed.">							if (baseArgs.active) {</span>
+<span class="fc bfc" id="L208" title="All 2 branches covered.">						if (y.get(baseArgs).toString().equals(&quot;true&quot;)) {</span>
+<span class="pc bpc" id="L209" title="1 of 2 branches missed.">							if (baseArgs.active) {</span>
 <span class="nc" id="L210">								throw new IllegalStateException(); // CATCHED</span>
 							} else {
-<span class="nc" id="L212">								baseArgs.active = true;</span>
+<span class="fc" id="L212">								baseArgs.active = true;</span>
 							}
 						}
 
-<span class="nc" id="L216">						y.setAccessible(false);</span>
+<span class="fc" id="L216">						y.setAccessible(false);</span>
 <span class="nc" id="L217">					} catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L218">						e.printStackTrace();</span>
 <span class="nc" id="L219">					} catch (IllegalAccessException e) {</span>
 <span class="nc" id="L220">						e.printStackTrace();</span>
-<span class="nc" id="L221">					}</span>
-<span class="nc" id="L222">				}</span>
-<span class="nc bnc" id="L223" title="All 2 branches missed.">			} else if (x.getCommand().getClass() == CommWorkspace.class) {</span>
-<span class="nc" id="L224">				workspace = (CommWorkspace) x.getCommand();</span>
-<span class="nc" id="L225">				workspace.active = true;</span>
+<span class="pc" id="L221">					}</span>
+<span class="fc" id="L222">				}</span>
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">			} else if (x.getCommand().getClass() == CommWorkspace.class) {</span>
+<span class="fc" id="L224">				workspace = (CommWorkspace) x.getCommand();</span>
+<span class="fc" id="L225">				workspace.active = true;</span>
 			}
-<span class="nc" id="L227">		}</span>
-<span class="nc" id="L228">	}</span>
+<span class="fc" id="L227">		}</span>
+<span class="fc" id="L228">	}</span>
 
 	/**
 	 *Base args getter.
@@ -252,10 +252,10 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean validWorkspace() {
-<span class="nc bnc" id="L255" title="All 4 branches missed.">		if (workspace.isActive() &amp;&amp; workspace.isValidWorkspace()) {</span>
-<span class="nc" id="L256">			return true;</span>
+<span class="pc bpc" id="L255" title="1 of 4 branches missed.">		if (workspace.isActive() &amp;&amp; workspace.isValidWorkspace()) {</span>
+<span class="fc" id="L256">			return true;</span>
 		}
-<span class="nc" id="L258">		return false;</span>
+<span class="fc" id="L258">		return false;</span>
 	}
 
 	/**
@@ -263,7 +263,7 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public String getWorkspace() {
-<span class="nc" id="L266">		return workspace.getWorkspaceName();</span>
+<span class="fc" id="L266">		return workspace.getWorkspaceName();</span>
 	}
 
 	/**
@@ -271,10 +271,10 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean help() {
-<span class="nc bnc" id="L274" title="All 2 branches missed.">		if (baseArgs.getHelpStatus()) {</span>
-<span class="nc" id="L275">			return true;</span>
+<span class="fc bfc" id="L274" title="All 2 branches covered.">		if (baseArgs.getHelpStatus()) {</span>
+<span class="fc" id="L275">			return true;</span>
 		}
-<span class="nc" id="L277">		return false;</span>
+<span class="fc" id="L277">		return false;</span>
 	}
 
 	/**
@@ -282,10 +282,10 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean users() {
-<span class="nc bnc" id="L285" title="All 2 branches missed.">		if (workspace.getMembersStatus()) {</span>
-<span class="nc" id="L286">			return true;</span>
+<span class="fc bfc" id="L285" title="All 2 branches covered.">		if (workspace.getMembersStatus()) {</span>
+<span class="fc" id="L286">			return true;</span>
 		}
-<span class="nc" id="L288">		return false;</span>
+<span class="fc" id="L288">		return false;</span>
 	}
 
 	/**
@@ -293,10 +293,10 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean channels() {
-<span class="nc bnc" id="L296" title="All 2 branches missed.">		if (workspace.getChannelsStatus()) {</span>
-<span class="nc" id="L297">			return true;</span>
+<span class="fc bfc" id="L296" title="All 2 branches covered.">		if (workspace.getChannelsStatus()) {</span>
+<span class="fc" id="L297">			return true;</span>
 		}
-<span class="nc" id="L299">		return false;</span>
+<span class="fc" id="L299">		return false;</span>
 	}
 
 	/**
@@ -304,10 +304,10 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean extendedChannels() {
-<span class="nc bnc" id="L307" title="All 2 branches missed.">		if (workspace.getExtChannelsStatus()) {</span>
-<span class="nc" id="L308">			return true;</span>
+<span class="fc bfc" id="L307" title="All 2 branches covered.">		if (workspace.getExtChannelsStatus()) {</span>
+<span class="fc" id="L308">			return true;</span>
 		}
-<span class="nc" id="L310">		return false;</span>
+<span class="fc" id="L310">		return false;</span>
 	}
 
 	/**
@@ -315,10 +315,10 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean usersInChannel() {
-<span class="nc bnc" id="L318" title="All 2 branches missed.">		if (workspace.isValidFilter()) {</span>
-<span class="nc" id="L319">			return true;</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">		if (workspace.isValidFilter()) {</span>
+<span class="fc" id="L319">			return true;</span>
 		}
-<span class="nc" id="L321">		return false;</span>
+<span class="fc" id="L321">		return false;</span>
 	}
 
 	/**
@@ -326,7 +326,7 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public String getChannelFilter() {
-<span class="nc" id="L329">		return workspace.getChannelFilter();</span>
+<span class="fc" id="L329">		return workspace.getChannelFilter();</span>
 	}
 
 	/**
@@ -334,8 +334,8 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean mentions() {
-<span class="nc bnc" id="L337" title="All 2 branches missed.">		if (workspace.mentionParams != null) {</span>
-<span class="nc" id="L338">			return true;</span>
+<span class="pc bpc" id="L337" title="1 of 2 branches missed.">		if (workspace.mentionParams != null) {</span>
+<span class="fc" id="L338">			return true;</span>
 		}
 <span class="nc" id="L340">		return false;</span>
 	}
@@ -345,19 +345,19 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean from() {
-<span class="nc" id="L348">		String[] params = workspace.mentionParams;</span>
-<span class="nc bnc" id="L349" title="All 2 branches missed.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L348">		String[] params = workspace.mentionParams;</span>
+<span class="fc bfc" id="L349" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
 			try {
-<span class="nc bnc" id="L351" title="All 2 branches missed.">				if (params[i].equals(&quot;from&quot;)) {</span>
-<span class="nc bnc" id="L352" title="All 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="nc" id="L353">						return true;</span>
+<span class="fc bfc" id="L351" title="All 2 branches covered.">				if (params[i].equals(&quot;from&quot;)) {</span>
+<span class="pc bpc" id="L352" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
+<span class="fc" id="L353">						return true;</span>
 					}
 				}
 <span class="nc" id="L356">			} catch (Exception e) {</span>
 <span class="nc" id="L357">				throw new IllegalStateException();</span>
-<span class="nc" id="L358">			}</span>
+<span class="fc" id="L358">			}</span>
 		}
-<span class="nc" id="L360">		return false;</span>
+<span class="fc" id="L360">		return false;</span>
 	}
 
 	/**
@@ -365,12 +365,12 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public String getFromWho() {
-<span class="nc" id="L368">		String[] params = workspace.mentionParams;</span>
-<span class="nc bnc" id="L369" title="All 2 branches missed.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L368">		String[] params = workspace.mentionParams;</span>
+<span class="pc bpc" id="L369" title="1 of 2 branches missed.">		for (int i = 0; i &lt; params.length; i++) {</span>
 			try {
-<span class="nc bnc" id="L371" title="All 2 branches missed.">				if (params[i].equals(&quot;from&quot;)) {</span>
-<span class="nc bnc" id="L372" title="All 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="nc" id="L373">						return params[i + 1];</span>
+<span class="pc bpc" id="L371" title="1 of 2 branches missed.">				if (params[i].equals(&quot;from&quot;)) {</span>
+<span class="pc bpc" id="L372" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
+<span class="fc" id="L373">						return params[i + 1];</span>
 					}
 				}
 <span class="nc" id="L376">			} catch (Exception e) {</span>
@@ -385,19 +385,19 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean to() {
-<span class="nc" id="L388">		String[] params = workspace.mentionParams;</span>
-<span class="nc bnc" id="L389" title="All 2 branches missed.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L388">		String[] params = workspace.mentionParams;</span>
+<span class="fc bfc" id="L389" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
 			try {
-<span class="nc bnc" id="L391" title="All 2 branches missed.">				if (params[i].equals(&quot;to&quot;)) {</span>
-<span class="nc bnc" id="L392" title="All 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="nc" id="L393">						return true;</span>
+<span class="fc bfc" id="L391" title="All 2 branches covered.">				if (params[i].equals(&quot;to&quot;)) {</span>
+<span class="pc bpc" id="L392" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
+<span class="fc" id="L393">						return true;</span>
 					}
 				}
 <span class="nc" id="L396">			} catch (Exception e) {</span>
 <span class="nc" id="L397">				throw new IllegalStateException();</span>
-<span class="nc" id="L398">			}</span>
+<span class="fc" id="L398">			}</span>
 		}
-<span class="nc" id="L400">		return false;</span>
+<span class="fc" id="L400">		return false;</span>
 	}
 
 	/**
@@ -405,12 +405,12 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public String getToWho() {
-<span class="nc" id="L408">		String[] params = workspace.mentionParams;</span>
-<span class="nc bnc" id="L409" title="All 2 branches missed.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L408">		String[] params = workspace.mentionParams;</span>
+<span class="pc bpc" id="L409" title="1 of 2 branches missed.">		for (int i = 0; i &lt; params.length; i++) {</span>
 			try {
-<span class="nc bnc" id="L411" title="All 2 branches missed.">				if (params[i].equals(&quot;to&quot;)) {</span>
-<span class="nc bnc" id="L412" title="All 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="nc" id="L413">						return params[i + 1];</span>
+<span class="pc bpc" id="L411" title="1 of 2 branches missed.">				if (params[i].equals(&quot;to&quot;)) {</span>
+<span class="pc bpc" id="L412" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
+<span class="fc" id="L413">						return params[i + 1];</span>
 					}
 				}
 <span class="nc" id="L416">			} catch (Exception e) {</span>
@@ -425,19 +425,19 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean in() {
-<span class="nc" id="L428">		String[] params = workspace.mentionParams;</span>
-<span class="nc bnc" id="L429" title="All 2 branches missed.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L428">		String[] params = workspace.mentionParams;</span>
+<span class="fc bfc" id="L429" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
 			try {
-<span class="nc bnc" id="L431" title="All 2 branches missed.">				if (params[i].equals(&quot;in&quot;)) {</span>
-<span class="nc bnc" id="L432" title="All 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="nc" id="L433">						return true;</span>
+<span class="fc bfc" id="L431" title="All 2 branches covered.">				if (params[i].equals(&quot;in&quot;)) {</span>
+<span class="pc bpc" id="L432" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
+<span class="fc" id="L433">						return true;</span>
 					}
 				}
 <span class="nc" id="L436">			} catch (Exception e) {</span>
 <span class="nc" id="L437">				throw new IllegalStateException();</span>
-<span class="nc" id="L438">			}</span>
+<span class="fc" id="L438">			}</span>
 		}
-<span class="nc" id="L440">		return false;</span>
+<span class="fc" id="L440">		return false;</span>
 	}
 
 	/**
@@ -445,19 +445,19 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public String getInWhat() {
-<span class="nc" id="L448">		String[] params = workspace.mentionParams;</span>
-<span class="nc bnc" id="L449" title="All 2 branches missed.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L448">		String[] params = workspace.mentionParams;</span>
+<span class="fc bfc" id="L449" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
 			try {
-<span class="nc bnc" id="L451" title="All 2 branches missed.">				if (params[i].equals(&quot;in&quot;)) {</span>
-<span class="nc bnc" id="L452" title="All 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="nc" id="L453">						return params[i + 1];</span>
+<span class="fc bfc" id="L451" title="All 2 branches covered.">				if (params[i].equals(&quot;in&quot;)) {</span>
+<span class="pc bpc" id="L452" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
+<span class="fc" id="L453">						return params[i + 1];</span>
 					}
 				}
 <span class="nc" id="L456">			} catch (Exception e) {</span>
 <span class="nc" id="L457">				throw new IllegalStateException();</span>
-<span class="nc" id="L458">			}</span>
+<span class="fc" id="L458">			}</span>
 		}
-<span class="nc" id="L460">		return &quot;&quot;;</span>
+<span class="fc" id="L460">		return &quot;&quot;;</span>
 	}
 
 	/**
@@ -465,11 +465,11 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean weighted() {
-<span class="nc bnc" id="L468" title="All 4 branches missed.">		if (workspace.mentionParams != null &amp;&amp; workspace.mentionParams.length != 0</span>
-<span class="nc bnc" id="L469" title="All 2 branches missed.">				&amp;&amp; workspace.mentionParams[workspace.mentionParams.length - 1].equals(&quot;-n&quot;)) {</span>
-<span class="nc" id="L470">			return true;</span>
+<span class="pc bpc" id="L468" title="2 of 4 branches missed.">		if (workspace.mentionParams != null &amp;&amp; workspace.mentionParams.length != 0</span>
+<span class="fc bfc" id="L469" title="All 2 branches covered.">				&amp;&amp; workspace.mentionParams[workspace.mentionParams.length - 1].equals(&quot;-n&quot;)) {</span>
+<span class="fc" id="L470">			return true;</span>
 		}
-<span class="nc" id="L472">		return false;</span>
+<span class="fc" id="L472">		return false;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

@@ -21,12 +21,12 @@ public class CommandInterpreter {
 			throws ZipException, IOException {
 		CommandParserInterface bridge = parser;
 
-		if (bridge.validWorkspace()) {
+		if (bridge.help()) {
+            dataCtr.showHelp();
+        } else if (bridge.validWorkspace()) {
 			dataCtr.updateModel(bridge.getWorkspace());
 
-			if (bridge.help()) {
-				dataCtr.showHelp();
-			} else if (bridge.users()) {
+			if (bridge.users()) {
 				dataCtr.printMembers();
 			} else if (bridge.channels()) {
 				dataCtr.printChannels();

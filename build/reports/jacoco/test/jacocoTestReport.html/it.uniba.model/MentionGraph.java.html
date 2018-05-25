@@ -109,12 +109,12 @@ public class MentionGraph extends AbstractGraph {
 	 */
 	public void parseMessages(final HashMap&lt;String, ArrayList&lt;Message&gt;&gt; message, final HashMap&lt;String, User&gt; users,
 			final String inChannel) { // TODO _inChannel default = null || &quot;&quot;
-<span class="pc bpc" id="L112" title="2 of 4 branches missed.">		if (inChannel == null || inChannel.equals(&quot;&quot;)) {</span>
+<span class="pc bpc" id="L112" title="1 of 4 branches missed.">		if (inChannel == null || inChannel.equals(&quot;&quot;)) {</span>
 <span class="fc bfc" id="L113" title="All 2 branches covered.">			for (ArrayList&lt;Message&gt; mess : message.values()) {</span>
 <span class="fc" id="L114">				parsing(mess, users);</span>
 <span class="fc" id="L115">			}</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">		} else if (message.containsKey(inChannel)) {</span>
-<span class="nc" id="L117">			parsing(message.get(inChannel), users);</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">		} else if (message.containsKey(inChannel)) {</span>
+<span class="fc" id="L117">			parsing(message.get(inChannel), users);</span>
 		}
 <span class="fc" id="L119">	}</span>
 
@@ -204,7 +204,7 @@ public class MentionGraph extends AbstractGraph {
 						// + snagraph.edgeValue(to, user).get());
 <span class="fc" id="L205">						edges.add(new Edge(to, user, (float) snagraph.edgeValue(to, user).get()));</span>
 <span class="fc" id="L206">						inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0</span>
-<span class="pc bpc" id="L207" title="1 of 2 branches missed.">						if (inEdges == 0) {</span>
+<span class="fc bfc" id="L207" title="All 2 branches covered.">						if (inEdges == 0) {</span>
 <span class="fc" id="L208">							break;</span>
 						}
 					}
@@ -226,22 +226,22 @@ public class MentionGraph extends AbstractGraph {
 	public ArrayList&lt;Edge&gt; edgesOutDegree(final User user) {
 <span class="fc" id="L227">		ArrayList&lt;Edge&gt; edges = new ArrayList&lt;Edge&gt;();</span>
 <span class="fc" id="L228">		int numNodesPrinted = 0;</span>
-<span class="pc bpc" id="L229" title="1 of 2 branches missed.">		if (user == null) { // se non ï¿½ speficato restituisce tutti gli archi</span>
-<span class="nc bnc" id="L230" title="All 2 branches missed.">			for (User x : snagraph.nodes()) {</span>
-<span class="nc bnc" id="L231" title="All 2 branches missed.">				for (User adiacenti : snagraph.adjacentNodes(x)) {</span>
-<span class="nc bnc" id="L232" title="All 2 branches missed.">					if (snagraph.hasEdgeConnecting(x, adiacenti)) {</span>
-<span class="nc" id="L233">						edges.add(new Edge(x, adiacenti, (float) snagraph.edgeValue(x, adiacenti).get()));</span>
-<span class="nc" id="L234">						numNodesPrinted++;</span>
+<span class="fc bfc" id="L229" title="All 2 branches covered.">		if (user == null) { // se non ï¿½ speficato restituisce tutti gli archi</span>
+<span class="fc bfc" id="L230" title="All 2 branches covered.">			for (User x : snagraph.nodes()) {</span>
+<span class="fc bfc" id="L231" title="All 2 branches covered.">				for (User adiacenti : snagraph.adjacentNodes(x)) {</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">					if (snagraph.hasEdgeConnecting(x, adiacenti)) {</span>
+<span class="fc" id="L233">						edges.add(new Edge(x, adiacenti, (float) snagraph.edgeValue(x, adiacenti).get()));</span>
+<span class="fc" id="L234">						numNodesPrinted++;</span>
 					}
-<span class="nc" id="L236">				}</span>
-<span class="nc" id="L237">			}</span>
-<span class="nc bnc" id="L238" title="All 2 branches missed.">			if (numNodesPrinted == 0) { // eccezione: non ci sono mention nel workspace</span>
-<span class="nc" id="L239">				System.out.println(&quot;There aren't mention.&quot;);</span>
+<span class="fc" id="L236">				}</span>
+<span class="fc" id="L237">			}</span>
+<span class="fc bfc" id="L238" title="All 2 branches covered.">			if (numNodesPrinted == 0) { // eccezione: non ci sono mention nel workspace</span>
+<span class="fc" id="L239">				System.out.println(&quot;There aren't mention.&quot;);</span>
 			}
 		} else {
 <span class="pc bpc" id="L242" title="1 of 2 branches missed.">			if (snagraph.nodes().contains(user)) {</span>
 <span class="fc bfc" id="L243" title="All 2 branches covered.">				for (User adiacenti : snagraph.adjacentNodes(user)) {</span>
-<span class="pc bpc" id="L244" title="1 of 2 branches missed.">					if (snagraph.hasEdgeConnecting(user, adiacenti)) {</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">					if (snagraph.hasEdgeConnecting(user, adiacenti)) {</span>
 <span class="fc" id="L245">						edges.add(new Edge(user, adiacenti, (float) snagraph.edgeValue(user, adiacenti).get()));</span>
 <span class="fc" id="L246">						numNodesPrinted++;</span>
 					}
