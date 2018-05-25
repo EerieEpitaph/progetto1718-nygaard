@@ -446,7 +446,7 @@ public final class CommandParser implements CommandParserInterface {
 	@Override
 	public String getInWhat() {
 <span class="fc" id="L448">		String[] params = workspace.mentionParams;</span>
-<span class="fc bfc" id="L449" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="pc bpc" id="L449" title="1 of 2 branches missed.">		for (int i = 0; i &lt; params.length; i++) {</span>
 			try {
 <span class="fc bfc" id="L451" title="All 2 branches covered.">				if (params[i].equals(&quot;in&quot;)) {</span>
 <span class="pc bpc" id="L452" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
@@ -457,7 +457,7 @@ public final class CommandParser implements CommandParserInterface {
 <span class="nc" id="L457">				throw new IllegalStateException();</span>
 <span class="fc" id="L458">			}</span>
 		}
-<span class="fc" id="L460">		return &quot;&quot;;</span>
+<span class="nc" id="L460">		return &quot;&quot;;</span>
 	}
 
 	/**

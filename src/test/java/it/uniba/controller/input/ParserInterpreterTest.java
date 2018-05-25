@@ -169,9 +169,8 @@ public class ParserInterpreterTest
         System.setOut(newOut1);
         interpreter.executeCommands(parser, dataCtr);
         
-        CommandParserInterface bridge = parser;
         System.setOut(newOut2);
-        dataCtr.printMentionsFromUserWeigthed(bridge.getFromWho(), bridge.getInWhat());
+        dataCtr.printMentionsFromUserWeigthed("Lanubile", "general");
         
         byte[] temp1 = newConsole1.toByteArray();
         byte[] temp2 = newConsole1.toByteArray();
@@ -194,9 +193,8 @@ public class ParserInterpreterTest
         System.setOut(newOut1);
         interpreter.executeCommands(parser, dataCtr);
         
-        CommandParserInterface bridge = parser;
         System.setOut(newOut2);
-        dataCtr.printMentionsFromUserWeigthed(bridge.getToWho(), bridge.getInWhat());
+        dataCtr.printMentionsFromUserWeigthed("Lanubile", "general");
         
         byte[] temp1 = newConsole1.toByteArray();
         byte[] temp2 = newConsole1.toByteArray();
@@ -219,9 +217,8 @@ public class ParserInterpreterTest
         System.setOut(newOut1);
         interpreter.executeCommands(parser, dataCtr);
         
-        CommandParserInterface bridge = parser;
         System.setOut(newOut2);
-        dataCtr.printAllMention(bridge.getInWhat(), bridge.weighted());
+        dataCtr.printAllMention("", true);
         
         byte[] temp1 = newConsole1.toByteArray();
         byte[] temp2 = newConsole1.toByteArray();
@@ -244,9 +241,8 @@ public class ParserInterpreterTest
         System.setOut(newOut1);
         interpreter.executeCommands(parser, dataCtr);
         
-        CommandParserInterface bridge = parser;
         System.setOut(newOut2);
-        dataCtr.printAllMention(bridge.getInWhat(), bridge.weighted());
+        dataCtr.printAllMention("micali", true);
         
         byte[] temp1 = newConsole1.toByteArray();
         byte[] temp2 = newConsole1.toByteArray();
@@ -269,9 +265,8 @@ public class ParserInterpreterTest
         System.setOut(newOut1);
         interpreter.executeCommands(parser, dataCtr);
         
-        CommandParserInterface bridge = parser;
         System.setOut(newOut2);
-        dataCtr.printMentionsToUser(bridge.getToWho(), bridge.getInWhat());
+        dataCtr.printMentionsToUser("Lanubile", "");
         
         byte[] temp1 = newConsole1.toByteArray();
         byte[] temp2 = newConsole1.toByteArray();
