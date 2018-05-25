@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-25T20:06:33.616">
+<pmd version="5.8.1" timestamp="2018-05-25T21:24:41.165">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="21" endline="21" begincolumn="23" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.controller" class="Controller" variable="mod" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'mod' could be made final; it is only initialized in the declaration or constructor.
@@ -953,7 +953,7 @@ Avoid variables with short names like id
 </violation>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
-<violation beginline="8" endline="217" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.workdata" class="User" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
+<violation beginline="8" endline="176" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.workdata" class="User" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
 Avoid short class names like User
 </violation>
 <violation beginline="13" endline="13" begincolumn="24" endcolumn="25" rule="ShortVariable" ruleset="Naming" package="it.uniba.workdata" class="User" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">

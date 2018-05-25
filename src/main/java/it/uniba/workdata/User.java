@@ -173,45 +173,4 @@ public class User {
 	public Profile getProfile() {
 		return profile;
 	}
-
-	/**
-	 * Sets a new ID value.
-	 * 
-	 * @param value
-	 *            new ID
-	 */
-	public void setId(final String value) {
-		id = value;
-	}
-
-	/**
-	 * Sets a new team ID.
-	 * 
-	 * @param value
-	 *            new team ID
-	 */
-	public void setTeamId(final String value) {
-		teamId = value;
-	}
-
-	/**
-	 * Sets a new user name.
-	 * 
-	 * @param value
-	 *            new user name
-	 */
-	public void setName(final String value) {
-		name = value;
-	}
-
-	/**
-	 * Sets a new user real name.
-	 * 
-	 * @param value
-	 *            new user real name
-	 */
-	public void setRealName(final String value) {
-		realName = value;
-	}
-
 }
