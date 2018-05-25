@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-25T21:27:26.103">
+<pmd version="5.8.1" timestamp="2018-05-25T21:39:27.745">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\controller\ControllerTester.java">
+<violation beginline="10" endline="10" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
+No need to import a type that lives in the same package
+</violation>
+<violation beginline="21" endline="21" begincolumn="9" endcolumn="41" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="invalidPathTester" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'args' could be declared final
+</violation>
+<violation beginline="30" endline="30" begincolumn="9" endcolumn="30" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="goodPathTester" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'args' could be declared final
+</violation>
+</file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\controller\input\ParserInterpreterTest.java">
 <violation beginline="22" endline="293" begincolumn="1" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="ParserInterpreterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
