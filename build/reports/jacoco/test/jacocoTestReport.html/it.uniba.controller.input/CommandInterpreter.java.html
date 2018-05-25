@@ -8,7 +8,7 @@ import it.uniba.controller.DataController;
 /**
  *This class interprets commands based on current interface rules.
  */
-<span class="nc" id="L11">public class CommandInterpreter {</span>
+<span class="fc" id="L11">public class CommandInterpreter {</span>
 	/**
 	 *This method, given a CommandParser and a DataController object, interprets
 	 *CLI arguments and gives them a meaning.
@@ -19,60 +19,60 @@ import it.uniba.controller.DataController;
 	 */
 	public void executeCommands(final CommandParser parser, final DataController dataCtr)
 			throws ZipException, IOException {
-<span class="nc" id="L22">		CommandParserInterface bridge = parser;</span>
+<span class="fc" id="L22">		CommandParserInterface bridge = parser;</span>
 
-<span class="nc bnc" id="L24" title="All 2 branches missed.">		if (bridge.validWorkspace()) {</span>
-<span class="nc" id="L25">			dataCtr.updateModel(bridge.getWorkspace());</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">		if (bridge.help()) {</span>
+<span class="fc" id="L25">            dataCtr.showHelp();</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        } else if (bridge.validWorkspace()) {</span>
+<span class="fc" id="L27">			dataCtr.updateModel(bridge.getWorkspace());</span>
 
-<span class="nc bnc" id="L27" title="All 2 branches missed.">			if (bridge.help()) {</span>
-<span class="nc" id="L28">				dataCtr.showHelp();</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">			} else if (bridge.users()) {</span>
-<span class="nc" id="L30">				dataCtr.printMembers();</span>
-<span class="nc bnc" id="L31" title="All 2 branches missed.">			} else if (bridge.channels()) {</span>
-<span class="nc" id="L32">				dataCtr.printChannels();</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">			} else if (bridge.extendedChannels()) {</span>
-<span class="nc" id="L34">				dataCtr.printMembers4Channel();</span>
-<span class="nc bnc" id="L35" title="All 2 branches missed.">			} else if (bridge.usersInChannel()) {</span>
-<span class="nc" id="L36">				dataCtr.printChannelMembers(bridge.getChannelFilter());</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">			} else if (bridge.mentions()) {</span>
-<span class="nc" id="L38">				Boolean weight = bridge.weighted();</span>
-<span class="nc" id="L39">				String inChannel = &quot;&quot;;</span>
-<span class="nc" id="L40">				String user = &quot;&quot;;</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">			if (bridge.users()) {</span>
+<span class="fc" id="L30">				dataCtr.printMembers();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">			} else if (bridge.channels()) {</span>
+<span class="fc" id="L32">				dataCtr.printChannels();</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">			} else if (bridge.extendedChannels()) {</span>
+<span class="fc" id="L34">				dataCtr.printMembers4Channel();</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">			} else if (bridge.usersInChannel()) {</span>
+<span class="fc" id="L36">				dataCtr.printChannelMembers(bridge.getChannelFilter());</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">			} else if (bridge.mentions()) {</span>
+<span class="fc" id="L38">				Boolean weight = bridge.weighted();</span>
+<span class="fc" id="L39">				String inChannel = &quot;&quot;;</span>
+<span class="fc" id="L40">				String user = &quot;&quot;;</span>
 
-<span class="nc bnc" id="L42" title="All 2 branches missed.">				if (bridge.in()) {</span>
-<span class="nc" id="L43">					inChannel = bridge.getInWhat();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">				if (bridge.in()) {</span>
+<span class="fc" id="L43">					inChannel = bridge.getInWhat();</span>
 				}
 
-<span class="nc bnc" id="L46" title="All 4 branches missed.">				if (bridge.from() &amp;&amp; bridge.to()) {</span>
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">				if (bridge.from() &amp;&amp; bridge.to()) {</span>
 <span class="nc" id="L47">					throw new IllegalStateException();</span>
 				}
 
-<span class="nc bnc" id="L50" title="All 2 branches missed.">				if (bridge.from()) {</span>
-<span class="nc" id="L51">					user = bridge.getFromWho();</span>
-<span class="nc bnc" id="L52" title="All 2 branches missed.">					if (weight) {</span>
-<span class="nc" id="L53">						dataCtr.printMentionsFromUserWeigthed(user, inChannel);</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">				if (bridge.from()) {</span>
+<span class="fc" id="L51">					user = bridge.getFromWho();</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">					if (weight) {</span>
+<span class="fc" id="L53">						dataCtr.printMentionsFromUserWeigthed(user, inChannel);</span>
 					} else {
 <span class="nc" id="L55">						dataCtr.printMentionsFromUser(user, inChannel);</span>
 					}
 				} else {
-<span class="nc bnc" id="L58" title="All 2 branches missed.">					if (bridge.to()) {</span>
-<span class="nc" id="L59">						user = bridge.getToWho();</span>
-<span class="nc bnc" id="L60" title="All 2 branches missed.">						if (weight) {</span>
-<span class="nc" id="L61">							dataCtr.printMentionsToUserWeigthed(user, inChannel);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">					if (bridge.to()) {</span>
+<span class="fc" id="L59">						user = bridge.getToWho();</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">						if (weight) {</span>
+<span class="fc" id="L61">							dataCtr.printMentionsToUserWeigthed(user, inChannel);</span>
 						} else {
-<span class="nc" id="L63">							dataCtr.printMentionsToUser(user, inChannel);</span>
+<span class="fc" id="L63">							dataCtr.printMentionsToUser(user, inChannel);</span>
 						}
 					} else {
-<span class="nc" id="L66">						dataCtr.printAllMention(inChannel, weight);</span>
+<span class="fc" id="L66">						dataCtr.printAllMention(inChannel, weight);</span>
 					}
 				}
 
-<span class="nc" id="L70">			} else {</span>
+<span class="fc" id="L70">			} else {</span>
 <span class="nc" id="L71">				throw new IllegalStateException();</span>
 			}
 		} else {
-<span class="nc" id="L74">			throw new IllegalStateException();</span>
+<span class="fc" id="L74">			throw new IllegalStateException();</span>
 		}
-<span class="nc" id="L76">	}</span>
+<span class="fc" id="L76">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

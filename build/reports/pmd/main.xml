@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-23T18:32:31.354">
+<pmd version="5.8.1" timestamp="2018-05-25T20:06:33.616">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="21" endline="21" begincolumn="23" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.controller" class="Controller" variable="mod" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'mod' could be made final; it is only initialized in the declaration or constructor.
@@ -185,16 +185,16 @@ The method 'executeCommands' has a Standard Cyclomatic Complexity of 14.
 <violation beginline="22" endline="22" begincolumn="17" endcolumn="54" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" variable="bridge" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'bridge' could be declared final
 </violation>
-<violation beginline="24" endline="24" begincolumn="21" endcolumn="43" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="24" endline="24" begincolumn="21" endcolumn="33" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="25" endline="25" begincolumn="45" endcolumn="65" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="26" endline="26" begincolumn="20" endcolumn="42" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="27" endline="27" begincolumn="29" endcolumn="41" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="27" endline="27" begincolumn="45" endcolumn="65" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="29" endline="29" begincolumn="36" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="29" endline="29" begincolumn="29" endcolumn="42" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
 <violation beginline="31" endline="31" begincolumn="36" endcolumn="52" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
