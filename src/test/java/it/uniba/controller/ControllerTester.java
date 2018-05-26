@@ -103,7 +103,7 @@ public class ControllerTester {
 		// fallira'
 		int i = 0;
 		for (User user : users) {
-			//Converto le due stringhe in UTF-8 per essere Travis-compliant
+			//Converto le due stringhe in UTF-8
 			String expectedUser = user.getRealName() + " @" + user.getName();
 			expectedUser = new String(expectedUser.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
 			String actualUser = new String(singleUsers[i].getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
