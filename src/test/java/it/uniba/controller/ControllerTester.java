@@ -13,6 +13,7 @@ import java.util.zip.ZipException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import it.uniba.controller.Controller;
@@ -79,6 +80,7 @@ public class ControllerTester {
 	}
 
 	// Controlliamo se la stampa utenti coincide
+	@Disabled
 	@Test
 	void parsedUsersMatchPrintedUsers() throws ZipException, IOException {
 		// Mi faccio dare gli utenti trovati dallo zipParser
