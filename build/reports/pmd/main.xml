@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-26T11:57:43.701">
+<pmd version="5.8.1" timestamp="2018-05-26T14:02:20.128">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="21" endline="21" begincolumn="23" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.controller" class="Controller" variable="mod" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'mod' could be made final; it is only initialized in the declaration or constructor.
@@ -845,7 +845,7 @@ Potential violation of Law of Demeter (object not created locally)
 <violation beginline="117" endline="117" begincolumn="80" endcolumn="95" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.parsing" class="ZipParser" method="load" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
-<violation beginline="118" endline="119" begincolumn="65" endcolumn="79" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.parsing" class="ZipParser" method="load" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+<violation beginline="118" endline="119" begincolumn="65" endcolumn="84" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.parsing" class="ZipParser" method="load" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
 <violation beginline="121" endline="121" begincolumn="45" endcolumn="80" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.parsing" class="ZipParser" method="load" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
