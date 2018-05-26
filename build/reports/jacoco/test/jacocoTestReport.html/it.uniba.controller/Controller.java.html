@@ -18,15 +18,15 @@ public class Controller {
 	/*
 	 * Model used for the representation of the data.
 	 */
-<span class="fc" id="L21">	private Model mod = new Model();</span>
+<span class="nc" id="L21">	private Model mod = new Model();</span>
 	/*
 	 * View used for the output of the data.
 	 */
-<span class="fc" id="L25">	private View view = new View();</span>
+<span class="nc" id="L25">	private View view = new View();</span>
 	/*
 	 * DataController used for manage the logic's side of the MVC(MVP).
 	 */
-<span class="fc" id="L29">	private DataController dataCtr = new DataController(mod, view);</span>
+<span class="nc" id="L29">	private DataController dataCtr = new DataController(mod, view);</span>
 
 	// CLI
 	/*
@@ -41,9 +41,9 @@ public class Controller {
 	/**
 	 * Controller's constructor.
 	 */
-<span class="fc" id="L44">	public Controller() {</span>
-<span class="fc" id="L45">		commandParser = null;</span>
-<span class="fc" id="L46">	}</span>
+<span class="nc" id="L44">	public Controller() {</span>
+<span class="nc" id="L45">		commandParser = null;</span>
+<span class="nc" id="L46">	}</span>
 
 	/**
 	 * This function manages the calls of the CommandParser CommandInterpreter for
@@ -57,8 +57,8 @@ public class Controller {
 	 *             for errors at OS level
 	 */
 	public void controlExecuteCLI(final String[] args) throws ZipException, IOException {
-<span class="fc" id="L60">		commandParser = new CommandParser(args);</span>
-<span class="fc" id="L61">		interpreter = new CommandInterpreter();</span>
+<span class="nc" id="L60">		commandParser = new CommandParser(args);</span>
+<span class="nc" id="L61">		interpreter = new CommandInterpreter();</span>
 <span class="nc" id="L62">		interpreter.executeCommands(commandParser, dataCtr);</span>
 <span class="nc" id="L63">	}</span>
 
