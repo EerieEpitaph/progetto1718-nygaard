@@ -116,7 +116,7 @@ public class ZipParser {
 					loadedSomething = true;
 					final JsonParserInterface jsonBridge = new GsonReader();
 					final Reader lecturer = new InputStreamReader(zip.getInputStream(entry),
-							StandardCharsets.UTF_8);
+							StandardCharsets.ISO_8859_1);
 
 					if (entry.getName().equals("users.json")) {
 						users = (HashMap<String, User>) jsonBridge.populateUsers(lecturer);
