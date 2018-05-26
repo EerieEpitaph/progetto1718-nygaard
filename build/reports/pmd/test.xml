@@ -1,94 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-26T13:11:31.622">
+<pmd version="5.8.1" timestamp="2018-05-26T13:18:32.459">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\controller\ControllerTester.java">
 <violation beginline="18" endline="18" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
 </violation>
-<violation beginline="19" endline="19" begincolumn="1" endcolumn="28" rule="UnusedImports" ruleset="Type Resolution" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#UnusedImports" priority="4">
-Avoid unused imports such as 'it.uniba.model.Model'
-</violation>
-<violation beginline="19" endline="19" begincolumn="1" endcolumn="28" rule="UnusedImports" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'it.uniba.model.Model'
-</violation>
-<violation beginline="21" endline="21" begincolumn="1" endcolumn="26" rule="UnusedImports" ruleset="Type Resolution" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#UnusedImports" priority="4">
-Avoid unused imports such as 'it.uniba.view.View'
-</violation>
-<violation beginline="21" endline="21" begincolumn="1" endcolumn="26" rule="UnusedImports" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'it.uniba.view.View'
-</violation>
-<violation beginline="37" endline="37" begincolumn="14" endcolumn="19" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.controller" class="ControllerTester" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+<violation beginline="40" endline="40" begincolumn="21" endcolumn="26" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.controller" class="ControllerTester" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
 Method names should not start with capital letters
 </violation>
-<violation beginline="39" endline="39" begincolumn="9" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="Init" variable="zipPath" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="41" endline="41" begincolumn="17" endcolumn="52" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="Init" variable="zipPath" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'zipPath' could be declared final
 </violation>
-<violation beginline="63" endline="63" begincolumn="9" endcolumn="41" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="invalidPathTester" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="64" endline="64" begincolumn="17" endcolumn="51" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="invalidPathTester" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'args' could be declared final
 </violation>
-<violation beginline="72" endline="72" begincolumn="9" endcolumn="30" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="goodPathTester" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="74" endline="74" begincolumn="17" endcolumn="40" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="goodPathTester" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'args' could be declared final
 </violation>
-<violation beginline="82" endline="82" begincolumn="9" endcolumn="59" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="users" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="85" endline="85" begincolumn="17" endcolumn="67" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="users" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'users' could be declared final
 </violation>
-<violation beginline="82" endline="82" begincolumn="34" endcolumn="59" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="85" endline="85" begincolumn="42" endcolumn="67" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="91" endline="91" begincolumn="9" endcolumn="46" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="temp" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="95" endline="95" begincolumn="17" endcolumn="54" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="temp" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'temp' could be declared final
 </violation>
-<violation beginline="93" endline="93" begincolumn="15" endcolumn="39" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="97" endline="97" begincolumn="23" endcolumn="47" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="94" endline="94" begincolumn="15" endcolumn="38" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="98" endline="98" begincolumn="23" endcolumn="46" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="95" endline="95" begincolumn="9" endcolumn="46" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="singleUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="99" endline="99" begincolumn="17" endcolumn="54" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="singleUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'singleUsers' could be declared final
 </violation>
-<violation beginline="95" endline="95" begincolumn="32" endcolumn="46" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="99" endline="99" begincolumn="40" endcolumn="54" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="99" endline="99" begincolumn="13" endcolumn="13" rule="ShortVariable" ruleset="Naming" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="i" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+<violation beginline="104" endline="104" begincolumn="21" endcolumn="21" rule="ShortVariable" ruleset="Naming" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="i" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
 Avoid variables with short names like i
 </violation>
-<violation beginline="100" endline="100" begincolumn="13" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="user" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="105" endline="105" begincolumn="22" endcolumn="30" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="user" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'user' could be declared final
 </violation>
-<violation beginline="102" endline="102" begincolumn="17" endcolumn="80" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="tempFullUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="106" endline="106" begincolumn="25" endcolumn="88" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" variable="tempFullUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'tempFullUser' could be declared final
 </violation>
-<violation beginline="103" endline="103" begincolumn="17" endcolumn="58" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="107" endline="107" begincolumn="25" endcolumn="66" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedUsersMatchPrintedUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="112" endline="112" begincolumn="9" endcolumn="68" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="channels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="115" endline="115" begincolumn="17" endcolumn="76" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="channels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'channels' could be declared final
 </violation>
-<violation beginline="112" endline="112" begincolumn="40" endcolumn="68" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="115" endline="115" begincolumn="48" endcolumn="76" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="117" endline="117" begincolumn="9" endcolumn="46" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="temp" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="120" endline="120" begincolumn="17" endcolumn="54" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="temp" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'temp' could be declared final
 </violation>
-<violation beginline="119" endline="119" begincolumn="15" endcolumn="38" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="122" endline="122" begincolumn="23" endcolumn="46" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="120" endline="120" begincolumn="9" endcolumn="49" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="singleChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="123" endline="123" begincolumn="17" endcolumn="57" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="singleChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'singleChannels' could be declared final
 </violation>
-<violation beginline="120" endline="120" begincolumn="35" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="123" endline="123" begincolumn="43" endcolumn="57" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="122" endline="122" begincolumn="13" endcolumn="13" rule="ShortVariable" ruleset="Naming" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="i" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+<violation beginline="125" endline="125" begincolumn="21" endcolumn="21" rule="ShortVariable" ruleset="Naming" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="i" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
 Avoid variables with short names like i
 </violation>
-<violation beginline="123" endline="123" begincolumn="13" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="channel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="126" endline="126" begincolumn="22" endcolumn="36" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="channel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'channel' could be declared final
 </violation>
-<violation beginline="125" endline="125" begincolumn="17" endcolumn="55" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="tempFullUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="127" endline="127" begincolumn="25" endcolumn="63" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" variable="tempFullUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'tempFullUser' could be declared final
 </violation>
-<violation beginline="126" endline="126" begincolumn="17" endcolumn="61" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="128" endline="128" begincolumn="25" endcolumn="69" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="ControllerTester" method="parsedChannelsMatchPrintedChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>

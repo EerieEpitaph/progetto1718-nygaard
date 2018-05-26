@@ -23,6 +23,10 @@ import it.uniba.workdata.Channel;
 import it.uniba.workdata.User;
 import picocli.CommandLine.MissingParameterException;
 
+//In questo file di test verifichiamo che il controller, 
+//che si occupa di stampare i dati raccolti, riceva ogni volta dati
+//integri dallo zipParser 
+
 public class ControllerTester {
 	Controller control;
 	static DataController dataCtr = new DataController(new Model(), new View());
