@@ -103,8 +103,12 @@ public class ControllerTester {
 		// fallira'
 		int i = 0;
 		for (User user : users) {
-			String tempFullUser = user.getRealName() + " @" + user.getName();
-			assertEquals(tempFullUser, singleUsers[i]);
+			//Converto le due stringhe in UTF-8 per essere Travis-compliant
+			String expectedUser = user.getRealName() + " @" + user.getName();
+			expectedUser = new String(expectedUser.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
+			String actualUser = new String(singleUsers[i].getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
+			
+			assertEquals(expectedUser, actualUser);
 			i++;
 		}
 	}
@@ -124,8 +128,9 @@ public class ControllerTester {
 
 		int i = 0;
 		for (Channel channel : channels) {
-			String tempFullUser = channel.getName();
-			assertEquals(tempFullUser, singleChannels[i]);
+			String expectedChannel = new String(channel.getName().getBytes(StandardCharsets.US_ASCII), StandardCharsets.ISO_8859_1);
+			String actualChannel = new String(singleChannels[i].getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
+			assertEquals(expectedChannel, actualChannel);
 			i++;
 		}
 	}
