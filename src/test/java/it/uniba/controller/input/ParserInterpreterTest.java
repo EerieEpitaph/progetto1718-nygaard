@@ -292,4 +292,52 @@ public class ParserInterpreterTest {
 			parser = new CommandParser(args);
 		});
 	}
+
+	// Testo fromWho in casi eccezionali
+	@Test
+	void BadFromWho() {
+		String[] args = { "-w", ".//res//ingsw.zip", "-m" };
+		parser = new CommandParser(args);
+		assertEquals("", parser.getFromWho());
+	}
+	
+	// Testo fromWho in caso outOfBound
+	@Test
+	void FromWhoOutOfBound() {
+		String[] args = { "-w", ".//res//ingsw.zip", "-m", "from" };
+		parser = new CommandParser(args);
+		assertThrows(IllegalStateException.class, () -> {parser.getFromWho();});
+	}
+	
+	// Testo toWho in casi eccezionali
+	@Test
+	void BadToWho() {
+		String[] args = { "-w", ".//res//ingsw.zip", "-m" };
+		parser = new CommandParser(args);
+		assertEquals("", parser.getToWho());
+	}
+	
+	// Testo toWho in caso outOfBound
+	@Test
+	void ToWhoOutOfBound() {
+		String[] args = { "-w", ".//res//ingsw.zip", "-m", "to" };
+		parser = new CommandParser(args);
+		assertThrows(IllegalStateException.class, () -> {parser.getToWho();});
+	}
+	
+	// Testo "in" in casi eccezionali
+	@Test
+	void BadIn() {
+		String[] args = { "-w", ".//res//ingsw.zip", "-m" };
+		parser = new CommandParser(args);
+		assertEquals("", parser.getInWhat());
+	}
+	
+	// Testo "in" in caso outOfBound
+	@Test
+	void InOutOfBound() {
+		String[] args = { "-w", ".//res//ingsw.zip", "-m", "in" };
+		parser = new CommandParser(args);
+		assertThrows(IllegalStateException.class, () -> {parser.getInWhat();});
+	}
 }

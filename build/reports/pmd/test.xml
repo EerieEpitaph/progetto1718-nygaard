@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-26T15:24:11.239">
+<pmd version="5.8.1" timestamp="2018-05-27T10:33:58.104">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\controller\ControllerTester.java">
 <violation beginline="19" endline="19" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
@@ -105,7 +105,7 @@ Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\controller\input\ParserInterpreterTest.java">
-<violation beginline="26" endline="295" begincolumn="36" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="ParserInterpreterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
+<violation beginline="26" endline="343" begincolumn="36" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="ParserInterpreterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
 <violation beginline="40" endline="40" begincolumn="17" endcolumn="41" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="setUp" variable="model" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
@@ -139,7 +139,7 @@ Method names should not start with capital letters
 Local variable 'args' could be declared final
 </violation>
 <violation beginline="102" endline="102" begincolumn="41" endcolumn="59" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="MembersCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
-The String literal &quot;.//res//ingsw.zip&quot; appears 10 times in this file; the first occurrence is on line 102
+The String literal &quot;.//res//ingsw.zip&quot; appears 16 times in this file; the first occurrence is on line 102
 </violation>
 <violation beginline="112" endline="112" begincolumn="17" endcolumn="91" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="MembersCalled" variable="out1" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'out1' could be declared final
@@ -289,6 +289,42 @@ Local variable 'out2' could be declared final
 Method names should not start with capital letters
 </violation>
 <violation beginline="290" endline="290" begincolumn="17" endcolumn="79" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="BadParameters" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'args' could be declared final
+</violation>
+<violation beginline="298" endline="298" begincolumn="14" endcolumn="25" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.controller.input" class="ParserInterpreterTest" method="BadFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="299" endline="299" begincolumn="17" endcolumn="67" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="BadFromWho" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'args' could be declared final
+</violation>
+<violation beginline="306" endline="306" begincolumn="14" endcolumn="32" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.controller.input" class="ParserInterpreterTest" method="FromWhoOutOfBound" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="307" endline="307" begincolumn="17" endcolumn="75" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="FromWhoOutOfBound" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'args' could be declared final
+</violation>
+<violation beginline="314" endline="314" begincolumn="14" endcolumn="23" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.controller.input" class="ParserInterpreterTest" method="BadToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="315" endline="315" begincolumn="17" endcolumn="67" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="BadToWho" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'args' could be declared final
+</violation>
+<violation beginline="322" endline="322" begincolumn="14" endcolumn="30" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.controller.input" class="ParserInterpreterTest" method="ToWhoOutOfBound" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="323" endline="323" begincolumn="17" endcolumn="73" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="ToWhoOutOfBound" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'args' could be declared final
+</violation>
+<violation beginline="330" endline="330" begincolumn="14" endcolumn="20" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.controller.input" class="ParserInterpreterTest" method="BadIn" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="331" endline="331" begincolumn="17" endcolumn="67" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="BadIn" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'args' could be declared final
+</violation>
+<violation beginline="338" endline="338" begincolumn="14" endcolumn="27" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.controller.input" class="ParserInterpreterTest" method="InOutOfBound" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="339" endline="339" begincolumn="17" endcolumn="73" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="InOutOfBound" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'args' could be declared final
 </violation>
 </file>

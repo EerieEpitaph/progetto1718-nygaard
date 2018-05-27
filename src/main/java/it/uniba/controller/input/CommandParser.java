@@ -227,22 +227,6 @@ public final class CommandParser implements CommandParserInterface {
 		}
 	}
 
-	/**
-	 *Base args getter.
-	 *@return base commands
-	 */
-	public CommBaseArgs getBaseArgs() {
-		return baseArgs;
-	}
-
-	/**
-	 *Workspace command getter.
-	 *@return workspace command representer
-	 */
-	public CommWorkspace getCommWorkspace() {
-		return workspace;
-	}
-
 	// ==========================================================
 	// ================INTERFACE IMPLEMENTATION==================
 	// ==========================================================
