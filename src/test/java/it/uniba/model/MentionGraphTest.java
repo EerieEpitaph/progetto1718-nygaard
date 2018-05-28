@@ -2,7 +2,6 @@ package it.uniba.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.zip.ZipException;
@@ -26,7 +25,7 @@ public class MentionGraphTest {
 
 	@BeforeAll
 	static void Init() throws ZipException, IOException {
-
+		// se chiamo un assert qui non viene tenuta nessuna traccia nella tb dei test S
 		mod.updateModel(".//res//ingsw.zip");
 		mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), "");
 
@@ -62,9 +61,22 @@ public class MentionGraphTest {
 	void successfulContainsNodeTest() {
 		assertTrue(mod.getMentionGraph().containsNode(u));
 	}
-	
+
 	@Test
 	void failedContainsNodeTest() {
 		assertFalse(mod.getMentionGraph().containsNode(null));
 	}
+
+	// @Test
+	// void successfullIsEmptyTest() {
+	// // perhè il grafo è stato correttamente caricato quindi è false perche non è
+	// vuoto
+	// assertTrue(mod.getMentionGraph().isEmpty());
+	// }
+
+	@Test
+	void failedfulIsEmptyTest() {
+		assertFalse(mod.getMentionGraph().isEmpty());
+	}
+
 }

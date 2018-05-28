@@ -62,7 +62,7 @@ public class MentionGraph extends AbstractGraph {
 	 *            Slack's commands to ignore
 	 * @return <i>boolean</i> if commands is present in the current message
 	 */
-	public boolean containsItems(final String inputStr) {
+	boolean containsItems(final String inputStr) {
 		return Arrays.stream(commignore).parallel().anyMatch(inputStr::contains);
 	}
 
@@ -88,8 +88,10 @@ public class MentionGraph extends AbstractGraph {
 	 *            <i>String</i> Parse message of a specified channel
 	 * 
 	 */
-	public void generate(final String inChannel) {
-		parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
+	public void generate(final String inChannel) { // aggiungere eccezione
+		if (!mod.getMessages().isEmpty() && !mod.getUsers().isEmpty()) {
+			parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
+		}
 	}
 
 	/**
@@ -199,13 +201,8 @@ public class MentionGraph extends AbstractGraph {
 			if (snagraph.inDegree(user) > 0) {
 				int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in
 														// analisi
-				// String nameUser = user.getRealName();
 				for (User to : snagraph.nodes()) {
 					if (snagraph.hasEdgeConnecting(to, user)) {
-						// stampo l'arco tra i due utenti interessati
-						// System.out.println("From: " + to.getRealName() + "\tTo: " + nameUser + "\t n.
-						// mention: "
-						// + snagraph.edgeValue(to, user).get());
 						edges.add(new Edge(to, user, (float) snagraph.edgeValue(to, user).get()));
 						inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0
 						if (inEdges == 0) {
@@ -250,13 +247,7 @@ public class MentionGraph extends AbstractGraph {
 						numNodesPrinted++;
 					}
 				}
-				// if (numNodesPrinted == 0) // eccezione: non ci sono mention nel channel
-				// specificato
-				// System.out.println("There aren't mention in the channel specified.");
-			} // else {
-				// eccezione : user non presente nel canale specificato
-				// System.out.println("The user specified doesn't belong to this channel.");
-				// }
+			}
 		}
 		return edges;
 	}
