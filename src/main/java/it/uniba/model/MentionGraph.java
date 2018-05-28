@@ -34,7 +34,7 @@ public class MentionGraph extends AbstractGraph {
 	/*
 	 * Array of <i>String</i> contains all Slack's commands
 	 */
-	private String[] commignore = {"has joined the channel", "set the channel purpose", "cleared channel topic",
+	private String[] commignore = { "has joined the channel", "set the channel purpose", "cleared channel topic",
 			"uploaded a file", "commented on", "was added to this conversation", "set the channel topic",
 			"pinned a message to this channel", "pinned", "has renamed the channel", "un-archived the channel",
 			"archived the channel", "cleared channel purpose", "has left the channel", "shared a file" };
@@ -74,7 +74,11 @@ public class MentionGraph extends AbstractGraph {
 	 * @return <i>boolean</i> if <b>Node</b> is present in the graph
 	 */
 	public boolean containsNode(final User node) {
-		return snagraph.nodes().contains(node);
+		if (node != null) {
+			return snagraph.nodes().contains(node);
+		} else {
+			return false;
+		}
 	}
 
 	/**

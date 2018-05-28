@@ -1,6 +1,5 @@
 package it.uniba.model;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
@@ -17,45 +16,55 @@ import it.uniba.model.Model;
 import it.uniba.workdata.User;
 
 public class MentionGraphTest {
- static ArrayList<ArrayList<Edge>> edges = new ArrayList<ArrayList<Edge>>();
- static ArrayList<Edge> ed = new ArrayList<Edge>();
- 
- static Model mod = new Model();
+	static ArrayList<ArrayList<Edge>> edges = new ArrayList<ArrayList<Edge>>();
+	static ArrayList<Edge> ed = new ArrayList<Edge>();
 
- static User u;
- static User v;
+	static Model mod = new Model();
 
- @BeforeAll
- static void Init() throws ZipException, IOException {
+	static User u;
+	static User v;
 
-   mod.updateModel(".//res//ingsw.zip");
-   mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), "");
-   
-   u = mod.getUsers().get("U9P18U17X");  // Manlio Amato
-   v = mod.getUsers().get("U9NF6NSU8");
-   ed.add(new Edge(u, v, 2));
-   v = mod.getUsers().get("U9NBNJFB3");
-   ed.add(new Edge(u,v,2));
-   edges.add(ed);
-   // to Andrea Di Fonzo
-  // ed.clear();
-   ed = new ArrayList<Edge>();
-   u = mod.getUsers().get("U9NCNLL83"); // Serena DeRuvo 
-   v = mod.getUsers().get("U9NAWRB2Q"); // Andrea DiFonzo
+	@BeforeAll
+	static void Init() throws ZipException, IOException {
 
-   ed.add(new Edge(u,v,1));
-   edges.add(ed);
- }
+		mod.updateModel(".//res//ingsw.zip");
+		mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), "");
 
- @Test
- void edgesOutDegreeTest() throws ZipException, IOException {
-	u = mod.getUsers().get("U9P18U17X");
-	assertEquals(edges.get(0), mod.getMentionGraph().edgesOutDegree(u));
- }
- 
- @Test
- void edgesInDegreeTest() {
-	 v = mod.getUsers().get("U9NAWRB2Q");
-	 assertEquals(edges.get(1), mod.getMentionGraph().edgesInDegree(v));
- }
+		u = mod.getUsers().get("U9P18U17X"); // Manlio Amato
+		v = mod.getUsers().get("U9NF6NSU8");
+		ed.add(new Edge(u, v, 2));
+		v = mod.getUsers().get("U9NBNJFB3");
+		ed.add(new Edge(u, v, 2));
+		edges.add(ed);
+		// to Andrea Di Fonzo
+		// ed.clear();
+		ed = new ArrayList<Edge>();
+		u = mod.getUsers().get("U9NCNLL83"); // Serena DeRuvo
+		v = mod.getUsers().get("U9NAWRB2Q"); // Andrea DiFonzo
+
+		ed.add(new Edge(u, v, 1));
+		edges.add(ed);
+	}
+
+	@Test
+	void edgesOutDegreeTest() throws ZipException, IOException {
+		u = mod.getUsers().get("U9P18U17X");
+		assertEquals(edges.get(0), mod.getMentionGraph().edgesOutDegree(u));
+	}
+
+	@Test
+	void edgesInDegreeTest() {
+		v = mod.getUsers().get("U9NAWRB2Q");
+		assertEquals(edges.get(1), mod.getMentionGraph().edgesInDegree(v));
+	}
+
+	@Test
+	void successfulContainsNodeTest() {
+		assertTrue(mod.getMentionGraph().containsNode(u));
+	}
+	
+	@Test
+	void failedContainsNodeTest() {
+		assertFalse(mod.getMentionGraph().containsNode(null));
+	}
 }
