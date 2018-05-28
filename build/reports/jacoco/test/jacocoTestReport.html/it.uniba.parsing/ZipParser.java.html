@@ -116,7 +116,7 @@ import it.uniba.workdata.User;
 <span class="fc" id="L116">					loadedSomething = true;</span>
 <span class="fc" id="L117">					final JsonParserInterface jsonBridge = new GsonReader();</span>
 <span class="fc" id="L118">					final Reader lecturer = new InputStreamReader(zip.getInputStream(entry),</span>
-							StandardCharsets.UTF_8);
+							StandardCharsets.ISO_8859_1);
 
 <span class="fc bfc" id="L121" title="All 2 branches covered.">					if (entry.getName().equals(&quot;users.json&quot;)) {</span>
 <span class="fc" id="L122">						users = (HashMap&lt;String, User&gt;) jsonBridge.populateUsers(lecturer);</span>
