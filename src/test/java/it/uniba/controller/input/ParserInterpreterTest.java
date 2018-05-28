@@ -57,7 +57,7 @@ public class ParserInterpreterTest {
 
 	// Triggero un workspace inesistente o invalid
 	@Test
-	void InvalidWorkspace() throws ZipException, IOException {
+	void invalidWorkspace() throws ZipException, IOException {
 		String[] args = { "-w", "" };
 		parser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
@@ -68,7 +68,7 @@ public class ParserInterpreterTest {
 
 	// Testo la chiamata all'help
 	@Test
-	void HelpCalled() throws ZipException, IOException {
+	void helpCalled() throws ZipException, IOException {
 		// Costruiamo l'array di argomenti da testare
 		String[] args = { "help" };
 		// E li diamo in pasto al parser
@@ -98,7 +98,7 @@ public class ParserInterpreterTest {
 
 	// Testo la chiamata ai membri
 	@Test
-	void MembersCalled() throws ZipException, IOException {
+	void membersCalled() throws ZipException, IOException {
 		String[] args = { "-w", ".//res//ingsw.zip", "-u" };
 		parser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
@@ -116,7 +116,7 @@ public class ParserInterpreterTest {
 
 	// Testo la chiamata ai channels
 	@Test
-	void ChannelsCalled() throws ZipException, IOException {
+	void channelsCalled() throws ZipException, IOException {
 		String[] args = { "-w", ".//res//ingsw.zip", "-c" };
 		parser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
@@ -134,7 +134,7 @@ public class ParserInterpreterTest {
 
 	// Testo la chiamata ai channels estesi
 	@Test
-	void ExtendedChannelCalled() throws ZipException, IOException {
+	void extendedChannelCalled() throws ZipException, IOException {
 		String[] args = { "-w", ".//res//ingsw.zip", "-cu" };
 		parser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
@@ -153,7 +153,7 @@ public class ParserInterpreterTest {
 
 	// Testo la chiamata ad utenti in un channel
 	@Test
-	void UsersInChannelCalled() throws ZipException, IOException {
+	void usersInChannelCalled() throws ZipException, IOException {
 		String[] args = { "-w", ".//res//ingsw.zip", "-uc", "micali" };
 		parser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
@@ -171,7 +171,7 @@ public class ParserInterpreterTest {
 
 	// Testo mention from Lanubile in General
 	@Test
-	void FromInMentionCalled() throws ZipException, IOException {
+	void fromInMentionCalled() throws ZipException, IOException {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m", "from", "Lanubile", "in", "general", "-n" };
 		parser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
@@ -194,7 +194,7 @@ public class ParserInterpreterTest {
 
 	// Testo mention to Lanubile in General
 	@Test
-	void ToInMentionCalled() throws ZipException, IOException {
+	void toInMentionCalled() throws ZipException, IOException {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m", "to", "Lanubile", "in", "general", "-n" };
 		parser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
@@ -240,7 +240,7 @@ public class ParserInterpreterTest {
 
 	// Testo la mention base con in e -n
 	@Test
-	void BaseInMentionWeightCalled() throws ZipException, IOException {
+	void baseInMentionWeightCalled() throws ZipException, IOException {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m", "in", "micali", "-n" };
 		parser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
@@ -263,7 +263,7 @@ public class ParserInterpreterTest {
 
 	// Testo mention verso qualcuno
 	@Test
-	void MentionToCalled() throws ZipException, IOException {
+	void mentionToCalled() throws ZipException, IOException {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m", "to", "Lanubile" };
 		parser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
@@ -286,7 +286,7 @@ public class ParserInterpreterTest {
 
 	// Testo un parametro inesistente
 	@Test
-	void BadParameters() {
+	void badParameters() {
 		String[] args = { "-w", ".//res//ingsw.zip", "-testFallisci!" };
 		assertThrows(UnmatchedArgumentException.class, () -> {
 			parser = new CommandParser(args);
@@ -295,7 +295,7 @@ public class ParserInterpreterTest {
 
 	// Testo fromWho in casi eccezionali
 	@Test
-	void BadFromWho() {
+	void badFromWho() {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m" };
 		parser = new CommandParser(args);
 		assertEquals("", parser.getFromWho());
@@ -303,7 +303,7 @@ public class ParserInterpreterTest {
 	
 	// Testo fromWho in caso outOfBound
 	@Test
-	void FromWhoOutOfBound() {
+	void fromWhoOutOfBound() {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m", "from" };
 		parser = new CommandParser(args);
 		assertThrows(IllegalStateException.class, () -> {parser.getFromWho();});
@@ -311,7 +311,7 @@ public class ParserInterpreterTest {
 	
 	// Testo toWho in casi eccezionali
 	@Test
-	void BadToWho() {
+	void badToWho() {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m" };
 		parser = new CommandParser(args);
 		assertEquals("", parser.getToWho());
@@ -319,7 +319,7 @@ public class ParserInterpreterTest {
 	
 	// Testo toWho in caso outOfBound
 	@Test
-	void ToWhoOutOfBound() {
+	void toWhoOutOfBound() {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m", "to" };
 		parser = new CommandParser(args);
 		assertThrows(IllegalStateException.class, () -> {parser.getToWho();});
@@ -327,7 +327,7 @@ public class ParserInterpreterTest {
 	
 	// Testo "in" in casi eccezionali
 	@Test
-	void BadIn() {
+	void badIn() {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m" };
 		parser = new CommandParser(args);
 		assertEquals("", parser.getInWhat());
@@ -335,7 +335,7 @@ public class ParserInterpreterTest {
 	
 	// Testo "in" in caso outOfBound
 	@Test
-	void InOutOfBound() {
+	void inOutOfBound() {
 		String[] args = { "-w", ".//res//ingsw.zip", "-m", "in" };
 		parser = new CommandParser(args);
 		assertThrows(IllegalStateException.class, () -> {parser.getInWhat();});

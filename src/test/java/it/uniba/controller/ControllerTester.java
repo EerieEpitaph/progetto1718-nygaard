@@ -130,7 +130,7 @@ public class ControllerTester {
 
 		int i = 0;
 		for (Channel channel : channels) {
-			String expectedChannel = new String(channel.getName().getBytes(StandardCharsets.US_ASCII), StandardCharsets.ISO_8859_1);
+			String expectedChannel = new String(channel.getName().getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
 			String actualChannel = new String(singleChannels[i].getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
 			assertEquals(expectedChannel, actualChannel);
 			i++;
