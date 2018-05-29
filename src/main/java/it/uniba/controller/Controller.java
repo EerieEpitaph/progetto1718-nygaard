@@ -2,6 +2,7 @@ package it.uniba.controller;
 
 import it.uniba.model.Model;
 import it.uniba.view.View;
+import it.uniba.view.WarningMessage;
 
 import java.io.IOException;
 import java.util.zip.ZipException;
@@ -18,15 +19,15 @@ public class Controller {
 	/*
 	 * Model used for the representation of the data.
 	 */
-	private Model mod = new Model();
+	private final Model mod = new Model();
 	/*
 	 * View used for the output of the data.
 	 */
-	private View view = new View();
+	private final View view = new View();
 	/*
 	 * DataController used for manage the logic's side of the MVC(MVP).
 	 */
-	private DataController dataCtr = new DataController(mod, view);
+	private final DataController dataCtr = new DataController(mod, view);
 
 	// CLI
 	/*
@@ -43,6 +44,7 @@ public class Controller {
 	 */
 	public Controller() {
 		commandParser = null;
+		interpreter = null;
 	}
 
 	/**
@@ -50,7 +52,7 @@ public class Controller {
 	 * parsing a zip file, and executing the commands specified.
 	 * 
 	 * @param args
-	 *           <i>String[]</i> a collection of arguments
+	 *            <i>String[]</i> a collection of arguments
 	 * @throws ZipException
 	 *             if file does not exists
 	 * @throws IOException
@@ -66,7 +68,7 @@ public class Controller {
 	 * Prints the help's message, calling the view's method.
 	 */
 	public void showHelp() {
-		View.showHelp();
+		WarningMessage.showHelp();
 	}
 
 }

@@ -19,7 +19,7 @@ public class CommandInterpreter {
 	 */
 	public void executeCommands(final CommandParser parser, final DataController dataCtr)
 			throws ZipException, IOException {
-		CommandParserInterface bridge = parser;
+		final CommandParserInterface bridge = parser;
 
 		if (bridge.help()) {
             dataCtr.showHelp();
@@ -35,10 +35,9 @@ public class CommandInterpreter {
 			} else if (bridge.usersInChannel()) {
 				dataCtr.printChannelMembers(bridge.getChannelFilter());
 			} else if (bridge.mentions()) {
-				Boolean weight = bridge.weighted();
-				String inChannel = "";
-				String user = "";
+				final Boolean weight = bridge.weighted();
 
+				String inChannel = "";
 				if (bridge.in()) {
 					inChannel = bridge.getInWhat();
 				}
@@ -47,6 +46,7 @@ public class CommandInterpreter {
 					throw new IllegalStateException();
 				}
 
+				String user = "";
 				if (bridge.from()) {
 					user = bridge.getFromWho();
 					if (weight) {

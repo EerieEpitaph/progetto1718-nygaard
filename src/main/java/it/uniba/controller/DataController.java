@@ -1,6 +1,8 @@
 package it.uniba.controller;
 
 import it.uniba.view.View;
+import it.uniba.view.WarningMessage;
+import it.uniba.view.MasterWrapper;
 
 import it.uniba.workdata.User;
 
@@ -8,6 +10,7 @@ import it.uniba.model.Model;
 
 import java.io.IOException;
 import java.util.Collection;
+//import java.util.Map;
 import java.util.zip.ZipException;
 
 import it.uniba.model.Edge;
@@ -21,11 +24,15 @@ public class DataController {
 	/*
 	 * Used for the representation of the data.
 	 */
-	private Model mod;
+	private final Model mod;
 	/*
 	 * Used for the output of the data.
 	 */
-	private View view;
+	private final View view;
+
+	private MasterWrapper.ChannelsWrapper channelsWrapped;// = new
+															// MasterWrapper.ChannelsWrapper(mod.getChannels());
+	private MasterWrapper.UsersWrapper usersWrapped;// = new MasterWrapper.UsersWrapper(mod.getUsers());
 
 	/**
 	 * DataController's constructor. It needs a <i>Model</i> and a <i>View</i>.
@@ -38,6 +45,8 @@ public class DataController {
 	public DataController(final Model modIn, final View viewIn) {
 		mod = modIn;
 		view = viewIn;
+		channelsWrapped = null;// new MasterWrapper.ChannelsWrapper(mod.getChannels());
+		usersWrapped = null;// new MasterWrapper.UsersWrapper(mod.getUsers());
 	}
 
 	/**
@@ -52,6 +61,9 @@ public class DataController {
 	 */
 	public void updateModel(final String path) throws ZipException, IOException {
 		mod.updateModel(path);
+		channelsWrapped = new MasterWrapper.ChannelsWrapper(mod.getChannels());
+		usersWrapped = new MasterWrapper.UsersWrapper(mod.getUsers());
+
 	}
 
 	/**
@@ -68,7 +80,7 @@ public class DataController {
 	 * output.
 	 */
 	public void printMembers() {
-		view.printMembers(mod.getUsers().values());
+		view.printMembers(usersWrapped.values());
 	}
 
 	/**
@@ -76,7 +88,7 @@ public class DataController {
 	 * output.
 	 */
 	public void printChannels() {
-		view.printChannels(mod.getChannels().values());
+		view.printChannels(channelsWrapped.values());
 	}
 
 	/**
@@ -84,7 +96,7 @@ public class DataController {
 	 * data and the view for the output.
 	 */
 	public void printMembers4Channel() {
-		view.printMembers4Channel(mod.getUsers(), mod.getChannels().values());
+		view.printMembers4Channel(usersWrapped, channelsWrapped);
 	}
 
 	/**
@@ -95,7 +107,7 @@ public class DataController {
 	 *            <i>String</i> name of the channel specified
 	 */
 	public void printChannelMembers(final String nameChannel) {
-		view.printChannelMembers(mod.getUsers(), mod.getChannels(), nameChannel);
+		view.printChannelMembers(usersWrapped, channelsWrapped, nameChannel);
 	}
 
 	/**
@@ -109,57 +121,58 @@ public class DataController {
 	 *            <i>boolean</i> indicate if to show the weight
 	 */
 	public void printAllMention(final String inChannel, final boolean weight) {
-		if (inChannel == null || inChannel.equals("")) {
-			mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), "");
-			view.printMention(mod.getMentionGraph().edgesOutDegree(null), weight);
+		MasterWrapper.EdgesWrapper edgesW;
+		if (inChannel == null || "".equals(inChannel)) {
+			edgesW = new MasterWrapper.EdgesWrapper(mod.getEdgesOutDegree(null, inChannel));
+			view.printMention(edgesW, weight);
 		} else { // validazione canale -m in _inChannel
-			if (mod.getChannels().containsKey(inChannel)) {
-				mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
-				view.printMention(mod.getMentionGraph().edgesOutDegree(null), weight);
+			if (mod.containsChannel(inChannel)) {
+				edgesW = new MasterWrapper.EdgesWrapper(mod.getEdgesOutDegree(null, inChannel));
+				view.printMention(edgesW, weight);
 			} else {
-				View.missingChannel(inChannel);
+				WarningMessage.missingChannel(inChannel);
 			}
 		}
 	}
 
 	/*
-	 * Prints all the mention in a channel. It decides if to print the
-	 * mention <i>from</i> or <i>to</i> a user (<b>from</b>) and if to print the
-	 * number of mentions (<b>weight</b>).
+	 * Prints all the mention in a channel. It decides if to print the mention
+	 * <i>from</i> or <i>to</i> a user (<b>from</b>) and if to print the number of
+	 * mentions (<b>weight</b>).
 	 *
-	 * @param user
-	 *            <i>String</i> name of the user specified
-	 * @param inChannel
-	 *            <i>String</i> name of the channel specified
-	 * @param from
-	 *            <i>boolean</i> indicates if the mentions are <i>from</i>
-	 *            (<b>true</b>) o <i>to</i> (<b>false</b>) a user
-	 * @param weight
-	 *            <i>boolean</i> indicates if to print the number of mentions
+	 * @param user <i>String</i> name of the user specified
+	 * 
+	 * @param inChannel <i>String</i> name of the channel specified
+	 * 
+	 * @param from <i>boolean</i> indicates if the mentions are <i>from</i>
+	 * (<b>true</b>) o <i>to</i> (<b>false</b>) a user
+	 * 
+	 * @param weight <i>boolean</i> indicates if to print the number of mentions
 	 */
 	private void printMentionsFromToUser(final String user, final String inChannel, final boolean from,
 			final boolean weight) {
-		if (user != null | user.equals("")) {
-			String idUser = getUserFromId(user);
-			if (mod.getUsers().containsKey(idUser)) {
-				if ((inChannel == null || inChannel.equals("")) || mod.getChannels().containsKey(inChannel)) {
-					mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
+		if (user != null | "".equals(user)) {
+			final String idUser = getUserFromId(user);
+			if (mod.containsUser(idUser)) {
+				if ((inChannel == null || inChannel.equals("")) || mod.containsChannel(inChannel)) {
 					Collection<Edge> edgesneeded;
+					final User userToPrint = mod.getUser(idUser);
 					if (from) {
-						edgesneeded = mod.getMentionGraph().edgesOutDegree(mod.getUsers().get(idUser));
+						edgesneeded = mod.getEdgesOutDegree(userToPrint, inChannel);
 					} else {
-						edgesneeded = mod.getMentionGraph().edgesInDegree(mod.getUsers().get(idUser));
+						edgesneeded = mod.getEdgesInDegree(userToPrint, inChannel);
 					}
-					view.printMention(edgesneeded, weight);
+					final MasterWrapper.EdgesWrapper edgesW = new MasterWrapper.EdgesWrapper(edgesneeded);
+					view.printMention(edgesW, weight);
 				}
 			} else {
-				View.missingUser(user);
+				WarningMessage.missingUser(user);
 			}
-			if (!(inChannel == null || (inChannel.equals(""))) && (!mod.getChannels().containsKey(inChannel))) {
-				View.missingChannel(inChannel);
+			if (!(inChannel == null || ("".equals(inChannel))) && (!mod.containsChannel(inChannel))) {
+				WarningMessage.missingChannel(inChannel);
 			}
 		} else {
-			View.invalidUser();
+			WarningMessage.invalidUser();
 		}
 	}
 
@@ -261,39 +274,34 @@ public class DataController {
 	 * Returns the id the user with the name specified or a empty string <i>("")</i>
 	 * if it doesn't found it.
 	 * 
-	 * @param name
-	 *            <i>String</i> name of the user to search
+	 * @param name <i>String</i> name of the user to search
+	 * 
 	 * @return <i>String</i> the id the user with the name specified
 	 */
 	private String getUserFromId(final String name) {
-		for (User x : mod.getUsers().values()) {
-			String disName = x.getDisplayNameNorm();
-			String rn = x.getRealName();
-			String nameUser = x.getName();
-
-			if (disName != null) {
-				if (disName.equals(name)) {
-					return x.getId();
-				}
+		int position = 0;
+		while (position < usersWrapped.size()) {
+			final String disName = usersWrapped.getDisplayNameNorm(position);
+			if ((disName != null) && (name.equals(disName))) {
+				return usersWrapped.getId(position);
 			}
-			if (rn != null) {
-				if (rn.equals(name)) {
-					return x.getId();
-				}
+			final String realName = usersWrapped.getRealName(position);
+			if ((realName != null) && (name.equals(realName))) {
+				return usersWrapped.getId(position);
 			}
-			if (nameUser != null) {
-				if (nameUser.equals(name)) {
-					return x.getId();
-				}
+			final String nameUser = usersWrapped.getName(position);
+			if ((nameUser != null) && (name.equals(nameUser))) {
+				return usersWrapped.getId(position);
 			}
+			position++;
 		}
 		return "";
 	}
 
 	/**
-	 * Prints the help's message using the view's method.
+	 * Prints the help's message.
 	 */
 	public void showHelp() {
-		View.showHelp();
+		WarningMessage.showHelp();
 	}
 }

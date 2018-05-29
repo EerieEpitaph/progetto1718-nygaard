@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>View.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.view</a> &gt; <span class="el_source">View.java</span></div><h1>View.java</h1><pre class="source lang-java linenums">package it.uniba.view;
 
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+//import java.util.HashMap;
+//import java.util.Map;
 
-import it.uniba.model.Edge;
+//import it.uniba.model.Edge;
 import it.uniba.workdata.User;
 import it.uniba.workdata.Channel;
 
@@ -11,11 +15,15 @@ import it.uniba.workdata.Channel;
  * This class consist of methods for the all prints needed.
  */
 public class View {
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 * View's constructor.
 	 */
-<span class="fc" id="L17">	public View() {</span>
-<span class="fc" id="L18">	}</span>
+<span class="fc" id="L24">	public View() {</span>
+		// This constructor is intentionally empty. Nothing special is needed here.
+<span class="fc" id="L26">	}</span>
 
 	// -u
 	/**
@@ -25,10 +33,10 @@ public class View {
 	 *            &lt;i&gt;Collection&lt;/i&gt; of users to print
 	 */
 	public void printMembers(final Collection&lt;User&gt; users) {
-<span class="fc bfc" id="L28" title="All 2 branches covered.">		for (User us : users) {</span>
-<span class="fc" id="L29">			System.out.println(us.getRealName() + &quot;\t@&quot; + us.getName());</span>
-<span class="fc" id="L30">		}</span>
-<span class="fc" id="L31">	}</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">		for (final User us : users) {</span>
+<span class="fc" id="L37">			System.out.println(us.getRealName() + &quot;\t@&quot; + us.getName());</span>
+<span class="fc" id="L38">		}</span>
+<span class="fc" id="L39">	}</span>
 
 	// -c
 	/**
@@ -38,10 +46,10 @@ public class View {
 	 *            &lt;i&gt;Collection&lt;/i&gt; of channels to print
 	 */
 	public void printChannels(final Collection&lt;Channel&gt; channels) {
-<span class="fc bfc" id="L41" title="All 2 branches covered.">		for (Channel ch : channels) {</span>
-<span class="fc" id="L42">			System.out.println(ch.getName());</span>
-<span class="fc" id="L43">		}</span>
-<span class="fc" id="L44">	}</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">		for (final Channel ch : channels) {</span>
+<span class="fc" id="L50">			System.out.println(ch.getName());</span>
+<span class="fc" id="L51">		}</span>
+<span class="fc" id="L52">	}</span>
 
 	// -uc
 	/**
@@ -52,16 +60,19 @@ public class View {
 	 * @param channels
 	 *            &lt;i&gt;Collection&lt;/i&gt; of channels
 	 */
-	public void printMembers4Channel(final HashMap&lt;String, User&gt; users, final Collection&lt;Channel&gt; channels) {
-<span class="fc bfc" id="L56" title="All 2 branches covered.">		for (Channel canale : channels) {</span>
-<span class="fc" id="L57">			System.out.print(&quot; + &quot; + canale.getName() + &quot;\n\t&quot;);</span>
-<span class="fc bfc" id="L58" title="All 2 branches covered.">			for (String membro : canale.getMemberList()) {</span>
-<span class="fc" id="L59">				User user = users.get(membro);</span>
-<span class="fc" id="L60">				System.out.print(&quot; - &quot; + user.getRealName() + &quot;\t@ &quot; + user.getName() + &quot;\n\t&quot;);</span>
-<span class="fc" id="L61">			}</span>
-<span class="fc" id="L62">			System.out.println();</span>
-<span class="fc" id="L63">		}</span>
-<span class="fc" id="L64">	}</span>
+	public void printMembers4Channel(final MasterWrapper.UsersWrapper usersW,
+			final MasterWrapper.ChannelsWrapper channelsW) {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		for (final Channel channel : channelsW.values()) {</span>
+<span class="fc" id="L66">			System.out.print(&quot; + &quot; + channel.getName() + &quot;\n\t&quot;);</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">			for (final String usersId : channel.getMemberList()) {</span>
+<span class="fc" id="L68">				String tmp = usersW.getRealName(usersId);</span>
+<span class="fc" id="L69">				System.out.print(&quot; - &quot; + tmp);</span>
+<span class="fc" id="L70">				tmp = usersW.getName(usersId);</span>
+<span class="fc" id="L71">				System.out.print(&quot;\t@ &quot; + tmp + &quot;\n\t&quot;);</span>
+<span class="fc" id="L72">			}</span>
+<span class="fc" id="L73">			System.out.println();</span>
+<span class="fc" id="L74">		}</span>
+<span class="fc" id="L75">	}</span>
 
 	// -cu &lt;channel&gt;
 	/**
@@ -74,19 +85,22 @@ public class View {
 	 * @param nameChannel
 	 *            &lt;i&gt;String&lt;/i&gt; name of the channel specified
 	 */
-	public void printChannelMembers(final HashMap&lt;String, User&gt; users, final HashMap&lt;String, Channel&gt; channels,
-			final String nameChannel) {
-<span class="pc bpc" id="L79" title="2 of 4 branches missed.">		if (nameChannel != null &amp;&amp; channels.containsKey(nameChannel)) {</span>
-<span class="fc" id="L80">			System.out.print(&quot; + &quot; + nameChannel + &quot;\n&quot;);</span>
-<span class="fc bfc" id="L81" title="All 2 branches covered.">			for (String key : channels.get(nameChannel).getMemberList()) {</span>
-<span class="fc" id="L82">				User utente = users.get(key);</span>
-<span class="fc" id="L83">				System.out.print(&quot;\t -&quot; + utente.getRealName() + &quot; @&quot; + utente.getName() + &quot;\n&quot;);</span>
-<span class="fc" id="L84">			}</span>
-<span class="fc" id="L85">			System.out.println();</span>
-		} else {
-<span class="nc" id="L87">			missingChannel(nameChannel);</span>
+	public void printChannelMembers(final MasterWrapper.UsersWrapper usersW,
+			final MasterWrapper.ChannelsWrapper channelsW, final String nameChannel) {
+<span class="pc bpc" id="L90" title="2 of 4 branches missed.">		if (nameChannel != null &amp;&amp; channelsW.containsKey(nameChannel)) {</span>
+<span class="fc" id="L91">			System.out.print(&quot; + &quot; + nameChannel + &quot;\n&quot;);</span>
+<span class="fc" id="L92">			final Channel channel = new Channel(channelsW.get(nameChannel));</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">			for (final String key : channel.getMemberList()) {</span>
+<span class="fc" id="L94">				String tmp = usersW.getRealName(key);</span>
+<span class="fc" id="L95">				System.out.print(&quot;\t -&quot; + tmp);</span>
+<span class="fc" id="L96">				tmp = usersW.getName(key);</span>
+<span class="fc" id="L97">				System.out.print(&quot; @&quot; + tmp + &quot;\n&quot;);</span>
+<span class="fc" id="L98">			}</span>
+<span class="fc" id="L99">			System.out.println();</span>
+<span class="fc" id="L100">		} else {</span>
+<span class="nc" id="L101">			WarningMessage.missingChannel(nameChannel);</span>
 		}
-<span class="fc" id="L89">	}</span>
+<span class="fc" id="L103">	}</span>
 
 	/**
 	 * Prints all the mention (&lt;i&gt;all the 'edges'&lt;/i&gt;).
@@ -96,9 +110,10 @@ public class View {
 	 * @param weight
 	 *            &lt;i&gt;boolean&lt;/i&gt; used to decide if print the weight of the edges.
 	 */
-	public void printMention(final Collection&lt;Edge&gt; edges, final boolean weight) {
-<span class="fc" id="L100">		printEdges(edges, weight);</span>
-<span class="fc" id="L101">	}</span>
+	public void printMention(final MasterWrapper.EdgesWrapper edgesW, final boolean weight) {
+<span class="fc" id="L114">		printEdges(edgesW, weight);</span>
+<span class="fc" id="L115">	}</span>
+
 	/**
 	 * Prints a collection of edges.
 	 * 
@@ -107,90 +122,30 @@ public class View {
 	 * @param weight
 	 *            &lt;i&gt;boolean&lt;/i&gt; used to decide if print the weight of the edges.
 	 */
-	private void printEdges(final Collection&lt;Edge&gt; edges, final boolean weight) {
-<span class="fc bfc" id="L111" title="All 2 branches covered.">		if (!edges.isEmpty()) {</span>
-<span class="fc bfc" id="L112" title="All 2 branches covered.">			for (Edge ed : edges) {</span>
-<span class="fc" id="L113">				System.out.print(&quot;From: &quot; + ed.getFrom().getRealName() + &quot;\tTo: &quot; + ed.getTo().getRealName());</span>
-<span class="fc bfc" id="L114" title="All 2 branches covered.">				if (weight) {</span>
-<span class="fc" id="L115">					System.out.print(&quot;\t n. mention: &quot; + (int) ed.getWeigth());</span>
-				}
-<span class="fc" id="L117">				System.out.println(&quot;&quot;);</span>
-<span class="fc" id="L118">			}</span>
+	private void printEdges(final MasterWrapper.EdgesWrapper edgesW, final boolean weight) {
+<span class="fc bfc" id="L126" title="All 2 branches covered.">		if (edgesW.isEmpty()) {</span>
+<span class="fc" id="L127">			WarningMessage.noMention();</span>
 		} else {
-<span class="fc" id="L120">			noMention();</span>
+<span class="fc" id="L129">			int position = 0;</span>
+//			 = new MasterWrapper.EdgesWrapper(edges);
+<span class="fc bfc" id="L131" title="All 2 branches covered.">			while (position &lt; edgesW.size()) {</span>
+				// for (final Edge edtmp : edgesW.getEdges()) {
+				// final EdgeWrapper edgeTmp = new EdgeWrapper(ed);
+				// final User userFrom = edgesW.getFrom(i);
+				// final User userTo = edgesW.getTo(i);
+<span class="fc" id="L136">				String temp = edgesW.getFromRealName(position);</span>
+<span class="fc" id="L137">				System.out.print(&quot;From: &quot; + temp);</span>
+<span class="fc" id="L138">				temp = edgesW.getToRealName(position);</span>
+<span class="fc" id="L139">				System.out.print(&quot;\tTo: &quot; + temp);</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">				if (weight) {</span>
+<span class="fc" id="L141">					System.out.print(&quot;\t n. mention: &quot; + (int) edgesW.getWeight(position));</span>
+				}
+<span class="fc" id="L143">				System.out.println(&quot;&quot;);</span>
+<span class="fc" id="L144">				position++;</span>
+				// }
+<span class="fc" id="L146">			}</span>
 		}
-<span class="fc" id="L122">	}</span>
+<span class="fc" id="L148">	}</span>
 
-	/**
-	 * Prints a message saying that there aren't mention.
-	 */
-	public static void noMention() {
-<span class="fc" id="L128">		System.out.println(&quot;There aren't mention.&quot;);</span>
-<span class="fc" id="L129">	}</span>
-
-	/**
-	 * Prints a message saying that the &lt;b&gt;user&lt;/b&gt; specified is missing.
-	 * 
-	 * @param user
-	 *            &lt;i&gt;String&lt;/i&gt; specified user's name
-	 */
-	public static void missingUser(final String user) {
-<span class="nc" id="L138">		System.out.println(&quot;The user '&quot; + user + &quot;' doesn't exist.&quot;);</span>
-<span class="nc" id="L139">	}</span>
-
-	/**
-	 * Prints a message saying that the &lt;b&gt;user&lt;/b&gt; specified is invalid.
-	 * 
-	 */
-	public static void invalidUser() {
-<span class="nc" id="L146">		System.out.println(&quot;The user specified is invalid.&quot;);</span>
-<span class="nc" id="L147">	}</span>
-
-	/**
-	 * Prints a message that saying that the &lt;b&gt;user&lt;/b&gt; specified doesn't belong to a
-	 * specified &lt;b&gt;channel&lt;/b&gt;.
-	 * 
-	 * @param user
-	 *            &lt;i&gt;String&lt;/i&gt; specified user's name
-	 * @param channel
-	 *            &lt;i&gt;String&lt;/i&gt; specified channel's name
-	 * 
-	 */
-	public static void missingUserInChannel(final String user, final String channel) {
-<span class="nc" id="L160">		System.out.println(&quot;The user '&quot; + user + &quot;' doesn't belong to the channel '&quot; + channel + &quot;'.&quot;);</span>
-<span class="nc" id="L161">	}</span>
-
-	/**
-	 * Prints a message saying that the &lt;b&gt;channel&lt;/b&gt; specified is missing.
-	 * 
-	 * @param channel
-	 *            &lt;i&gt;String&lt;/i&gt; specified channel's name
-	 */
-	public static void missingChannel(final String channel) {
-<span class="nc" id="L170">		System.out.println(&quot;The channel '&quot; + channel + &quot;' doesn't exist.&quot;);</span>
-<span class="nc" id="L171">	}</span>
-
-	/**
-	 * Prints the help's message.
-	 */
-	public static void showHelp() {
-<span class="fc" id="L177">		System.out.println(&quot;Usage:&quot;);</span>
-<span class="fc" id="L178">		System.out.println(&quot;help - Shows this help\n&quot;);</span>
-<span class="fc" id="L179">		System.out.print(&quot;-w \&quot;path\\to\\file.zip\&quot; ( -c | -u | &quot;);</span>
-<span class="fc" id="L180">		System.out.print(&quot;-uc &lt;channelFilter&gt; | -cu | -m [from &lt;x&gt;] | [to &lt;y&gt;] [in &lt;z&gt;])\n&quot;);</span>
-<span class="fc" id="L181">		System.out.println(&quot;\t-w Parses a workspace.&quot;);</span>
-<span class="fc" id="L182">		System.out.println(&quot;\t-c Prints all the channels in the specified workspace.&quot;);</span>
-<span class="fc" id="L183">		System.out.println(&quot;\t-u Prints all the users in the specified workspace.&quot;);</span>
-<span class="fc" id="L184">		System.out.println(&quot;\t-uc &lt;channelFilter&gt; Prints all the users in the specified channel.&quot;);</span>
-<span class="fc" id="L185">		System.out.println(&quot;\t-cu Prints all the channels with their users.&quot;);</span>
-<span class="fc" id="L186">		System.out.println(&quot;\t-m Prints all the mentions in a workspace.&quot;);</span>
-<span class="fc" id="L187">		System.out.println(&quot;\t\t-m from &lt;user&gt; filters the mentioner.&quot;);</span>
-<span class="fc" id="L188">		System.out.println(&quot;\t\t-m to &lt;user&gt; filters the mentioned.&quot;);</span>
-<span class="fc" id="L189">		System.out.println(&quot;\t\t-m in &lt;channel&gt; filters the channel.&quot;);</span>
-<span class="fc" id="L190">		System.out.print(&quot;\t\t-m from &lt;user&gt; OR to &lt;user&gt; in &lt;channel&gt; &quot;);</span>
-<span class="fc" id="L191">		System.out.print(&quot;filters the mentioner or mentioned in the channel\n&quot;);</span>
-<span class="fc" id="L192">		System.out.println(&quot;\t\t\t using -n show the n. mentions and must be placed at last&quot;);</span>
-<span class="fc" id="L193">		System.out.println(&quot;\t\t\t (example:  -m &lt;&lt;from/to &lt;user&gt;&gt; &lt;in &lt;channel&gt;&gt; &lt;-n&gt;&quot;);</span>
-<span class="fc" id="L194">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

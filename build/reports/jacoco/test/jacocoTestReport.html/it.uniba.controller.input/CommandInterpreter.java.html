@@ -19,7 +19,7 @@ import it.uniba.controller.DataController;
 	 */
 	public void executeCommands(final CommandParser parser, final DataController dataCtr)
 			throws ZipException, IOException {
-<span class="fc" id="L22">		CommandParserInterface bridge = parser;</span>
+<span class="fc" id="L22">		final CommandParserInterface bridge = parser;</span>
 
 <span class="fc bfc" id="L24" title="All 2 branches covered.">		if (bridge.help()) {</span>
 <span class="fc" id="L25">            dataCtr.showHelp();</span>
@@ -35,18 +35,18 @@ import it.uniba.controller.DataController;
 <span class="fc bfc" id="L35" title="All 2 branches covered.">			} else if (bridge.usersInChannel()) {</span>
 <span class="fc" id="L36">				dataCtr.printChannelMembers(bridge.getChannelFilter());</span>
 <span class="pc bpc" id="L37" title="1 of 2 branches missed.">			} else if (bridge.mentions()) {</span>
-<span class="fc" id="L38">				Boolean weight = bridge.weighted();</span>
-<span class="fc" id="L39">				String inChannel = &quot;&quot;;</span>
-<span class="fc" id="L40">				String user = &quot;&quot;;</span>
+<span class="fc" id="L38">				final Boolean weight = bridge.weighted();</span>
 
-<span class="fc bfc" id="L42" title="All 2 branches covered.">				if (bridge.in()) {</span>
-<span class="fc" id="L43">					inChannel = bridge.getInWhat();</span>
+<span class="fc" id="L40">				String inChannel = &quot;&quot;;</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">				if (bridge.in()) {</span>
+<span class="fc" id="L42">					inChannel = bridge.getInWhat();</span>
 				}
 
-<span class="pc bpc" id="L46" title="1 of 4 branches missed.">				if (bridge.from() &amp;&amp; bridge.to()) {</span>
-<span class="nc" id="L47">					throw new IllegalStateException();</span>
+<span class="pc bpc" id="L45" title="1 of 4 branches missed.">				if (bridge.from() &amp;&amp; bridge.to()) {</span>
+<span class="nc" id="L46">					throw new IllegalStateException();</span>
 				}
 
+<span class="fc" id="L49">				String user = &quot;&quot;;</span>
 <span class="fc bfc" id="L50" title="All 2 branches covered.">				if (bridge.from()) {</span>
 <span class="fc" id="L51">					user = bridge.getFromWho();</span>
 <span class="pc bpc" id="L52" title="1 of 2 branches missed.">					if (weight) {</span>

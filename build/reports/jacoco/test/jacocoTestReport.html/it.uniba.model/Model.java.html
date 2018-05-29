@@ -2,7 +2,9 @@
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.zip.ZipException;
 
 import it.uniba.parsing.ZipParser;
@@ -19,42 +21,45 @@ public class Model {
 	/*
 	 * Map of &lt;i&gt;Users&lt;/i&gt;
 	 */
-<span class="fc" id="L22">	private HashMap&lt;String, User&gt; users = new HashMap&lt;String, User&gt;();</span>
+<span class="fc" id="L24">	private Map&lt;String, User&gt; users = new HashMap&lt;String, User&gt;();</span>
 	/*
 	 * Map of &lt;i&gt;Channels&lt;/i&gt;
 	 */
-<span class="fc" id="L26">	private HashMap&lt;String, Channel&gt; channels = new HashMap&lt;String, Channel&gt;();</span>
+<span class="fc" id="L28">	private Map&lt;String, Channel&gt; channels = new HashMap&lt;String, Channel&gt;();</span>
 	/*
 	 * Map of &lt;i&gt;Messages&lt;/i&gt; group by channels
 	 */
-<span class="fc" id="L30">	private HashMap&lt;String, ArrayList&lt;Message&gt;&gt; messages = new HashMap&lt;String, ArrayList&lt;Message&gt;&gt;();</span>
+<span class="fc" id="L32">	private Map&lt;String, ArrayList&lt;Message&gt;&gt; messages = new HashMap&lt;String, ArrayList&lt;Message&gt;&gt;();</span>
 
 	/*
 	 * Graph of all mentions present in the workspace
 	 */
-<span class="fc" id="L35">	private MentionGraph snagraph = new MentionGraph();</span>
+<span class="fc" id="L37">	private final MentionGraph snagraph = new MentionGraph();</span>
 
 	/*
 	 * ZipParser for loading data from zip file
 	 */
-<span class="fc" id="L40">	private ZipParser fileParser = new ZipParser();</span>
+<span class="fc" id="L42">	private final ZipParser fileParser = new ZipParser();</span>
 
 	/**
 	 * Load all data of Model from procedure load of class ZipParser
 	 * 
-	 * @param path &lt;i&gt;String&lt;/i&gt; Path of Zipfile
+	 * @param path
+	 *            &lt;i&gt;String&lt;/i&gt; Path of Zipfile
 	 * 
-	 * @throws ZipException Exception of ZipParser
+	 * @throws ZipException
+	 *             Exception of ZipParser
 	 * 
-	 * @throws IOException Exception of IOFileException
+	 * @throws IOException
+	 *             Exception of IOFileException
 	 */
 	public void updateModel(final String path) throws ZipException, IOException {
-<span class="fc" id="L52">		fileParser.load(path);</span>
+<span class="fc" id="L57">		fileParser.load(path);</span>
 
-<span class="fc" id="L54">		users = (HashMap&lt;String, User&gt;) fileParser.getUsers();</span>
-<span class="fc" id="L55">		channels = (HashMap&lt;String, Channel&gt;) fileParser.getChannels();</span>
-<span class="fc" id="L56">		messages = (HashMap&lt;String, ArrayList&lt;Message&gt;&gt;) fileParser.getMessages();</span>
-<span class="fc" id="L57">	}</span>
+<span class="fc" id="L59">		users = (HashMap&lt;String, User&gt;) fileParser.getUsers();</span>
+<span class="fc" id="L60">		channels = (HashMap&lt;String, Channel&gt;) fileParser.getChannels();</span>
+<span class="fc" id="L61">		messages = (HashMap&lt;String, ArrayList&lt;Message&gt;&gt;) fileParser.getMessages();</span>
+<span class="fc" id="L62">	}</span>
 
 	/**
 	 * Check if fileParser has load data from zip file
@@ -62,14 +67,15 @@ public class Model {
 	 * @return &lt;i&gt;boolean&lt;/i&gt; if fileParser has load data from zip file
 	 */
 	public boolean hasLoaded() {
-<span class="nc" id="L65">		return fileParser.hasLoaded();</span>
+<span class="nc" id="L70">		return fileParser.hasLoaded();</span>
 	}
 
 	/**
 	 * Default costructor of Model
 	 */
-<span class="fc" id="L71">	public Model() {</span>
-<span class="fc" id="L72">	}</span>
+<span class="fc" id="L76">	public Model() {</span>
+		// This constructor is intentionally empty. Nothing special is needed here.
+<span class="fc" id="L78">	}</span>
 
 	// /**
 	// * Initialize a generic model after load the data
@@ -91,24 +97,28 @@ public class Model {
 	 * 
 	 * @return &lt;i&gt;HashMap&lt;/i&gt; of Users
 	 */
-	public HashMap&lt;String, User&gt; getUsers() {
-<span class="fc" id="L95">		return users;</span>
+	public Map&lt;String, User&gt; getUsers() {
+<span class="fc" id="L101">		return users;</span>
+	}
+
+	public Collection&lt;User&gt; getUsersList() {
+<span class="nc" id="L105">		return users.values();</span>
 	}
 
 	/**
 	 * 
 	 * @return &lt;i&gt;HashMap&lt;/i&gt; of all Channels
 	 */
-	public HashMap&lt;String, Channel&gt; getChannels() {
-<span class="fc" id="L103">		return channels;</span>
+	public Map&lt;String, Channel&gt; getChannels() {
+<span class="fc" id="L113">		return channels;</span>
 	}
 
 	/**
 	 * 
 	 * @return &lt;i&gt;HashMap&lt;/i&gt; of all messagges
 	 */
-	public HashMap&lt;String, ArrayList&lt;Message&gt;&gt; getMessages() {
-<span class="fc" id="L111">		return messages;</span>
+	public Map&lt;String, ArrayList&lt;Message&gt;&gt; getMessages() {
+<span class="fc" id="L121">		return messages;</span>
 	}
 
 	/**
@@ -117,7 +127,38 @@ public class Model {
 	 *         mentions
 	 */
 	public MentionGraph getMentionGraph() {
-<span class="fc" id="L120">		return snagraph;</span>
+<span class="fc" id="L130">		return snagraph;</span>
 	}
+
+	public Collection&lt;Edge&gt; getEdgesInDegree(final User userMention, final String inChannel) {
+<span class="fc bfc" id="L134" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
+<span class="fc" id="L135">			snagraph.parseMessages(messages, users, inChannel);</span>
+		}
+<span class="fc" id="L137">		return snagraph.edgesInDegree(userMention);</span>
+	}
+
+	public Collection&lt;Edge&gt; getEdgesOutDegree(final User userMention, final String inChannel) {
+<span class="fc bfc" id="L141" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
+<span class="fc" id="L142">			snagraph.parseMessages(messages, users, inChannel);</span>
+		}
+<span class="fc" id="L144">		return snagraph.edgesOutDegree(userMention);</span>
+	}
+
+	public boolean containsChannel(final String channel) {
+<span class="fc" id="L148">		return channels.containsKey(channel);</span>
+	}
+
+	public boolean containsUser(final String user) {
+<span class="fc" id="L152">		return users.containsKey(user);</span>
+	}
+
+	public User getUser(final String user) {
+<span class="fc" id="L156">		return users.get(user);</span>
+	}
+
+	public Channel getChannel(final String channel) {
+<span class="nc" id="L160">		return channels.get(channel);</span>
+	}
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

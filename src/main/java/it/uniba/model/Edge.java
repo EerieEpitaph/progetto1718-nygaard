@@ -10,11 +10,11 @@ public final class Edge {
 	/*
 	 * <b>User</b> user write mention
 	 */
-	private final User from;
+	private final User userFrom;
 	/*
 	 * <b>User</b> user mentioned by _from
 	 */
-	private final User to;
+	private final User userTo;
 	/*
 	 * numbers of mention of user
 	 */
@@ -31,16 +31,25 @@ public final class Edge {
 	 *            <i>float</i> numbers of mention
 	 */
 	public Edge(final User fromIn, final User toIn, final float weightIn) {
-		from = fromIn;
-		to = toIn;
+		userFrom = fromIn;
+		userTo = toIn;
 		weight = weightIn;
+	}
+
+	public Edge(final Edge edgeToClone) {
+		this(edgeToClone.userFrom, edgeToClone.userTo, edgeToClone.weight);
+	}
+
+	public Edge() {
+		userTo = null;
+		userFrom = null;
 	}
 
 	/**
 	 * @return <b>User</b> write mention
 	 */
 	public User getFrom() {
-		return from;
+		return userFrom;
 	}
 
 	/**
@@ -48,7 +57,7 @@ public final class Edge {
 	 * @return <b> user mentioned by <i>_from</i>
 	 */
 	public User getTo() {
-		return to;
+		return userTo;
 	}
 
 	/**
@@ -72,7 +81,7 @@ public final class Edge {
 	// Se ci sono problemi
 	@Override
 	public int hashCode() {
-		return from.hashCode();
+		return userFrom.hashCode();
 	}
 
 	/**
@@ -86,7 +95,7 @@ public final class Edge {
 	@Override
 	public boolean equals(final Object obj) {
 		if (obj instanceof Edge) {
-			return ((from.equals(((Edge) obj).getFrom())) && (to.equals(((Edge) obj).getTo())));
+			return ((userFrom.equals(((Edge) obj).getFrom())) && (userTo.equals(((Edge) obj).getTo())));
 		} else {
 			return false;
 		}

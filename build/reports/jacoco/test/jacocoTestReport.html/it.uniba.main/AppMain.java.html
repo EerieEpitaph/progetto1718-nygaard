@@ -36,10 +36,10 @@ public final class AppMain {
 <span class="nc" id="L36">		Controller control = new Controller();</span>
 
 		try {
-<span class="nc bnc" id="L39" title="All 2 branches missed.">			if (args.length != 0) {</span>
-<span class="nc" id="L40">				control.controlExecuteCLI(args);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">			if (args.length == 0) {</span>
+<span class="nc" id="L40">				control.showHelp();</span>
 			} else {
-<span class="nc" id="L42">				control.showHelp();</span>
+<span class="nc" id="L42">				control.controlExecuteCLI(args);</span>
 			}
 <span class="nc" id="L44">		} catch (NullPointerException e) {</span>
 <span class="nc" id="L45">			System.out.println(&quot;NullPointer encountered&quot;);</span>

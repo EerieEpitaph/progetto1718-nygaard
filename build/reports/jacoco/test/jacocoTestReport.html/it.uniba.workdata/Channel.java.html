@@ -3,6 +3,8 @@
 import java.util.LinkedList;
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Models a single workspace channel.
  */
@@ -11,7 +13,9 @@ public final class Channel {
 	/**
 	 * Channel identfier as found in &quot;channels.json&quot;.
 	 */
-	private String id;
+
+	@SerializedName(value = &quot;id&quot;)
+	private String idChannel;
 
 	/**
 	 * Timestamp at which the channel was created.
@@ -26,7 +30,7 @@ public final class Channel {
 	/**
 	 * Members of the channel listed by their user identifier.
 	 */
-<span class="nc" id="L29">	private List&lt;String&gt; members = new LinkedList&lt;String&gt;();</span>
+<span class="fc" id="L33">	private List&lt;String&gt; members = new LinkedList&lt;String&gt;();</span>
 
 	/**
 	 * Channel identfier as found in channels.json.
@@ -34,60 +38,89 @@ public final class Channel {
 	private String name;
 
 	/**
+	 * Empty Channel's constructor.
+	 */
+<span class="fc" id="L43">	public Channel() {</span>
+		// This constructor is intentionally empty. Nothing special is needed here.
+<span class="fc" id="L45">	}</span>
+
+	/**
+	 * User's constructor.
+	 * 
+	 * @param channel
+	 *            channel to copy
+	 */
+	public Channel(final Channel channel) {
+<span class="fc" id="L54">		this(channel.getId(), channel.getDateCreation(), channel.getCreator(), channel.getMemberList(),</span>
+<span class="fc" id="L55">				channel.getName());</span>
+<span class="fc" id="L56">	}</span>
+
+	/**
 	 * Constructs a new Channel.
-	 * @param id2 channel id
-	 * @param created2 creation timestamp
-	 * @param creator2 founder's id
-	 * @param members2 list of members
-	 * @param name2 channel name
+	 * 
+	 * @param id2
+	 *            channel id
+	 * @param created2
+	 *            creation timestamp
+	 * @param creator2
+	 *            founder's id
+	 * @param members2
+	 *            list of members
+	 * @param name2
+	 *            channel name
 	 */
 	public Channel(final String id2, final Long created2, final String creator2, final List&lt;String&gt; members2,
-<span class="nc" id="L45">			final String name2) {</span>
-<span class="nc" id="L46">		this.id = id2;</span>
-<span class="nc" id="L47">		this.created = created2;</span>
-<span class="nc" id="L48">		this.creator = creator2;</span>
-<span class="nc" id="L49">		this.members = members2;</span>
-<span class="nc" id="L50">		this.name = name2;</span>
-<span class="nc" id="L51">	}</span>
+<span class="fc" id="L73">			final String name2) {</span>
+<span class="fc" id="L74">		this.idChannel = id2;</span>
+<span class="fc" id="L75">		this.created = created2;</span>
+<span class="fc" id="L76">		this.creator = creator2;</span>
+<span class="fc" id="L77">		this.members = members2;</span>
+<span class="fc" id="L78">		this.name = name2;</span>
+<span class="fc" id="L79">	}</span>
 
 	/**
 	 * Returns the channel ID as String.
+	 * 
 	 * @return ID as String
 	 */
 	public String getId() {
-<span class="nc" id="L58">		return id;</span>
+<span class="fc" id="L87">		return idChannel;</span>
 	}
 
 	/**
 	 * Returns the list of members.
+	 * 
 	 * @return List&lt;String&gt; of IDs
 	 */
 	public List&lt;String&gt; getMemberList() {
-<span class="fc" id="L66">		return members;</span>
+<span class="fc" id="L96">		return members;</span>
 	}
 
 	/**
 	 * Returns the name of the channel as String.
+	 * 
 	 * @return channel name as String
 	 */
 	public String getName() {
-<span class="fc" id="L74">		return name;</span>
+<span class="fc" id="L105">		return name;</span>
 	}
 
 	/**
 	 * Returns the channel timestamp as Long.
+	 * 
 	 * @return timestamp as Long
 	 */
 	public Long getDateCreation() {
-<span class="nc" id="L82">		return created;</span>
+<span class="fc" id="L114">		return created;</span>
 	}
 
 	/**
 	 * Return the founder's ID as String.
+	 * 
 	 * @return founder's ID as String
 	 */
 	public String getCreator() {
-<span class="nc" id="L90">		return creator;</span>
+<span class="fc" id="L123">		return creator;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
