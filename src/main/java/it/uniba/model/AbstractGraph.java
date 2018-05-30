@@ -2,6 +2,7 @@ package it.uniba.model;
 
 import java.util.ArrayList;
 
+import it.uniba.controller.ExceptionsHandler;
 import it.uniba.workdata.User;
 
 /**
@@ -16,7 +17,7 @@ public abstract class AbstractGraph {
 	 * @param inChannel
 	 *            <i>String</i> specified channel to parse
 	 */
-	abstract void generate(String inChannel);
+	abstract void generate(String inChannel) throws ExceptionsHandler;
 
 	/**
 	 * Check if the graph is Empty

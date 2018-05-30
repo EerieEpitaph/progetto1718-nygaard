@@ -53,6 +53,11 @@ public class MentionGraph extends AbstractGraph {
 	public MentionGraph(final Model model) {
 		mod = model;
 	}
+	
+	public void setModel(final Model model)
+	{
+		mod = model; 
+	}
 
 	/**
 	 * Check if command is present in the message
@@ -85,14 +90,15 @@ public class MentionGraph extends AbstractGraph {
 	 * 
 	 * @param inChannel
 	 *            <i>String</i> Parse message of a specified channel
+	 * @throws ExceptionsHandler 
 	 * 
 	 */
-	public void generate(final String inChannel) { // aggiungere eccezione
+	public void generate(final String inChannel) throws ExceptionsHandler { // aggiungere eccezione
 		if (!mod.getMessages().isEmpty() && !mod.getUsers().isEmpty()) {
 			parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
 		}
 		else {
-			
+			throw new ExceptionsHandler("Messages or Users are empty");
 		}
 	}
 
@@ -225,7 +231,7 @@ public class MentionGraph extends AbstractGraph {
 	 *            <b>User</b>
 	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
 	 *         edge
-	 */
+	 */ 
 	public ArrayList<Edge> edgesOutDegree(final User user) {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		int numNodesPrinted = 0;
