@@ -34,9 +34,11 @@ public class MasterWrapper {
 			final User toTMP = new User(edgeTMP.getTo());
 			return toTMP.getRealName();
 		}
+
 		public boolean isEmpty() {
 			return (edgesWrapped.length == 0);
 		}
+
 		public int size() {
 			return edgesWrapped.length;
 		}
@@ -62,6 +64,7 @@ public class MasterWrapper {
 		public Channel get(final String keyCh) {
 			return new Channel(channels.get(keyCh));
 		}
+
 		public boolean containsKey(final String keyCh) {
 			return channels.containsKey(keyCh);
 		}
@@ -105,12 +108,14 @@ public class MasterWrapper {
 			final User usTmp = new User((User) usersTmp[position]);
 			return usTmp.getDisplayNameNorm();
 		}
+
 		public String getId(final int position) {
 			final Collection<User> usCollection = new ArrayList<User>(users.values());
 			final Object[] usersTmp = usCollection.toArray();
 			final User usTmp = new User((User) usersTmp[position]);
 			return usTmp.getId();
 		}
+
 		public Collection<User> values() {
 			return users.values();
 		}
@@ -118,6 +123,7 @@ public class MasterWrapper {
 		public Map<String, User> valuesMap() {
 			return users;
 		}
+
 		public int size() {
 			return users.size();
 		}

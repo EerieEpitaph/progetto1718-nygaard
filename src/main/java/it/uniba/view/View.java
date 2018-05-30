@@ -1,13 +1,7 @@
 package it.uniba.view;
 
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.ArrayList;
 import java.util.Collection;
-//import java.util.HashMap;
-//import java.util.Map;
 
-//import it.uniba.model.Edge;
 import it.uniba.workdata.User;
 import it.uniba.workdata.Channel;
 
@@ -15,9 +9,6 @@ import it.uniba.workdata.Channel;
  * This class consist of methods for the all prints needed.
  */
 public class View {
-
-	///////////////////////////////////////////////////////////////////////////////////////////
-
 	/**
 	 * View's constructor.
 	 */
@@ -55,10 +46,10 @@ public class View {
 	/**
 	 * Prints all the <b>channels</b> and the respective <b>members</b> .
 	 * 
-	 * @param users
-	 *            <i>HashMap</i> of users
-	 * @param channels
-	 *            <i>Collection</i> of channels
+	 * @param usersW
+	 *            <i>UsersWrapper</i> of users
+	 * @param channelsW
+	 *            <i>ChannelsWrapper</i> of channels
 	 */
 	public void printMembers4Channel(final MasterWrapper.UsersWrapper usersW,
 			final MasterWrapper.ChannelsWrapper channelsW) {
@@ -78,10 +69,10 @@ public class View {
 	/**
 	 * Prints all the <b>members</b> of a specified <b>channel</b>.
 	 * 
-	 * @param users
-	 *            <i>HashMap</i> of users
-	 * @param channels
-	 *            <i>HashMap</i> of channels
+	 * @param usersW
+	 *            <i>UsersWrapper</i> of users
+	 * @param channelsW
+	 *            <i>ChannelsWrapper</i> of channels
 	 * @param nameChannel
 	 *            <i>String</i> name of the channel specified
 	 */
@@ -105,8 +96,8 @@ public class View {
 	/**
 	 * Prints all the mention (<i>all the 'edges'</i>).
 	 * 
-	 * @param edges
-	 *            <i>Collection</i> of Edges (mentions)
+	 * @param edgesW
+	 *            <i>EdgesWrapper</i> of Edges (mentions)
 	 * @param weight
 	 *            <i>boolean</i> used to decide if print the weight of the edges.
 	 */
@@ -117,8 +108,8 @@ public class View {
 	/**
 	 * Prints a collection of edges.
 	 * 
-	 * @param edges
-	 *            <i>Collection</i> of Edges
+	 * @param edgesW
+	 *            <i>EdgesWrapper</i> of Edges
 	 * @param weight
 	 *            <i>boolean</i> used to decide if print the weight of the edges.
 	 */

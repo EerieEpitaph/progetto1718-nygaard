@@ -21,7 +21,7 @@ public final class Edge {
 	private float weight;
 
 	/**
-	 * Costructor of Edge
+	 * Costrunctor of Edge
 	 * 
 	 * @param fromIn
 	 *            &lt;b&gt;User&lt;/b&gt; user write mention
@@ -36,20 +36,29 @@ public final class Edge {
 <span class="fc" id="L36">		weight = weightIn;</span>
 <span class="fc" id="L37">	}</span>
 
+	/**
+	 * Constructor of Edge.
+	 * 
+	 * @param edgeToClone
+	 *            &lt;i&gt;Edge&lt;/i&gt; to copy
+	 */
 	public Edge(final Edge edgeToClone) {
-<span class="fc" id="L40">		this(edgeToClone.userFrom, edgeToClone.userTo, edgeToClone.weight);</span>
-<span class="fc" id="L41">	}</span>
+<span class="fc" id="L46">		this(edgeToClone.userFrom, edgeToClone.userTo, edgeToClone.weight);</span>
+<span class="fc" id="L47">	}</span>
 
-<span class="nc" id="L43">	public Edge() {</span>
-<span class="nc" id="L44">		userTo = null;</span>
-<span class="nc" id="L45">		userFrom = null;</span>
-<span class="nc" id="L46">	}</span>
+	/**
+	 * Constructor of Edge
+	 */
+<span class="nc" id="L52">	public Edge() {</span>
+<span class="nc" id="L53">		userTo = null;</span>
+<span class="nc" id="L54">		userFrom = null;</span>
+<span class="nc" id="L55">	}</span>
 
 	/**
 	 * @return &lt;b&gt;User&lt;/b&gt; write mention
 	 */
 	public User getFrom() {
-<span class="fc" id="L52">		return userFrom;</span>
+<span class="fc" id="L61">		return userFrom;</span>
 	}
 
 	/**
@@ -57,7 +66,7 @@ public final class Edge {
 	 * @return &lt;b&gt; user mentioned by &lt;i&gt;_from&lt;/i&gt;
 	 */
 	public User getTo() {
-<span class="fc" id="L60">		return userTo;</span>
+<span class="fc" id="L69">		return userTo;</span>
 	}
 
 	/**
@@ -65,7 +74,7 @@ public final class Edge {
 	 * @return number of mention by _from
 	 */
 	public float getWeigth() {
-<span class="fc" id="L68">		return weight;</span>
+<span class="fc" id="L77">		return weight;</span>
 	}
 
 	/**
@@ -75,13 +84,13 @@ public final class Edge {
 	 *            &lt;i&gt;float&lt;/i&gt; is the new weight
 	 */
 	public void changeWeigth(final float newWeigth) {
-<span class="nc" id="L78">		weight = newWeigth;</span>
-<span class="nc" id="L79">	}</span>
+<span class="nc" id="L87">		weight = newWeigth;</span>
+<span class="nc" id="L88">	}</span>
 
 	// Se ci sono problemi
 	@Override
 	public int hashCode() {
-<span class="nc" id="L84">		return userFrom.hashCode();</span>
+<span class="nc" id="L93">		return userFrom.hashCode();</span>
 	}
 
 	/**
@@ -94,10 +103,10 @@ public final class Edge {
 	 */
 	@Override
 	public boolean equals(final Object obj) {
-<span class="pc bpc" id="L97" title="1 of 2 branches missed.">		if (obj instanceof Edge) {</span>
-<span class="pc bpc" id="L98" title="2 of 4 branches missed.">			return ((userFrom.equals(((Edge) obj).getFrom())) &amp;&amp; (userTo.equals(((Edge) obj).getTo())));</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">		if (obj instanceof Edge) {</span>
+<span class="pc bpc" id="L107" title="2 of 4 branches missed.">			return ((userFrom.equals(((Edge) obj).getFrom())) &amp;&amp; (userTo.equals(((Edge) obj).getTo())));</span>
 		} else {
-<span class="nc" id="L100">			return false;</span>
+<span class="nc" id="L109">			return false;</span>
 		}
 	}
 

@@ -30,9 +30,8 @@ public class DataController {
 	 */
 	private final View view;
 
-	private MasterWrapper.ChannelsWrapper channelsWrapped;// = new
-															// MasterWrapper.ChannelsWrapper(mod.getChannels());
-	private MasterWrapper.UsersWrapper usersWrapped;// = new MasterWrapper.UsersWrapper(mod.getUsers());
+	private MasterWrapper.ChannelsWrapper channelsWrapped;
+	private MasterWrapper.UsersWrapper usersWrapped;
 
 	/**
 	 * DataController's constructor. It needs a <i>Model</i> and a <i>View</i>.
@@ -45,8 +44,8 @@ public class DataController {
 	public DataController(final Model modIn, final View viewIn) {
 		mod = modIn;
 		view = viewIn;
-		channelsWrapped = null;// new MasterWrapper.ChannelsWrapper(mod.getChannels());
-		usersWrapped = null;// new MasterWrapper.UsersWrapper(mod.getUsers());
+		channelsWrapped = null;
+		usersWrapped = null;
 	}
 
 	/**

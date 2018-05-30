@@ -1,8 +1,11 @@
 package it.uniba.view;
 
+/**
+ * This class consist of methods for the all warnings' messages.
+ */
 public final class WarningMessage {
 	private WarningMessage() {
-		// nulla di importante
+		// This constructor is intentionally empty. Nothing special is needed here.
 	}
 
 	/**
@@ -74,6 +77,6 @@ public final class WarningMessage {
 		System.out.print("\t\t-m from <user> OR to <user> in <channel> ");
 		System.out.print("filters the mentioner or mentioned in the channel\n");
 		System.out.println("\t\t\t using -n show the n. mentions and must be placed at last");
-		System.out.println("\t\t\t (example:  -m <<from/to <user>> <in <channel>> <-n>");
+		System.out.println("\t\t\t (example:  -m <<from/to <user>> <in <channel>> <-n>)");
 	}
 }
