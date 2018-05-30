@@ -1,5 +1,5 @@
 package it.uniba.model;
-
+import it.uniba.controller.ExceptionsHandler;
 import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
 
@@ -14,8 +14,7 @@ import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
 
 /**
- * MentionGraph manage graph of mentions, it use <b>Guava</b> Libraries, an
- * libraries of Google
+ * MentionGraph manages the graph of mentions; It uses the <b>Guava</b> Library from Google
  */
 public class MentionGraph extends AbstractGraph {
 	/*
@@ -24,15 +23,15 @@ public class MentionGraph extends AbstractGraph {
 	private Model mod;
 
 	/*
-	 * Instance of <i>MutableValueGraph</i> type of <b>Guava</b> libraries witch
-	 * contains nodes(User) and Egde (Integer) weight base on numbers of mention
+	 * Instance of <i>MutableValueGraph</i> type from <b>Guava</b> library which
+	 * contains nodes (of User type) and Edge (Integer) representing the weight based on numbers of mentions
 	 * from a user
 	 */
 	private MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
 	// perchè non presentano la struttura del messaggio: "utente ---> @mention"
 	/*
-	 * Array of <i>String</i> contains all Slack's commands
+	 * Array of <i>String</i> containing all of Slack's commands
 	 */
 	private String[] commignore = { "has joined the channel", "set the channel purpose", "cleared channel topic",
 			"uploaded a file", "commented on", "was added to this conversation", "set the channel topic",
@@ -41,14 +40,14 @@ public class MentionGraph extends AbstractGraph {
 	// aggiornare lista comandi da ignorare {deleted} trovare riferimento ufficiale
 
 	/**
-	 * Default costructor of MentionGraph
+	 * Default constructor of MentionGraph
 	 */
 	public MentionGraph() {
 	}
 
 	/**
 	 * @param model
-	 *            <i>Model</i> witch contains Data such as <i>Users,Channel and
+	 *            <i>Model</i> which contains Data such as <i>Users,Channel and
 	 *            Messages</i>
 	 */
 	public MentionGraph(final Model model) {
@@ -92,6 +91,9 @@ public class MentionGraph extends AbstractGraph {
 		if (!mod.getMessages().isEmpty() && !mod.getUsers().isEmpty()) {
 			parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
 		}
+		else {
+			
+		}
 	}
 
 	/**
@@ -125,7 +127,7 @@ public class MentionGraph extends AbstractGraph {
 	}
 
 	/**
-	 * Find all mention in the message, identifies: the user write
+	 * Find all mentions in the message, identifies: the user write
 	 * mention(<i><b>From</b></i>), the user mentioned (<i><b>To</b></i>) and the
 	 * number of mentions
 	 * 
@@ -188,7 +190,7 @@ public class MentionGraph extends AbstractGraph {
 
 	// issue#39
 	/**
-	 * Find all edge in degree of specified user
+	 * Find all edges in degree of specified user
 	 * 
 	 * @param user
 	 *            <b>User</b>
@@ -217,7 +219,7 @@ public class MentionGraph extends AbstractGraph {
 
 	// issue37 && issue#38
 	/**
-	 * Find all edge out degree of specified user
+	 * Find all edges out degree of specified user
 	 * 
 	 * @param user
 	 *            <b>User</b>

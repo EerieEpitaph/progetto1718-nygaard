@@ -6,7 +6,7 @@ import it.uniba.workdata.User;
 
 /**
  * 
- * Abstract behavior of a generic Graph rappresent social network
+ * Abstract behavior of a generic Graph representing a social network
  */
 public abstract class AbstractGraph {
 
@@ -35,21 +35,21 @@ public abstract class AbstractGraph {
 	abstract boolean containsNode(User node);
 
 	/**
-	 * Abstrac function for finding all edge out degree of specified user
+	 * Abstract function for finding all edges out degree of specified user
 	 * 
 	 * @param node
 	 *            <i>User</i>
-	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
+	 * @return <i>ArrayList</i> of Edge containing (<i>From,To,Weight</i>) for each
 	 *         edge
 	 */
 	abstract ArrayList<Edge> edgesOutDegree(User node);
 
 	/**
-	 * Abstrac function for finding all edge in degree of specified user
+	 * Abstract function for finding all edges in degree of specified user
 	 * 
 	 * @param node
 	 *            <i>User</i>
-	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
+	 * @return <i>ArrayList</i> of Edge containing (<i>From,To,Weight</i>) for each
 	 *         edge
 	 */
 	abstract ArrayList<Edge> edgesInDegree(User node);
