@@ -1,5 +1,6 @@
 package it.uniba.model;
 
+import it.uniba.controller.ExceptionsHandler;
 import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
 
@@ -15,8 +16,8 @@ import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
 
 /**
- * MentionGraph manage graph of mentions, it use <b>Guava</b> Libraries, an
- * libraries of Google
+ * MentionGraph manages the graph of mentions; It uses the <b>Guava</b> Library
+ * from Google
  */
 public final class MentionGraph extends AbstractGraph {
 	/*
@@ -25,16 +26,17 @@ public final class MentionGraph extends AbstractGraph {
 	private Model mod;
 
 	/*
-	 * Instance of <i>MutableValueGraph</i> type of <b>Guava</b> libraries witch
-	 * contains nodes(User) and Egde (Integer) weight base on numbers of mention
-	 * from a user
+	 * Instance of <i>MutableValueGraph</i> type from <b>Guava</b> library which
+	 * contains nodes (of User type) and Edge (Integer) representing the weight
+	 * based on numbers of mentions from a user
 	 */
 	private final MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
 	// perchè non presentano la struttura del messaggio: "utente ---> @mention"
 	/*
-	 * Array of <i>String</i> contains all Slack's commands
+	 * Array of <i>String</i> containing all of Slack's commands
 	 */
+ 
 	private final String[] commignore = {"has joined the channel", "set the channel purpose", "cleared channel topic",
 			"uploaded a file", "commented on", "was added to this conversation", "set the channel topic",
 			"pinned a message to this channel", "pinned", "has renamed the channel", "un-archived the channel",
@@ -42,7 +44,7 @@ public final class MentionGraph extends AbstractGraph {
 	// aggiornare lista comandi da ignorare {deleted} trovare riferimento ufficiale
 
 	/**
-	 * Default costructor of MentionGraph
+	 * Default constructor of MentionGraph
 	 */
 	public MentionGraph() {
 		// This constructor is intentionally empty. Nothing special is needed here.
@@ -50,11 +52,20 @@ public final class MentionGraph extends AbstractGraph {
 
 	/**
 	 * @param model
-	 *            <i>Model</i> witch contains Data such as <i>Users,Channel and
+	 *            <i>Model</i> which contains Data such as <i>Users,Channel and
 	 *            Messages</i>
 	 */
 	public MentionGraph(final Model model) {
 		mod = model;
+	}
+
+	// java doc
+	public void setModel(final Model model) {
+		mod = model;
+	}
+
+	public Model getModel() {
+		return mod;
 	}
 
 	/**
@@ -64,7 +75,7 @@ public final class MentionGraph extends AbstractGraph {
 	 *            Slack's commands to ignore
 	 * @return <i>boolean</i> if commands is present in the current message
 	 */
-	public boolean containsItems(final String inputStr) {
+	boolean containsItems(final String inputStr) {
 		return Arrays.stream(commignore).parallel().anyMatch(inputStr::contains);
 	}
 
@@ -76,7 +87,11 @@ public final class MentionGraph extends AbstractGraph {
 	 * @return <i>boolean</i> if <b>Node</b> is present in the graph
 	 */
 	public boolean containsNode(final User node) {
-		return snagraph.nodes().contains(node);
+		if (node != null) {
+			return snagraph.nodes().contains(node);
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -84,10 +99,20 @@ public final class MentionGraph extends AbstractGraph {
 	 * 
 	 * @param inChannel
 	 *            <i>String</i> Parse message of a specified channel
+	 * @throws ExceptionsHandler
 	 * 
 	 */
-	public void generate(final String inChannel) {
-		parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
+	public void generate(final String inChannel) throws ExceptionsHandler { // aggiungere eccezione
+		if (mod == null) {
+			throw new ExceptionsHandler("Model vuoto!");
+		} else {
+			if (!mod.getMessages().isEmpty() && !mod.getUsers().isEmpty()) {
+				parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
+			} else {
+				throw new ExceptionsHandler("Messages or Users are empty");
+			}
+		}
+		// gestione mod null
 	}
 
 	/**
@@ -121,7 +146,7 @@ public final class MentionGraph extends AbstractGraph {
 	}
 
 	/**
-	 * Find all mention in the message, identifies: the user write
+	 * Find all mentions in the message, identifies: the user write
 	 * mention(<i><b>From</b></i>), the user mentioned (<i><b>To</b></i>) and the
 	 * number of mentions
 	 * 
@@ -181,13 +206,14 @@ public final class MentionGraph extends AbstractGraph {
 
 	// issue#39
 	/**
-	 * Find all edge in degree of specified user
+	 * Find all edges in degree of specified user
 	 * 
 	 * @param user
 	 *            <b>User</b>
 	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
 	 *         edge
 	 */
+ 
 	public Collection<Edge> edgesInDegree(final User user) {
 		final ArrayList<Edge> edges = new ArrayList<Edge>();
 		if ((snagraph.nodes().contains(user)) && (snagraph.inDegree(user) > 0)) {
@@ -213,7 +239,7 @@ public final class MentionGraph extends AbstractGraph {
 
 	// issue37 && issue#38
 	/**
-	 * Find all edge out degree of specified user
+	 * Find all edges out degree of specified user
 	 * 
 	 * @param user
 	 *            <b>User</b>
@@ -243,13 +269,7 @@ public final class MentionGraph extends AbstractGraph {
 						numNodesPrinted++;
 					}
 				}
-				// if (numNodesPrinted == 0) // eccezione: non ci sono mention nel channel
-				// specificato
-				// System.out.println("There aren't mention in the channel specified.");
-			} // else {
-				// eccezione : user non presente nel canale specificato
-				// System.out.println("The user specified doesn't belong to this channel.");
-				// }
+			}
 		}
 		return edges;
 	}

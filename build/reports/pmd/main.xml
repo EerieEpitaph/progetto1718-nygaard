@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-29T17:37:45.674">
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
+<pmd version="5.8.1" timestamp="2018-05-30T17:35:25.102">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/Controller.java">
 <violation beginline="61" endline="61" begincolumn="39" endcolumn="57" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\DataController.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/DataController.java">
 <violation beginline="23" endline="307" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller" class="DataController" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'DataController' has a Cyclomatic Complexity of 2 (Highest = 10).
 </violation>
@@ -43,7 +43,15 @@ Useless parentheses.
 Useless parentheses.
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandInterpreter.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/ExceptionsHandler.java">
+<violation beginline="5" endline="5" begincolumn="16" endcolumn="37" rule="UncommentedEmptyConstructor" ruleset="Design" package="it.uniba.controller" class="ExceptionsHandler" method="ExceptionsHandler" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UncommentedEmptyConstructor" priority="3">
+Document empty constructor
+</violation>
+<violation beginline="7" endline="7" begincolumn="34" endcolumn="47" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="ExceptionsHandler" method="ExceptionsHandler" variable="message" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'message' is not assigned and could be declared final
+</violation>
+</file>
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandInterpreter.java">
 <violation beginline="11" endline="77" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller.input" class="CommandInterpreter" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'CommandInterpreter' has a Cyclomatic Complexity of 16 (Highest = 15).
 </violation>
@@ -120,8 +128,8 @@ Potential violation of Law of Demeter (object not created locally)
 Potential violation of Law of Demeter (object not created locally)
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParser.java">
-<violation beginline="1" endline="458" begincolumn="1" endcolumn="3" rule="GodClass" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#GodClass" priority="3">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParser.java">
+<violation beginline="1" endline="458" begincolumn="1" endcolumn="2" rule="GodClass" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#GodClass" priority="3">
 Possible God class (WMC=71, ATFD=35, TCC=0.0033333333333333335)
 </violation>
 <violation beginline="15" endline="458" begincolumn="68" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
@@ -344,7 +352,7 @@ Potential violation of Law of Demeter (method chain calls)
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParserInterface.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParserInterface.java">
 <violation beginline="6" endline="118" begincolumn="41" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="CommandParserInterface" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
@@ -355,7 +363,7 @@ Avoid using short method names
 Avoid using short method names
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\main\AppMain.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/main/AppMain.java">
 <violation beginline="22" endline="64" begincolumn="14" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.main" class="AppMain" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'AppMain' has a Cyclomatic Complexity of 6 (Highest = 11).
 </violation>
@@ -387,7 +395,7 @@ Avoid catching generic exceptions such as NullPointerException, RuntimeException
 Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\Edge.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/Edge.java">
 <violation beginline="9" endline="104" begincolumn="14" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.model" class="Edge" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
 Avoid short class names like Edge
 </violation>
@@ -425,102 +433,114 @@ Useless parentheses.
 Useless parentheses.
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\MentionGraph.java">
-<violation beginline="21" endline="256" begincolumn="14" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.model" class="MentionGraph" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/MentionGraph.java">
+<violation beginline="22" endline="276" begincolumn="14" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.model" class="MentionGraph" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'MentionGraph' has a Cyclomatic Complexity of 4 (Highest = 11).
 </violation>
-<violation beginline="68" endline="68" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="79" endline="79" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="68" endline="68" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="79" endline="79" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="68" endline="68" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="79" endline="79" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="79" endline="79" begincolumn="24" endcolumn="54" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsNode" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="90" endline="94" begincolumn="17" endcolumn="17" rule="ConfusingTernary" ruleset="Design" package="it.uniba.model" class="MentionGraph" method="containsNode" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
+Avoid if (x != y) ..; else ..;
+</violation>
+<violation beginline="91" endline="91" begincolumn="32" endcolumn="62" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsNode" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="99" endline="99" begincolumn="24" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="isEmpty" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="109" endline="113" begincolumn="25" endcolumn="25" rule="ConfusingTernary" ruleset="Design" package="it.uniba.model" class="MentionGraph" method="generate" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
+Avoid if (x != y) ..; else ..;
+</violation>
+<violation beginline="109" endline="109" begincolumn="30" endcolumn="56" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="generate" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="133" endline="180" begincolumn="9" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
+<violation beginline="109" endline="109" begincolumn="62" endcolumn="85" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="generate" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="124" endline="124" begincolumn="24" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="isEmpty" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="158" endline="205" begincolumn="9" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The method 'parsing' has a Cyclomatic Complexity of 11.
 </violation>
-<violation beginline="135" endline="135" begincolumn="29" endcolumn="56" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="160" endline="160" begincolumn="29" endcolumn="56" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="147" endline="147" begincolumn="59" endcolumn="92" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="172" endline="172" begincolumn="59" endcolumn="92" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="147" endline="147" begincolumn="38" endcolumn="52" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="172" endline="172" begincolumn="38" endcolumn="52" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="151" endline="151" begincolumn="57" endcolumn="86" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="176" endline="176" begincolumn="57" endcolumn="86" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="152" endline="152" begincolumn="40" endcolumn="53" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="177" endline="177" begincolumn="40" endcolumn="53" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="153" endline="153" begincolumn="66" endcolumn="81" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="178" endline="178" begincolumn="66" endcolumn="81" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="154" endline="154" begincolumn="69" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="179" endline="179" begincolumn="69" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="154" endline="154" begincolumn="69" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="179" endline="179" begincolumn="69" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="154" endline="154" begincolumn="69" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="179" endline="179" begincolumn="69" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="159" endline="159" begincolumn="67" endcolumn="89" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="184" endline="184" begincolumn="67" endcolumn="89" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="159" endline="159" begincolumn="46" endcolumn="60" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="184" endline="184" begincolumn="46" endcolumn="60" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="160" endline="160" begincolumn="54" endcolumn="87" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="185" endline="185" begincolumn="54" endcolumn="87" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="169" endline="169" begincolumn="82" endcolumn="123" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="194" endline="194" begincolumn="82" endcolumn="123" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="193" endline="193" begincolumn="21" endcolumn="53" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="219" endline="219" begincolumn="21" endcolumn="53" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="193" endline="193" begincolumn="22" endcolumn="52" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="219" endline="219" begincolumn="22" endcolumn="52" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="193" endline="193" begincolumn="22" endcolumn="52" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="219" endline="219" begincolumn="22" endcolumn="52" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="193" endline="193" begincolumn="59" endcolumn="85" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="219" endline="219" begincolumn="59" endcolumn="85" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="203" endline="203" begincolumn="51" endcolumn="120" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+<violation beginline="229" endline="229" begincolumn="51" endcolumn="120" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
-<violation beginline="203" endline="203" begincolumn="82" endcolumn="119" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="229" endline="229" begincolumn="82" endcolumn="119" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="230" endline="230" begincolumn="59" endcolumn="138" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+<violation beginline="256" endline="256" begincolumn="59" endcolumn="138" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
-<violation beginline="230" endline="230" begincolumn="95" endcolumn="137" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="256" endline="256" begincolumn="95" endcolumn="137" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="239" endline="239" begincolumn="29" endcolumn="59" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="265" endline="265" begincolumn="29" endcolumn="59" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="242" endline="242" begincolumn="59" endcolumn="134" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+<violation beginline="268" endline="268" begincolumn="59" endcolumn="134" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
-<violation beginline="242" endline="242" begincolumn="93" endcolumn="133" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="268" endline="268" begincolumn="93" endcolumn="133" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\parsing\GsonReader.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/GsonReader.java">
 <violation beginline="69" endline="69" begincolumn="33" endcolumn="69" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.parsing" class="GsonReader" method="populateMessages" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
@@ -528,7 +548,7 @@ Potential violation of Law of Demeter (method chain calls)
 Avoid instantiating new objects inside loops
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\parsing\ZipParser.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/ZipParser.java">
 <violation beginline="108" endline="108" begincolumn="24" endcolumn="48" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.parsing" class="ZipParser" method="load" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
@@ -581,17 +601,17 @@ Potential violation of Law of Demeter (object not created locally)
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\view\MasterWrapper.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/view/MasterWrapper.java">
 <violation beginline="38" endline="38" begincolumn="33" endcolumn="56" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.view" class="MasterWrapper$EdgesWrapper" method="isEmpty" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\view\View.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/view/View.java">
 <violation beginline="17" endline="150" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.view" class="View" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
 Avoid short class names like View
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/User.java">
 <violation beginline="8" endline="193" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.workdata" class="User" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
 Avoid short class names like User
 </violation>

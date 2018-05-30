@@ -68,9 +68,9 @@ public class User {
 		 * @param displName
 		 *            displayed name
 		 */
-<span class="nc" id="L71">		public Profile(final String displName) {</span>
-<span class="nc" id="L72">			displayNameNorm = displName;</span>
-<span class="nc" id="L73">		}</span>
+<span class="fc" id="L71">		public Profile(final String displName) {</span>
+<span class="fc" id="L72">			displayNameNorm = displName;</span>
+<span class="fc" id="L73">		}</span>
 
 		/**
 		 * Returns the display name.
@@ -128,8 +128,8 @@ public class User {
 	 */
 	@Override
 	public boolean equals(final Object obj) {
-<span class="pc bpc" id="L131" title="1 of 2 branches missed.">		if (!(obj instanceof User)) {</span>
-<span class="nc" id="L132">			return false;</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">		if (!(obj instanceof User)) {</span>
+<span class="fc" id="L132">			return false;</span>
 		}
 
 <span class="fc" id="L135">		final User tempUser = new User(((User) obj));</span>

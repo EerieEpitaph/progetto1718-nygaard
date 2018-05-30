@@ -13,7 +13,7 @@ import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
 
 /**
- * &lt;i&gt;Model&lt;/i&gt; storage and manipulate Data
+ * &lt;i&gt;Model&lt;/i&gt;: Data storage and manipulation
  */
 
 public class Model {
@@ -42,7 +42,7 @@ public class Model {
 <span class="fc" id="L42">	private final ZipParser fileParser = new ZipParser();</span>
 
 	/**
-	 * Load all data of Model from procedure load of class ZipParser
+	 * Load all of the Model data by calling the load procedure from the ZipParser class
 	 * 
 	 * @param path
 	 *            &lt;i&gt;String&lt;/i&gt; Path of Zipfile
@@ -62,7 +62,7 @@ public class Model {
 <span class="fc" id="L62">	}</span>
 
 	/**
-	 * Check if fileParser has load data from zip file
+	 * Check if fileParser has loaded data from the zip file
 	 * 
 	 * @return &lt;i&gt;boolean&lt;/i&gt; if fileParser has load data from zip file
 	 */
@@ -115,7 +115,7 @@ public class Model {
 
 	/**
 	 * 
-	 * @return &lt;i&gt;HashMap&lt;/i&gt; of all messagges
+	 * @return &lt;i&gt;HashMap&lt;/i&gt; of all messages
 	 */
 	public Map&lt;String, ArrayList&lt;Message&gt;&gt; getMessages() {
 <span class="fc" id="L121">		return messages;</span>
@@ -123,7 +123,7 @@ public class Model {
 
 	/**
 	 * 
-	 * @return &lt;i&gt;MentionGraph&lt;/i&gt; an instance of MentionGraph witch contains all
+	 * @return &lt;i&gt;MentionGraph&lt;/i&gt; an instance of MentionGraph which contains all
 	 *         mentions
 	 */
 	public MentionGraph getMentionGraph() {
