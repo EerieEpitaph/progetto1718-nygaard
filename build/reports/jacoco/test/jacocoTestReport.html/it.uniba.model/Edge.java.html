@@ -3,8 +3,8 @@
 import it.uniba.workdata.User;
 
 /**
- * Rappresent a generic Edge composed of a user write mention (&lt;i&gt;From&lt;/i&gt;),
- * user mentioned (&lt;i&gt;To&lt;/i&gt;) and numbers of mention (&lt;i&gt;weight&lt;/i&gt;)
+ * Represents a generic Edge composed of a user write mention (&lt;i&gt;From&lt;/i&gt;),
+ * user mentioned (&lt;i&gt;To&lt;/i&gt;) and numbers of mentions (&lt;i&gt;weight&lt;/i&gt;)
  */
 public final class Edge {
 	/*
@@ -16,12 +16,12 @@ public final class Edge {
 	 */
 	private final User to;
 	/*
-	 * numbers of mention of user
+	 * numbers of user mentions
 	 */
 	private float weight;
 
 	/**
-	 * Costructor of Edge
+	 * Constructor of Edge
 	 * 
 	 * @param fromIn
 	 *            &lt;b&gt;User&lt;/b&gt; user write mention
@@ -60,13 +60,13 @@ public final class Edge {
 	}
 
 	/**
-	 * Change current weight of Edge
+	 * Change current weight of the Edge
 	 * 
-	 * @param newWeigth
+	 * @param newWeight
 	 *            &lt;i&gt;float&lt;/i&gt; is the new weight
 	 */
-	public void changeWeigth(final float newWeigth) {
-<span class="nc" id="L69">		weight = newWeigth;</span>
+	public void changeWeight(final float newWeight) {
+<span class="nc" id="L69">		weight = newWeight;</span>
 <span class="nc" id="L70">	}</span>
 
 	// Se ci sono problemi
@@ -76,12 +76,12 @@ public final class Edge {
 	}
 
 	/**
-	 * Ovverride of Equal now two edge are equal if they have same user _from and
-	 * same user _to
+	 * Override of the &lt;i&gt;equals&lt;/i&gt; method; Two edges are equal if they have same &lt;i&gt;_from&lt;/i&gt; and
+	 * &lt;i&gt;_to&lt;/i&gt; user
 	 * 
 	 * @param obj
-	 *            &lt;b&gt;Edge&lt;/b&gt; to analyze
-	 * @return &lt;i&gt;boolean&lt;i&gt; if two edge are equal
+	 *            &lt;b&gt;Edge&lt;/b&gt; to compare
+	 * @return a &lt;i&gt;boolean&lt;i&gt; value indicating if the two edges are equal
 	 */
 	@Override
 	public boolean equals(final Object obj) {
