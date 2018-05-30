@@ -2,9 +2,12 @@ package it.uniba.controller;
 
 import it.uniba.view.View;
 import it.uniba.view.WarningMessage;
-import it.uniba.view.MasterWrapper;
 
 import it.uniba.workdata.User;
+
+import it.uniba.wrapping.EdgesWrapper;
+import it.uniba.wrapping.UsersWrapper;
+import it.uniba.wrapping.ChannelsWrapper;
 
 import it.uniba.model.Model;
 
@@ -30,8 +33,8 @@ public class DataController {
 	 */
 	private final View view;
 
-	private MasterWrapper.ChannelsWrapper channelsWrapped;
-	private MasterWrapper.UsersWrapper usersWrapped;
+	private ChannelsWrapper channelsWrapped;
+	private UsersWrapper usersWrapped;
 
 	/**
 	 * DataController's constructor. It needs a <i>Model</i> and a <i>View</i>.
@@ -60,8 +63,8 @@ public class DataController {
 	 */
 	public void updateModel(final String path) throws ZipException, IOException {
 		mod.updateModel(path);
-		channelsWrapped = new MasterWrapper.ChannelsWrapper(mod.getChannels());
-		usersWrapped = new MasterWrapper.UsersWrapper(mod.getUsers());
+		channelsWrapped = new ChannelsWrapper(mod.getChannels());
+		usersWrapped = new UsersWrapper(mod.getUsers());
 
 	}
 
@@ -120,13 +123,13 @@ public class DataController {
 	 *            <i>boolean</i> indicate if to show the weight
 	 */
 	public void printAllMention(final String inChannel, final boolean weight) {
-		MasterWrapper.EdgesWrapper edgesW;
+		EdgesWrapper edgesW;
 		if (inChannel == null || "".equals(inChannel)) {
-			edgesW = new MasterWrapper.EdgesWrapper(mod.getEdgesOutDegree(null, inChannel));
+			edgesW = new EdgesWrapper(mod.getEdgesOutDegree(null, inChannel));
 			view.printMention(edgesW, weight);
 		} else { // validazione canale -m in _inChannel
 			if (mod.containsChannel(inChannel)) {
-				edgesW = new MasterWrapper.EdgesWrapper(mod.getEdgesOutDegree(null, inChannel));
+				edgesW = new EdgesWrapper(mod.getEdgesOutDegree(null, inChannel));
 				view.printMention(edgesW, weight);
 			} else {
 				WarningMessage.missingChannel(inChannel);
@@ -161,7 +164,7 @@ public class DataController {
 					} else {
 						edgesneeded = mod.getEdgesInDegree(userToPrint, inChannel);
 					}
-					final MasterWrapper.EdgesWrapper edgesW = new MasterWrapper.EdgesWrapper(edgesneeded);
+					final EdgesWrapper edgesW = new EdgesWrapper(edgesneeded);
 					view.printMention(edgesW, weight);
 				}
 			} else {
