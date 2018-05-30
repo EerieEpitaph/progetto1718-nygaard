@@ -131,15 +131,11 @@ public class Model {
 	/**
 	 * Returns an instance of &lt;i&gt;MentionGraph&lt;/i&gt; which contains all mentions.
 	 * 
-<<<<<<< HEAD
-	 * @return &lt;i&gt;MentionGraph&lt;/i&gt;
-=======
 	 * @return &lt;i&gt;MentionGraph&lt;/i&gt; an instance of MentionGraph which contains all
 	 *         mentions
->>>>>>> master
 	 */
 	public MentionGraph getMentionGraph() {
-<span class="fc" id="L137">		return snagraph;</span>
+<span class="fc" id="L138">		return snagraph;</span>
 	}
 
 	/**
@@ -153,10 +149,10 @@ public class Model {
 	 * @return &lt;i&gt;Collection&lt;/i&gt; of Edges
 	 */
 	public Collection&lt;Edge&gt; getEdgesInDegree(final User userMention, final String inChannel) {
-<span class="fc bfc" id="L151" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
-<span class="fc" id="L152">			snagraph.parseMessages(messages, users, inChannel);</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
+<span class="fc" id="L153">			snagraph.parseMessages(messages, users, inChannel);</span>
 		}
-<span class="fc" id="L154">		return snagraph.edgesInDegree(userMention);</span>
+<span class="fc" id="L155">		return snagraph.edgesInDegree(userMention);</span>
 	}
 
 	/**
@@ -170,10 +166,10 @@ public class Model {
 	 * @return &lt;i&gt;Collection&lt;/i&gt; of Edges
 	 */
 	public Collection&lt;Edge&gt; getEdgesOutDegree(final User userMention, final String inChannel) {
-<span class="fc bfc" id="L168" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
-<span class="fc" id="L169">			snagraph.parseMessages(messages, users, inChannel);</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
+<span class="fc" id="L170">			snagraph.parseMessages(messages, users, inChannel);</span>
 		}
-<span class="fc" id="L171">		return snagraph.edgesOutDegree(userMention);</span>
+<span class="fc" id="L172">		return snagraph.edgesOutDegree(userMention);</span>
 	}
 
 	/**
@@ -186,7 +182,7 @@ public class Model {
 	 * 
 	 */
 	public boolean containsChannel(final String channel) {
-<span class="fc" id="L184">		return channels.containsKey(channel);</span>
+<span class="fc" id="L185">		return channels.containsKey(channel);</span>
 	}
 
 	/**
@@ -199,7 +195,7 @@ public class Model {
 	 * 
 	 */
 	public boolean containsUser(final String user) {
-<span class="fc" id="L197">		return users.containsKey(user);</span>
+<span class="fc" id="L198">		return users.containsKey(user);</span>
 	}
 
 	/**
@@ -211,7 +207,7 @@ public class Model {
 	 * 
 	 */
 	public User getUser(final String user) {
-<span class="fc" id="L209">		return users.get(user);</span>
+<span class="fc" id="L210">		return users.get(user);</span>
 	}
 
 	/**
@@ -223,7 +219,7 @@ public class Model {
 	 * 
 	 */
 	public Channel getChannel(final String channel) {
-<span class="nc" id="L221">		return channels.get(channel);</span>
+<span class="nc" id="L222">		return channels.get(channel);</span>
 	}
 
 }

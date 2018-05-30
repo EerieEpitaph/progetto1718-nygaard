@@ -32,11 +32,11 @@ public final class MentionGraph extends AbstractGraph {
 	 */
 <span class="fc" id="L33">	private final MutableValueGraph&lt;User, Integer&gt; snagraph = ValueGraphBuilder.directed().build();</span>
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
-	// perchè non presentano la struttura del messaggio: &quot;utente ---&gt; @mention&quot;
+	// perchÃ¨ non presentano la struttura del messaggio: &quot;utente ---&gt; @mention&quot;
 	/*
 	 * Array of &lt;i&gt;String&lt;/i&gt; containing all of Slack's commands
 	 */
- 
+
 <span class="fc" id="L40">	private final String[] commignore = {&quot;has joined the channel&quot;, &quot;set the channel purpose&quot;, &quot;cleared channel topic&quot;,</span>
 			&quot;uploaded a file&quot;, &quot;commented on&quot;, &quot;was added to this conversation&quot;, &quot;set the channel topic&quot;,
 			&quot;pinned a message to this channel&quot;, &quot;pinned&quot;, &quot;has renamed the channel&quot;, &quot;un-archived the channel&quot;,
@@ -167,8 +167,8 @@ public final class MentionGraph extends AbstractGraph {
 				// System.out.println(&quot;\t\t Scritto da: &quot; + msg.getUser() + &quot;\n #############
 				// \n\n&quot;);
 <span class="fc" id="L169">				final User utenteu = users.get(msg.getUser());</span>
-				// Prima di inserire un nuovo utente p avviene un controllo se è nullo o se
-				// esiste già nel grafo
+				// Prima di inserire un nuovo utente p avviene un controllo se Ã¨ nullo o se
+				// esiste giÃ  nel grafo
 <span class="pc bpc" id="L172" title="1 of 4 branches missed.">				if ((utenteu != null) &amp;&amp; !snagraph.nodes().contains(utenteu)) {</span>
 <span class="fc" id="L173">					snagraph.addNode(utenteu);</span>
 				}
@@ -179,8 +179,8 @@ public final class MentionGraph extends AbstractGraph {
 <span class="fc" id="L179">					final String filterstring = dataparse.replaceAll(&quot;&lt;@&quot;, &quot; &quot;).replaceAll(&quot;&gt;&quot;, &quot;&quot;).trim();</span>
 					// pulisco dai tag l'id e lo cerco tra gli users memorizzati
 <span class="fc" id="L181">					final User utentev = users.get(filterstring);</span>
-					// Prima di inserire un nuovo utente q avviene un controllo se è nullo o se
-					// esiste già nel grafo
+					// Prima di inserire un nuovo utente q avviene un controllo se Ã¨ nullo o se
+					// esiste giÃ  nel grafo
 <span class="pc bpc" id="L184" title="2 of 4 branches missed.">					if ((utentev != null) &amp;&amp; !utentev.equals(utenteu)) {</span>
 <span class="fc bfc" id="L185" title="All 2 branches covered.">						if (!snagraph.nodes().contains(utentev)) {</span>
 <span class="fc" id="L186">							snagraph.addNode(utentev);</span>
@@ -213,7 +213,7 @@ public final class MentionGraph extends AbstractGraph {
 	 * @return &lt;i&gt;ArrayList&lt;/i&gt; of Edge contains (&lt;i&gt;From,To,Weight&lt;/i&gt;) for each
 	 *         edge
 	 */
- 
+
 	public Collection&lt;Edge&gt; edgesInDegree(final User user) {
 <span class="fc" id="L218">		final ArrayList&lt;Edge&gt; edges = new ArrayList&lt;Edge&gt;();</span>
 <span class="pc bpc" id="L219" title="2 of 4 branches missed.">		if ((snagraph.nodes().contains(user)) &amp;&amp; (snagraph.inDegree(user) &gt; 0)) {</span>
@@ -249,7 +249,7 @@ public final class MentionGraph extends AbstractGraph {
 	public Collection&lt;Edge&gt; edgesOutDegree(final User user) {
 <span class="fc" id="L250">		final ArrayList&lt;Edge&gt; edges = new ArrayList&lt;Edge&gt;();</span>
 <span class="fc" id="L251">		int numNodesPrinted = 0;</span>
-<span class="fc bfc" id="L252" title="All 2 branches covered.">		if (user == null) { // se non � speficato restituisce tutti gli archi</span>
+<span class="fc bfc" id="L252" title="All 2 branches covered.">		if (user == null) { // se non ï¿½ speficato restituisce tutti gli archi</span>
 <span class="fc bfc" id="L253" title="All 2 branches covered.">			for (final User usNode : snagraph.nodes()) {</span>
 <span class="fc bfc" id="L254" title="All 2 branches covered.">				for (final User adiacenti : snagraph.adjacentNodes(usNode)) {</span>
 <span class="fc bfc" id="L255" title="All 2 branches covered.">					if (snagraph.hasEdgeConnecting(usNode, adiacenti)) {</span>
