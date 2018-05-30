@@ -3,13 +3,14 @@
 //import java.util.ArrayList;
 import java.util.Collection;
 
+import it.uniba.controller.ExceptionsHandler;
 import it.uniba.workdata.User;
 
 /**
  * 
- * Abstract behavior of a generic Graph rappresent social network
+ * Abstract behavior of a generic Graph representing a social network
  */
-<span class="fc" id="L12">public abstract class AbstractGraph {</span>
+<span class="fc" id="L13">public abstract class AbstractGraph {</span>
 
 	/**
 	 * Generate a graph of mentions starting with an specified Channel
@@ -17,7 +18,7 @@ import it.uniba.workdata.User;
 	 * @param inChannel
 	 *            &lt;i&gt;String&lt;/i&gt; specified channel to parse
 	 */
-	abstract void generate(String inChannel);
+	abstract void generate(String inChannel) throws ExceptionsHandler;
 
 	/**
 	 * Check if the graph is Empty
@@ -36,21 +37,21 @@ import it.uniba.workdata.User;
 	abstract boolean containsNode(User node);
 
 	/**
-	 * Abstrac function for finding all edge out degree of specified user
+	 * Abstract function for finding all edges out degree of specified user
 	 * 
 	 * @param node
 	 *            &lt;i&gt;User&lt;/i&gt;
-	 * @return &lt;i&gt;Arraylist&lt;/i&gt; of Edge contains (&lt;i&gt;From,To,Weight&lt;/i&gt;) for each
+	 * @return &lt;i&gt;ArrayList&lt;/i&gt; of Edge containing (&lt;i&gt;From,To,Weight&lt;/i&gt;) for each
 	 *         edge
 	 */
 	abstract Collection&lt;Edge&gt; edgesOutDegree(User node);
 
 	/**
-	 * Abstrac function for finding all edge in degree of specified user
+	 * Abstract function for finding all edges in degree of specified user
 	 * 
 	 * @param node
 	 *            &lt;i&gt;User&lt;/i&gt;
-	 * @return &lt;i&gt;Arraylist&lt;/i&gt; of Edge contains (&lt;i&gt;From,To,Weight&lt;/i&gt;) for each
+	 * @return &lt;i&gt;ArrayList&lt;/i&gt; of Edge containing (&lt;i&gt;From,To,Weight&lt;/i&gt;) for each
 	 *         edge
 	 */
 	abstract Collection&lt;Edge&gt; edgesInDegree(User node);

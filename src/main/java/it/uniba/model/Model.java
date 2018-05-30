@@ -13,7 +13,7 @@ import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
 
 /**
- * <i>Model</i> storage and manipulate Data
+ * <i>Model</i>: Data storage and manipulation
  */
 public class Model {
 	// WorkData
@@ -41,7 +41,7 @@ public class Model {
 	private final ZipParser fileParser = new ZipParser();
 
 	/**
-	 * Load all data of Model from procedure load of class ZipParser
+	 * Load all of the Model data by calling the load procedure from the ZipParser class
 	 * 
 	 * @param path
 	 *            <i>String</i> Path of Zipfile
@@ -61,7 +61,7 @@ public class Model {
 	}
 
 	/**
-	 * Check if fileParser has load data from zip file
+	 * Check if fileParser has loaded data from the zip file
 	 * 
 	 * @return <i>boolean</i> if fileParser has load data from zip file
 	 */
@@ -131,7 +131,8 @@ public class Model {
 	/**
 	 * Returns an instance of <i>MentionGraph</i> which contains all mentions.
 	 * 
-	 * @return <i>MentionGraph</i>
+	 * @return <i>MentionGraph</i> an instance of MentionGraph which contains all
+	 *         mentions
 	 */
 	public MentionGraph getMentionGraph() {
 		return snagraph;

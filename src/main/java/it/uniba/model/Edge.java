@@ -3,8 +3,8 @@ package it.uniba.model;
 import it.uniba.workdata.User;
 
 /**
- * Rappresent a generic Edge composed of a user write mention (<i>From</i>),
- * user mentioned (<i>To</i>) and numbers of mention (<i>weight</i>)
+ * Represents a generic Edge composed of a user write mention (<i>From</i>),
+ * user mentioned (<i>To</i>) and numbers of mentions (<i>weight</i>)
  */
 public final class Edge {
 	/*
@@ -16,12 +16,12 @@ public final class Edge {
 	 */
 	private final User userTo;
 	/*
-	 * numbers of mention of user
+	 * numbers of user mentions
 	 */
 	private float weight;
 
 	/**
-	 * Costrunctor of Edge
+	 * Constructor of Edge
 	 * 
 	 * @param fromIn
 	 *            <b>User</b> user write mention
@@ -78,13 +78,13 @@ public final class Edge {
 	}
 
 	/**
-	 * Change current weight of Edge
+	 * Change current weight of the Edge
 	 * 
-	 * @param newWeigth
+	 * @param newWeight
 	 *            <i>float</i> is the new weight
 	 */
-	public void changeWeigth(final float newWeigth) {
-		weight = newWeigth;
+	public void changeWeight(final float newWeight) {
+		weight = newWeight;
 	}
 
 	// Se ci sono problemi
@@ -94,12 +94,12 @@ public final class Edge {
 	}
 
 	/**
-	 * Ovverride of Equal now two edge are equal if they have same user _from and
-	 * same user _to
+	 * Override of the <i>equals</i> method; Two edges are equal if they have same <i>_from</i> and
+	 * <i>_to</i> user
 	 * 
 	 * @param obj
-	 *            <b>Edge</b> to analyze
-	 * @return <i>boolean<i> if two edge are equal
+	 *            <b>Edge</b> to compare
+	 * @return a <i>boolean<i> value indicating if the two edges are equal
 	 */
 	@Override
 	public boolean equals(final Object obj) {
