@@ -26,7 +26,7 @@ public final class Channel {
 	/**
 	 * Members of the channel listed by their user identifier.
 	 */
-<span class="nc" id="L29">	private List&lt;String&gt; members = new LinkedList&lt;String&gt;();</span>
+<span class="fc" id="L29">	private List&lt;String&gt; members = new LinkedList&lt;String&gt;();</span>
 
 	/**
 	 * Channel identfier as found in channels.json.
@@ -42,20 +42,20 @@ public final class Channel {
 	 * @param name2 channel name
 	 */
 	public Channel(final String id2, final Long created2, final String creator2, final List&lt;String&gt; members2,
-<span class="nc" id="L45">			final String name2) {</span>
-<span class="nc" id="L46">		this.id = id2;</span>
-<span class="nc" id="L47">		this.created = created2;</span>
-<span class="nc" id="L48">		this.creator = creator2;</span>
-<span class="nc" id="L49">		this.members = members2;</span>
-<span class="nc" id="L50">		this.name = name2;</span>
-<span class="nc" id="L51">	}</span>
+<span class="fc" id="L45">			final String name2) {</span>
+<span class="fc" id="L46">		this.id = id2;</span>
+<span class="fc" id="L47">		this.created = created2;</span>
+<span class="fc" id="L48">		this.creator = creator2;</span>
+<span class="fc" id="L49">		this.members = members2;</span>
+<span class="fc" id="L50">		this.name = name2;</span>
+<span class="fc" id="L51">	}</span>
 
 	/**
 	 * Returns the channel ID as String.
 	 * @return ID as String
 	 */
 	public String getId() {
-<span class="nc" id="L58">		return id;</span>
+<span class="fc" id="L58">		return id;</span>
 	}
 
 	/**
@@ -79,7 +79,7 @@ public final class Channel {
 	 * @return timestamp as Long
 	 */
 	public Long getDateCreation() {
-<span class="nc" id="L82">		return created;</span>
+<span class="fc" id="L82">		return created;</span>
 	}
 
 	/**
@@ -87,7 +87,7 @@ public final class Channel {
 	 * @return founder's ID as String
 	 */
 	public String getCreator() {
-<span class="nc" id="L90">		return creator;</span>
+<span class="fc" id="L90">		return creator;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

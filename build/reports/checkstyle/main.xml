@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/Controller.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/DataController.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\DataController.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/ExceptionsHandler.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\ExceptionsHandler.java">
 <error line="3" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="5" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
@@ -17,19 +17,19 @@
 <error line="8" column="5" severity="error" message="&apos;{&apos; at column 2 should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
 <error line="10" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandInterpreter.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandInterpreter.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParser.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParser.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParserInterface.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParserInterface.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/main/AppMain.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\main\AppMain.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/AbstractGraph.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\model\AbstractGraph.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/Edge.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\model\Edge.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/MentionGraph.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\model\MentionGraph.java">
 <error line="38" column="36" severity="error" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
 <error line="60" column="5" severity="error" message="Class &apos;MentionGraph&apos; looks like designed for extension (can be subclassed), but the method &apos;setModel&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;MentionGraph&apos; final or making the method &apos;setModel&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 <error line="60" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
@@ -37,20 +37,20 @@
 <error line="64" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="102" column="57" severity="error" message="Expected @throws tag for &apos;ExceptionsHandler&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/Model.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\model\Model.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/GsonReader.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\parsing\GsonReader.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/JsonParserInterface.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\parsing\JsonParserInterface.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/ZipParser.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\parsing\ZipParser.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/view/View.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\view\View.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/Channel.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Channel.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/Message.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Message.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/User.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
 </file>
 </checkstyle>

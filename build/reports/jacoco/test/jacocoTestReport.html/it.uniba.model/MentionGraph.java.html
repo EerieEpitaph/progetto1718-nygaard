@@ -31,7 +31,7 @@ public class MentionGraph extends AbstractGraph {
 	 */
 <span class="fc" id="L32">	private MutableValueGraph&lt;User, Integer&gt; snagraph = ValueGraphBuilder.directed().build();</span>
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
-	// perchè non presentano la struttura del messaggio: &quot;utente ---&gt; @mention&quot;
+	// perchÃ¨ non presentano la struttura del messaggio: &quot;utente ---&gt; @mention&quot;
 	/*
 	 * Array of &lt;i&gt;String&lt;/i&gt; containing all of Slack's commands
 	 */
@@ -164,8 +164,8 @@ public class MentionGraph extends AbstractGraph {
 				// System.out.println(&quot;\t\t Scritto da: &quot; + msg.getUser() + &quot;\n #############
 				// \n\n&quot;);
 <span class="fc" id="L166">				User utenteu = users.get(msg.getUser());</span>
-				// Prima di inserire un nuovo utente p avviene un controllo se è nullo o se
-				// esiste già nel grafo
+				// Prima di inserire un nuovo utente p avviene un controllo se Ã¨ nullo o se
+				// esiste giÃ  nel grafo
 <span class="pc bpc" id="L169" title="1 of 4 branches missed.">				if ((utenteu != null) &amp;&amp; !snagraph.nodes().contains(utenteu)) {</span>
 <span class="fc" id="L170">					snagraph.addNode(utenteu);</span>
 				}
@@ -179,8 +179,8 @@ public class MentionGraph extends AbstractGraph {
 																										// user
 																										// memorizzati
 <span class="fc" id="L181">					User utentev = users.get(filterstring);</span>
-					// Prima di inserire un nuovo utente q avviene un controllo se è nullo o se
-					// esiste già nel grafo
+					// Prima di inserire un nuovo utente q avviene un controllo se Ã¨ nullo o se
+					// esiste giÃ  nel grafo
 <span class="pc bpc" id="L184" title="2 of 4 branches missed.">					if ((utentev != null) &amp;&amp; !utentev.equals(utenteu)) {</span>
 <span class="fc bfc" id="L185" title="All 2 branches covered.">						if (!snagraph.nodes().contains(utentev)) {</span>
 <span class="fc" id="L186">							snagraph.addNode(utentev);</span>
@@ -245,7 +245,7 @@ public class MentionGraph extends AbstractGraph {
 	public ArrayList&lt;Edge&gt; edgesOutDegree(final User user) {
 <span class="fc" id="L246">		ArrayList&lt;Edge&gt; edges = new ArrayList&lt;Edge&gt;();</span>
 <span class="fc" id="L247">		int numNodesPrinted = 0;</span>
-<span class="fc bfc" id="L248" title="All 2 branches covered.">		if (user == null) { // se non � speficato restituisce tutti gli archi</span>
+<span class="fc bfc" id="L248" title="All 2 branches covered.">		if (user == null) { // se non ï¿½ speficato restituisce tutti gli archi</span>
 <span class="fc bfc" id="L249" title="All 2 branches covered.">			for (User x : snagraph.nodes()) {</span>
 <span class="fc bfc" id="L250" title="All 2 branches covered.">				for (User adiacenti : snagraph.adjacentNodes(x)) {</span>
 <span class="fc bfc" id="L251" title="All 2 branches covered.">					if (snagraph.hasEdgeConnecting(x, adiacenti)) {</span>
