@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-30T16:46:56.572">
+<pmd version="5.8.1" timestamp="2018-05-30T18:25:34.646">
 <file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="61" endline="61" begincolumn="39" endcolumn="57" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
@@ -592,12 +592,12 @@ Avoid short class names like User
 </violation>
 </file>
 <file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\wrapping\ChannelsWrapper.java">
-<violation beginline="10" endline="10" begincolumn="38" endcolumn="45" rule="ImmutableField" ruleset="Design" package="it.uniba.wrapping" class="ChannelsWrapper" variable="channels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+<violation beginline="14" endline="14" begincolumn="38" endcolumn="45" rule="ImmutableField" ruleset="Design" package="it.uniba.wrapping" class="ChannelsWrapper" variable="channels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'channels' could be made final; it is only initialized in the declaration or constructor.
 </violation>
 </file>
 <file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\wrapping\EdgesWrapper.java">
-<violation beginline="34" endline="34" begincolumn="25" endcolumn="48" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.wrapping" class="EdgesWrapper" method="isEmpty" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="71" endline="71" begincolumn="25" endcolumn="48" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.wrapping" class="EdgesWrapper" method="isEmpty" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
 </file>

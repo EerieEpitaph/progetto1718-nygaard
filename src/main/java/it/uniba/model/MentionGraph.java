@@ -185,7 +185,7 @@ public final class MentionGraph extends AbstractGraph {
 	 * 
 	 * @param user
 	 *            <b>User</b>
-	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
+	 * @return <i>ArrayList</i> of Edge contains (<i>From,To,Weight</i>) for each
 	 *         edge
 	 */
 	public Collection<Edge> edgesInDegree(final User user) {
@@ -217,7 +217,7 @@ public final class MentionGraph extends AbstractGraph {
 	 * 
 	 * @param user
 	 *            <b>User</b>
-	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
+	 * @return <i>ArrayList</i> of Edge contains (<i>From,To,Weight</i>) for each
 	 *         edge
 	 */
 	public Collection<Edge> edgesOutDegree(final User user) {
