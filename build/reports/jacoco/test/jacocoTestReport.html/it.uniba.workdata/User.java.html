@@ -10,7 +10,8 @@ public class User {
 	/*
 	 * User's id.
 	 */
-	private String id;
+	@SerializedName(value = &quot;id&quot;)
+	private String idUser;
 
 	/*
 	 * Id of the user's team.
@@ -36,14 +37,30 @@ public class User {
 	private final Profile profile;
 
 	/**
+	 * User's constructor.
+	 */
+<span class="fc" id="L42">	public User() {</span>
+<span class="fc" id="L43">		profile = new Profile();</span>
+		// This constructor is intentionally empty. Nothing special is needed here.
+<span class="fc" id="L45">	}</span>
+
+	/**
 	 * This class models a Profile, which is a sub-object inside a json User.
 	 */
 	public static final class Profile {
+
 		/*
 		 * As found on the .json profile.
 		 */
 		@SerializedName(value = &quot;display_name_normalized&quot;)
-		private final String displayNameNormalized;
+		private final String displayNameNorm;
+
+		/**
+		 * Profile's constructor.
+		 */
+<span class="fc" id="L61">		public Profile() {</span>
+<span class="fc" id="L62">			displayNameNorm = &quot;&quot;;</span>
+<span class="fc" id="L63">		}</span>
 
 		/**
 		 * Constructor for a new Profile.
@@ -51,9 +68,9 @@ public class User {
 		 * @param displName
 		 *            displayed name
 		 */
-<span class="fc" id="L54">		public Profile(final String displName) {</span>
-<span class="fc" id="L55">			displayNameNormalized = displName;</span>
-<span class="fc" id="L56">		}</span>
+<span class="fc" id="L71">		public Profile(final String displName) {</span>
+<span class="fc" id="L72">			displayNameNorm = displName;</span>
+<span class="fc" id="L73">		}</span>
 
 		/**
 		 * Returns the display name.
@@ -61,7 +78,7 @@ public class User {
 		 * @return display name
 		 */
 		public String getDisplayNameNorm() {
-<span class="fc" id="L64">			return displayNameNormalized;</span>
+<span class="fc" id="L81">			return displayNameNorm;</span>
 		}
 	}
 
@@ -80,13 +97,13 @@ public class User {
 	 *            User profile
 	 */
 	public User(final String id2, final String teams2, final String name2, final String realName2,
-<span class="fc" id="L83">			final Profile profile2) {</span>
-<span class="fc" id="L84">		id = id2;</span>
-<span class="fc" id="L85">		name = name2;</span>
-<span class="fc" id="L86">		realName = realName2;</span>
-<span class="fc" id="L87">		teamId = teams2;</span>
-<span class="fc" id="L88">		profile = profile2;</span>
-<span class="fc" id="L89">	}</span>
+<span class="fc" id="L100">			final Profile profile2) {</span>
+<span class="fc" id="L101">		idUser = id2;</span>
+<span class="fc" id="L102">		name = name2;</span>
+<span class="fc" id="L103">		realName = realName2;</span>
+<span class="fc" id="L104">		teamId = teams2;</span>
+<span class="fc" id="L105">		profile = profile2;</span>
+<span class="fc" id="L106">	}</span>
 
 	/**
 	 * User's constructor.
@@ -95,15 +112,15 @@ public class User {
 	 *            user to copy
 	 */
 	public User(final User user) {
-<span class="fc" id="L98">		this(user.getId(), user.getTeamId(), user.getName(), user.getRealName(), user.getProfile());</span>
-<span class="fc" id="L99">	}</span>
+<span class="fc" id="L115">		this(user.getId(), user.getTeamId(), user.getName(), user.getRealName(), user.getProfile());</span>
+<span class="fc" id="L116">	}</span>
 
 	/**
 	 * HashCode overriding.
 	 */
 	@Override
 	public int hashCode() {
-<span class="fc" id="L106">		return id.hashCode();</span>
+<span class="fc" id="L123">		return idUser.hashCode();</span>
 	}
 
 	/**
@@ -111,13 +128,13 @@ public class User {
 	 */
 	@Override
 	public boolean equals(final Object obj) {
-<span class="fc bfc" id="L114" title="All 2 branches covered.">		if (!(obj instanceof User)) {</span>
-<span class="fc" id="L115">			return false;</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">		if (!(obj instanceof User)) {</span>
+<span class="fc" id="L132">			return false;</span>
 		}
 
-<span class="fc" id="L118">		final User tempUser = new User(((User) obj));</span>
-<span class="fc" id="L119">		final String userId = tempUser.getId();</span>
-<span class="fc" id="L120">		return id.equals(userId);</span>
+<span class="fc" id="L135">		final User tempUser = new User(((User) obj));</span>
+<span class="fc" id="L136">		final String userId = tempUser.getId();</span>
+<span class="fc" id="L137">		return idUser.equals(userId);</span>
 	}
 
 	/**
@@ -126,7 +143,7 @@ public class User {
 	 * @return User's id
 	 */
 	public String getId() {
-<span class="fc" id="L129">		return id;</span>
+<span class="fc" id="L146">		return idUser;</span>
 	}
 
 	/**
@@ -135,7 +152,7 @@ public class User {
 	 * @return User's team id
 	 */
 	public String getTeamId() {
-<span class="fc" id="L138">		return teamId;</span>
+<span class="fc" id="L155">		return teamId;</span>
 	}
 
 	/**
@@ -144,7 +161,7 @@ public class User {
 	 * @return User's name
 	 */
 	public String getName() {
-<span class="fc" id="L147">		return name;</span>
+<span class="fc" id="L164">		return name;</span>
 	}
 
 	/**
@@ -153,7 +170,7 @@ public class User {
 	 * @return User's real name
 	 */
 	public String getRealName() {
-<span class="fc" id="L156">		return realName;</span>
+<span class="fc" id="L173">		return realName;</span>
 	}
 
 	/**
@@ -162,7 +179,7 @@ public class User {
 	 * @return User's profile normalized name
 	 */
 	public String getDisplayNameNorm() {
-<span class="fc" id="L165">		return profile.getDisplayNameNorm();</span>
+<span class="fc" id="L182">		return profile.getDisplayNameNorm();</span>
 	}
 
 	/**
@@ -171,7 +188,7 @@ public class User {
 	 * @return User's profile
 	 */
 	public Profile getProfile() {
-<span class="fc" id="L174">		return profile;</span>
+<span class="fc" id="L191">		return profile;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.controller</a> &gt; <span class="el_source">DataController.java</span></div><h1>DataController.java</h1><pre class="source lang-java linenums">package it.uniba.controller;
 
 import it.uniba.view.View;
+import it.uniba.view.WarningMessage;
+import it.uniba.view.MasterWrapper;
 
 import it.uniba.workdata.User;
 
@@ -8,6 +10,7 @@ import it.uniba.model.Model;
 
 import java.io.IOException;
 import java.util.Collection;
+//import java.util.Map;
 import java.util.zip.ZipException;
 
 import it.uniba.model.Edge;
@@ -21,11 +24,15 @@ public class DataController {
 	/*
 	 * Used for the representation of the data.
 	 */
-	private Model mod;
+	private final Model mod;
 	/*
 	 * Used for the output of the data.
 	 */
-	private View view;
+	private final View view;
+
+	private MasterWrapper.ChannelsWrapper channelsWrapped;// = new
+															// MasterWrapper.ChannelsWrapper(mod.getChannels());
+	private MasterWrapper.UsersWrapper usersWrapped;// = new MasterWrapper.UsersWrapper(mod.getUsers());
 
 	/**
 	 * DataController's constructor. It needs a &lt;i&gt;Model&lt;/i&gt; and a &lt;i&gt;View&lt;/i&gt;.
@@ -35,10 +42,12 @@ public class DataController {
 	 * @param viewIn
 	 *            &lt;i&gt;View&lt;/i&gt; it uses to output the data
 	 */
-<span class="fc" id="L38">	public DataController(final Model modIn, final View viewIn) {</span>
-<span class="fc" id="L39">		mod = modIn;</span>
-<span class="fc" id="L40">		view = viewIn;</span>
-<span class="fc" id="L41">	}</span>
+<span class="fc" id="L45">	public DataController(final Model modIn, final View viewIn) {</span>
+<span class="fc" id="L46">		mod = modIn;</span>
+<span class="fc" id="L47">		view = viewIn;</span>
+<span class="fc" id="L48">		channelsWrapped = null;// new MasterWrapper.ChannelsWrapper(mod.getChannels());</span>
+<span class="fc" id="L49">		usersWrapped = null;// new MasterWrapper.UsersWrapper(mod.getUsers());</span>
+<span class="fc" id="L50">	}</span>
 
 	/**
 	 * Updates the Model using the path of the zip file of the workspace.
@@ -51,8 +60,11 @@ public class DataController {
 	 *             for errors at OS level
 	 */
 	public void updateModel(final String path) throws ZipException, IOException {
-<span class="fc" id="L54">		mod.updateModel(path);</span>
-<span class="fc" id="L55">	}</span>
+<span class="fc" id="L63">		mod.updateModel(path);</span>
+<span class="fc" id="L64">		channelsWrapped = new MasterWrapper.ChannelsWrapper(mod.getChannels());</span>
+<span class="fc" id="L65">		usersWrapped = new MasterWrapper.UsersWrapper(mod.getUsers());</span>
+
+<span class="fc" id="L67">	}</span>
 
 	/**
 	 * Returns a boolean that indicates if the model has loaded.
@@ -60,7 +72,7 @@ public class DataController {
 	 * @return &lt;i&gt;boolean&lt;/i&gt; that indicates if the model has loaded.
 	 */
 	public boolean hasLoaded() {
-<span class="nc" id="L63">		return mod.hasLoaded();</span>
+<span class="nc" id="L75">		return mod.hasLoaded();</span>
 	}
 
 	/**
@@ -68,24 +80,24 @@ public class DataController {
 	 * output.
 	 */
 	public void printMembers() {
-<span class="fc" id="L71">		view.printMembers(mod.getUsers().values());</span>
-<span class="fc" id="L72">	}</span>
+<span class="fc" id="L83">		view.printMembers(usersWrapped.values());</span>
+<span class="fc" id="L84">	}</span>
 
 	/**
 	 * Prints the channels' list using the model for the data and the view for the
 	 * output.
 	 */
 	public void printChannels() {
-<span class="fc" id="L79">		view.printChannels(mod.getChannels().values());</span>
-<span class="fc" id="L80">	}</span>
+<span class="fc" id="L91">		view.printChannels(channelsWrapped.values());</span>
+<span class="fc" id="L92">	}</span>
 
 	/**
 	 * Prints all the channels and the respective members using the model for the
 	 * data and the view for the output.
 	 */
 	public void printMembers4Channel() {
-<span class="fc" id="L87">		view.printMembers4Channel(mod.getUsers(), mod.getChannels().values());</span>
-<span class="fc" id="L88">	}</span>
+<span class="fc" id="L99">		view.printMembers4Channel(usersWrapped, channelsWrapped);</span>
+<span class="fc" id="L100">	}</span>
 
 	/**
 	 * Prints all the members of a specified channel using the model for the data
@@ -95,8 +107,8 @@ public class DataController {
 	 *            &lt;i&gt;String&lt;/i&gt; name of the channel specified
 	 */
 	public void printChannelMembers(final String nameChannel) {
-<span class="fc" id="L98">		view.printChannelMembers(mod.getUsers(), mod.getChannels(), nameChannel);</span>
-<span class="fc" id="L99">	}</span>
+<span class="fc" id="L110">		view.printChannelMembers(usersWrapped, channelsWrapped, nameChannel);</span>
+<span class="fc" id="L111">	}</span>
 
 	/**
 	 * Prints all the mention of a specified channel, if &lt;b&gt;inChannel&lt;/b&gt; is
@@ -109,59 +121,60 @@ public class DataController {
 	 *            &lt;i&gt;boolean&lt;/i&gt; indicate if to show the weight
 	 */
 	public void printAllMention(final String inChannel, final boolean weight) {
-<span class="pc bpc" id="L112" title="1 of 4 branches missed.">		if (inChannel == null || inChannel.equals(&quot;&quot;)) {</span>
-<span class="fc" id="L113">			mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), &quot;&quot;);</span>
-<span class="fc" id="L114">			view.printMention(mod.getMentionGraph().edgesOutDegree(null), weight);</span>
+		MasterWrapper.EdgesWrapper edgesW;
+<span class="pc bpc" id="L125" title="1 of 4 branches missed.">		if (inChannel == null || &quot;&quot;.equals(inChannel)) {</span>
+<span class="fc" id="L126">			edgesW = new MasterWrapper.EdgesWrapper(mod.getEdgesOutDegree(null, inChannel));</span>
+<span class="fc" id="L127">			view.printMention(edgesW, weight);</span>
 		} else { // validazione canale -m in _inChannel
-<span class="pc bpc" id="L116" title="1 of 2 branches missed.">			if (mod.getChannels().containsKey(inChannel)) {</span>
-<span class="fc" id="L117">				mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), inChannel);</span>
-<span class="fc" id="L118">				view.printMention(mod.getMentionGraph().edgesOutDegree(null), weight);</span>
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">			if (mod.containsChannel(inChannel)) {</span>
+<span class="fc" id="L130">				edgesW = new MasterWrapper.EdgesWrapper(mod.getEdgesOutDegree(null, inChannel));</span>
+<span class="fc" id="L131">				view.printMention(edgesW, weight);</span>
 			} else {
-<span class="nc" id="L120">				View.missingChannel(inChannel);</span>
+<span class="nc" id="L133">				WarningMessage.missingChannel(inChannel);</span>
 			}
 		}
-<span class="fc" id="L123">	}</span>
+<span class="fc" id="L136">	}</span>
 
 	/*
-	 * Prints all the mention in a channel. It decides if to print the
-	 * mention &lt;i&gt;from&lt;/i&gt; or &lt;i&gt;to&lt;/i&gt; a user (&lt;b&gt;from&lt;/b&gt;) and if to print the
-	 * number of mentions (&lt;b&gt;weight&lt;/b&gt;).
+	 * Prints all the mention in a channel. It decides if to print the mention
+	 * &lt;i&gt;from&lt;/i&gt; or &lt;i&gt;to&lt;/i&gt; a user (&lt;b&gt;from&lt;/b&gt;) and if to print the number of
+	 * mentions (&lt;b&gt;weight&lt;/b&gt;).
 	 *
-	 * @param user
-	 *            &lt;i&gt;String&lt;/i&gt; name of the user specified
-	 * @param inChannel
-	 *            &lt;i&gt;String&lt;/i&gt; name of the channel specified
-	 * @param from
-	 *            &lt;i&gt;boolean&lt;/i&gt; indicates if the mentions are &lt;i&gt;from&lt;/i&gt;
-	 *            (&lt;b&gt;true&lt;/b&gt;) o &lt;i&gt;to&lt;/i&gt; (&lt;b&gt;false&lt;/b&gt;) a user
-	 * @param weight
-	 *            &lt;i&gt;boolean&lt;/i&gt; indicates if to print the number of mentions
+	 * @param user &lt;i&gt;String&lt;/i&gt; name of the user specified
+	 * 
+	 * @param inChannel &lt;i&gt;String&lt;/i&gt; name of the channel specified
+	 * 
+	 * @param from &lt;i&gt;boolean&lt;/i&gt; indicates if the mentions are &lt;i&gt;from&lt;/i&gt;
+	 * (&lt;b&gt;true&lt;/b&gt;) o &lt;i&gt;to&lt;/i&gt; (&lt;b&gt;false&lt;/b&gt;) a user
+	 * 
+	 * @param weight &lt;i&gt;boolean&lt;/i&gt; indicates if to print the number of mentions
 	 */
 	private void printMentionsFromToUser(final String user, final String inChannel, final boolean from,
 			final boolean weight) {
-<span class="pc bpc" id="L142" title="2 of 4 branches missed.">		if (user != null | user.equals(&quot;&quot;)) {</span>
-<span class="fc" id="L143">			String idUser = getUserFromId(user);</span>
-<span class="pc bpc" id="L144" title="1 of 2 branches missed.">			if (mod.getUsers().containsKey(idUser)) {</span>
-<span class="pc bpc" id="L145" title="2 of 6 branches missed.">				if ((inChannel == null || inChannel.equals(&quot;&quot;)) || mod.getChannels().containsKey(inChannel)) {</span>
-<span class="fc" id="L146">					mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), inChannel);</span>
+<span class="pc bpc" id="L154" title="2 of 4 branches missed.">		if (user != null | &quot;&quot;.equals(user)) {</span>
+<span class="fc" id="L155">			final String idUser = getUserFromId(user);</span>
+<span class="pc bpc" id="L156" title="1 of 2 branches missed.">			if (mod.containsUser(idUser)) {</span>
+<span class="pc bpc" id="L157" title="2 of 6 branches missed.">				if ((inChannel == null || inChannel.equals(&quot;&quot;)) || mod.containsChannel(inChannel)) {</span>
 					Collection&lt;Edge&gt; edgesneeded;
-<span class="fc bfc" id="L148" title="All 2 branches covered.">					if (from) {</span>
-<span class="fc" id="L149">						edgesneeded = mod.getMentionGraph().edgesOutDegree(mod.getUsers().get(idUser));</span>
+<span class="fc" id="L159">					final User userToPrint = mod.getUser(idUser);</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">					if (from) {</span>
+<span class="fc" id="L161">						edgesneeded = mod.getEdgesOutDegree(userToPrint, inChannel);</span>
 					} else {
-<span class="fc" id="L151">						edgesneeded = mod.getMentionGraph().edgesInDegree(mod.getUsers().get(idUser));</span>
+<span class="fc" id="L163">						edgesneeded = mod.getEdgesInDegree(userToPrint, inChannel);</span>
 					}
-<span class="fc" id="L153">					view.printMention(edgesneeded, weight);</span>
-<span class="fc" id="L154">				}</span>
+<span class="fc" id="L165">					final MasterWrapper.EdgesWrapper edgesW = new MasterWrapper.EdgesWrapper(edgesneeded);</span>
+<span class="fc" id="L166">					view.printMention(edgesW, weight);</span>
+<span class="fc" id="L167">				}</span>
 			} else {
-<span class="nc" id="L156">				View.missingUser(user);</span>
+<span class="nc" id="L169">				WarningMessage.missingUser(user);</span>
 			}
-<span class="pc bpc" id="L158" title="2 of 6 branches missed.">			if (!(inChannel == null || (inChannel.equals(&quot;&quot;))) &amp;&amp; (!mod.getChannels().containsKey(inChannel))) {</span>
-<span class="nc" id="L159">				View.missingChannel(inChannel);</span>
+<span class="pc bpc" id="L171" title="2 of 6 branches missed.">			if (!(inChannel == null || (&quot;&quot;.equals(inChannel))) &amp;&amp; (!mod.containsChannel(inChannel))) {</span>
+<span class="nc" id="L172">				WarningMessage.missingChannel(inChannel);</span>
 			}
-<span class="fc" id="L161">		} else {</span>
-<span class="nc" id="L162">			View.invalidUser();</span>
+<span class="fc" id="L174">		} else {</span>
+<span class="nc" id="L175">			WarningMessage.invalidUser();</span>
 		}
-<span class="fc" id="L164">	}</span>
+<span class="fc" id="L177">	}</span>
 
 	/**
 	 * Prints all mention &lt;i&gt;from&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; in a specified
@@ -173,8 +186,8 @@ public class DataController {
 	 *            &lt;i&gt;String&lt;/i&gt; name of the channel specified
 	 */
 	public void printMentionsFromUser(final String user, final String inChannel) {
-<span class="nc" id="L176">		printMentionsFromToUser(user, inChannel, true, false);</span>
-<span class="nc" id="L177">	}</span>
+<span class="nc" id="L189">		printMentionsFromToUser(user, inChannel, true, false);</span>
+<span class="nc" id="L190">	}</span>
 
 	/**
 	 * Prints all mention &lt;i&gt;from&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt;.
@@ -183,8 +196,8 @@ public class DataController {
 	 *            &lt;i&gt;String&lt;/i&gt; name of the user specified
 	 */
 	public void printMentionsFromUser(final String user) {
-<span class="nc" id="L186">		printMentionsFromToUser(user, &quot;&quot;, true, false);</span>
-<span class="nc" id="L187">	}</span>
+<span class="nc" id="L199">		printMentionsFromToUser(user, &quot;&quot;, true, false);</span>
+<span class="nc" id="L200">	}</span>
 
 	/**
 	 * Prints all mention &lt;i&gt;to&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; in a specified
@@ -196,8 +209,8 @@ public class DataController {
 	 *            &lt;i&gt;String&lt;/i&gt; name of the channel specified
 	 */
 	public void printMentionsToUser(final String user, final String inChannel) {
-<span class="fc" id="L199">		printMentionsFromToUser(user, inChannel, false, false);</span>
-<span class="fc" id="L200">	}</span>
+<span class="fc" id="L212">		printMentionsFromToUser(user, inChannel, false, false);</span>
+<span class="fc" id="L213">	}</span>
 
 	/**
 	 * Prints all mention &lt;i&gt;to&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt;.
@@ -206,8 +219,8 @@ public class DataController {
 	 *            &lt;i&gt;String&lt;/i&gt; name of the user specified
 	 */
 	public void printMentionsToUser(final String user) {
-<span class="nc" id="L209">		printMentionsFromToUser(user, &quot;&quot;, false, false);</span>
-<span class="nc" id="L210">	}</span>
+<span class="nc" id="L222">		printMentionsFromToUser(user, &quot;&quot;, false, false);</span>
+<span class="nc" id="L223">	}</span>
 
 	/**
 	 * Prints all mention &lt;i&gt;from&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; in a specified
@@ -219,8 +232,8 @@ public class DataController {
 	 *            &lt;i&gt;String&lt;/i&gt; name of the channel specified
 	 */
 	public void printMentionsFromUserWeigthed(final String user, final String inChannel) {
-<span class="fc" id="L222">		printMentionsFromToUser(user, inChannel, true, true);</span>
-<span class="fc" id="L223">	}</span>
+<span class="fc" id="L235">		printMentionsFromToUser(user, inChannel, true, true);</span>
+<span class="fc" id="L236">	}</span>
 
 	/**
 	 * Prints all mention &lt;i&gt;from&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; with the number of
@@ -230,8 +243,8 @@ public class DataController {
 	 *            &lt;i&gt;String&lt;/i&gt; name of the user specified
 	 */
 	public void printMentionsFromUserWeigthed(final String user) {
-<span class="nc" id="L233">		printMentionsFromToUser(user, &quot;&quot;, true, true);</span>
-<span class="nc" id="L234">	}</span>
+<span class="nc" id="L246">		printMentionsFromToUser(user, &quot;&quot;, true, true);</span>
+<span class="nc" id="L247">	}</span>
 
 	/**
 	 * Prints all mention &lt;i&gt;to&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; in a specified
@@ -243,8 +256,8 @@ public class DataController {
 	 *            &lt;i&gt;String&lt;/i&gt; name of the channel specified
 	 */
 	public void printMentionsToUserWeigthed(final String user, final String inChannel) {
-<span class="fc" id="L246">		printMentionsFromToUser(user, inChannel, false, true);</span>
-<span class="fc" id="L247">	}</span>
+<span class="fc" id="L259">		printMentionsFromToUser(user, inChannel, false, true);</span>
+<span class="fc" id="L260">	}</span>
 
 	/**
 	 * Prints the mentions &lt;i&gt;to&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; with the number of
@@ -254,47 +267,42 @@ public class DataController {
 	 *            &lt;i&gt;String&lt;/i&gt; name of the user
 	 */
 	public void printMentionsToUserWeigthed(final String user) {
-<span class="nc" id="L257">		printMentionsFromToUser(user, &quot;&quot;, false, true);</span>
-<span class="nc" id="L258">	}</span>
+<span class="nc" id="L270">		printMentionsFromToUser(user, &quot;&quot;, false, true);</span>
+<span class="nc" id="L271">	}</span>
 
 	/*
 	 * Returns the id the user with the name specified or a empty string &lt;i&gt;(&quot;&quot;)&lt;/i&gt;
 	 * if it doesn't found it.
 	 * 
-	 * @param name
-	 *            &lt;i&gt;String&lt;/i&gt; name of the user to search
+	 * @param name &lt;i&gt;String&lt;/i&gt; name of the user to search
+	 * 
 	 * @return &lt;i&gt;String&lt;/i&gt; the id the user with the name specified
 	 */
 	private String getUserFromId(final String name) {
-<span class="pc bpc" id="L269" title="1 of 2 branches missed.">		for (User x : mod.getUsers().values()) {</span>
-<span class="fc" id="L270">			String disName = x.getDisplayNameNorm();</span>
-<span class="fc" id="L271">			String rn = x.getRealName();</span>
-<span class="fc" id="L272">			String nameUser = x.getName();</span>
-
-<span class="pc bpc" id="L274" title="1 of 2 branches missed.">			if (disName != null) {</span>
-<span class="fc bfc" id="L275" title="All 2 branches covered.">				if (disName.equals(name)) {</span>
-<span class="fc" id="L276">					return x.getId();</span>
-				}
+<span class="fc" id="L282">		int position = 0;</span>
+<span class="pc bpc" id="L283" title="1 of 2 branches missed.">		while (position &lt; usersWrapped.size()) {</span>
+<span class="fc" id="L284">			final String disName = usersWrapped.getDisplayNameNorm(position);</span>
+<span class="pc bpc" id="L285" title="1 of 4 branches missed.">			if ((disName != null) &amp;&amp; (name.equals(disName))) {</span>
+<span class="fc" id="L286">				return usersWrapped.getId(position);</span>
 			}
-<span class="pc bpc" id="L279" title="1 of 2 branches missed.">			if (rn != null) {</span>
-<span class="pc bpc" id="L280" title="1 of 2 branches missed.">				if (rn.equals(name)) {</span>
-<span class="nc" id="L281">					return x.getId();</span>
-				}
+<span class="fc" id="L288">			final String realName = usersWrapped.getRealName(position);</span>
+<span class="pc bpc" id="L289" title="2 of 4 branches missed.">			if ((realName != null) &amp;&amp; (name.equals(realName))) {</span>
+<span class="nc" id="L290">				return usersWrapped.getId(position);</span>
 			}
-<span class="pc bpc" id="L284" title="1 of 2 branches missed.">			if (nameUser != null) {</span>
-<span class="pc bpc" id="L285" title="1 of 2 branches missed.">				if (nameUser.equals(name)) {</span>
-<span class="nc" id="L286">					return x.getId();</span>
-				}
+<span class="fc" id="L292">			final String nameUser = usersWrapped.getName(position);</span>
+<span class="pc bpc" id="L293" title="2 of 4 branches missed.">			if ((nameUser != null) &amp;&amp; (name.equals(nameUser))) {</span>
+<span class="nc" id="L294">				return usersWrapped.getId(position);</span>
 			}
-<span class="fc" id="L289">		}</span>
-<span class="nc" id="L290">		return &quot;&quot;;</span>
+<span class="fc" id="L296">			position++;</span>
+<span class="fc" id="L297">		}</span>
+<span class="nc" id="L298">		return &quot;&quot;;</span>
 	}
 
 	/**
-	 * Prints the help's message using the view's method.
+	 * Prints the help's message.
 	 */
 	public void showHelp() {
-<span class="fc" id="L297">		View.showHelp();</span>
-<span class="fc" id="L298">	}</span>
+<span class="fc" id="L305">		WarningMessage.showHelp();</span>
+<span class="fc" id="L306">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

@@ -1,6 +1,7 @@
 package it.uniba.model;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import java.util.Collection;
 
 import it.uniba.controller.ExceptionsHandler;
 import it.uniba.workdata.User;
@@ -43,7 +44,7 @@ public abstract class AbstractGraph {
 	 * @return <i>ArrayList</i> of Edge containing (<i>From,To,Weight</i>) for each
 	 *         edge
 	 */
-	abstract ArrayList<Edge> edgesOutDegree(User node);
+	abstract Collection<Edge> edgesOutDegree(User node);
 
 	/**
 	 * Abstract function for finding all edges in degree of specified user
@@ -53,5 +54,5 @@ public abstract class AbstractGraph {
 	 * @return <i>ArrayList</i> of Edge containing (<i>From,To,Weight</i>) for each
 	 *         edge
 	 */
-	abstract ArrayList<Edge> edgesInDegree(User node);
+	abstract Collection<Edge> edgesInDegree(User node);
 }

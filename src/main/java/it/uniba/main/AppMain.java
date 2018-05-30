@@ -36,10 +36,10 @@ public final class AppMain {
 		Controller control = new Controller();
 
 		try {
-			if (args.length != 0) {
-				control.controlExecuteCLI(args);
-			} else {
+			if (args.length == 0) {
 				control.showHelp();
+			} else {
+				control.controlExecuteCLI(args);
 			}
 		} catch (NullPointerException e) {
 			System.out.println("NullPointer encountered");

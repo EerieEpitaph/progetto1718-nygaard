@@ -1,169 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-30T16:57:38.167">
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
-<violation beginline="21" endline="21" begincolumn="23" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.controller" class="Controller" variable="mod" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'mod' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="25" endline="25" begincolumn="22" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.controller" class="Controller" variable="view" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'view' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="29" endline="29" begincolumn="32" endcolumn="38" rule="ImmutableField" ruleset="Design" package="it.uniba.controller" class="Controller" variable="dataCtr" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'dataCtr' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="39" endline="39" begincolumn="17" endcolumn="47" rule="SingularField" ruleset="Design" package="it.uniba.controller" class="Controller" variable="interpreter" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#SingularField" priority="3">
-Perhaps 'interpreter' could be replaced by a local variable.
-</violation>
-<violation beginline="59" endline="59" begincolumn="39" endcolumn="57" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
+<pmd version="5.8.1" timestamp="2018-05-30T17:35:25.102">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/Controller.java">
+<violation beginline="61" endline="61" begincolumn="39" endcolumn="57" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\DataController.java">
-<violation beginline="20" endline="299" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller" class="DataController" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/DataController.java">
+<violation beginline="23" endline="307" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller" class="DataController" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'DataController' has a Cyclomatic Complexity of 2 (Highest = 10).
 </violation>
-<violation beginline="20" endline="299" begincolumn="29" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller" class="DataController" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
+<violation beginline="23" endline="307" begincolumn="29" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller" class="DataController" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
-<violation beginline="24" endline="24" begincolumn="23" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.controller" class="DataController" variable="mod" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'mod' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="28" endline="28" begincolumn="22" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.controller" class="DataController" variable="view" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'view' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="71" endline="71" begincolumn="17" endcolumn="58" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMembers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="71" endline="71" begincolumn="35" endcolumn="57" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMembers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="79" endline="79" begincolumn="17" endcolumn="62" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="79" endline="79" begincolumn="36" endcolumn="61" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="87" endline="87" begincolumn="17" endcolumn="85" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMembers4Channel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="87" endline="87" begincolumn="59" endcolumn="84" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMembers4Channel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="113" endline="113" begincolumn="25" endcolumn="98" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printAllMention" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="114" endline="114" begincolumn="25" endcolumn="93" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printAllMention" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="114" endline="114" begincolumn="43" endcolumn="84" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printAllMention" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="116" endline="116" begincolumn="29" endcolumn="68" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printAllMention" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="117" endline="117" begincolumn="33" endcolumn="113" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printAllMention" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="118" endline="118" begincolumn="33" endcolumn="101" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printAllMention" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="118" endline="118" begincolumn="51" endcolumn="92" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printAllMention" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="140" endline="164" begincolumn="17" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
+<violation beginline="152" endline="177" begincolumn="17" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The method 'printMentionsFromToUser' has a Cyclomatic Complexity of 10.
 </violation>
-<violation beginline="142" endline="142" begincolumn="36" endcolumn="50" rule="PositionLiteralsFirstInComparisons" ruleset="Design" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#PositionLiteralsFirstInComparisons" priority="3">
-Position literals first in String comparisons
-</violation>
-<violation beginline="143" endline="143" begincolumn="25" endcolumn="59" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" variable="idUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'idUser' could be declared final
-</violation>
-<violation beginline="144" endline="144" begincolumn="29" endcolumn="62" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="145" endline="145" begincolumn="84" endcolumn="123" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="145" endline="145" begincolumn="38" endcolumn="78" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="157" endline="157" begincolumn="38" endcolumn="78" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="146" endline="146" begincolumn="41" endcolumn="121" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="149" endline="149" begincolumn="63" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="149" endline="149" begincolumn="63" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="149" endline="149" begincolumn="100" endcolumn="125" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="151" endline="151" begincolumn="63" endcolumn="125" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="151" endline="151" begincolumn="63" endcolumn="125" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="151" endline="151" begincolumn="99" endcolumn="124" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="158" endline="158" begincolumn="79" endcolumn="121" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="158" endline="158" begincolumn="81" endcolumn="120" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="158" endline="158" begincolumn="53" endcolumn="72" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="171" endline="171" begincolumn="53" endcolumn="72" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="158" endline="158" begincolumn="80" endcolumn="120" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="171" endline="171" begincolumn="80" endcolumn="110" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="269" endline="269" begincolumn="22" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="DataController" method="getUserFromId" variable="x" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'x' could be declared final
+<violation beginline="285" endline="285" begincolumn="30" endcolumn="44" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
 </violation>
-<violation beginline="269" endline="269" begincolumn="31" endcolumn="53" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
+<violation beginline="285" endline="285" begincolumn="51" endcolumn="70" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
 </violation>
-<violation beginline="270" endline="270" begincolumn="25" endcolumn="63" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="DataController" method="getUserFromId" variable="disName" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'disName' could be declared final
+<violation beginline="289" endline="289" begincolumn="30" endcolumn="45" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
 </violation>
-<violation beginline="271" endline="271" begincolumn="25" endcolumn="51" rule="PrematureDeclaration" ruleset="Optimization" package="it.uniba.controller" class="DataController" method="getUserFromId" variable="rn" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#PrematureDeclaration" priority="3">
-Avoid declaring a variable if it is unreferenced before a possible exit point.
+<violation beginline="289" endline="289" begincolumn="52" endcolumn="72" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
 </violation>
-<violation beginline="271" endline="271" begincolumn="32" endcolumn="33" rule="ShortVariable" ruleset="Naming" package="it.uniba.controller" class="DataController" method="getUserFromId" variable="rn" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
-Avoid variables with short names like rn
+<violation beginline="293" endline="293" begincolumn="30" endcolumn="45" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
 </violation>
-<violation beginline="271" endline="271" begincolumn="25" endcolumn="51" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="DataController" method="getUserFromId" variable="rn" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'rn' could be declared final
-</violation>
-<violation beginline="272" endline="272" begincolumn="25" endcolumn="53" rule="PrematureDeclaration" ruleset="Optimization" package="it.uniba.controller" class="DataController" method="getUserFromId" variable="nameUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#PrematureDeclaration" priority="3">
-Avoid declaring a variable if it is unreferenced before a possible exit point.
-</violation>
-<violation beginline="272" endline="272" begincolumn="25" endcolumn="53" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller" class="DataController" method="getUserFromId" variable="nameUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'nameUser' could be declared final
-</violation>
-<violation beginline="275" endline="275" begincolumn="37" endcolumn="56" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (object not created locally)
-</violation>
-<violation beginline="275" endline="277" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/basic.html#CollapsibleIfStatements" priority="3">
-These nested if statements could be combined
-</violation>
-<violation beginline="280" endline="280" begincolumn="37" endcolumn="51" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (object not created locally)
-</violation>
-<violation beginline="280" endline="282" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/basic.html#CollapsibleIfStatements" priority="3">
-These nested if statements could be combined
-</violation>
-<violation beginline="285" endline="285" begincolumn="37" endcolumn="57" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (object not created locally)
-</violation>
-<violation beginline="285" endline="287" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/basic.html#CollapsibleIfStatements" priority="3">
-These nested if statements could be combined
+<violation beginline="293" endline="293" begincolumn="52" endcolumn="72" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\ExceptionsHandler.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/ExceptionsHandler.java">
 <violation beginline="5" endline="5" begincolumn="16" endcolumn="37" rule="UncommentedEmptyConstructor" ruleset="Design" package="it.uniba.controller" class="ExceptionsHandler" method="ExceptionsHandler" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UncommentedEmptyConstructor" priority="3">
 Document empty constructor
 </violation>
@@ -171,7 +51,7 @@ Document empty constructor
 Parameter 'message' is not assigned and could be declared final
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandInterpreter.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandInterpreter.java">
 <violation beginline="11" endline="77" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller.input" class="CommandInterpreter" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'CommandInterpreter' has a Cyclomatic Complexity of 16 (Highest = 15).
 </violation>
@@ -189,9 +69,6 @@ The method 'executeCommands' has a Modified Cyclomatic Complexity of 14.
 </violation>
 <violation beginline="20" endline="76" begincolumn="16" endcolumn="9" rule="StdCyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#StdCyclomaticComplexity" priority="3">
 The method 'executeCommands' has a Standard Cyclomatic Complexity of 14.
-</violation>
-<violation beginline="22" endline="22" begincolumn="17" endcolumn="54" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" variable="bridge" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'bridge' could be declared final
 </violation>
 <violation beginline="24" endline="24" begincolumn="21" endcolumn="33" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
@@ -220,28 +97,22 @@ Potential violation of Law of Demeter (object not created locally)
 <violation beginline="37" endline="37" begincolumn="36" endcolumn="52" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="38" endline="38" begincolumn="33" endcolumn="66" rule="PrematureDeclaration" ruleset="Optimization" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" variable="weight" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#PrematureDeclaration" priority="3">
+<violation beginline="38" endline="38" begincolumn="33" endcolumn="72" rule="PrematureDeclaration" ruleset="Optimization" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" variable="weight" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#PrematureDeclaration" priority="3">
 Avoid declaring a variable if it is unreferenced before a possible exit point.
 </violation>
-<violation beginline="38" endline="38" begincolumn="33" endcolumn="66" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" variable="weight" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'weight' could be declared final
-</violation>
-<violation beginline="38" endline="38" begincolumn="50" endcolumn="66" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="38" endline="38" begincolumn="56" endcolumn="72" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="40" endline="40" begincolumn="33" endcolumn="48" rule="PrematureDeclaration" ruleset="Optimization" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" variable="user" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#PrematureDeclaration" priority="3">
-Avoid declaring a variable if it is unreferenced before a possible exit point.
-</violation>
-<violation beginline="42" endline="42" begincolumn="37" endcolumn="47" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="41" endline="41" begincolumn="37" endcolumn="47" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="43" endline="43" begincolumn="53" endcolumn="70" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="42" endline="42" begincolumn="53" endcolumn="70" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="46" endline="46" begincolumn="37" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="45" endline="45" begincolumn="37" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="46" endline="46" begincolumn="54" endcolumn="64" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="45" endline="45" begincolumn="54" endcolumn="64" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
 <violation beginline="50" endline="50" begincolumn="37" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="CommandInterpreter" method="executeCommands" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
@@ -257,8 +128,8 @@ Potential violation of Law of Demeter (object not created locally)
 Potential violation of Law of Demeter (object not created locally)
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParser.java">
-<violation beginline="1" endline="458" begincolumn="1" endcolumn="3" rule="GodClass" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#GodClass" priority="3">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParser.java">
+<violation beginline="1" endline="458" begincolumn="1" endcolumn="2" rule="GodClass" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#GodClass" priority="3">
 Possible God class (WMC=71, ATFD=35, TCC=0.0033333333333333335)
 </violation>
 <violation beginline="15" endline="458" begincolumn="68" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
@@ -481,7 +352,7 @@ Potential violation of Law of Demeter (method chain calls)
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParserInterface.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParserInterface.java">
 <violation beginline="6" endline="118" begincolumn="41" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="CommandParserInterface" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
@@ -492,7 +363,7 @@ Avoid using short method names
 Avoid using short method names
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\main\AppMain.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/main/AppMain.java">
 <violation beginline="22" endline="64" begincolumn="14" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.main" class="AppMain" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'AppMain' has a Cyclomatic Complexity of 6 (Highest = 11).
 </violation>
@@ -514,9 +385,6 @@ The method 'main' has a Standard Cyclomatic Complexity of 11.
 <violation beginline="36" endline="36" begincolumn="17" endcolumn="53" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.main" class="AppMain" method="main" variable="control" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'control' could be declared final
 </violation>
-<violation beginline="39" endline="43" begincolumn="25" endcolumn="25" rule="ConfusingTernary" ruleset="Design" package="it.uniba.main" class="AppMain" method="main" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
-Avoid if (x != y) ..; else ..;
-</violation>
 <violation beginline="44" endline="44" begincolumn="26" endcolumn="45" rule="AvoidCatchingNPE" ruleset="Strict Exceptions" package="it.uniba.main" class="AppMain" method="main" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strictexception.html#AvoidCatchingNPE" priority="3">
 Avoid catching NullPointerException; consider removing the cause of the NPE.
 </violation>
@@ -527,178 +395,104 @@ Avoid catching generic exceptions such as NullPointerException, RuntimeException
 Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\AbstractGraph.java">
-<violation beginline="46" endline="46" begincolumn="18" endcolumn="32" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="AbstractGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="46" endline="46" begincolumn="18" endcolumn="32" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="AbstractGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="56" endline="56" begincolumn="18" endcolumn="32" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="AbstractGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="56" endline="56" begincolumn="18" endcolumn="32" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="AbstractGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-</file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\Edge.java">
-<violation beginline="9" endline="95" begincolumn="14" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.model" class="Edge" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/Edge.java">
+<violation beginline="9" endline="104" begincolumn="14" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.model" class="Edge" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
 Avoid short class names like Edge
 </violation>
-<violation beginline="17" endline="17" begincolumn="28" endcolumn="29" rule="ShortVariable" ruleset="Naming" package="it.uniba.model" class="Edge" variable="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
-Avoid variables with short names like to
-</violation>
-<violation beginline="89" endline="89" begincolumn="32" endcolumn="107" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="98" endline="98" begincolumn="32" endcolumn="115" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="89" endline="89" begincolumn="32" endcolumn="107" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="98" endline="98" begincolumn="32" endcolumn="115" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="89" endline="89" begincolumn="33" endcolumn="69" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="98" endline="98" begincolumn="33" endcolumn="73" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="89" endline="89" begincolumn="34" endcolumn="68" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="98" endline="98" begincolumn="34" endcolumn="72" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="89" endline="89" begincolumn="46" endcolumn="67" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="98" endline="98" begincolumn="50" endcolumn="71" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="89" endline="89" begincolumn="74" endcolumn="106" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="98" endline="98" begincolumn="78" endcolumn="114" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="89" endline="89" begincolumn="75" endcolumn="105" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="98" endline="98" begincolumn="79" endcolumn="113" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="89" endline="89" begincolumn="85" endcolumn="104" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="98" endline="98" begincolumn="93" endcolumn="112" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="89" endline="89" begincolumn="33" endcolumn="106" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="98" endline="98" begincolumn="33" endcolumn="114" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="89" endline="89" begincolumn="34" endcolumn="68" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="98" endline="98" begincolumn="34" endcolumn="72" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="89" endline="89" begincolumn="75" endcolumn="105" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="98" endline="98" begincolumn="79" endcolumn="113" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="Edge" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\MentionGraph.java">
-<violation beginline="21" endline="272" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.model" class="MentionGraph" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/MentionGraph.java">
+<violation beginline="22" endline="276" begincolumn="14" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.model" class="MentionGraph" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'MentionGraph' has a Cyclomatic Complexity of 4 (Highest = 11).
 </violation>
-<violation beginline="32" endline="32" begincolumn="50" endcolumn="57" rule="ImmutableField" ruleset="Design" package="it.uniba.model" class="MentionGraph" variable="snagraph" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'snagraph' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="38" endline="38" begincolumn="26" endcolumn="35" rule="ImmutableField" ruleset="Design" package="it.uniba.model" class="MentionGraph" variable="commignore" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'commignore' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="47" endline="48" begincolumn="16" endcolumn="9" rule="UncommentedEmptyConstructor" ruleset="Design" package="it.uniba.model" class="MentionGraph" method="MentionGraph" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UncommentedEmptyConstructor" priority="3">
-Document empty constructor
-</violation>
-<violation beginline="76" endline="76" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="79" endline="79" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="76" endline="76" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="79" endline="79" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="76" endline="76" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="79" endline="79" begincolumn="24" endcolumn="88" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsItems" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="87" endline="91" begincolumn="17" endcolumn="17" rule="ConfusingTernary" ruleset="Design" package="it.uniba.model" class="MentionGraph" method="containsNode" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
+<violation beginline="90" endline="94" begincolumn="17" endcolumn="17" rule="ConfusingTernary" ruleset="Design" package="it.uniba.model" class="MentionGraph" method="containsNode" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
 Avoid if (x != y) ..; else ..;
 </violation>
-<violation beginline="88" endline="88" begincolumn="32" endcolumn="62" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsNode" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="91" endline="91" begincolumn="32" endcolumn="62" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="containsNode" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="106" endline="110" begincolumn="25" endcolumn="25" rule="ConfusingTernary" ruleset="Design" package="it.uniba.model" class="MentionGraph" method="generate" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
+<violation beginline="109" endline="113" begincolumn="25" endcolumn="25" rule="ConfusingTernary" ruleset="Design" package="it.uniba.model" class="MentionGraph" method="generate" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
 Avoid if (x != y) ..; else ..;
 </violation>
-<violation beginline="106" endline="106" begincolumn="30" endcolumn="56" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="generate" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="109" endline="109" begincolumn="30" endcolumn="56" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="generate" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="106" endline="106" begincolumn="62" endcolumn="85" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="generate" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="109" endline="109" begincolumn="62" endcolumn="85" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="generate" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="121" endline="121" begincolumn="24" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="isEmpty" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="124" endline="124" begincolumn="24" endcolumn="49" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="isEmpty" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="134" endline="134" begincolumn="41" endcolumn="75" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraph" method="parseMessages" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="134" endline="134" begincolumn="41" endcolumn="75" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parseMessages" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="134" endline="134" begincolumn="92" endcolumn="112" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraph" method="parseMessages" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="134" endline="134" begincolumn="92" endcolumn="112" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parseMessages" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="137" endline="137" begincolumn="30" endcolumn="52" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="parseMessages" variable="mess" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'mess' could be declared final
-</violation>
-<violation beginline="155" endline="155" begincolumn="28" endcolumn="45" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="155" endline="155" begincolumn="28" endcolumn="45" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="155" endline="155" begincolumn="59" endcolumn="79" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="155" endline="155" begincolumn="59" endcolumn="79" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="155" endline="205" begincolumn="9" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
+<violation beginline="158" endline="205" begincolumn="9" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The method 'parsing' has a Cyclomatic Complexity of 11.
 </violation>
-<violation beginline="156" endline="156" begincolumn="22" endcolumn="32" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="parsing" variable="msg" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'msg' could be declared final
-</violation>
-<violation beginline="157" endline="157" begincolumn="29" endcolumn="56" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="160" endline="160" begincolumn="29" endcolumn="56" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="166" endline="166" begincolumn="33" endcolumn="71" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="parsing" variable="utenteu" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'utenteu' could be declared final
-</violation>
-<violation beginline="169" endline="169" begincolumn="59" endcolumn="92" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="172" endline="172" begincolumn="59" endcolumn="92" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="169" endline="169" begincolumn="38" endcolumn="52" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="172" endline="172" begincolumn="38" endcolumn="52" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="172" endline="172" begincolumn="33" endcolumn="79" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="parsing" variable="pattern" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'pattern' could be declared final
-</violation>
-<violation beginline="173" endline="173" begincolumn="33" endcolumn="80" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="parsing" variable="matcher" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'matcher' could be declared final
-</violation>
-<violation beginline="173" endline="173" begincolumn="51" endcolumn="80" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="176" endline="176" begincolumn="57" endcolumn="86" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="174" endline="174" begincolumn="40" endcolumn="53" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="177" endline="177" begincolumn="40" endcolumn="53" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="175" endline="175" begincolumn="41" endcolumn="75" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="parsing" variable="dataparse" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'dataparse' could be declared final
-</violation>
-<violation beginline="175" endline="175" begincolumn="60" endcolumn="75" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="178" endline="178" begincolumn="66" endcolumn="81" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
-<violation beginline="176" endline="176" begincolumn="41" endcolumn="120" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="parsing" variable="filterstring" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'filterstring' could be declared final
-</violation>
-<violation beginline="176" endline="176" begincolumn="63" endcolumn="120" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="179" endline="179" begincolumn="69" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="176" endline="176" begincolumn="63" endcolumn="120" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="179" endline="179" begincolumn="69" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="176" endline="176" begincolumn="63" endcolumn="120" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="179" endline="179" begincolumn="69" endcolumn="126" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
-</violation>
-<violation beginline="181" endline="181" begincolumn="41" endcolumn="78" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="parsing" variable="utentev" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'utentev' could be declared final
 </violation>
 <violation beginline="184" endline="184" begincolumn="67" endcolumn="89" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
@@ -709,121 +503,44 @@ Useless parentheses.
 <violation beginline="185" endline="185" begincolumn="54" endcolumn="87" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="193" endline="200" begincolumn="49" endcolumn="49" rule="ConfusingTernary" ruleset="Design" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
-Avoid if (x != y) ..; else ..;
-</violation>
-<violation beginline="196" endline="196" begincolumn="57" endcolumn="121" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="parsing" variable="mentioncount" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'mentioncount' could be declared final
-</violation>
-<violation beginline="196" endline="196" begincolumn="76" endcolumn="117" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="194" endline="194" begincolumn="82" endcolumn="123" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="parsing" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="216" endline="216" begincolumn="16" endcolumn="30" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="216" endline="216" begincolumn="16" endcolumn="30" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="217" endline="217" begincolumn="17" endcolumn="61" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" variable="edges" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'edges' could be declared final
-</violation>
-<violation beginline="218" endline="218" begincolumn="21" endcolumn="51" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="219" endline="219" begincolumn="21" endcolumn="53" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="219" endline="231" begincolumn="25" endcolumn="25" rule="CollapsibleIfStatements" ruleset="Basic" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/basic.html#CollapsibleIfStatements" priority="3">
-These nested if statements could be combined
+<violation beginline="219" endline="219" begincolumn="22" endcolumn="52" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="222" endline="222" begincolumn="38" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" variable="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'to' could be declared final
+<violation beginline="219" endline="219" begincolumn="22" endcolumn="52" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
 </violation>
-<violation beginline="224" endline="224" begincolumn="59" endcolumn="120" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+<violation beginline="219" endline="219" begincolumn="59" endcolumn="85" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="229" endline="229" begincolumn="51" endcolumn="120" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
-<violation beginline="224" endline="224" begincolumn="86" endcolumn="119" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="229" endline="229" begincolumn="82" endcolumn="119" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesInDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="245" endline="245" begincolumn="16" endcolumn="30" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="245" endline="245" begincolumn="16" endcolumn="30" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="246" endline="246" begincolumn="17" endcolumn="61" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" variable="edges" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'edges' could be declared final
-</violation>
-<violation beginline="249" endline="249" begincolumn="30" endcolumn="35" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" variable="x" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'x' could be declared final
-</violation>
-<violation beginline="250" endline="250" begincolumn="38" endcolumn="51" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" variable="adiacenti" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'adiacenti' could be declared final
-</violation>
-<violation beginline="252" endline="252" begincolumn="59" endcolumn="128" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+<violation beginline="256" endline="256" begincolumn="59" endcolumn="138" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
-<violation beginline="252" endline="252" begincolumn="90" endcolumn="127" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="256" endline="256" begincolumn="95" endcolumn="137" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="261" endline="261" begincolumn="29" endcolumn="59" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="265" endline="265" begincolumn="29" endcolumn="59" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
-<violation beginline="262" endline="262" begincolumn="38" endcolumn="51" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" variable="adiacenti" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'adiacenti' could be declared final
-</violation>
-<violation beginline="264" endline="264" begincolumn="59" endcolumn="134" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+<violation beginline="268" endline="268" begincolumn="59" endcolumn="134" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
-<violation beginline="264" endline="264" begincolumn="93" endcolumn="133" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+<violation beginline="268" endline="268" begincolumn="93" endcolumn="133" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.model" class="MentionGraph" method="edgesOutDegree" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\Model.java">
-<violation beginline="22" endline="22" begincolumn="17" endcolumn="37" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="Model" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="22" endline="22" begincolumn="17" endcolumn="37" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="Model" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="26" endline="26" begincolumn="17" endcolumn="40" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="Model" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="26" endline="26" begincolumn="17" endcolumn="40" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="Model" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="30" endline="30" begincolumn="17" endcolumn="51" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="Model" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="30" endline="30" begincolumn="17" endcolumn="51" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="Model" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="35" endline="35" begincolumn="30" endcolumn="37" rule="ImmutableField" ruleset="Design" package="it.uniba.model" class="Model" variable="snagraph" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'snagraph' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="40" endline="40" begincolumn="27" endcolumn="36" rule="ImmutableField" ruleset="Design" package="it.uniba.model" class="Model" variable="fileParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'fileParser' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="71" endline="72" begincolumn="16" endcolumn="9" rule="UncommentedEmptyConstructor" ruleset="Design" package="it.uniba.model" class="Model" method="Model" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UncommentedEmptyConstructor" priority="3">
-Document empty constructor
-</violation>
-<violation beginline="94" endline="94" begincolumn="16" endcolumn="36" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="Model" method="getUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="94" endline="94" begincolumn="16" endcolumn="36" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="Model" method="getUsers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="102" endline="102" begincolumn="16" endcolumn="39" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="Model" method="getChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="102" endline="102" begincolumn="16" endcolumn="39" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="Model" method="getChannels" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="110" endline="110" begincolumn="16" endcolumn="50" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="Model" method="getMessages" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="110" endline="110" begincolumn="16" endcolumn="50" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.model" class="Model" method="getMessages" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-</file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\parsing\GsonReader.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/GsonReader.java">
 <violation beginline="69" endline="69" begincolumn="33" endcolumn="69" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.parsing" class="GsonReader" method="populateMessages" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (method chain calls)
 </violation>
@@ -831,7 +548,7 @@ Potential violation of Law of Demeter (method chain calls)
 Avoid instantiating new objects inside loops
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\parsing\ZipParser.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/ZipParser.java">
 <violation beginline="108" endline="108" begincolumn="24" endcolumn="48" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.parsing" class="ZipParser" method="load" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
 Potential violation of Law of Demeter (object not created locally)
 </violation>
@@ -884,118 +601,19 @@ Potential violation of Law of Demeter (object not created locally)
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\view\View.java">
-<violation beginline="13" endline="195" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.view" class="View" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/view/MasterWrapper.java">
+<violation beginline="38" endline="38" begincolumn="33" endcolumn="56" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.view" class="MasterWrapper$EdgesWrapper" method="isEmpty" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/view/View.java">
+<violation beginline="17" endline="150" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.view" class="View" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
 Avoid short class names like View
 </violation>
-<violation beginline="13" endline="195" begincolumn="19" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.view" class="View" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
-This class has too many methods, consider refactoring it.
-</violation>
-<violation beginline="17" endline="18" begincolumn="16" endcolumn="9" rule="UncommentedEmptyConstructor" ruleset="Design" package="it.uniba.view" class="View" method="View" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UncommentedEmptyConstructor" priority="3">
-Document empty constructor
-</violation>
-<violation beginline="28" endline="28" begincolumn="22" endcolumn="28" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.view" class="View" method="printMembers" variable="us" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'us' could be declared final
-</violation>
-<violation beginline="41" endline="41" begincolumn="22" endcolumn="31" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.view" class="View" method="printChannels" variable="ch" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'ch' could be declared final
-</violation>
-<violation beginline="55" endline="55" begincolumn="48" endcolumn="68" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.view" class="View" method="printMembers4Channel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="55" endline="55" begincolumn="48" endcolumn="68" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.view" class="View" method="printMembers4Channel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="56" endline="56" begincolumn="22" endcolumn="35" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.view" class="View" method="printMembers4Channel" variable="canale" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'canale' could be declared final
-</violation>
-<violation beginline="58" endline="58" begincolumn="30" endcolumn="42" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.view" class="View" method="printMembers4Channel" variable="membro" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'membro' could be declared final
-</violation>
-<violation beginline="59" endline="59" begincolumn="33" endcolumn="61" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.view" class="View" method="printMembers4Channel" variable="user" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'user' could be declared final
-</violation>
-<violation beginline="60" endline="60" begincolumn="58" endcolumn="75" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.view" class="View" method="printMembers4Channel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (object not created locally)
-</violation>
-<violation beginline="60" endline="60" begincolumn="88" endcolumn="101" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.view" class="View" method="printMembers4Channel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (object not created locally)
-</violation>
-<violation beginline="77" endline="77" begincolumn="47" endcolumn="67" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.view" class="View" method="printChannelMembers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="77" endline="77" begincolumn="47" endcolumn="67" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.view" class="View" method="printChannelMembers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="77" endline="77" begincolumn="82" endcolumn="105" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.view" class="View" method="printChannelMembers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="77" endline="77" begincolumn="82" endcolumn="105" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.view" class="View" method="printChannelMembers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
-Avoid using implementation types like 'HashMap'; use the interface instead
-</violation>
-<violation beginline="81" endline="81" begincolumn="30" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.view" class="View" method="printChannelMembers" variable="key" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'key' could be declared final
-</violation>
-<violation beginline="81" endline="81" begincolumn="43" endcolumn="83" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.view" class="View" method="printChannelMembers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="82" endline="82" begincolumn="33" endcolumn="60" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.view" class="View" method="printChannelMembers" variable="utente" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'utente' could be declared final
-</violation>
-<violation beginline="83" endline="83" begincolumn="59" endcolumn="78" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.view" class="View" method="printChannelMembers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (object not created locally)
-</violation>
-<violation beginline="83" endline="83" begincolumn="89" endcolumn="104" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.view" class="View" method="printChannelMembers" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (object not created locally)
-</violation>
-<violation beginline="111" endline="121" begincolumn="17" endcolumn="17" rule="ConfusingTernary" ruleset="Design" package="it.uniba.view" class="View" method="printEdges" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
-Avoid if (x != y) ..; else ..;
-</violation>
-<violation beginline="112" endline="112" begincolumn="30" endcolumn="36" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.view" class="View" method="printEdges" variable="ed" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
-Local variable 'ed' could be declared final
-</violation>
-<violation beginline="113" endline="113" begincolumn="33" endcolumn="125" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.view" class="View" method="printEdges" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="113" endline="113" begincolumn="33" endcolumn="125" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.view" class="View" method="printEdges" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="113" endline="113" begincolumn="61" endcolumn="86" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.view" class="View" method="printEdges" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
-<violation beginline="113" endline="113" begincolumn="101" endcolumn="124" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.view" class="View" method="printEdges" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
-Potential violation of Law of Demeter (method chain calls)
-</violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\workdata\Channel.java">
-<violation beginline="14" endline="14" begincolumn="24" endcolumn="25" rule="ShortVariable" ruleset="Naming" package="it.uniba.workdata" class="Channel" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
-Avoid variables with short names like id
-</violation>
-<violation beginline="14" endline="14" begincolumn="24" endcolumn="25" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'id' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="19" endline="19" begincolumn="22" endcolumn="28" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="created" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'created' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="24" endline="24" begincolumn="24" endcolumn="30" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="creator" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'creator' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="29" endline="29" begincolumn="30" endcolumn="36" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="members" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'members' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-<violation beginline="34" endline="34" begincolumn="24" endcolumn="27" rule="ImmutableField" ruleset="Design" package="it.uniba.workdata" class="Channel" variable="name" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
-Private field 'name' could be made final; it is only initialized in the declaration or constructor.
-</violation>
-</file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
-<violation beginline="8" endline="176" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.workdata" class="User" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/User.java">
+<violation beginline="8" endline="193" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.workdata" class="User" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
 Avoid short class names like User
-</violation>
-<violation beginline="13" endline="13" begincolumn="24" endcolumn="25" rule="ShortVariable" ruleset="Naming" package="it.uniba.workdata" class="User" variable="id" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
-Avoid variables with short names like id
-</violation>
-<violation beginline="46" endline="46" begincolumn="38" endcolumn="58" rule="LongVariable" ruleset="Naming" package="it.uniba.workdata" class="User$Profile" variable="displayNameNormalized" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#LongVariable" priority="3">
-Avoid excessively long variable names like displayNameNormalized
 </violation>
 </file>
 </pmd>

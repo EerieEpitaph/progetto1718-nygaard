@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractGraph.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.model</a> &gt; <span class="el_source">AbstractGraph.java</span></div><h1>AbstractGraph.java</h1><pre class="source lang-java linenums">package it.uniba.model;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import java.util.Collection;
 
 import it.uniba.controller.ExceptionsHandler;
 import it.uniba.workdata.User;
@@ -9,7 +10,7 @@ import it.uniba.workdata.User;
  * 
  * Abstract behavior of a generic Graph representing a social network
  */
-<span class="fc" id="L12">public abstract class AbstractGraph {</span>
+<span class="fc" id="L13">public abstract class AbstractGraph {</span>
 
 	/**
 	 * Generate a graph of mentions starting with an specified Channel
@@ -43,7 +44,7 @@ import it.uniba.workdata.User;
 	 * @return &lt;i&gt;ArrayList&lt;/i&gt; of Edge containing (&lt;i&gt;From,To,Weight&lt;/i&gt;) for each
 	 *         edge
 	 */
-	abstract ArrayList&lt;Edge&gt; edgesOutDegree(User node);
+	abstract Collection&lt;Edge&gt; edgesOutDegree(User node);
 
 	/**
 	 * Abstract function for finding all edges in degree of specified user
@@ -53,6 +54,6 @@ import it.uniba.workdata.User;
 	 * @return &lt;i&gt;ArrayList&lt;/i&gt; of Edge containing (&lt;i&gt;From,To,Weight&lt;/i&gt;) for each
 	 *         edge
 	 */
-	abstract ArrayList&lt;Edge&gt; edgesInDegree(User node);
+	abstract Collection&lt;Edge&gt; edgesInDegree(User node);
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

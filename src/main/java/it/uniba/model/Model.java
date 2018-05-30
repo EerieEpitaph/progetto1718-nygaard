@@ -2,7 +2,9 @@ package it.uniba.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.zip.ZipException;
 
 import it.uniba.parsing.ZipParser;
@@ -19,34 +21,37 @@ public class Model {
 	/*
 	 * Map of <i>Users</i>
 	 */
-	private HashMap<String, User> users = new HashMap<String, User>();
+	private Map<String, User> users = new HashMap<String, User>();
 	/*
 	 * Map of <i>Channels</i>
 	 */
-	private HashMap<String, Channel> channels = new HashMap<String, Channel>();
+	private Map<String, Channel> channels = new HashMap<String, Channel>();
 	/*
 	 * Map of <i>Messages</i> group by channels
 	 */
-	private HashMap<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
+	private Map<String, ArrayList<Message>> messages = new HashMap<String, ArrayList<Message>>();
 
 	/*
 	 * Graph of all mentions present in the workspace
 	 */
-	private MentionGraph snagraph = new MentionGraph();
+	private final MentionGraph snagraph = new MentionGraph();
 
 	/*
 	 * ZipParser for loading data from zip file
 	 */
-	private ZipParser fileParser = new ZipParser();
+	private final ZipParser fileParser = new ZipParser();
 
 	/**
 	 * Load all of the Model data by calling the load procedure from the ZipParser class
 	 * 
-	 * @param path <i>String</i> Path of Zipfile
+	 * @param path
+	 *            <i>String</i> Path of Zipfile
 	 * 
-	 * @throws ZipException Exception of ZipParser
+	 * @throws ZipException
+	 *             Exception of ZipParser
 	 * 
-	 * @throws IOException Exception of IOFileException
+	 * @throws IOException
+	 *             Exception of IOFileException
 	 */
 	public void updateModel(final String path) throws ZipException, IOException {
 		fileParser.load(path);
@@ -69,6 +74,7 @@ public class Model {
 	 * Default costructor of Model
 	 */
 	public Model() {
+		// This constructor is intentionally empty. Nothing special is needed here.
 	}
 
 	// /**
@@ -91,15 +97,19 @@ public class Model {
 	 * 
 	 * @return <i>HashMap</i> of Users
 	 */
-	public HashMap<String, User> getUsers() {
+	public Map<String, User> getUsers() {
 		return users;
+	}
+
+	public Collection<User> getUsersList() {
+		return users.values();
 	}
 
 	/**
 	 * 
 	 * @return <i>HashMap</i> of all Channels
 	 */
-	public HashMap<String, Channel> getChannels() {
+	public Map<String, Channel> getChannels() {
 		return channels;
 	}
 
@@ -107,7 +117,7 @@ public class Model {
 	 * 
 	 * @return <i>HashMap</i> of all messages
 	 */
-	public HashMap<String, ArrayList<Message>> getMessages() {
+	public Map<String, ArrayList<Message>> getMessages() {
 		return messages;
 	}
 
@@ -119,4 +129,35 @@ public class Model {
 	public MentionGraph getMentionGraph() {
 		return snagraph;
 	}
+
+	public Collection<Edge> getEdgesInDegree(final User userMention, final String inChannel) {
+		if (snagraph.isEmpty()) {
+			snagraph.parseMessages(messages, users, inChannel);
+		}
+		return snagraph.edgesInDegree(userMention);
+	}
+
+	public Collection<Edge> getEdgesOutDegree(final User userMention, final String inChannel) {
+		if (snagraph.isEmpty()) {
+			snagraph.parseMessages(messages, users, inChannel);
+		}
+		return snagraph.edgesOutDegree(userMention);
+	}
+
+	public boolean containsChannel(final String channel) {
+		return channels.containsKey(channel);
+	}
+
+	public boolean containsUser(final String user) {
+		return users.containsKey(user);
+	}
+
+	public User getUser(final String user) {
+		return users.get(user);
+	}
+
+	public Channel getChannel(final String channel) {
+		return channels.get(channel);
+	}
+
 }

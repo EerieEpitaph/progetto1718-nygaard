@@ -10,7 +10,8 @@ public class User {
 	/*
 	 * User's id.
 	 */
-	private String id;
+	@SerializedName(value = "id")
+	private String idUser;
 
 	/*
 	 * Id of the user's team.
@@ -36,14 +37,30 @@ public class User {
 	private final Profile profile;
 
 	/**
+	 * User's constructor.
+	 */
+	public User() {
+		profile = new Profile();
+		// This constructor is intentionally empty. Nothing special is needed here.
+	}
+
+	/**
 	 * This class models a Profile, which is a sub-object inside a json User.
 	 */
 	public static final class Profile {
+
 		/*
 		 * As found on the .json profile.
 		 */
 		@SerializedName(value = "display_name_normalized")
-		private final String displayNameNormalized;
+		private final String displayNameNorm;
+
+		/**
+		 * Profile's constructor.
+		 */
+		public Profile() {
+			displayNameNorm = "";
+		}
 
 		/**
 		 * Constructor for a new Profile.
@@ -52,7 +69,7 @@ public class User {
 		 *            displayed name
 		 */
 		public Profile(final String displName) {
-			displayNameNormalized = displName;
+			displayNameNorm = displName;
 		}
 
 		/**
@@ -61,7 +78,7 @@ public class User {
 		 * @return display name
 		 */
 		public String getDisplayNameNorm() {
-			return displayNameNormalized;
+			return displayNameNorm;
 		}
 	}
 
@@ -81,7 +98,7 @@ public class User {
 	 */
 	public User(final String id2, final String teams2, final String name2, final String realName2,
 			final Profile profile2) {
-		id = id2;
+		idUser = id2;
 		name = name2;
 		realName = realName2;
 		teamId = teams2;
@@ -103,7 +120,7 @@ public class User {
 	 */
 	@Override
 	public int hashCode() {
-		return id.hashCode();
+		return idUser.hashCode();
 	}
 
 	/**
@@ -117,7 +134,7 @@ public class User {
 
 		final User tempUser = new User(((User) obj));
 		final String userId = tempUser.getId();
-		return id.equals(userId);
+		return idUser.equals(userId);
 	}
 
 	/**
@@ -126,7 +143,7 @@ public class User {
 	 * @return User's id
 	 */
 	public String getId() {
-		return id;
+		return idUser;
 	}
 
 	/**

@@ -6,8 +6,9 @@ import it.uniba.workdata.User;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import java.util.HashMap;
+import java.util.Collection;
+//import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,7 +19,7 @@ import com.google.common.graph.ValueGraphBuilder;
  * MentionGraph manages the graph of mentions; It uses the <b>Guava</b> Library
  * from Google
  */
-public class MentionGraph extends AbstractGraph {
+public final class MentionGraph extends AbstractGraph {
 	/*
 	 * An instance of Model
 	 */
@@ -29,13 +30,14 @@ public class MentionGraph extends AbstractGraph {
 	 * contains nodes (of User type) and Edge (Integer) representing the weight
 	 * based on numbers of mentions from a user
 	 */
-	private MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
+	private final MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
 	// perchè non presentano la struttura del messaggio: "utente ---> @mention"
 	/*
 	 * Array of <i>String</i> containing all of Slack's commands
 	 */
-	private String[] commignore = { "has joined the channel", "set the channel purpose", "cleared channel topic",
+ 
+	private final String[] commignore = {"has joined the channel", "set the channel purpose", "cleared channel topic",
 			"uploaded a file", "commented on", "was added to this conversation", "set the channel topic",
 			"pinned a message to this channel", "pinned", "has renamed the channel", "un-archived the channel",
 			"archived the channel", "cleared channel purpose", "has left the channel", "shared a file" };
@@ -45,6 +47,7 @@ public class MentionGraph extends AbstractGraph {
 	 * Default constructor of MentionGraph
 	 */
 	public MentionGraph() {
+		// This constructor is intentionally empty. Nothing special is needed here.
 	}
 
 	/**
@@ -131,10 +134,10 @@ public class MentionGraph extends AbstractGraph {
 	 * @param inChannel
 	 *            <i>String</i> specified channel to parsing messages
 	 */
-	public void parseMessages(final HashMap<String, ArrayList<Message>> message, final HashMap<String, User> users,
+	public void parseMessages(final Map<String, ArrayList<Message>> message, final Map<String, User> users,
 			final String inChannel) { // TODO _inChannel default = null || ""
 		if (inChannel == null || inChannel.equals("")) {
-			for (ArrayList<Message> mess : message.values()) {
+			for (final ArrayList<Message> mess : message.values()) {
 				parsing(mess, users);
 			}
 		} else if (message.containsKey(inChannel)) {
@@ -152,8 +155,8 @@ public class MentionGraph extends AbstractGraph {
 	 * @param users
 	 *            <i>HashMap<i> of <b>Users</b>
 	 */
-	void parsing(final ArrayList<Message> mess, final HashMap<String, User> users) {
-		for (Message msg : mess) {
+	void parsing(final Collection<Message> mess, final Map<String, User> users) {
+		for (final Message msg : mess) {
 			if (msg.getText().contains("<@") && !containsItems(msg.getText())) {
 				/*
 				 * Attivare le due stampe in caso di null pointer per vedere eventuali stringhe
@@ -163,22 +166,19 @@ public class MentionGraph extends AbstractGraph {
 				// System.out.println("----------- Testo Grabbato: \n" + msg.getText());
 				// System.out.println("\t\t Scritto da: " + msg.getUser() + "\n #############
 				// \n\n");
-				User utenteu = users.get(msg.getUser());
+				final User utenteu = users.get(msg.getUser());
 				// Prima di inserire un nuovo utente p avviene un controllo se è nullo o se
 				// esiste già nel grafo
 				if ((utenteu != null) && !snagraph.nodes().contains(utenteu)) {
 					snagraph.addNode(utenteu);
 				}
-				Pattern pattern = Pattern.compile("\\<@.*?\\>");
-				Matcher matcher = pattern.matcher(msg.getText()); // msg.getText
+				final Pattern pattern = Pattern.compile("\\<@.*?\\>");
+				final Matcher matcher = pattern.matcher(msg.getText()); // msg.getText
 				while (matcher.find()) {
-					String dataparse = matcher.group(0); // filtro l'id dal messaggio
-					String filterstring = dataparse.replaceAll("<@", " ").replaceAll(">", "").trim(); // pulisco dai tag
-																										// l'id e lo
-																										// cerco tra gli
-																										// user
-																										// memorizzati
-					User utentev = users.get(filterstring);
+					final String dataparse = matcher.group(0); // filtro l'id dal messaggio
+					final String filterstring = dataparse.replaceAll("<@", " ").replaceAll(">", "").trim();
+					// pulisco dai tag l'id e lo cerco tra gli users memorizzati
+					final User utentev = users.get(filterstring);
 					// Prima di inserire un nuovo utente q avviene un controllo se è nullo o se
 					// esiste già nel grafo
 					if ((utentev != null) && !utentev.equals(utenteu)) {
@@ -190,13 +190,13 @@ public class MentionGraph extends AbstractGraph {
 						 * controllo se esiste gia un arco tra i due utenti: Se esiste aggiungo +1 al
 						 * mention altrimenti se non esiste creo l'arco
 						 */
-						if (!snagraph.hasEdgeConnecting(utenteu, utentev)) {
-							snagraph.putEdgeValue(utenteu, utentev, 1); // dobbiamo pescarlo dal grafo e poi inserire
-						} else {
-							int mentioncount = snagraph.edgeValue(utenteu, utentev).get() + 1;
+						if (snagraph.hasEdgeConnecting(utenteu, utentev)) {
+							final int mentioncount = snagraph.edgeValue(utenteu, utentev).get() + 1;
 							// cercare un modifica del peso dell'arco tra due nodi
 							snagraph.removeEdge(utenteu, utentev);
 							snagraph.putEdgeValue(utenteu, utentev, mentioncount);
+						} else {
+							snagraph.putEdgeValue(utenteu, utentev, 1); // dobbiamo pescarlo dal grafo e poi inserire
 						}
 					}
 				}
@@ -213,19 +213,23 @@ public class MentionGraph extends AbstractGraph {
 	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
 	 *         edge
 	 */
-	public ArrayList<Edge> edgesInDegree(final User user) {
-		ArrayList<Edge> edges = new ArrayList<Edge>();
-		if (snagraph.nodes().contains(user)) {
-			if (snagraph.inDegree(user) > 0) {
-				int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in
-														// analisi
-				for (User to : snagraph.nodes()) {
-					if (snagraph.hasEdgeConnecting(to, user)) {
-						edges.add(new Edge(to, user, (float) snagraph.edgeValue(to, user).get()));
-						inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0
-						if (inEdges == 0) {
-							break;
-						}
+ 
+	public Collection<Edge> edgesInDegree(final User user) {
+		final ArrayList<Edge> edges = new ArrayList<Edge>();
+		if ((snagraph.nodes().contains(user)) && (snagraph.inDegree(user) > 0)) {
+			int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in
+													// analisi
+			// String nameUser = user.getRealName();
+			for (final User userTo : snagraph.nodes()) {
+				if (snagraph.hasEdgeConnecting(userTo, user)) {
+					// stampo l'arco tra i due utenti interessati
+					// System.out.println("From: " + to.getRealName() + "\tTo: " + nameUser + "\t n.
+					// mention: "
+					// + snagraph.edgeValue(to, user).get());
+					edges.add(new Edge(userTo, user, (float) snagraph.edgeValue(userTo, user).get()));
+					inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0
+					if (inEdges == 0) {
+						break;
 					}
 				}
 			}
@@ -242,14 +246,14 @@ public class MentionGraph extends AbstractGraph {
 	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
 	 *         edge
 	 */
-	public ArrayList<Edge> edgesOutDegree(final User user) {
-		ArrayList<Edge> edges = new ArrayList<Edge>();
+	public Collection<Edge> edgesOutDegree(final User user) {
+		final ArrayList<Edge> edges = new ArrayList<Edge>();
 		int numNodesPrinted = 0;
 		if (user == null) { // se non � speficato restituisce tutti gli archi
-			for (User x : snagraph.nodes()) {
-				for (User adiacenti : snagraph.adjacentNodes(x)) {
-					if (snagraph.hasEdgeConnecting(x, adiacenti)) {
-						edges.add(new Edge(x, adiacenti, (float) snagraph.edgeValue(x, adiacenti).get()));
+			for (final User usNode : snagraph.nodes()) {
+				for (final User adiacenti : snagraph.adjacentNodes(usNode)) {
+					if (snagraph.hasEdgeConnecting(usNode, adiacenti)) {
+						edges.add(new Edge(usNode, adiacenti, (float) snagraph.edgeValue(usNode, adiacenti).get()));
 						numNodesPrinted++;
 					}
 				}
@@ -259,7 +263,7 @@ public class MentionGraph extends AbstractGraph {
 			}
 		} else {
 			if (snagraph.nodes().contains(user)) {
-				for (User adiacenti : snagraph.adjacentNodes(user)) {
+				for (final User adiacenti : snagraph.adjacentNodes(user)) {
 					if (snagraph.hasEdgeConnecting(user, adiacenti)) {
 						edges.add(new Edge(user, adiacenti, (float) snagraph.edgeValue(user, adiacenti).get()));
 						numNodesPrinted++;
