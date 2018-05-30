@@ -10,7 +10,6 @@ import java.util.zip.ZipException;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
- 
 
 import it.uniba.controller.ExceptionsHandler;
 import it.uniba.model.Edge;
@@ -22,7 +21,7 @@ public class MentionGraphTest {
 	static ArrayList<ArrayList<Edge>> edges = new ArrayList<ArrayList<Edge>>();
 	static ArrayList<Edge> ed = new ArrayList<Edge>();
 
-	static Model mod; 
+	static Model mod;
 
 	static User u;
 	static User v;
@@ -34,7 +33,7 @@ public class MentionGraphTest {
 		mod.updateModel(".//res//ingsw.zip");
 		mod.getMentionGraph().setModel(mod);
 		mod.getMentionGraph().generate("");
-	   // mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), "");
+		// mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), "");
 
 		u = mod.getUsers().get("U9P18U17X"); // Manlio Amato
 		v = mod.getUsers().get("U9NF6NSU8");
@@ -51,7 +50,7 @@ public class MentionGraphTest {
 		ed.add(new Edge(u, v, 1));
 		edges.add(ed);
 	}
- 
+
 	@Test
 	void edgesOutDegreeTest() throws ZipException, IOException {
 		u = mod.getUsers().get("U9P18U17X");
@@ -74,11 +73,11 @@ public class MentionGraphTest {
 		assertFalse(mod.getMentionGraph().containsNode(null));
 	}
 
-	 @Test
-	 void successfullIsEmptyTest() {
-		 MentionGraph graphEmpty = new MentionGraph();
-		 assertTrue(graphEmpty.isEmpty());
-	 }
+	@Test
+	void successfullIsEmptyTest() {
+		MentionGraph graphEmpty = new MentionGraph();
+		assertTrue(graphEmpty.isEmpty());
+	}
 
 	@Test
 	void failedfulIsEmptyTest() {
@@ -87,7 +86,7 @@ public class MentionGraphTest {
 
 	@Test
 	void successfulThrowOnGenerate() {
-		//Create empty Model
+		// Create empty Model
 		Model testEmptyModel = new Model();
 		MentionGraph mgTest = new MentionGraph();
 		mgTest.setModel(testEmptyModel);
@@ -95,19 +94,38 @@ public class MentionGraphTest {
 			mgTest.generate("");
 		});
 	}
-	
+
 	@Test
 	void failedThrowGenerateOnFilledModel() {
 		/*
-		 * Since every exception derives from Exception, we use a catch block
-		 * to catch any of them that gets thrown
-		 * If an exception gets thrown somehow (it should not with a filled Model), the test fails
-		 * */
+		 * Since every exception derives from Exception, we use a catch block to catch
+		 * any of them that gets thrown If an exception gets thrown somehow (it should
+		 * not with a filled Model), the test fails
+		 */
 		try {
 			mod.getMentionGraph().generate("");
-		} catch(Exception ex) {
+		} catch (Exception ex) {
 			fail("Eccezione catturata, sebbene non me l'aspettassi");
 		}
-		
+	}
+
+	@Test
+	void successfulMentionGraph() {
+		assertNotNull(new MentionGraph(mod));
+	}
+
+	@Test
+	void failedMentionGraph() {
+		assertThrows(ExceptionsHandler.class, () -> {
+			MentionGraph gr = new MentionGraph();
+			gr.generate("");
+		});
+	}
+	
+	@Test
+	void successModelGetter() {
+		MentionGraph mg = new MentionGraph(mod);
+		assertEquals(mg.getModel(), mod);
 	}
 }
+

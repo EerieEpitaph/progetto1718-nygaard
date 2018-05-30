@@ -1,4 +1,5 @@
 package it.uniba.model;
+
 import it.uniba.controller.ExceptionsHandler;
 import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
@@ -14,7 +15,8 @@ import com.google.common.graph.MutableValueGraph;
 import com.google.common.graph.ValueGraphBuilder;
 
 /**
- * MentionGraph manages the graph of mentions; It uses the <b>Guava</b> Library from Google
+ * MentionGraph manages the graph of mentions; It uses the <b>Guava</b> Library
+ * from Google
  */
 public class MentionGraph extends AbstractGraph {
 	/*
@@ -24,8 +26,8 @@ public class MentionGraph extends AbstractGraph {
 
 	/*
 	 * Instance of <i>MutableValueGraph</i> type from <b>Guava</b> library which
-	 * contains nodes (of User type) and Edge (Integer) representing the weight based on numbers of mentions
-	 * from a user
+	 * contains nodes (of User type) and Edge (Integer) representing the weight
+	 * based on numbers of mentions from a user
 	 */
 	private MutableValueGraph<User, Integer> snagraph = ValueGraphBuilder.directed().build();
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
@@ -53,10 +55,14 @@ public class MentionGraph extends AbstractGraph {
 	public MentionGraph(final Model model) {
 		mod = model;
 	}
-	
-	public void setModel(final Model model)
-	{
-		mod = model; 
+
+	// java doc
+	public void setModel(final Model model) {
+		mod = model;
+	}
+
+	public Model getModel() {
+		return mod;
 	}
 
 	/**
@@ -90,16 +96,20 @@ public class MentionGraph extends AbstractGraph {
 	 * 
 	 * @param inChannel
 	 *            <i>String</i> Parse message of a specified channel
-	 * @throws ExceptionsHandler 
+	 * @throws ExceptionsHandler
 	 * 
 	 */
 	public void generate(final String inChannel) throws ExceptionsHandler { // aggiungere eccezione
-		if (!mod.getMessages().isEmpty() && !mod.getUsers().isEmpty()) {
-			parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
+		if (mod == null) {
+			throw new ExceptionsHandler("Model vuoto!");
+		} else {
+			if (!mod.getMessages().isEmpty() && !mod.getUsers().isEmpty()) {
+				parseMessages(mod.getMessages(), mod.getUsers(), inChannel);
+			} else {
+				throw new ExceptionsHandler("Messages or Users are empty");
+			}
 		}
-		else {
-			throw new ExceptionsHandler("Messages or Users are empty");
-		}
+		// gestione mod null
 	}
 
 	/**
@@ -231,7 +241,7 @@ public class MentionGraph extends AbstractGraph {
 	 *            <b>User</b>
 	 * @return <i>Arraylist</i> of Edge contains (<i>From,To,Weight</i>) for each
 	 *         edge
-	 */ 
+	 */
 	public ArrayList<Edge> edgesOutDegree(final User user) {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		int numNodesPrinted = 0;
