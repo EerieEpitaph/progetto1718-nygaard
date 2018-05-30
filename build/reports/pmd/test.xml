@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-30T17:09:18.749">
+<pmd version="5.8.1" timestamp="2018-05-30T17:12:34.524">
 <file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\controller\ControllerTester.java">
 <violation beginline="19" endline="19" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
@@ -406,7 +406,19 @@ Local variable 'mg' could be declared final
 </violation>
 </file>
 <file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\workdata\ChannelTester.java">
-<violation beginline="28" endline="28" begincolumn="14" endcolumn="32" rule="JUnitTestContainsTooManyAsserts" ruleset="JUnit" package="it.uniba.workdata" class="ChannelTester" method="channelGetterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#JUnitTestContainsTooManyAsserts" priority="3">
+<violation beginline="6" endline="6" begincolumn="1" endcolumn="22" rule="UnusedImports" ruleset="Type Resolution" package="it.uniba.workdata" class="ChannelTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.List'
+</violation>
+<violation beginline="6" endline="6" begincolumn="1" endcolumn="22" rule="UnusedImports" ruleset="Import Statements" package="it.uniba.workdata" class="ChannelTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.List'
+</violation>
+<violation beginline="13" endline="13" begincolumn="16" endcolumn="32" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.workdata" class="ChannelTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="13" endline="13" begincolumn="16" endcolumn="32" rule="LooseCoupling" ruleset="Coupling" package="it.uniba.workdata" class="ChannelTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LooseCoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="27" endline="27" begincolumn="14" endcolumn="32" rule="JUnitTestContainsTooManyAsserts" ruleset="JUnit" package="it.uniba.workdata" class="ChannelTester" method="channelGetterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#JUnitTestContainsTooManyAsserts" priority="3">
 JUnit tests should not contain more than 1 assert(s).
 </violation>
 </file>
