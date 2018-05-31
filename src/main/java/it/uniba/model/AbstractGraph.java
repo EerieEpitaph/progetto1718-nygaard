@@ -38,7 +38,7 @@ public abstract class AbstractGraph {
 	 *            <i>User</i>
 	 * @return <i>boolean</i> if the <i>node</i> is present in the graph
 	 */
-	abstract boolean containsNode(User node);
+	abstract boolean containsNode(User node) throws ExceptionsHandler;
 
 	/**
 	 * Abstract function for finding all edges out degree of specified user

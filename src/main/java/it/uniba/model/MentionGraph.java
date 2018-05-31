@@ -93,9 +93,9 @@ public final class MentionGraph extends AbstractGraph {
 	 *            User in the graph
 	 * @return <i>boolean</i> if <b>Node</b> is present in the graph
 	 */
-	public boolean containsNode(final User node) {
+	public boolean containsNode(final User node) throws ExceptionsHandler {
 		if (node == null) {
-			return false;
+			throw new ExceptionsHandler("Node is null!");
 		} else {
 			return snagraph.contains(node);
 		}
@@ -196,7 +196,7 @@ public final class MentionGraph extends AbstractGraph {
 					// pulisco dai tag l'id e lo cerco tra gli users memorizzati
 					final User utentev = users.get(filterstring);
 					// Prima di inserire un nuovo utente q avviene un controllo se e' nullo o se
-					// esiste gia'  nel grafo
+					// esiste gia'ï¿½ nel grafo
 					if ((utentev != null) && !utenteu.equals(utentev)) {
 						if (!snagraph.contains(utentev)) {
 							snagraph.addNode(utentev);

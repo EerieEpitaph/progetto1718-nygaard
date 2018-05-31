@@ -64,13 +64,14 @@ public class MentionGraphTest {
 	}
 
 	@Test
-	void successfulContainsNodeTest() {
+	void successfulContainsNodeTest() throws ExceptionsHandler {
 		assertTrue(testerGraph.containsNode(u_from));
 	}
 
 	@Test
 	void failedContainsNodeTest() {
-		assertFalse(testerGraph.containsNode(null));
+		assertThrows(ExceptionsHandler.class, () -> {
+			testerGraph.containsNode(null); });
 	}
 
 	@Test
@@ -86,8 +87,6 @@ public class MentionGraphTest {
 
 	@Test
 	void successfulThrowOnGenerate(){
-		// Create empty Model
-		final Model testEmptyModel = new Model();
 		final MentionGraph graphTest = new MentionGraph();
 		// graphTest.setModel(testEmptyModel);
 		assertThrows(ExceptionsHandler.class, () -> {
