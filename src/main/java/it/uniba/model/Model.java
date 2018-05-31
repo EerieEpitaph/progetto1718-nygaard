@@ -15,7 +15,6 @@ import it.uniba.workdata.User;
 /**
  * <i>Model</i>: Data storage and manipulation
  */
-
 public class Model {
 	// WorkData
 	/*
@@ -94,6 +93,7 @@ public class Model {
 	// }
 
 	/**
+	 * Returns a <i>HashMap</i> of Users.
 	 * 
 	 * @return <i>HashMap</i> of Users
 	 */
@@ -101,11 +101,17 @@ public class Model {
 		return users;
 	}
 
+	/**
+	 * Returns a <i>Collection</i> of Users.
+	 * 
+	 * @return <i>Collection</i> of Users
+	 */
 	public Collection<User> getUsersList() {
 		return users.values();
 	}
 
 	/**
+	 * Returns a <i>HashMap</i> of Users.
 	 * 
 	 * @return <i>HashMap</i> of all Channels
 	 */
@@ -114,6 +120,7 @@ public class Model {
 	}
 
 	/**
+	 * Returns a <i>HashMap</i> of messages.
 	 * 
 	 * @return <i>HashMap</i> of all messages
 	 */
@@ -122,6 +129,7 @@ public class Model {
 	}
 
 	/**
+	 * Returns an instance of <i>MentionGraph</i> which contains all mentions.
 	 * 
 	 * @return <i>MentionGraph</i> an instance of MentionGraph which contains all
 	 *         mentions
@@ -130,6 +138,16 @@ public class Model {
 		return snagraph;
 	}
 
+	/**
+	 * Returns a <i>Collection</i> of edges where the the <b>user</b> specified it
+	 * was mentioned.
+	 * 
+	 * @param userMention
+	 *            <i>User</i> mentioned (<i>to</i>)
+	 * @param inChannel
+	 *            <i>String</i> name of the channel (<i>to</i>)
+	 * @return <i>Collection</i> of Edges
+	 */
 	public Collection<Edge> getEdgesInDegree(final User userMention, final String inChannel) {
 		if (snagraph.isEmpty()) {
 			snagraph.parseMessages(messages, users, inChannel);
@@ -137,6 +155,16 @@ public class Model {
 		return snagraph.edgesInDegree(userMention);
 	}
 
+	/**
+	 * Returns a <i>Collection</i> of edges where the the <b>user</b> specified has
+	 * mentioned someone.
+	 * 
+	 * @param userMention
+	 *            <i>User</i> mentioned (<i>to</i>)
+	 * @param inChannel
+	 *            <i>String</i> name of the channel (<i>to</i>)
+	 * @return <i>Collection</i> of Edges
+	 */
 	public Collection<Edge> getEdgesOutDegree(final User userMention, final String inChannel) {
 		if (snagraph.isEmpty()) {
 			snagraph.parseMessages(messages, users, inChannel);
@@ -144,18 +172,52 @@ public class Model {
 		return snagraph.edgesOutDegree(userMention);
 	}
 
+	/**
+	 * Returns a <i>boolean</i> true if the <b>channel</b> specified exists else
+	 * false.
+	 * 
+	 * @param channel
+	 *            <i>String</i> name of the channel
+	 * @return <i>boolean</i> true if exists else false
+	 * 
+	 */
 	public boolean containsChannel(final String channel) {
 		return channels.containsKey(channel);
 	}
 
+	/**
+	 * Returns a <i>boolean</i> true if the <b>user</b> with the id specified exists
+	 * else false.
+	 * 
+	 * @param user
+	 *            <i>String</i> id the user
+	 * @return <i>boolean</i> true if exists else false
+	 * 
+	 */
 	public boolean containsUser(final String user) {
 		return users.containsKey(user);
 	}
 
+	/**
+	 * Returns the <b>user</b> with the id specified.
+	 * 
+	 * @param user
+	 *            <i>String</i> id the user
+	 * @return <i>User</i> specified
+	 * 
+	 */
 	public User getUser(final String user) {
 		return users.get(user);
 	}
 
+	/**
+	 * Returns the <b>channel</b> with the id specified.
+	 * 
+	 * @param channel
+	 *            <i>String</i> name of the channel
+	 * @return <i>Channel</i> specified
+	 * 
+	 */
 	public Channel getChannel(final String channel) {
 		return channels.get(channel);
 	}

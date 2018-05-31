@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-30T17:35:38.438">
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/ControllerTester.java">
+<pmd version="5.8.1" timestamp="2018-05-30T18:37:48.391">
+<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\controller\ControllerTester.java">
 <violation beginline="19" endline="19" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
 </violation>
@@ -104,7 +104,7 @@ Potential violation of Law of Demeter (method chain calls)
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/input/ParserInterpreterTest.java">
+<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\controller\input\ParserInterpreterTest.java">
 <violation beginline="26" endline="343" begincolumn="36" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="ParserInterpreterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
@@ -277,7 +277,7 @@ Local variable 'args' could be declared final
 Local variable 'args' could be declared final
 </violation>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/model/MentionGraphTest.java">
+<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\model\MentionGraphTest.java">
 <violation beginline="4" endline="4" begincolumn="1" endcolumn="19" rule="UnusedImports" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#UnusedImports" priority="4">
 Avoid unused imports such as 'org.junit'
 </violation>
@@ -405,7 +405,7 @@ Avoid variables with short names like mg
 Local variable 'mg' could be declared final
 </violation>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/workdata/ChannelTester.java">
+<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\workdata\ChannelTester.java">
 <violation beginline="6" endline="6" begincolumn="1" endcolumn="22" rule="UnusedImports" ruleset="Type Resolution" package="it.uniba.workdata" class="ChannelTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#UnusedImports" priority="4">
 Avoid unused imports such as 'java.util.List'
 </violation>
@@ -422,7 +422,7 @@ Avoid using implementation types like 'ArrayList'; use the interface instead
 JUnit tests should not contain more than 1 assert(s).
 </violation>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/workdata/UserTester.java">
+<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\workdata\UserTester.java">
 <violation beginline="5" endline="5" begincolumn="1" endcolumn="27" rule="UnusedImports" ruleset="Type Resolution" package="it.uniba.workdata" class="UserTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#UnusedImports" priority="4">
 Avoid unused imports such as 'java.util.ArrayList'
 </violation>
