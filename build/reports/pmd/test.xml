@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-30T17:35:38.438">
+<pmd version="5.8.1" timestamp="2018-05-31T09:40:17.855">
 <file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/ControllerTester.java">
 <violation beginline="19" endline="19" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
