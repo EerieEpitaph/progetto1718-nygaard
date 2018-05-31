@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.uniba.controller.input.ParserInterpreterTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2018-05-31T07:40:28" hostname="GiovanDonato" time="1.08">
+  <properties/>
+  <testcase name="badFromWho()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.005"/>
+  <testcase name="toInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.137"/>
+  <testcase name="mentionToCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.172"/>
+  <testcase name="BaseMentionWeightCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.139"/>
+  <testcase name="toWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.006"/>
+  <testcase name="channelsCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.093"/>
+  <testcase name="fromInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.134"/>
+  <testcase name="fromWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.005"/>
+  <testcase name="badParameters()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.006"/>
+  <testcase name="baseInMentionWeightCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.076"/>
+  <testcase name="badIn()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.008"/>
+  <testcase name="invalidWorkspace()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.005"/>
+  <testcase name="usersInChannelCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.09"/>
+  <testcase name="extendedChannelCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.093"/>
+  <testcase name="helpCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003"/>
+  <testcase name="inOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.005"/>
+  <testcase name="membersCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.072"/>
+  <testcase name="badToWho()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

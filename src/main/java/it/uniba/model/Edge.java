@@ -36,10 +36,19 @@ public final class Edge {
 		weight = weightIn;
 	}
 
+	/**
+	 * Constructor of Edge.
+	 * 
+	 * @param edgeToClone
+	 *            <i>Edge</i> to copy
+	 */
 	public Edge(final Edge edgeToClone) {
 		this(edgeToClone.userFrom, edgeToClone.userTo, edgeToClone.weight);
 	}
 
+	/**
+	 * Constructor of Edge
+	 */
 	public Edge() {
 		userTo = null;
 		userFrom = null;
