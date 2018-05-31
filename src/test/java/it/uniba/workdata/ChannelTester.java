@@ -3,8 +3,6 @@ package it.uniba.workdata;
 import static org.junit.jupiter.api.Assertions.*;
 //import it.uniba.workdata;
 import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +17,7 @@ public class ChannelTester {
 		members.add("Giovanni");
 		members.add("Nicola");
 		members.add("Valentina");
-		// per il test l'id è una stringa personalizzata
+		// per il test l'id ï¿½ una stringa personalizzata
 		chan = new Channel("#idNygaard", 2018L, "phonixCreatore", members, "Giovanni");
 	}
 

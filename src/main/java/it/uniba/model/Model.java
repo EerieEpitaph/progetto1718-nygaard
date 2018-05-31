@@ -11,6 +11,7 @@ import it.uniba.parsing.ZipParser;
 import it.uniba.workdata.Channel;
 import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
+import it.uniba.controller.ExceptionsHandler;
 
 /**
  * <i>Model</i>: Data storage and manipulation
@@ -33,7 +34,7 @@ public class Model {
 	/*
 	 * Graph of all mentions present in the workspace
 	 */
-	private final MentionGraph snagraph = new MentionGraph();
+	private MentionGraph snagraph = new MentionGraph();
 
 	/*
 	 * ZipParser for loading data from zip file
@@ -41,7 +42,8 @@ public class Model {
 	private final ZipParser fileParser = new ZipParser();
 
 	/**
-	 * Load all of the Model data by calling the load procedure from the ZipParser class
+	 * Load all of the Model data by calling the load procedure from the ZipParser
+	 * class
 	 * 
 	 * @param path
 	 *            <i>String</i> Path of Zipfile
@@ -111,6 +113,15 @@ public class Model {
 	}
 
 	/**
+	 * Returns a boolean: true if there aren't users else false
+	 * 
+	 * @return <i>boolean</i> true if there aren't users else false
+	 */
+	public boolean isUsersEmpty() {
+		return users.isEmpty();
+	}
+
+	/**
 	 * Returns a <i>HashMap</i> of Users.
 	 * 
 	 * @return <i>HashMap</i> of all Channels
@@ -126,6 +137,15 @@ public class Model {
 	 */
 	public Map<String, ArrayList<Message>> getMessages() {
 		return messages;
+	}
+
+	/**
+	 * Returns a boolean: true if there aren't messages else false
+	 * 
+	 * @return <i>boolean</i> true if there aren't messages else false
+	 */
+	public boolean isMessagesEmpty() {
+		return messages.isEmpty();
 	}
 
 	/**
@@ -147,10 +167,12 @@ public class Model {
 	 * @param inChannel
 	 *            <i>String</i> name of the channel (<i>to</i>)
 	 * @return <i>Collection</i> of Edges
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public Collection<Edge> getEdgesInDegree(final User userMention, final String inChannel) {
+	public Collection<Edge> getEdgesInDegree(final User userMention, final String inChannel) throws ExceptionsHandler {
 		if (snagraph.isEmpty()) {
-			snagraph.parseMessages(messages, users, inChannel);
+			snagraph.generate(inChannel, messages, users);
 		}
 		return snagraph.edgesInDegree(userMention);
 	}
@@ -164,10 +186,12 @@ public class Model {
 	 * @param inChannel
 	 *            <i>String</i> name of the channel (<i>to</i>)
 	 * @return <i>Collection</i> of Edges
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public Collection<Edge> getEdgesOutDegree(final User userMention, final String inChannel) {
+	public Collection<Edge> getEdgesOutDegree(final User userMention, final String inChannel) throws ExceptionsHandler {
 		if (snagraph.isEmpty()) {
-			snagraph.parseMessages(messages, users, inChannel);
+			snagraph.generate(inChannel, messages, users);
 		}
 		return snagraph.edgesOutDegree(userMention);
 	}

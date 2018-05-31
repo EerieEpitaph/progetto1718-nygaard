@@ -14,11 +14,11 @@ public class Message {
 	 * This class models a message (.json files inside folders).
 	 */
 	public static final class GsonMessage {
-
-		/**
-		 * Type of message.
-		 */
-		private final String type;
+		// inutilizzato
+		// /**
+		// * Type of message.
+		// */
+		// private final String type;
 
 		/**
 		 * User id that sent it.
@@ -32,80 +32,116 @@ public class Message {
 
 		/**
 		 * GsonMessage constructor.
-		 * @param type2 message type
-		 * @param user2 user id
-		 * @param text2 message text
+		 * 
+		 * 
+		 * @param user2
+		 *            user id
+		 * @param text2
+		 *            message text
 		 */
-<span class="nc" id="L39">		public GsonMessage(final String type2, final String user2, final String text2) {</span>
-<span class="nc" id="L40">			type = type2;</span>
-<span class="nc" id="L41">			user = user2;</span>
-<span class="nc" id="L42">			text = text2;</span>
-<span class="nc" id="L43">		}</span>
-
-		/**
-		 * Type getter.
-		 * @return message type as String
-		 */
-		public String getType() {
-<span class="nc" id="L50">			return type;</span>
-		}
+<span class="nc" id="L42">		public GsonMessage(final String user2, final String text2) {</span>
+			// * @param type2 message type
+			// (final String type2// inutilizzato
+			// type = type2;
+<span class="nc" id="L46">			user = user2;</span>
+<span class="nc" id="L47">			text = text2;</span>
+<span class="nc" id="L48">		}</span>
+		// inutilizzato
+		// /**
+		// * Type getter.
+		// *
+		// * @return message type as String
+		// */
+		// public String getType() {
+		// return type;
+		// }
 
 		/**
 		 * User getter.
+		 * 
 		 * @return user id as String
 		 */
 		public String getUser() {
-<span class="fc" id="L58">			return user;</span>
+<span class="fc" id="L65">			return user;</span>
 		}
 
 		/**
 		 * Text getter.
+		 * 
 		 * @return message text as String
 		 */
 		public String getText() {
-<span class="fc" id="L66">			return text;</span>
+<span class="fc" id="L74">			return text;</span>
+		}
+
+		/**
+		 * Return a boolean true if the text contains the textContained else false
+		 * 
+		 * @param textContained
+		 *            &lt;i&gt;String&lt;/i&gt; text to check
+		 * @return &lt;i&gt;boolean&lt;/i&gt; true if the text contains the textContained else false
+		 */
+		public boolean contains(final String textContained) {
+<span class="fc" id="L85">			return text.contains(textContained);</span>
 		}
 
 		/**
 		 * Wrapper.
+		 * 
 		 * @return this as Message
 		 */
 		public Message toMessage() {
-<span class="fc" id="L74">			return new Message(this);</span>
+<span class="fc" id="L94">			return new Message(this);</span>
 		}
 	}
 
 	/**
 	 * Message constructor.
-	 * @param message2 message to wrap
+	 * 
+	 * @param message2
+	 *            message to wrap
 	 */
-<span class="fc" id="L82">	public Message(final GsonMessage message2) {</span>
+<span class="fc" id="L104">	public Message(final GsonMessage message2) {</span>
 		// channel = _channel;
-<span class="fc" id="L84">		toWrap = message2;</span>
-<span class="fc" id="L85">	}</span>
-
-	/**
-	 * Wrapper type returner.
-	 * @return GsonMessage type
-	 */
-	public String getType() {
-<span class="nc" id="L92">		return toWrap.getType();</span>
-	}
+<span class="fc" id="L106">		toWrap = message2;</span>
+<span class="fc" id="L107">	}</span>
+	// inutilizzato
+	// /**
+	// * Wrapper type returner.
+	// *
+	// * @return GsonMessage type
+	// */
+	// public String getType() {
+	// return toWrap.getType();
+	// }
 
 	/**
 	 * Wrapper user returner.
+	 * 
 	 * @return GsonMessage user
 	 */
 	public String getUser() {
-<span class="fc" id="L100">		return toWrap.getUser();</span>
+<span class="fc" id="L124">		return toWrap.getUser();</span>
 	}
 
 	/**
 	 * Wrapper text returner.
+	 * 
 	 * @return GsonMessage text
 	 */
 	public String getText() {
-<span class="fc" id="L108">		return toWrap.getText();</span>
+<span class="fc" id="L133">		return toWrap.getText();</span>
+	}
+
+	/**
+	 * Return a boolean true if the text contains the textContained else false
+	 * 
+	 * @param textContained
+	 *            &lt;i&gt;String&lt;/i&gt; text to check
+	 * @return &lt;i&gt;boolean&lt;/i&gt; true if the text contains the textContained else false
+	 */
+	public boolean contains(final String textContained) {
+<span class="fc" id="L144">		return toWrap.contains(textContained);</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

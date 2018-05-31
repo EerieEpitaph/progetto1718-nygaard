@@ -1,11 +1,11 @@
 package it.uniba.model;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.*;
-import org.junit.Test.None;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import java.util.zip.ZipException;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -14,84 +14,84 @@ import org.junit.jupiter.api.Test;
 import it.uniba.controller.ExceptionsHandler;
 import it.uniba.model.Edge;
 import it.uniba.model.Model;
-
+import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
 
 public class MentionGraphTest {
 	static ArrayList<ArrayList<Edge>> edges = new ArrayList<ArrayList<Edge>>();
 	static ArrayList<Edge> ed = new ArrayList<Edge>();
 
-	static Model mod;
+	static Model mod = null;
 
-	static User u;
-	static User v;
+	static User u_from = null;
+	static User v_to = null;
+	final static MentionGraph testerGraph = new MentionGraph();
 
 	@BeforeAll
 	static void Init() throws ZipException, IOException, ExceptionsHandler {
 		mod = new Model();
 		// se chiamo un assert qui non viene tenuta nessuna traccia nella tb dei test S
 		mod.updateModel(".//res//ingsw.zip");
-		mod.getMentionGraph().setModel(mod);
-		mod.getMentionGraph().generate("");
-		// mod.getMentionGraph().parseMessages(mod.getMessages(), mod.getUsers(), "");
 
-		u = mod.getUsers().get("U9P18U17X"); // Manlio Amato
-		v = mod.getUsers().get("U9NF6NSU8");
-		ed.add(new Edge(u, v, 2));
-		v = mod.getUsers().get("U9NBNJFB3");
-		ed.add(new Edge(u, v, 2));
+		testerGraph.generate("", mod.getMessages(), mod.getUsers());
+
+		u_from = mod.getUser("U9P18U17X"); // Manlio Amato
+		v_to = mod.getUser("U9NF6NSU8");
+		ed.add(new Edge(u_from, v_to, 2));
+		v_to = mod.getUser("U9NBNJFB3");
+		ed.add(new Edge(u_from, v_to, 2));
 		edges.add(ed);
 		// to Andrea Di Fonzo
 		// ed.clear();
 		ed = new ArrayList<Edge>();
-		u = mod.getUsers().get("U9NCNLL83"); // Serena DeRuvo
-		v = mod.getUsers().get("U9NAWRB2Q"); // Andrea DiFonzo
+		u_from = mod.getUser("U9NCNLL83"); // Serena DeRuvo
+		v_to = mod.getUser("U9NAWRB2Q"); // Andrea DiFonzo
 
-		ed.add(new Edge(u, v, 1));
+		ed.add(new Edge(u_from, v_to, 1));
 		edges.add(ed);
 	}
 
 	@Test
 	void edgesOutDegreeTest() throws ZipException, IOException {
-		u = mod.getUsers().get("U9P18U17X");
-		assertEquals(edges.get(0), mod.getMentionGraph().edgesOutDegree(u));
+		u_from = mod.getUser("U9P18U17X");
+		assertEquals(edges.get(0), testerGraph.edgesOutDegree(u_from));
 	}
 
 	@Test
 	void edgesInDegreeTest() {
-		v = mod.getUsers().get("U9NAWRB2Q");
-		assertEquals(edges.get(1), mod.getMentionGraph().edgesInDegree(v));
+		v_to = mod.getUser("U9NAWRB2Q");
+		assertEquals(edges.get(1), testerGraph.edgesInDegree(v_to));
 	}
 
 	@Test
 	void successfulContainsNodeTest() {
-		assertTrue(mod.getMentionGraph().containsNode(u));
+		assertTrue(testerGraph.containsNode(u_from));
 	}
 
 	@Test
 	void failedContainsNodeTest() {
-		assertFalse(mod.getMentionGraph().containsNode(null));
+		assertFalse(testerGraph.containsNode(null));
 	}
 
 	@Test
 	void successfullIsEmptyTest() {
-		MentionGraph graphEmpty = new MentionGraph();
+		final MentionGraph graphEmpty = new MentionGraph();
 		assertTrue(graphEmpty.isEmpty());
 	}
 
 	@Test
-	void failedfulIsEmptyTest() {
-		assertFalse(mod.getMentionGraph().isEmpty());
+	void failedIsEmptyTest() {
+		assertFalse(testerGraph.isEmpty());
 	}
 
 	@Test
-	void successfulThrowOnGenerate() {
+	void successfulThrowOnGenerate(){
 		// Create empty Model
-		Model testEmptyModel = new Model();
-		MentionGraph mgTest = new MentionGraph();
-		mgTest.setModel(testEmptyModel);
+		final Model testEmptyModel = new Model();
+		final MentionGraph graphTest = new MentionGraph();
+		// graphTest.setModel(testEmptyModel);
 		assertThrows(ExceptionsHandler.class, () -> {
-			mgTest.generate("");
+			graphTest.generate(null, null, null);
 		});
 	}
 
@@ -103,29 +103,26 @@ public class MentionGraphTest {
 		 * not with a filled Model), the test fails
 		 */
 		try {
-			mod.getMentionGraph().generate("");
+			final MentionGraph graphsucc = new MentionGraph();
+			graphsucc.generate("", mod.getMessages(), mod.getUsers());
 		} catch (Exception ex) {
-			fail("Eccezione catturata, sebbene non me l'aspettassi");
+			fail("Exception catched.");
 		}
 	}
 
 	@Test
 	void successfulMentionGraph() {
-		assertNotNull(new MentionGraph(mod));
+		assertNotNull(new MentionGraph());
 	}
 
 	@Test
-	void failedMentionGraph() {
+	void successfulThrowOnEmptyGraph() {
 		assertThrows(ExceptionsHandler.class, () -> {
-			MentionGraph gr = new MentionGraph();
-			gr.generate("");
+			final MentionGraph graph = new MentionGraph();
+			final HashMap<String, ArrayList<Message>> messEmpty = new HashMap<String, ArrayList<Message>>();
+			final HashMap<String, User> usersEmpty = new HashMap<String, User>();
+			graph.generate(null, messEmpty, usersEmpty);
 		});
 	}
-	
-	@Test
-	void successModelGetter() {
-		MentionGraph mg = new MentionGraph(mod);
-		assertEquals(mg.getModel(), mod);
-	}
-}
 
+}

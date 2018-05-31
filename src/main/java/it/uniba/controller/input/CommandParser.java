@@ -10,35 +10,46 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
 /**
- *This class manages the parsing of command line arguments.
+ * This class manages the parsing of command line arguments.
  */
 public final class CommandParser implements CommandParserInterface {
+	/*
+	 * Base commands representer.
+	 */
+	private CommBaseArgs baseArgs;
+	/*
+	 * Workspace command representer.
+	 */
+	private CommWorkspace workspace;
+
 	/**
-	 *This class manages no-parameter commands.
+	 * This class manages no-parameter commands.
 	 */
 	public final class CommBaseArgs {
 		/*
-		 *Activity notifier.
+		 * Activity notifier.
 		 */
 		private Boolean active = false;
 
 		/*
-		 *Help found.
+		 * Help found.
 		 */
 		@Option(names = "help")
 		private boolean helpStatus;
 
 		/**
-		 *Gives activity status.
-		 *@return active status
+		 * Gives activity status.
+		 * 
+		 * @return active status
 		 */
 		public Boolean isActive() {
 			return active;
 		}
 
 		/**
-		 *Gives help status.
-		 *@return helpstatus
+		 * Gives help status.
+		 * 
+		 * @return helpstatus
 		 */
 		public Boolean getHelpStatus() {
 			return helpStatus;
@@ -46,146 +57,149 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *This class manages workspace-related commands.
+	 * This class manages workspace-related commands.
 	 */
 	public final class CommWorkspace {
 		/*
-		 *Activity notifier.
+		 * Activity notifier.
 		 */
 		private Boolean active = false;
 
 		/*
-		 *Name of the current workspace.
+		 * Name of the current workspace.
 		 */
 		@Parameters(index = "0", arity = "1")
 		private String workspaceName;
 
 		/*
-		 *Status of member command.
+		 * Status of member command.
 		 */
 		@Option(names = "-u", arity = "0..1")
 		private boolean membersStatus;
 
 		/*
-		 *Status of channels command.
+		 * Status of channels command.
 		 */
 		@Option(names = "-c", arity = "0..1")
 		private boolean channelsStatus;
 
 		/*
-		 *Status of extended channels command.
+		 * Status of extended channels command.
 		 */
 		@Option(names = "-cu", arity = "0..1")
 		private boolean extChannelsStatus;
 
 		/*
-		 *Name of channel filter.
+		 * Name of channel filter.
 		 */
 		@Option(names = "-uc", arity = "1")
 		private String channelFilter;
 
 		/*
-		 *Parameters passed at mention command.
+		 * Parameters passed at mention command.
 		 */
 		@Option(names = "-m", arity = "0..5")
 		private String[] mentionParams;
 
 		/**
-		 *Activity getter.
-		 *@return active status
+		 * Activity getter.
+		 * 
+		 * @return active status
 		 */
 		public Boolean isActive() {
 			return active;
 		}
 
 		/**
-		 *Worskpace getter.
-		 *@return name of workspace
+		 * Worskpace getter.
+		 * 
+		 * @return name of workspace
 		 */
 		public String getWorkspaceName() {
 			return workspaceName;
 		}
 
 		/**
-		 *Workspace validity getter.
-		 *@return workspace validity
+		 * Workspace validity getter.
+		 * 
+		 * @return workspace validity
 		 */
 		public Boolean isValidWorkspace() {
 			return (workspaceName != null && !"".equals(workspaceName));
 		}
 
 		/**
-		 *Member status getter.
-		 *@return memberStatus value
+		 * Member status getter.
+		 * 
+		 * @return memberStatus value
 		 */
 		public Boolean getMembersStatus() {
 			return membersStatus;
 		}
 
 		/**
-		 *Channel status getter.
-		 *@return channelStatus value
+		 * Channel status getter.
+		 * 
+		 * @return channelStatus value
 		 */
 		public Boolean getChannelsStatus() {
 			return channelsStatus;
 		}
 
 		/**
-		 *Extended channel status getter.
-		 *@return extChannelStatus value
+		 * Extended channel status getter.
+		 * 
+		 * @return extChannelStatus value
 		 */
 		public Boolean getExtChannelsStatus() {
 			return extChannelsStatus;
 		}
 
 		/**
-		 *Channel filter getter.
-		 *@return channelFilter value
+		 * Channel filter getter.
+		 * 
+		 * @return channelFilter value
 		 */
 		public String getChannelFilter() {
 			return channelFilter;
 		}
 
 		/**
-		 *Channel filter validity getter.
-		 *@return channelFilter validity
+		 * Channel filter validity getter.
+		 * 
+		 * @return channelFilter validity
 		 */
 		public Boolean isValidFilter() {
 			return (channelFilter != null && !"".equals(channelFilter));
 		}
 
 		/**
-		 *Mention params getter.
-		 *@return array of parameters passed after mention command
+		 * Mention params getter.
+		 * 
+		 * @return array of parameters passed after mention command
 		 */
 		public String[] getMentionParams() {
 			return Arrays.copyOf(mentionParams, mentionParams.length);
 		}
 	}
 
-	/*
-	 *Base commands representer.
-	 */
-	private CommBaseArgs baseArgs;
-	/*
-	 *Workspace command representer.
-	 */
-	private CommWorkspace workspace;
-
 	/**
-	 *CommandParser constructor.
-	 *@param args array of command line arguments
-	 *@throws IllegalStateException if conflicting commands parsed
+	 * CommandParser constructor.
+	 * 
+	 * @param args
+	 *            array of command line arguments
+	 * @throws IllegalStateException
+	 *             if conflicting commands parsed
 	 */
 	public CommandParser(final String[] args) throws IllegalStateException {
 		baseArgs = new CommBaseArgs();
 		workspace = new CommWorkspace();
 
-		CommandLine commandLine = new CommandLine(baseArgs).addSubcommand("-w", workspace);
+		final CommandLine commandLine = new CommandLine(baseArgs).addSubcommand("-w", workspace);
 
-		List<CommandLine> result = commandLine.parse(args);
+		final List<CommandLine> result = commandLine.parse(args);
 
-		for (CommandLine x : result) {
+		for (final CommandLine single : result) {
 			// Gli "argomenti base" sarebbero sempre true, per com'e'
 			// strutturata la
 			// libreria.
@@ -193,19 +207,19 @@ public final class CommandParser implements CommandParserInterface {
 			// riflessione,
 			// uno dei loro field e' true
 			// Se piu' di un field e' true, throwo direttamente un'eccezione.
-			if (x.getCommand().getClass() == CommBaseArgs.class) {
-				baseArgs = (CommBaseArgs) x.getCommand();
+			if (single.getCommand().getClass() == CommBaseArgs.class) {
+				baseArgs = (CommBaseArgs) single.getCommand();
 
-				ArrayList<Field> baseFields = new ArrayList<Field>(
+				final ArrayList<Field> baseFields = new ArrayList<Field>(
 						Arrays.asList(CommBaseArgs.class.getDeclaredFields()));
 				baseFields.remove(0);
 				baseFields.remove(baseFields.size() - 1);
 
-				for (Field y : baseFields) {
+				for (final Field singleField : baseFields) {
 					// System.out.println(y.getName());
-					y.setAccessible(true);
+					singleField.setAccessible(true);
 					try {
-						if (y.get(baseArgs).toString().equals("true")) {
+						if (singleField.get(baseArgs).toString().equals("true")) {
 							if (baseArgs.active) {
 								throw new IllegalStateException(); // CATCHED
 							} else {
@@ -213,15 +227,15 @@ public final class CommandParser implements CommandParserInterface {
 							}
 						}
 
-						y.setAccessible(false);
+						singleField.setAccessible(false);
 					} catch (IllegalArgumentException e) {
 						e.printStackTrace();
 					} catch (IllegalAccessException e) {
 						e.printStackTrace();
 					}
 				}
-			} else if (x.getCommand().getClass() == CommWorkspace.class) {
-				workspace = (CommWorkspace) x.getCommand();
+			} else if (single.getCommand().getClass() == CommWorkspace.class) {
+				workspace = (CommWorkspace) single.getCommand();
 				workspace.active = true;
 			}
 		}
@@ -232,7 +246,7 @@ public final class CommandParser implements CommandParserInterface {
 	// ==========================================================
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean validWorkspace() {
@@ -243,7 +257,7 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getWorkspace() {
@@ -251,7 +265,7 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean help() {
@@ -262,7 +276,7 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean users() {
@@ -273,7 +287,7 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean channels() {
@@ -284,7 +298,7 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean extendedChannels() {
@@ -295,7 +309,7 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean usersInChannel() {
@@ -306,7 +320,7 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getChannelFilter() {
@@ -314,7 +328,7 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean mentions() {
@@ -325,17 +339,16 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean from() {
-		String[] params = workspace.mentionParams;
-		for (int i = 0; i < params.length; i++) {
+		final String[] params = workspace.mentionParams;
+		final int length = params.length;
+		for (int i = 0; i < length; i++) {
 			try {
-				if (params[i].equals("from")) {
-					if (params[i + 1] != null) {
-						return true;
-					}
+				if ("from".equals(params[i]) && (params[i + 1] != null)) {
+					return true;
 				}
 			} catch (Exception e) {
 				throw new IllegalStateException();
@@ -345,17 +358,16 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getFromWho() {
-		String[] params = workspace.mentionParams;
-		for (int i = 0; i < params.length; i++) {
+		final String[] params = workspace.mentionParams;
+		final int length = params.length;
+		for (int i = 0; i < length; i++) {
 			try {
-				if (params[i].equals("from")) {
-					if (params[i + 1] != null) {
-						return params[i + 1];
-					}
+				if (("from".equals(params[i])) && (params[i + 1] != null)) {
+					return params[i + 1];
 				}
 			} catch (Exception e) {
 				throw new IllegalStateException();
@@ -365,17 +377,16 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean to() {
-		String[] params = workspace.mentionParams;
-		for (int i = 0; i < params.length; i++) {
+		final String[] params = workspace.mentionParams;
+		final int length = params.length;
+		for (int i = 0; i < length; i++) {
 			try {
-				if (params[i].equals("to")) {
-					if (params[i + 1] != null) {
-						return true;
-					}
+				if (("to".equals(params[i])) && (params[i + 1] != null)) {
+					return true;
 				}
 			} catch (Exception e) {
 				throw new IllegalStateException();
@@ -385,17 +396,16 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getToWho() {
-		String[] params = workspace.mentionParams;
-		for (int i = 0; i < params.length; i++) {
+		final String[] params = workspace.mentionParams;
+		final int length = params.length;
+		for (int i = 0; i < length; i++) {
 			try {
-				if (params[i].equals("to")) {
-					if (params[i + 1] != null) {
-						return params[i + 1];
-					}
+				if (("to".equals(params[i])) && (params[i + 1] != null)) {
+					return params[i + 1];
 				}
 			} catch (Exception e) {
 				throw new IllegalStateException();
@@ -405,17 +415,16 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean in() {
-		String[] params = workspace.mentionParams;
-		for (int i = 0; i < params.length; i++) {
+		final String[] params = workspace.mentionParams;
+		final int length = params.length;
+		for (int i = 0; i < length; i++) {
 			try {
-				if (params[i].equals("in")) {
-					if (params[i + 1] != null) {
-						return true;
-					}
+				if (("in".equals(params[i])) && (params[i + 1] != null)) {
+					return true;
 				}
 			} catch (Exception e) {
 				throw new IllegalStateException();
@@ -425,17 +434,16 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getInWhat() {
-		String[] params = workspace.mentionParams;
-		for (int i = 0; i < params.length; i++) {
+		final String[] params = workspace.mentionParams;
+		final int length = params.length;
+		for (int i = 0; i < length; i++) {
 			try {
-				if (params[i].equals("in")) {
-					if (params[i + 1] != null) {
-						return params[i + 1];
-					}
+				if (("in".equals(params[i])) && (params[i + 1] != null)) {
+					return params[i + 1];
 				}
 			} catch (Exception e) {
 				throw new IllegalStateException();
@@ -445,12 +453,13 @@ public final class CommandParser implements CommandParserInterface {
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean weighted() {
+
 		if (workspace.mentionParams != null && workspace.mentionParams.length != 0
-				&& workspace.mentionParams[workspace.mentionParams.length - 1].equals("-n")) {
+				&& "-n".equals(workspace.mentionParams[workspace.mentionParams.length - 1])) {
 			return true;
 		}
 		return false;

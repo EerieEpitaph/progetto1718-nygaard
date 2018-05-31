@@ -54,8 +54,7 @@ public class View {
 	 * @param channelsW
 	 *            <i>ChannelsWrapper</i> of channels
 	 */
-	public void printMembers4Channel(final UsersWrapper usersW,
-			final ChannelsWrapper channelsW) {
+	public void printMembers4Channel(final UsersWrapper usersW, final ChannelsWrapper channelsW) {
 		for (final Channel channel : channelsW.values()) {
 			System.out.print(" + " + channel.getName() + "\n\t");
 			for (final String usersId : channel.getMemberList()) {
@@ -79,8 +78,8 @@ public class View {
 	 * @param nameChannel
 	 *            <i>String</i> name of the channel specified
 	 */
-	public void printChannelMembers(final UsersWrapper usersW,
-			final ChannelsWrapper channelsW, final String nameChannel) {
+	public void printChannelMembers(final UsersWrapper usersW, final ChannelsWrapper channelsW,
+			final String nameChannel) {
 		if (nameChannel != null && channelsW.containsKey(nameChannel)) {
 			System.out.print(" + " + nameChannel + "\n");
 			final Channel channel = new Channel(channelsW.get(nameChannel));
@@ -105,7 +104,11 @@ public class View {
 	 *            <i>boolean</i> used to decide if print the weight of the edges.
 	 */
 	public void printMention(final EdgesWrapper edgesW, final boolean weight) {
-		printEdges(edgesW, weight);
+		if (edgesW.size() == 0) {
+			WarningMessage.noMention();
+		} else {
+			printEdges(edgesW, weight);
+		}
 	}
 
 	/**
@@ -117,11 +120,11 @@ public class View {
 	 *            <i>boolean</i> used to decide if print the weight of the edges.
 	 */
 	private void printEdges(final EdgesWrapper edgesW, final boolean weight) {
-		if (edgesW.isEmpty()) {
+		if (edgesW.size() == 0) {
 			WarningMessage.noMention();
 		} else {
 			int position = 0;
-//			 = new MasterWrapper.EdgesWrapper(edges);
+			// = new MasterWrapper.EdgesWrapper(edges);
 			while (position < edgesW.size()) {
 				// for (final Edge edtmp : edgesW.getEdges()) {
 				// final EdgeWrapper edgeTmp = new EdgeWrapper(ed);

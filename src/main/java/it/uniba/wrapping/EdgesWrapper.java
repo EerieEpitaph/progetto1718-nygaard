@@ -10,7 +10,7 @@ import it.uniba.workdata.User;
  * to respect the Law of Demeter).
  */
 public final class EdgesWrapper {
-	 private final Object[] edgesWrapped;
+	private final Object[] edgesWrapped;
 
 	/**
 	 * EdgesWrapper's constructor.
@@ -61,15 +61,15 @@ public final class EdgesWrapper {
 		final User toTMP = new User(edgeTMP.getTo());
 		return toTMP.getRealName();
 	}
-
-	/**
-	 * Returns true if there aren't edges else false.
-	 * 
-	 * @return <i>boolean</i> true if it's empty
-	 */
-	public boolean isEmpty() {
-		return (edgesWrapped.length == 0);
-	}
+	// inutilizzato
+	// /**
+	// * Returns true if there aren't edges else false.
+	// *
+	// * @return <i>boolean</i> true if it's empty
+	// */
+	// public boolean isEmpty() {
+	// return (edgesWrapped.length == 0);
+	// }
 
 	/**
 	 * Returns the number of the edges.

@@ -121,8 +121,10 @@ public class DataController {
 	 *            <i>String</i> name of the channel specified
 	 * @param weight
 	 *            <i>boolean</i> indicate if to show the weight
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void printAllMention(final String inChannel, final boolean weight) {
+	public void printAllMention(final String inChannel, final boolean weight) throws ExceptionsHandler {
 		EdgesWrapper edgesW;
 		if (inChannel == null || "".equals(inChannel)) {
 			edgesW = new EdgesWrapper(mod.getEdgesOutDegree(null, inChannel));
@@ -150,9 +152,11 @@ public class DataController {
 	 * (<b>true</b>) o <i>to</i> (<b>false</b>) a user
 	 * 
 	 * @param weight <i>boolean</i> indicates if to print the number of mentions
+	 * 
+	 * @throws ExceptionsHandler used to handle exceptions
 	 */
 	private void printMentionsFromToUser(final String user, final String inChannel, final boolean from,
-			final boolean weight) {
+			final boolean weight) throws ExceptionsHandler {
 		if (user != null | "".equals(user)) {
 			final String idUser = getUserFromId(user);
 			if (mod.containsUser(idUser)) {
@@ -186,8 +190,10 @@ public class DataController {
 	 *            <i>String</i> name of the user specified
 	 * @param inChannel
 	 *            <i>String</i> name of the channel specified
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void printMentionsFromUser(final String user, final String inChannel) {
+	public void printMentionsFromUser(final String user, final String inChannel) throws ExceptionsHandler {
 		printMentionsFromToUser(user, inChannel, true, false);
 	}
 
@@ -196,8 +202,10 @@ public class DataController {
 	 * 
 	 * @param user
 	 *            <i>String</i> name of the user specified
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void printMentionsFromUser(final String user) {
+	public void printMentionsFromUser(final String user) throws ExceptionsHandler {
 		printMentionsFromToUser(user, "", true, false);
 	}
 
@@ -209,8 +217,10 @@ public class DataController {
 	 *            <i>String</i> name of the user specified
 	 * @param inChannel
 	 *            <i>String</i> name of the channel specified
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void printMentionsToUser(final String user, final String inChannel) {
+	public void printMentionsToUser(final String user, final String inChannel) throws ExceptionsHandler {
 		printMentionsFromToUser(user, inChannel, false, false);
 	}
 
@@ -219,8 +229,10 @@ public class DataController {
 	 * 
 	 * @param user
 	 *            <i>String</i> name of the user specified
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void printMentionsToUser(final String user) {
+	public void printMentionsToUser(final String user) throws ExceptionsHandler {
 		printMentionsFromToUser(user, "", false, false);
 	}
 
@@ -232,8 +244,10 @@ public class DataController {
 	 *            <i>String</i> name of the user specified
 	 * @param inChannel
 	 *            <i>String</i> name of the channel specified
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void printMentionsFromUserWeigthed(final String user, final String inChannel) {
+	public void printMentionsFromUserWeigthed(final String user, final String inChannel) throws ExceptionsHandler {
 		printMentionsFromToUser(user, inChannel, true, true);
 	}
 
@@ -243,8 +257,10 @@ public class DataController {
 	 * 
 	 * @param user
 	 *            <i>String</i> name of the user specified
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void printMentionsFromUserWeigthed(final String user) {
+	public void printMentionsFromUserWeigthed(final String user) throws ExceptionsHandler {
 		printMentionsFromToUser(user, "", true, true);
 	}
 
@@ -256,8 +272,10 @@ public class DataController {
 	 *            <i>String</i> name of the user specified
 	 * @param inChannel
 	 *            <i>String</i> name of the channel specified
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void printMentionsToUserWeigthed(final String user, final String inChannel) {
+	public void printMentionsToUserWeigthed(final String user, final String inChannel) throws ExceptionsHandler {
 		printMentionsFromToUser(user, inChannel, false, true);
 	}
 
@@ -267,8 +285,10 @@ public class DataController {
 	 * 
 	 * @param user
 	 *            <i>String</i> name of the user
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void printMentionsToUserWeigthed(final String user) {
+	public void printMentionsToUserWeigthed(final String user) throws ExceptionsHandler {
 		printMentionsFromToUser(user, "", false, true);
 	}
 

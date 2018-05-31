@@ -76,17 +76,17 @@ public final class Edge {
 	public float getWeigth() {
 		return weight;
 	}
-
-	/**
-	 * Change current weight of the Edge
-	 * 
-	 * @param newWeight
-	 *            <i>float</i> is the new weight
-	 */
-	public void changeWeight(final float newWeight) {
-		weight = newWeight;
-	}
-
+// inutilizzato
+//	/**
+//	 * Change current weight of the Edge
+//	 *
+//	 * @param newWeight
+//	 *            <i>float</i> is the new weight
+//	 */
+//	public void changeWeight(final float newWeight) {
+//		weight = newWeight;
+//	}
+//
 	// Se ci sono problemi
 	@Override
 	public int hashCode() {
@@ -94,8 +94,8 @@ public final class Edge {
 	}
 
 	/**
-	 * Override of the <i>equals</i> method; Two edges are equal if they have same <i>_from</i> and
-	 * <i>_to</i> user
+	 * Override of the <i>equals</i> method; Two edges are equal if they have same
+	 * <i>_from</i> and <i>_to</i> user
 	 * 
 	 * @param obj
 	 *            <b>Edge</b> to compare
@@ -104,7 +104,8 @@ public final class Edge {
 	@Override
 	public boolean equals(final Object obj) {
 		if (obj instanceof Edge) {
-			return ((userFrom.equals(((Edge) obj).getFrom())) && (userTo.equals(((Edge) obj).getTo())));
+			final Edge toCompare = new Edge((Edge) obj);
+			return ((userFrom.equals(toCompare.getFrom())) && (userTo.equals(toCompare.getTo())));
 		} else {
 			return false;
 		}

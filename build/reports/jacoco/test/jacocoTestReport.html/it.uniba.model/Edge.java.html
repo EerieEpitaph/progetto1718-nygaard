@@ -76,17 +76,17 @@ public final class Edge {
 	public float getWeigth() {
 <span class="fc" id="L77">		return weight;</span>
 	}
-
-	/**
-	 * Change current weight of the Edge
-	 * 
-	 * @param newWeight
-	 *            &lt;i&gt;float&lt;/i&gt; is the new weight
-	 */
-	public void changeWeight(final float newWeight) {
-<span class="nc" id="L87">		weight = newWeight;</span>
-<span class="nc" id="L88">	}</span>
-
+// inutilizzato
+//	/**
+//	 * Change current weight of the Edge
+//	 *
+//	 * @param newWeight
+//	 *            &lt;i&gt;float&lt;/i&gt; is the new weight
+//	 */
+//	public void changeWeight(final float newWeight) {
+//		weight = newWeight;
+//	}
+//
 	// Se ci sono problemi
 	@Override
 	public int hashCode() {
@@ -94,8 +94,8 @@ public final class Edge {
 	}
 
 	/**
-	 * Override of the &lt;i&gt;equals&lt;/i&gt; method; Two edges are equal if they have same &lt;i&gt;_from&lt;/i&gt; and
-	 * &lt;i&gt;_to&lt;/i&gt; user
+	 * Override of the &lt;i&gt;equals&lt;/i&gt; method; Two edges are equal if they have same
+	 * &lt;i&gt;_from&lt;/i&gt; and &lt;i&gt;_to&lt;/i&gt; user
 	 * 
 	 * @param obj
 	 *            &lt;b&gt;Edge&lt;/b&gt; to compare
@@ -104,9 +104,10 @@ public final class Edge {
 	@Override
 	public boolean equals(final Object obj) {
 <span class="pc bpc" id="L106" title="1 of 2 branches missed.">		if (obj instanceof Edge) {</span>
-<span class="pc bpc" id="L107" title="2 of 4 branches missed.">			return ((userFrom.equals(((Edge) obj).getFrom())) &amp;&amp; (userTo.equals(((Edge) obj).getTo())));</span>
+<span class="fc" id="L107">			final Edge toCompare = new Edge((Edge) obj);</span>
+<span class="pc bpc" id="L108" title="2 of 4 branches missed.">			return ((userFrom.equals(toCompare.getFrom())) &amp;&amp; (userTo.equals(toCompare.getTo())));</span>
 		} else {
-<span class="nc" id="L109">			return false;</span>
+<span class="nc" id="L110">			return false;</span>
 		}
 	}
 

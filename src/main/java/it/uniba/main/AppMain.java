@@ -7,6 +7,7 @@ import java.util.zip.ZipException;
 import com.google.gson.JsonParseException;
 
 import it.uniba.controller.Controller;
+import it.uniba.controller.ExceptionsHandler;
 import picocli.CommandLine.UnmatchedArgumentException;
 import picocli.CommandLine.MissingParameterException;
 
@@ -33,7 +34,7 @@ public final class AppMain {
 	 *            <i>String[]</i> list of arguments
 	 */
 	public static void main(final String[] args) {
-		Controller control = new Controller();
+		final Controller control = new Controller();
 
 		try {
 			if (args.length == 0) {
@@ -57,6 +58,8 @@ public final class AppMain {
 			System.out.println("Invalid syntax: there are missing parameters. Refer to 'help' command");
 		} catch (IllegalStateException e) {
 			System.out.println("Invalid syntax. Refer to 'help' command");
+		} catch (ExceptionsHandler e) {
+			System.out.println("ExceptionsHandler");
 		} catch (Exception e) {
 			System.out.println("Unexpected exception encountered");
 		}

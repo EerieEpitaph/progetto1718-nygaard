@@ -57,8 +57,10 @@ public class Controller {
 	 *             if file does not exists
 	 * @throws IOException
 	 *             for errors at OS level
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
-	public void controlExecuteCLI(final String[] args) throws ZipException, IOException {
+	public void controlExecuteCLI(final String[] args) throws ZipException, IOException, ExceptionsHandler {
 		commandParser = new CommandParser(args);
 		interpreter = new CommandInterpreter();
 		interpreter.executeCommands(commandParser, dataCtr);

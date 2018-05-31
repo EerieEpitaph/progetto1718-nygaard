@@ -2,6 +2,7 @@
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
@@ -20,128 +21,173 @@ import it.uniba.workdata.User;
 /**
  * This class parses a zipped workspace and populated our datastructures.
  */
-<span class="fc" id="L23">public class ZipParser {</span>
+<span class="fc" id="L24">public class ZipParser {</span>
 
 	/*
 	 * Current workspace.
 	 */
-<span class="fc" id="L28">	private String workspaceLoaded = &quot;&quot;;</span>
+<span class="fc" id="L29">	private String workspaceLoaded = &quot;&quot;;</span>
 
 	// I tre dizionari users, channels e i messaggi
 	/*
 	 * Map of users.
 	 */
-<span class="fc" id="L34">	private Map&lt;String, User&gt; users = new HashMap&lt;String, User&gt;();</span>
+<span class="fc" id="L35">	private Map&lt;String, User&gt; users = new HashMap&lt;String, User&gt;();</span>
 
 	/*
 	 * Map of channels.
 	 */
-<span class="fc" id="L39">	private Map&lt;String, Channel&gt; channels = new HashMap&lt;String, Channel&gt;();</span>
+<span class="fc" id="L40">	private Map&lt;String, Channel&gt; channels = new HashMap&lt;String, Channel&gt;();</span>
 
 	/*
 	 * Map of lists of messages.
 	 */
-<span class="fc" id="L44">	private Map&lt;String, ArrayList&lt;Message&gt;&gt; messages = new HashMap&lt;String, ArrayList&lt;Message&gt;&gt;();</span>
+<span class="fc" id="L45">	private Map&lt;String, ArrayList&lt;Message&gt;&gt; messages = new HashMap&lt;String, ArrayList&lt;Message&gt;&gt;();</span>
 
 	/**
 	 * Sets a new current workspace.
-	 * @param value workspace name
+	 * 
+	 * @param value
+	 *            workspace name
 	 */
 	public void setWorkspaceName(final String value) {
-<span class="nc" id="L51">		workspaceLoaded = value;</span>
-<span class="nc" id="L52">	}</span>
+<span class="nc" id="L54">		workspaceLoaded = value;</span>
+<span class="nc" id="L55">	}</span>
 
 	/**
 	 * Return current workspace name.
+	 * 
 	 * @return current workspace name
 	 */
 	public String getWorkspaceName() {
-<span class="nc" id="L59">		return workspaceLoaded;</span>
+<span class="nc" id="L63">		return workspaceLoaded;</span>
 	}
 
 	/**
 	 * Loader monitor.
+	 * 
 	 * @return true if a workspace was loaded, false if not.
 	 */
 	public Boolean hasLoaded() {
-<span class="nc bnc" id="L67" title="All 2 branches missed.">		return !&quot;&quot;.equals(workspaceLoaded);</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">		return !&quot;&quot;.equals(workspaceLoaded);</span>
 	}
 
 	/**
 	 * User getter.
+	 * 
 	 * @return map of users
 	 */
 	public Map&lt;String, User&gt; getUsers() {
-<span class="fc" id="L75">		return users;</span>
+<span class="fc" id="L81">		return users;</span>
 	}
 
 	/**
 	 * Channel getter.
+	 * 
 	 * @return map of channels
 	 */
 	public Map&lt;String, Channel&gt; getChannels() {
-<span class="fc" id="L83">		return channels;</span>
+<span class="fc" id="L90">		return channels;</span>
 	}
 
 	/**
 	 * Messages getter.
+	 * 
 	 * @return map of lists of messages
 	 */
 	public Map&lt;String, ArrayList&lt;Message&gt;&gt; getMessages() {
-<span class="fc" id="L91">		return messages;</span>
+<span class="fc" id="L99">		return messages;</span>
+	}
+
+	private static final class ZipWrapper {
+		private final ZipFile zip;
+		private final Enumeration&lt;? extends ZipEntry&gt; entries;
+
+<span class="fc" id="L106">		ZipWrapper(final String path) throws IOException {</span>
+<span class="fc" id="L107">			zip = new ZipFile(path);</span>
+<span class="fc" id="L108">			entries = zip.entries();</span>
+<span class="fc" id="L109">		}</span>
+
+		// final Enumeration&lt;? extends ZipEntry&gt; entries = zip.entries();
+		boolean hasMoreElements() {
+<span class="fc" id="L113">			return entries.hasMoreElements();</span>
+		}
+
+		ZipEntry nextElement() {
+<span class="fc" id="L117">			return new ZipEntry(entries.nextElement());</span>
+		}
+
+		InputStream getInputStream(final ZipEntry entry) throws IOException {
+<span class="fc" id="L121">			return zip.getInputStream(entry);</span>
+		}
+
+		String getName() {
+<span class="fc" id="L125">			return zip.getName();</span>
+		}
+
+		void close() throws IOException {
+<span class="fc" id="L129">			zip.close();</span>
+<span class="fc" id="L130">		}</span>
 	}
 
 	/**
-	 * This function loads a zipped file and inflates it in central memory.
-	 * After inflating, it parses every useful json and populates our structures.
-	 * @param path the path of the .zipped file
-	 * @throws ZipException if file does not exists
-	 * @throws IOException for errors at OS level
+	 * This function loads a zipped file and inflates it in central memory. After
+	 * inflating, it parses every useful json and populates our structures.
+	 * 
+	 * @param path
+	 *            the path of the .zipped file
+	 * @throws ZipException
+	 *             if file does not exists
+	 * @throws IOException
+	 *             for errors at OS level
 	 */
 	public void load(final String path) throws ZipException, IOException {
-<span class="fc" id="L102">		Boolean loadedSomething = false;</span>
+<span class="fc" id="L145">		Boolean loadedSomething = false;</span>
 
-<span class="fc" id="L104">		String currChannel = &quot;&quot;;</span>
-<span class="fc" id="L105">		final ZipFile zip = new ZipFile(path);</span>
-<span class="fc" id="L106">		final Enumeration&lt;? extends ZipEntry&gt; entries = zip.entries();</span>
+<span class="fc" id="L147">		String currChannel = &quot;&quot;;</span>
+<span class="fc" id="L148">		final ZipWrapper zip = new ZipWrapper(path);</span>
+		// final ZipFile zip = new ZipFile(path);
+		// final Enumeration&lt;? extends ZipEntry&gt; entries = zip.entries();
 
-<span class="fc bfc" id="L108" title="All 2 branches covered.">		while (entries.hasMoreElements()) {</span>
-<span class="fc" id="L109">			final ZipEntry entry = entries.nextElement();</span>
+<span class="fc" id="L152">		final JsonParserInterface jsonBridge = new GsonReader();</span>
+		ZipEntry entry;
+<span class="fc bfc" id="L154" title="All 2 branches covered.">		while (zip.hasMoreElements()) { // entries</span>
+<span class="fc" id="L155">			entry = zip.nextElement();</span>
 			// System.out.println(entry.getName() + &quot; &quot;);
 
-<span class="fc bfc" id="L112" title="All 2 branches covered.">			if (!entry.getName().equals(&quot;integration_logs.json&quot;)) {</span>
-<span class="fc bfc" id="L113" title="All 2 branches covered.">				if (entry.isDirectory()) {</span>
-<span class="fc" id="L114">					currChannel = entry.getName().substring(0, entry.getName().length() - 1);</span>
-				} else {
-<span class="fc" id="L116">					loadedSomething = true;</span>
-<span class="fc" id="L117">					final JsonParserInterface jsonBridge = new GsonReader();</span>
-<span class="fc" id="L118">					final Reader lecturer = new InputStreamReader(zip.getInputStream(entry),</span>
+<span class="fc" id="L158">			final String entryName = entry.getName();</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">			if (!&quot;integration_logs.json&quot;.equals(entryName)) {</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">				if (entry.isDirectory()) {</span>
+					// final String entryName = entry.getName();
+<span class="fc" id="L162">					final int length = entryName.length() - 1;</span>
+<span class="fc" id="L163">					currChannel = entryName.substring(0, length);</span>
+<span class="fc" id="L164">				} else {</span>
+<span class="fc" id="L165">					loadedSomething = true;</span>
+<span class="fc" id="L166">					final Reader lecturer = new InputStreamReader(zip.getInputStream(entry),</span>
 							StandardCharsets.ISO_8859_1);
 
-<span class="fc bfc" id="L121" title="All 2 branches covered.">					if (entry.getName().equals(&quot;users.json&quot;)) {</span>
-<span class="fc" id="L122">						users = (HashMap&lt;String, User&gt;) jsonBridge.populateUsers(lecturer);</span>
-<span class="fc" id="L123">					} else if (entry.getName()</span>
-<span class="fc bfc" id="L124" title="All 2 branches covered.">							.equals(&quot;channels.json&quot;)) {</span>
-<span class="fc" id="L125">						channels = (HashMap&lt;String, Channel&gt;)</span>
-<span class="fc" id="L126">								jsonBridge.populateChannels(lecturer);</span>
+					// final String entryName = entry.getName();
+<span class="fc bfc" id="L170" title="All 2 branches covered.">					if (&quot;users.json&quot;.equals(entryName)) {</span>
+<span class="fc" id="L171">						users = (HashMap&lt;String, User&gt;) jsonBridge.populateUsers(lecturer);</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">					} else if (&quot;channels.json&quot;.equals(entryName)) {</span>
+<span class="fc" id="L173">						channels = (HashMap&lt;String, Channel&gt;) jsonBridge.populateChannels(lecturer);</span>
 					} else {
-<span class="fc" id="L128">						messages = (HashMap&lt;String, ArrayList&lt;Message&gt;&gt;) jsonBridge</span>
-<span class="fc" id="L129">								.populateMessages(messages, currChannel, lecturer);</span>
+<span class="fc" id="L175">						messages = (HashMap&lt;String, ArrayList&lt;Message&gt;&gt;) jsonBridge.populateMessages(messages,</span>
+								currChannel, lecturer);
 					}
-
-<span class="fc" id="L132">					lecturer.close();</span>
-
+<span class="fc" id="L178">					lecturer.close();</span>
 					// Non ho trovato i file che ci servono
-<span class="pc bpc" id="L135" title="1 of 2 branches missed.">					if (!loadedSomething) {</span>
-<span class="nc" id="L136">						throw new ZipException();</span>
+<span class="pc bpc" id="L180" title="1 of 2 branches missed.">					if (!loadedSomething) {</span>
+<span class="nc" id="L181">						throw new ZipException();</span>
 					}
 				}
 			}
-<span class="fc" id="L140">		}</span>
-<span class="fc" id="L141">		final File tempFile = new File(zip.getName());</span>
-<span class="fc" id="L142">		workspaceLoaded = tempFile.getName().replaceFirst(&quot;[.][^.]+$&quot;, &quot;&quot;);</span>
+<span class="fc" id="L185">		}</span>
+<span class="fc" id="L186">		final File tempFile = new File(zip.getName());</span>
+<span class="fc" id="L187">		final String tempFileName = tempFile.getName();</span>
+<span class="fc" id="L188">		workspaceLoaded = tempFileName.replaceFirst(&quot;[.][^.]+$&quot;, &quot;&quot;);</span>
 		// System.out.println(workspaceLoaded);
-<span class="fc" id="L144">		zip.close();</span>
-<span class="fc" id="L145">	}</span>
+<span class="fc" id="L190">		zip.close();</span>
+<span class="fc" id="L191">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

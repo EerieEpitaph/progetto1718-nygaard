@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\SNA4Slack.jar;%APP_HOME%\lib\picocli-3.0.1.jar;%APP_HOME%\lib\gson-2.6.2.jar;%APP_HOME%\lib\guava-23.0.jar;%APP_HOME%\lib\guava-21.0.jar
+set CLASSPATH=%APP_HOME%\lib\SNA4Slack.jar;%APP_HOME%\lib\gson-2.6.2.jar;%APP_HOME%\lib\guava-23.0.jar;%APP_HOME%\lib\picocli-3.0.1.jar;%APP_HOME%\lib\guava-21.0.jar
 
 @rem Execute SNA4Slack
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SN_A4_SLACK_OPTS%  -classpath "%CLASSPATH%" it.uniba.main/AppMain %CMD_LINE_ARGS%

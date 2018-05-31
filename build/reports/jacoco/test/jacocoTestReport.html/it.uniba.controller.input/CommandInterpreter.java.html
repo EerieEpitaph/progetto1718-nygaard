@@ -4,75 +4,85 @@ import java.io.IOException;
 import java.util.zip.ZipException;
 
 import it.uniba.controller.DataController;
+import it.uniba.controller.ExceptionsHandler;
 
 /**
- *This class interprets commands based on current interface rules.
+ * This class interprets commands based on current interface rules.
  */
-<span class="fc" id="L11">public class CommandInterpreter {</span>
+<span class="fc" id="L12">public class CommandInterpreter {</span>
 	/**
-	 *This method, given a CommandParser and a DataController object, interprets
-	 *CLI arguments and gives them a meaning.
-	 *@param parser CommandParser object that validated our commands; has quite a few useful methods
-	 *@param dataCtr DataController object that takes care of printing and managind data structures
-	 *@throws ZipException on workspace loading error
-	 *@throws IOException on OS level errors with files
+	 * This method, given a CommandParser and a DataController object, interprets
+	 * CLI arguments and gives them a meaning.
+	 * 
+	 * @param parser
+	 *            CommandParser object that validated our commands; has quite a few
+	 *            useful methods
+	 * @param dataCtr
+	 *            DataController object that takes care of printing and managing
+	 *            data structures
+	 * @throws ZipException
+	 *             on workspace loading error
+	 * @throws IOException
+	 *             on OS level errors with files
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
 	public void executeCommands(final CommandParser parser, final DataController dataCtr)
-			throws ZipException, IOException {
-<span class="fc" id="L22">		final CommandParserInterface bridge = parser;</span>
+			throws ZipException, IOException, ExceptionsHandler {
+<span class="fc" id="L32">		final CommandParserInterface bridge = parser;</span>
 
-<span class="fc bfc" id="L24" title="All 2 branches covered.">		if (bridge.help()) {</span>
-<span class="fc" id="L25">            dataCtr.showHelp();</span>
-<span class="fc bfc" id="L26" title="All 2 branches covered.">        } else if (bridge.validWorkspace()) {</span>
-<span class="fc" id="L27">			dataCtr.updateModel(bridge.getWorkspace());</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">		if (bridge.help()) {</span>
+<span class="fc" id="L35">			dataCtr.showHelp();</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">		} else if (bridge.validWorkspace()) {</span>
+<span class="fc" id="L37">			dataCtr.updateModel(bridge.getWorkspace());</span>
 
-<span class="fc bfc" id="L29" title="All 2 branches covered.">			if (bridge.users()) {</span>
-<span class="fc" id="L30">				dataCtr.printMembers();</span>
-<span class="fc bfc" id="L31" title="All 2 branches covered.">			} else if (bridge.channels()) {</span>
-<span class="fc" id="L32">				dataCtr.printChannels();</span>
-<span class="fc bfc" id="L33" title="All 2 branches covered.">			} else if (bridge.extendedChannels()) {</span>
-<span class="fc" id="L34">				dataCtr.printMembers4Channel();</span>
-<span class="fc bfc" id="L35" title="All 2 branches covered.">			} else if (bridge.usersInChannel()) {</span>
-<span class="fc" id="L36">				dataCtr.printChannelMembers(bridge.getChannelFilter());</span>
-<span class="pc bpc" id="L37" title="1 of 2 branches missed.">			} else if (bridge.mentions()) {</span>
-<span class="fc" id="L38">				final Boolean weight = bridge.weighted();</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">			if (bridge.users()) {</span>
+<span class="fc" id="L40">				dataCtr.printMembers();</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">			} else if (bridge.channels()) {</span>
+<span class="fc" id="L42">				dataCtr.printChannels();</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">			} else if (bridge.extendedChannels()) {</span>
+<span class="fc" id="L44">				dataCtr.printMembers4Channel();</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">			} else if (bridge.usersInChannel()) {</span>
+<span class="fc" id="L46">				dataCtr.printChannelMembers(bridge.getChannelFilter());</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">			} else if (bridge.mentions()) {</span>
 
-<span class="fc" id="L40">				String inChannel = &quot;&quot;;</span>
-<span class="fc bfc" id="L41" title="All 2 branches covered.">				if (bridge.in()) {</span>
-<span class="fc" id="L42">					inChannel = bridge.getInWhat();</span>
+<span class="fc" id="L49">				String inChannel = &quot;&quot;;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">				if (bridge.in()) {</span>
+<span class="fc" id="L51">					inChannel = bridge.getInWhat();</span>
 				}
 
-<span class="pc bpc" id="L45" title="1 of 4 branches missed.">				if (bridge.from() &amp;&amp; bridge.to()) {</span>
-<span class="nc" id="L46">					throw new IllegalStateException();</span>
+<span class="pc bpc" id="L54" title="1 of 4 branches missed.">				if (bridge.from() &amp;&amp; bridge.to()) {</span>
+<span class="nc" id="L55">					throw new IllegalStateException();</span>
 				}
 
-<span class="fc" id="L49">				String user = &quot;&quot;;</span>
-<span class="fc bfc" id="L50" title="All 2 branches covered.">				if (bridge.from()) {</span>
-<span class="fc" id="L51">					user = bridge.getFromWho();</span>
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">					if (weight) {</span>
-<span class="fc" id="L53">						dataCtr.printMentionsFromUserWeigthed(user, inChannel);</span>
+<span class="fc" id="L58">				final Boolean weight = bridge.weighted();</span>
+<span class="fc" id="L59">				String user = &quot;&quot;;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">				if (bridge.from()) {</span>
+<span class="fc" id="L61">					user = bridge.getFromWho();</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">					if (weight) {</span>
+<span class="fc" id="L63">						dataCtr.printMentionsFromUserWeigthed(user, inChannel);</span>
 					} else {
-<span class="nc" id="L55">						dataCtr.printMentionsFromUser(user, inChannel);</span>
+<span class="nc" id="L65">						dataCtr.printMentionsFromUser(user, inChannel);</span>
 					}
 				} else {
-<span class="fc bfc" id="L58" title="All 2 branches covered.">					if (bridge.to()) {</span>
-<span class="fc" id="L59">						user = bridge.getToWho();</span>
-<span class="fc bfc" id="L60" title="All 2 branches covered.">						if (weight) {</span>
-<span class="fc" id="L61">							dataCtr.printMentionsToUserWeigthed(user, inChannel);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">					if (bridge.to()) {</span>
+<span class="fc" id="L69">						user = bridge.getToWho();</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">						if (weight) {</span>
+<span class="fc" id="L71">							dataCtr.printMentionsToUserWeigthed(user, inChannel);</span>
 						} else {
-<span class="fc" id="L63">							dataCtr.printMentionsToUser(user, inChannel);</span>
+<span class="fc" id="L73">							dataCtr.printMentionsToUser(user, inChannel);</span>
 						}
 					} else {
-<span class="fc" id="L66">						dataCtr.printAllMention(inChannel, weight);</span>
+<span class="fc" id="L76">						dataCtr.printAllMention(inChannel, weight);</span>
 					}
 				}
 
-<span class="fc" id="L70">			} else {</span>
-<span class="nc" id="L71">				throw new IllegalStateException();</span>
+<span class="fc" id="L80">			} else {</span>
+<span class="nc" id="L81">				throw new IllegalStateException();</span>
 			}
 		} else {
-<span class="fc" id="L74">			throw new IllegalStateException();</span>
+<span class="fc" id="L84">			throw new IllegalStateException();</span>
 		}
-<span class="fc" id="L76">	}</span>
+<span class="fc" id="L86">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

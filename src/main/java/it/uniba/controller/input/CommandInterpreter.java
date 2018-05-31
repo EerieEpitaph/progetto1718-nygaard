@@ -4,26 +4,36 @@ import java.io.IOException;
 import java.util.zip.ZipException;
 
 import it.uniba.controller.DataController;
+import it.uniba.controller.ExceptionsHandler;
 
 /**
- *This class interprets commands based on current interface rules.
+ * This class interprets commands based on current interface rules.
  */
 public class CommandInterpreter {
 	/**
-	 *This method, given a CommandParser and a DataController object, interprets
-	 *CLI arguments and gives them a meaning.
-	 *@param parser CommandParser object that validated our commands; has quite a few useful methods
-	 *@param dataCtr DataController object that takes care of printing and managind data structures
-	 *@throws ZipException on workspace loading error
-	 *@throws IOException on OS level errors with files
+	 * This method, given a CommandParser and a DataController object, interprets
+	 * CLI arguments and gives them a meaning.
+	 * 
+	 * @param parser
+	 *            CommandParser object that validated our commands; has quite a few
+	 *            useful methods
+	 * @param dataCtr
+	 *            DataController object that takes care of printing and managing
+	 *            data structures
+	 * @throws ZipException
+	 *             on workspace loading error
+	 * @throws IOException
+	 *             on OS level errors with files
+	 * @throws ExceptionsHandler
+	 *             used to handle exceptions
 	 */
 	public void executeCommands(final CommandParser parser, final DataController dataCtr)
-			throws ZipException, IOException {
+			throws ZipException, IOException, ExceptionsHandler {
 		final CommandParserInterface bridge = parser;
 
 		if (bridge.help()) {
-            dataCtr.showHelp();
-        } else if (bridge.validWorkspace()) {
+			dataCtr.showHelp();
+		} else if (bridge.validWorkspace()) {
 			dataCtr.updateModel(bridge.getWorkspace());
 
 			if (bridge.users()) {
@@ -35,7 +45,6 @@ public class CommandInterpreter {
 			} else if (bridge.usersInChannel()) {
 				dataCtr.printChannelMembers(bridge.getChannelFilter());
 			} else if (bridge.mentions()) {
-				final Boolean weight = bridge.weighted();
 
 				String inChannel = "";
 				if (bridge.in()) {
@@ -46,6 +55,7 @@ public class CommandInterpreter {
 					throw new IllegalStateException();
 				}
 
+				final Boolean weight = bridge.weighted();
 				String user = "";
 				if (bridge.from()) {
 					user = bridge.getFromWho();

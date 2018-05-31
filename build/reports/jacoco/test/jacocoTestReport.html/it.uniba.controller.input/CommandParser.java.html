@@ -10,182 +10,196 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
 /**
- *This class manages the parsing of command line arguments.
+ * This class manages the parsing of command line arguments.
  */
 public final class CommandParser implements CommandParserInterface {
-	/**
-	 *This class manages no-parameter commands.
+	/*
+	 * Base commands representer.
 	 */
-<span class="fc" id="L19">	public final class CommBaseArgs {</span>
+	private CommBaseArgs baseArgs;
+	/*
+	 * Workspace command representer.
+	 */
+	private CommWorkspace workspace;
+
+	/**
+	 * This class manages no-parameter commands.
+	 */
+<span class="fc" id="L28">	public final class CommBaseArgs {</span>
 		/*
-		 *Activity notifier.
+		 * Activity notifier.
 		 */
-<span class="fc" id="L23">		private Boolean active = false;</span>
+<span class="fc" id="L32">		private Boolean active = false;</span>
 
 		/*
-		 *Help found.
+		 * Help found.
 		 */
 		@Option(names = &quot;help&quot;)
 		private boolean helpStatus;
 
 		/**
-		 *Gives activity status.
-		 *@return active status
+		 * Gives activity status.
+		 * 
+		 * @return active status
 		 */
 		public Boolean isActive() {
-<span class="nc" id="L36">			return active;</span>
+<span class="nc" id="L46">			return active;</span>
 		}
 
 		/**
-		 *Gives help status.
-		 *@return helpstatus
+		 * Gives help status.
+		 * 
+		 * @return helpstatus
 		 */
 		public Boolean getHelpStatus() {
-<span class="fc" id="L44">			return helpStatus;</span>
+<span class="fc" id="L55">			return helpStatus;</span>
 		}
 	}
 
 	/**
-	 *This class manages workspace-related commands.
+	 * This class manages workspace-related commands.
 	 */
-<span class="fc" id="L51">	public final class CommWorkspace {</span>
+<span class="fc" id="L62">	public final class CommWorkspace {</span>
 		/*
-		 *Activity notifier.
+		 * Activity notifier.
 		 */
-<span class="fc" id="L55">		private Boolean active = false;</span>
+<span class="fc" id="L66">		private Boolean active = false;</span>
 
 		/*
-		 *Name of the current workspace.
+		 * Name of the current workspace.
 		 */
 		@Parameters(index = &quot;0&quot;, arity = &quot;1&quot;)
 		private String workspaceName;
 
 		/*
-		 *Status of member command.
+		 * Status of member command.
 		 */
 		@Option(names = &quot;-u&quot;, arity = &quot;0..1&quot;)
 		private boolean membersStatus;
 
 		/*
-		 *Status of channels command.
+		 * Status of channels command.
 		 */
 		@Option(names = &quot;-c&quot;, arity = &quot;0..1&quot;)
 		private boolean channelsStatus;
 
 		/*
-		 *Status of extended channels command.
+		 * Status of extended channels command.
 		 */
 		@Option(names = &quot;-cu&quot;, arity = &quot;0..1&quot;)
 		private boolean extChannelsStatus;
 
 		/*
-		 *Name of channel filter.
+		 * Name of channel filter.
 		 */
 		@Option(names = &quot;-uc&quot;, arity = &quot;1&quot;)
 		private String channelFilter;
 
 		/*
-		 *Parameters passed at mention command.
+		 * Parameters passed at mention command.
 		 */
 		@Option(names = &quot;-m&quot;, arity = &quot;0..5&quot;)
 		private String[] mentionParams;
 
 		/**
-		 *Activity getter.
-		 *@return active status
+		 * Activity getter.
+		 * 
+		 * @return active status
 		 */
 		public Boolean isActive() {
-<span class="fc" id="L98">			return active;</span>
+<span class="fc" id="L110">			return active;</span>
 		}
 
 		/**
-		 *Worskpace getter.
-		 *@return name of workspace
+		 * Worskpace getter.
+		 * 
+		 * @return name of workspace
 		 */
 		public String getWorkspaceName() {
-<span class="fc" id="L106">			return workspaceName;</span>
+<span class="fc" id="L119">			return workspaceName;</span>
 		}
 
 		/**
-		 *Workspace validity getter.
-		 *@return workspace validity
+		 * Workspace validity getter.
+		 * 
+		 * @return workspace validity
 		 */
 		public Boolean isValidWorkspace() {
-<span class="pc bpc" id="L114" title="1 of 4 branches missed.">			return (workspaceName != null &amp;&amp; !&quot;&quot;.equals(workspaceName));</span>
+<span class="pc bpc" id="L128" title="1 of 4 branches missed.">			return (workspaceName != null &amp;&amp; !&quot;&quot;.equals(workspaceName));</span>
 		}
 
 		/**
-		 *Member status getter.
-		 *@return memberStatus value
+		 * Member status getter.
+		 * 
+		 * @return memberStatus value
 		 */
 		public Boolean getMembersStatus() {
-<span class="fc" id="L122">			return membersStatus;</span>
+<span class="fc" id="L137">			return membersStatus;</span>
 		}
 
 		/**
-		 *Channel status getter.
-		 *@return channelStatus value
+		 * Channel status getter.
+		 * 
+		 * @return channelStatus value
 		 */
 		public Boolean getChannelsStatus() {
-<span class="fc" id="L130">			return channelsStatus;</span>
+<span class="fc" id="L146">			return channelsStatus;</span>
 		}
 
 		/**
-		 *Extended channel status getter.
-		 *@return extChannelStatus value
+		 * Extended channel status getter.
+		 * 
+		 * @return extChannelStatus value
 		 */
 		public Boolean getExtChannelsStatus() {
-<span class="fc" id="L138">			return extChannelsStatus;</span>
+<span class="fc" id="L155">			return extChannelsStatus;</span>
 		}
 
 		/**
-		 *Channel filter getter.
-		 *@return channelFilter value
+		 * Channel filter getter.
+		 * 
+		 * @return channelFilter value
 		 */
 		public String getChannelFilter() {
-<span class="fc" id="L146">			return channelFilter;</span>
+<span class="fc" id="L164">			return channelFilter;</span>
 		}
 
 		/**
-		 *Channel filter validity getter.
-		 *@return channelFilter validity
+		 * Channel filter validity getter.
+		 * 
+		 * @return channelFilter validity
 		 */
 		public Boolean isValidFilter() {
-<span class="pc bpc" id="L154" title="1 of 4 branches missed.">			return (channelFilter != null &amp;&amp; !&quot;&quot;.equals(channelFilter));</span>
+<span class="pc bpc" id="L173" title="1 of 4 branches missed.">			return (channelFilter != null &amp;&amp; !&quot;&quot;.equals(channelFilter));</span>
 		}
 
 		/**
-		 *Mention params getter.
-		 *@return array of parameters passed after mention command
+		 * Mention params getter.
+		 * 
+		 * @return array of parameters passed after mention command
 		 */
 		public String[] getMentionParams() {
-<span class="nc" id="L162">			return Arrays.copyOf(mentionParams, mentionParams.length);</span>
+<span class="nc" id="L182">			return Arrays.copyOf(mentionParams, mentionParams.length);</span>
 		}
 	}
 
-	/*
-	 *Base commands representer.
-	 */
-	private CommBaseArgs baseArgs;
-	/*
-	 *Workspace command representer.
-	 */
-	private CommWorkspace workspace;
-
 	/**
-	 *CommandParser constructor.
-	 *@param args array of command line arguments
-	 *@throws IllegalStateException if conflicting commands parsed
+	 * CommandParser constructor.
+	 * 
+	 * @param args
+	 *            array of command line arguments
+	 * @throws IllegalStateException
+	 *             if conflicting commands parsed
 	 */
-<span class="fc" id="L180">	public CommandParser(final String[] args) throws IllegalStateException {</span>
-<span class="fc" id="L181">		baseArgs = new CommBaseArgs();</span>
-<span class="fc" id="L182">		workspace = new CommWorkspace();</span>
+<span class="fc" id="L194">	public CommandParser(final String[] args) throws IllegalStateException {</span>
+<span class="fc" id="L195">		baseArgs = new CommBaseArgs();</span>
+<span class="fc" id="L196">		workspace = new CommWorkspace();</span>
 
-<span class="fc" id="L184">		CommandLine commandLine = new CommandLine(baseArgs).addSubcommand(&quot;-w&quot;, workspace);</span>
+<span class="fc" id="L198">		final CommandLine commandLine = new CommandLine(baseArgs).addSubcommand(&quot;-w&quot;, workspace);</span>
 
-<span class="fc" id="L186">		List&lt;CommandLine&gt; result = commandLine.parse(args);</span>
+<span class="fc" id="L200">		final List&lt;CommandLine&gt; result = commandLine.parse(args);</span>
 
-<span class="fc bfc" id="L188" title="All 2 branches covered.">		for (CommandLine x : result) {</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">		for (final CommandLine single : result) {</span>
 			// Gli &quot;argomenti base&quot; sarebbero sempre true, per com'e'
 			// strutturata la
 			// libreria.
@@ -193,267 +207,262 @@ public final class CommandParser implements CommandParserInterface {
 			// riflessione,
 			// uno dei loro field e' true
 			// Se piu' di un field e' true, throwo direttamente un'eccezione.
-<span class="fc bfc" id="L196" title="All 2 branches covered.">			if (x.getCommand().getClass() == CommBaseArgs.class) {</span>
-<span class="fc" id="L197">				baseArgs = (CommBaseArgs) x.getCommand();</span>
+<span class="fc bfc" id="L210" title="All 2 branches covered.">			if (single.getCommand().getClass() == CommBaseArgs.class) {</span>
+<span class="fc" id="L211">				baseArgs = (CommBaseArgs) single.getCommand();</span>
 
-<span class="fc" id="L199">				ArrayList&lt;Field&gt; baseFields = new ArrayList&lt;Field&gt;(</span>
-<span class="fc" id="L200">						Arrays.asList(CommBaseArgs.class.getDeclaredFields()));</span>
-<span class="fc" id="L201">				baseFields.remove(0);</span>
-<span class="fc" id="L202">				baseFields.remove(baseFields.size() - 1);</span>
+<span class="fc" id="L213">				final ArrayList&lt;Field&gt; baseFields = new ArrayList&lt;Field&gt;(</span>
+<span class="fc" id="L214">						Arrays.asList(CommBaseArgs.class.getDeclaredFields()));</span>
+<span class="fc" id="L215">				baseFields.remove(0);</span>
+<span class="fc" id="L216">				baseFields.remove(baseFields.size() - 1);</span>
 
-<span class="fc bfc" id="L204" title="All 2 branches covered.">				for (Field y : baseFields) {</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">				for (final Field singleField : baseFields) {</span>
 					// System.out.println(y.getName());
-<span class="fc" id="L206">					y.setAccessible(true);</span>
+<span class="fc" id="L220">					singleField.setAccessible(true);</span>
 					try {
-<span class="fc bfc" id="L208" title="All 2 branches covered.">						if (y.get(baseArgs).toString().equals(&quot;true&quot;)) {</span>
-<span class="pc bpc" id="L209" title="1 of 2 branches missed.">							if (baseArgs.active) {</span>
-<span class="nc" id="L210">								throw new IllegalStateException(); // CATCHED</span>
+<span class="fc bfc" id="L222" title="All 2 branches covered.">						if (singleField.get(baseArgs).toString().equals(&quot;true&quot;)) {</span>
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">							if (baseArgs.active) {</span>
+<span class="nc" id="L224">								throw new IllegalStateException(); // CATCHED</span>
 							} else {
-<span class="fc" id="L212">								baseArgs.active = true;</span>
+<span class="fc" id="L226">								baseArgs.active = true;</span>
 							}
 						}
 
-<span class="fc" id="L216">						y.setAccessible(false);</span>
-<span class="nc" id="L217">					} catch (IllegalArgumentException e) {</span>
-<span class="nc" id="L218">						e.printStackTrace();</span>
-<span class="nc" id="L219">					} catch (IllegalAccessException e) {</span>
-<span class="nc" id="L220">						e.printStackTrace();</span>
-<span class="pc" id="L221">					}</span>
-<span class="fc" id="L222">				}</span>
-<span class="pc bpc" id="L223" title="1 of 2 branches missed.">			} else if (x.getCommand().getClass() == CommWorkspace.class) {</span>
-<span class="fc" id="L224">				workspace = (CommWorkspace) x.getCommand();</span>
-<span class="fc" id="L225">				workspace.active = true;</span>
+<span class="fc" id="L230">						singleField.setAccessible(false);</span>
+<span class="nc" id="L231">					} catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L232">						e.printStackTrace();</span>
+<span class="nc" id="L233">					} catch (IllegalAccessException e) {</span>
+<span class="nc" id="L234">						e.printStackTrace();</span>
+<span class="pc" id="L235">					}</span>
+<span class="fc" id="L236">				}</span>
+<span class="pc bpc" id="L237" title="1 of 2 branches missed.">			} else if (single.getCommand().getClass() == CommWorkspace.class) {</span>
+<span class="fc" id="L238">				workspace = (CommWorkspace) single.getCommand();</span>
+<span class="fc" id="L239">				workspace.active = true;</span>
 			}
-<span class="fc" id="L227">		}</span>
-<span class="fc" id="L228">	}</span>
+<span class="fc" id="L241">		}</span>
+<span class="fc" id="L242">	}</span>
 
 	// ==========================================================
 	// ================INTERFACE IMPLEMENTATION==================
 	// ==========================================================
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean validWorkspace() {
-<span class="pc bpc" id="L239" title="1 of 4 branches missed.">		if (workspace.isActive() &amp;&amp; workspace.isValidWorkspace()) {</span>
-<span class="fc" id="L240">			return true;</span>
+<span class="pc bpc" id="L253" title="1 of 4 branches missed.">		if (workspace.isActive() &amp;&amp; workspace.isValidWorkspace()) {</span>
+<span class="fc" id="L254">			return true;</span>
 		}
-<span class="fc" id="L242">		return false;</span>
+<span class="fc" id="L256">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getWorkspace() {
-<span class="fc" id="L250">		return workspace.getWorkspaceName();</span>
+<span class="fc" id="L264">		return workspace.getWorkspaceName();</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean help() {
-<span class="fc bfc" id="L258" title="All 2 branches covered.">		if (baseArgs.getHelpStatus()) {</span>
-<span class="fc" id="L259">			return true;</span>
+<span class="fc bfc" id="L272" title="All 2 branches covered.">		if (baseArgs.getHelpStatus()) {</span>
+<span class="fc" id="L273">			return true;</span>
 		}
-<span class="fc" id="L261">		return false;</span>
+<span class="fc" id="L275">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean users() {
-<span class="fc bfc" id="L269" title="All 2 branches covered.">		if (workspace.getMembersStatus()) {</span>
-<span class="fc" id="L270">			return true;</span>
+<span class="fc bfc" id="L283" title="All 2 branches covered.">		if (workspace.getMembersStatus()) {</span>
+<span class="fc" id="L284">			return true;</span>
 		}
-<span class="fc" id="L272">		return false;</span>
+<span class="fc" id="L286">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean channels() {
-<span class="fc bfc" id="L280" title="All 2 branches covered.">		if (workspace.getChannelsStatus()) {</span>
-<span class="fc" id="L281">			return true;</span>
+<span class="fc bfc" id="L294" title="All 2 branches covered.">		if (workspace.getChannelsStatus()) {</span>
+<span class="fc" id="L295">			return true;</span>
 		}
-<span class="fc" id="L283">		return false;</span>
+<span class="fc" id="L297">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean extendedChannels() {
-<span class="fc bfc" id="L291" title="All 2 branches covered.">		if (workspace.getExtChannelsStatus()) {</span>
-<span class="fc" id="L292">			return true;</span>
+<span class="fc bfc" id="L305" title="All 2 branches covered.">		if (workspace.getExtChannelsStatus()) {</span>
+<span class="fc" id="L306">			return true;</span>
 		}
-<span class="fc" id="L294">		return false;</span>
+<span class="fc" id="L308">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean usersInChannel() {
-<span class="fc bfc" id="L302" title="All 2 branches covered.">		if (workspace.isValidFilter()) {</span>
-<span class="fc" id="L303">			return true;</span>
+<span class="fc bfc" id="L316" title="All 2 branches covered.">		if (workspace.isValidFilter()) {</span>
+<span class="fc" id="L317">			return true;</span>
 		}
-<span class="fc" id="L305">		return false;</span>
+<span class="fc" id="L319">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getChannelFilter() {
-<span class="fc" id="L313">		return workspace.getChannelFilter();</span>
+<span class="fc" id="L327">		return workspace.getChannelFilter();</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean mentions() {
-<span class="pc bpc" id="L321" title="1 of 2 branches missed.">		if (workspace.mentionParams != null) {</span>
-<span class="fc" id="L322">			return true;</span>
+<span class="pc bpc" id="L335" title="1 of 2 branches missed.">		if (workspace.mentionParams != null) {</span>
+<span class="fc" id="L336">			return true;</span>
 		}
-<span class="nc" id="L324">		return false;</span>
+<span class="nc" id="L338">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean from() {
-<span class="fc" id="L332">		String[] params = workspace.mentionParams;</span>
-<span class="fc bfc" id="L333" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L346">		final String[] params = workspace.mentionParams;</span>
+<span class="fc" id="L347">		final int length = params.length;</span>
+<span class="fc bfc" id="L348" title="All 2 branches covered.">		for (int i = 0; i &lt; length; i++) {</span>
 			try {
-<span class="fc bfc" id="L335" title="All 2 branches covered.">				if (params[i].equals(&quot;from&quot;)) {</span>
-<span class="pc bpc" id="L336" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="fc" id="L337">						return true;</span>
-					}
+<span class="pc bpc" id="L350" title="1 of 4 branches missed.">				if (&quot;from&quot;.equals(params[i]) &amp;&amp; (params[i + 1] != null)) {</span>
+<span class="fc" id="L351">					return true;</span>
 				}
-<span class="nc" id="L340">			} catch (Exception e) {</span>
-<span class="nc" id="L341">				throw new IllegalStateException();</span>
-<span class="fc" id="L342">			}</span>
+<span class="nc" id="L353">			} catch (Exception e) {</span>
+<span class="nc" id="L354">				throw new IllegalStateException();</span>
+<span class="fc" id="L355">			}</span>
 		}
-<span class="fc" id="L344">		return false;</span>
+<span class="fc" id="L357">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getFromWho() {
-<span class="fc" id="L352">		String[] params = workspace.mentionParams;</span>
-<span class="pc bfc" id="L353" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L365">		final String[] params = workspace.mentionParams;</span>
+<span class="fc" id="L366">		final int length = params.length;</span>
+<span class="pc bfc" id="L367" title="All 2 branches covered.">		for (int i = 0; i &lt; length; i++) {</span>
 			try {
-<span class="pc bpc" id="L355" title="1 of 2 branches missed.">				if (params[i].equals(&quot;from&quot;)) {</span>
-<span class="pc bpc" id="L356" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="fc" id="L357">						return params[i + 1];</span>
-					}
+<span class="pc bpc" id="L369" title="2 of 4 branches missed.">				if ((&quot;from&quot;.equals(params[i])) &amp;&amp; (params[i + 1] != null)) {</span>
+<span class="fc" id="L370">					return params[i + 1];</span>
 				}
-<span class="fc" id="L360">			} catch (Exception e) {</span>
-<span class="fc" id="L361">				throw new IllegalStateException();</span>
-<span class="nc" id="L362">			}</span>
+<span class="fc" id="L372">			} catch (Exception e) {</span>
+<span class="fc" id="L373">				throw new IllegalStateException();</span>
+<span class="nc" id="L374">			}</span>
 		}
-<span class="fc" id="L364">		return &quot;&quot;;</span>
+<span class="fc" id="L376">		return &quot;&quot;;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean to() {
-<span class="fc" id="L372">		String[] params = workspace.mentionParams;</span>
-<span class="fc bfc" id="L373" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L384">		final String[] params = workspace.mentionParams;</span>
+<span class="fc" id="L385">		final int length = params.length;</span>
+<span class="fc bfc" id="L386" title="All 2 branches covered.">		for (int i = 0; i &lt; length; i++) {</span>
 			try {
-<span class="fc bfc" id="L375" title="All 2 branches covered.">				if (params[i].equals(&quot;to&quot;)) {</span>
-<span class="pc bpc" id="L376" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="fc" id="L377">						return true;</span>
-					}
+<span class="pc bpc" id="L388" title="1 of 4 branches missed.">				if ((&quot;to&quot;.equals(params[i])) &amp;&amp; (params[i + 1] != null)) {</span>
+<span class="fc" id="L389">					return true;</span>
 				}
-<span class="nc" id="L380">			} catch (Exception e) {</span>
-<span class="nc" id="L381">				throw new IllegalStateException();</span>
-<span class="fc" id="L382">			}</span>
+<span class="nc" id="L391">			} catch (Exception e) {</span>
+<span class="nc" id="L392">				throw new IllegalStateException();</span>
+<span class="fc" id="L393">			}</span>
 		}
-<span class="fc" id="L384">		return false;</span>
+<span class="fc" id="L395">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getToWho() {
-<span class="fc" id="L392">		String[] params = workspace.mentionParams;</span>
-<span class="pc bfc" id="L393" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L403">		final String[] params = workspace.mentionParams;</span>
+<span class="fc" id="L404">		final int length = params.length;</span>
+<span class="pc bfc" id="L405" title="All 2 branches covered.">		for (int i = 0; i &lt; length; i++) {</span>
 			try {
-<span class="pc bpc" id="L395" title="1 of 2 branches missed.">				if (params[i].equals(&quot;to&quot;)) {</span>
-<span class="pc bpc" id="L396" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="fc" id="L397">						return params[i + 1];</span>
-					}
+<span class="pc bpc" id="L407" title="2 of 4 branches missed.">				if ((&quot;to&quot;.equals(params[i])) &amp;&amp; (params[i + 1] != null)) {</span>
+<span class="fc" id="L408">					return params[i + 1];</span>
 				}
-<span class="fc" id="L400">			} catch (Exception e) {</span>
-<span class="fc" id="L401">				throw new IllegalStateException();</span>
-<span class="nc" id="L402">			}</span>
+<span class="fc" id="L410">			} catch (Exception e) {</span>
+<span class="fc" id="L411">				throw new IllegalStateException();</span>
+<span class="nc" id="L412">			}</span>
 		}
-<span class="fc" id="L404">		return &quot;&quot;;</span>
+<span class="fc" id="L414">		return &quot;&quot;;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean in() {
-<span class="fc" id="L412">		String[] params = workspace.mentionParams;</span>
-<span class="fc bfc" id="L413" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L422">		final String[] params = workspace.mentionParams;</span>
+<span class="fc" id="L423">		final int length = params.length;</span>
+<span class="fc bfc" id="L424" title="All 2 branches covered.">		for (int i = 0; i &lt; length; i++) {</span>
 			try {
-<span class="fc bfc" id="L415" title="All 2 branches covered.">				if (params[i].equals(&quot;in&quot;)) {</span>
-<span class="pc bpc" id="L416" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="fc" id="L417">						return true;</span>
-					}
+<span class="pc bpc" id="L426" title="1 of 4 branches missed.">				if ((&quot;in&quot;.equals(params[i])) &amp;&amp; (params[i + 1] != null)) {</span>
+<span class="fc" id="L427">					return true;</span>
 				}
-<span class="nc" id="L420">			} catch (Exception e) {</span>
-<span class="nc" id="L421">				throw new IllegalStateException();</span>
-<span class="fc" id="L422">			}</span>
+<span class="nc" id="L429">			} catch (Exception e) {</span>
+<span class="nc" id="L430">				throw new IllegalStateException();</span>
+<span class="fc" id="L431">			}</span>
 		}
-<span class="fc" id="L424">		return false;</span>
+<span class="fc" id="L433">		return false;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public String getInWhat() {
-<span class="fc" id="L432">		String[] params = workspace.mentionParams;</span>
-<span class="fc bfc" id="L433" title="All 2 branches covered.">		for (int i = 0; i &lt; params.length; i++) {</span>
+<span class="fc" id="L441">		final String[] params = workspace.mentionParams;</span>
+<span class="fc" id="L442">		final int length = params.length;</span>
+<span class="fc bfc" id="L443" title="All 2 branches covered.">		for (int i = 0; i &lt; length; i++) {</span>
 			try {
-<span class="fc bfc" id="L435" title="All 2 branches covered.">				if (params[i].equals(&quot;in&quot;)) {</span>
-<span class="pc bpc" id="L436" title="1 of 2 branches missed.">					if (params[i + 1] != null) {</span>
-<span class="fc" id="L437">						return params[i + 1];</span>
-					}
+<span class="pc bpc" id="L445" title="1 of 4 branches missed.">				if ((&quot;in&quot;.equals(params[i])) &amp;&amp; (params[i + 1] != null)) {</span>
+<span class="fc" id="L446">					return params[i + 1];</span>
 				}
-<span class="fc" id="L440">			} catch (Exception e) {</span>
-<span class="fc" id="L441">				throw new IllegalStateException();</span>
-<span class="fc" id="L442">			}</span>
+<span class="fc" id="L448">			} catch (Exception e) {</span>
+<span class="fc" id="L449">				throw new IllegalStateException();</span>
+<span class="fc" id="L450">			}</span>
 		}
-<span class="fc" id="L444">		return &quot;&quot;;</span>
+<span class="fc" id="L452">		return &quot;&quot;;</span>
 	}
 
 	/**
-	 *Interface overriding.
+	 * Interface overriding.
 	 */
 	@Override
 	public Boolean weighted() {
-<span class="pc bpc" id="L452" title="2 of 4 branches missed.">		if (workspace.mentionParams != null &amp;&amp; workspace.mentionParams.length != 0</span>
-<span class="fc bfc" id="L453" title="All 2 branches covered.">				&amp;&amp; workspace.mentionParams[workspace.mentionParams.length - 1].equals(&quot;-n&quot;)) {</span>
-<span class="fc" id="L454">			return true;</span>
+
+<span class="pc bpc" id="L461" title="2 of 4 branches missed.">		if (workspace.mentionParams != null &amp;&amp; workspace.mentionParams.length != 0</span>
+<span class="fc bfc" id="L462" title="All 2 branches covered.">				&amp;&amp; &quot;-n&quot;.equals(workspace.mentionParams[workspace.mentionParams.length - 1])) {</span>
+<span class="fc" id="L463">			return true;</span>
 		}
-<span class="fc" id="L456">		return false;</span>
+<span class="fc" id="L465">		return false;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

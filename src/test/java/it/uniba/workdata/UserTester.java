@@ -1,16 +1,13 @@
 package it.uniba.workdata;
 
 import static org.junit.jupiter.api.Assertions.*;
-//import it.uniba.workdata;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class UserTester {
 
-	static User u1, u2, u3;
+	static User user1, user2, user3;
 
 	@BeforeAll
 
@@ -18,13 +15,13 @@ public class UserTester {
 
 	{
 
-		User.Profile p1 = new User.Profile("phDisplay");
+		final User.Profile profile1 = new User.Profile("phDisplay");
 
-		u1 = new User("#IdPhonix", "Nygaard", "joe", "Giovanni", p1);
+		user1 = new User("#IdPhonix", "Nygaard", "joe", "Giovanni", profile1);
 
-		u2 = u1;
+		user2 = user1;
 
-		u3 = new User("#IdSigsky", "Nygaard", "joe", "Giovanni", p1);
+		user3 = new User("#IdSigsky", "Nygaard", "joe", "Giovanni", profile1);
 
 	}
 
@@ -34,7 +31,7 @@ public class UserTester {
 
 	{
 
-		assertTrue(u1.equals(u2));
+		assertTrue(user1.equals(user2));
 
 	}
 
@@ -43,8 +40,8 @@ public class UserTester {
 	void failedEquals()
 
 	{
-		Object test = new Object();
-		assertFalse(u1.equals(test));
+		final Object test = new Object();
+		assertFalse(user1.equals(test));
 
 	}
 

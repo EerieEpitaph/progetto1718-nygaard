@@ -11,7 +11,7 @@ import it.uniba.workdata.Channel;
  * of to respect the Law of Demeter).
  */
 public final class ChannelsWrapper {
-	private Map<String, Channel> channels = new HashMap<String, Channel>();
+	private Map<String, Channel> channels;
 
 	/**
 	 * ChannelsWrapper's constructor.
@@ -20,7 +20,7 @@ public final class ChannelsWrapper {
 	 *            <i>Map(String, Channel)</i>
 	 */
 	public ChannelsWrapper(final Map<String, Channel> mapChannels) {
-		channels = mapChannels;
+		channels = new HashMap<String, Channel>(mapChannels);
 	}
 
 	// inutilizzato

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractGraph.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.model</a> &gt; <span class="el_source">AbstractGraph.java</span></div><h1>AbstractGraph.java</h1><pre class="source lang-java linenums">package it.uniba.model;
 
+import java.util.ArrayList;
 //import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 import it.uniba.controller.ExceptionsHandler;
+import it.uniba.workdata.Message;
 import it.uniba.workdata.User;
 
 /**
  * 
  * Abstract behavior of a generic Graph representing a social network
  */
-<span class="fc" id="L13">public abstract class AbstractGraph {</span>
+<span class="fc" id="L16">public abstract class AbstractGraph {</span>
 
 	/**
 	 * Generate a graph of mentions starting with an specified Channel
@@ -18,7 +21,8 @@ import it.uniba.workdata.User;
 	 * @param inChannel
 	 *            &lt;i&gt;String&lt;/i&gt; specified channel to parse
 	 */
-	abstract void generate(String inChannel) throws ExceptionsHandler;
+	abstract void generate(String inChannel, Map&lt;String, ArrayList&lt;Message&gt;&gt; message, Map&lt;String, User&gt; users)
+			throws ExceptionsHandler;
 
 	/**
 	 * Check if the graph is Empty

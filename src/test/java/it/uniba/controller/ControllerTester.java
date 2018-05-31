@@ -33,13 +33,13 @@ public class ControllerTester {
 	static DataController dataCtr = new DataController(new Model(), new View());
 	static ZipParser zipper;
 
-	PrintStream originalOut = System.out;
+	final PrintStream originalOut = System.out;
 	ByteArrayOutputStream newConsole;
-	PrintStream newOut;
+    PrintStream newOut;
 
 	@BeforeAll
-	static void Init() throws ZipException, IOException {
-		String zipPath = ".//res//ingsw.zip";
+	static void init() throws ZipException, IOException {
+		final String zipPath = ".//res//ingsw.zip";
 		zipper = new ZipParser();
 		zipper.load(zipPath);
 		dataCtr.updateModel(zipPath);
@@ -62,7 +62,7 @@ public class ControllerTester {
 	// Provo ad immettere un path Illegale
 	@Test
 	void invalidPathTester() throws ZipException, IOException {
-		String[] args = { "-w", "§no.zip" };
+		final String[] args = { "-w", "ï¿½no.zip" };
 		control = new Controller();
 		assertThrows(IOException.class, () -> {
 			control.controlExecuteCLI(args);
@@ -72,7 +72,7 @@ public class ControllerTester {
 	// Provo ad immettere un path mezzo fatto
 	@Test
 	void goodPathTester() throws ZipException, IOException {
-		String[] args = { "-w" };
+		final String[] args = { "-w" };
 		control = new Controller();
 		assertThrows(MissingParameterException.class, () -> {
 			control.controlExecuteCLI(args);
@@ -84,7 +84,7 @@ public class ControllerTester {
 	@Test
 	void parsedUsersMatchPrintedUsers() throws ZipException, IOException {
 		// Mi faccio dare gli utenti trovati dallo zipParser
-		Collection<User> users = zipper.getUsers().values();
+		final Collection<User> users = zipper.getUsers().values();
 
 		// Cambio l'out di sistema e raccolgo la stampa di tutti i membri
 		System.setOut(newOut);
@@ -94,46 +94,50 @@ public class ControllerTester {
 		// dove ogni stringa e' un'intera linea di output su console (nome del membro +
 		// username)
 		// I replaceAll sono per eliminare i tab e i carriage return
-		byte[] temp = newConsole.toByteArray();
+		final byte[] temp = newConsole.toByteArray();
 		String out = new String(temp, StandardCharsets.ISO_8859_1);
 		out = out.replaceAll("\t", " ");
 		out = out.replaceAll("\r", "");
-		String[] singleUsers = out.split("\n");
+		final String[] singleUsers = out.split("\n");
 
 		// Il for conferma che ogni utente trovato dallo zipParser sia stato infatti
 		// stampato da dataController. Se questo non e' avvenuto, l'assertEquals
 		// fallira'
-		int i = 0;
-		for (User user : users) {
+		int iterator = 0;
+		String expectedUser;
+		String actualUser;
+		for (final User user : users) {
 			//Converto le due stringhe in UTF-8 per essere Travis-compliant
-			String expectedUser = user.getRealName() + " @" + user.getName();
+			expectedUser= user.getRealName() + " @" + user.getName();
 			expectedUser = new String(expectedUser.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
-			String actualUser = new String(singleUsers[i].getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
-			
+			actualUser = new String(singleUsers[iterator].getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
+
 			assertEquals(expectedUser, actualUser);
-			i++;
+			iterator++;
 		}
 	}
 
 	// Controlliamo se la stampa canali coincide
 	@Test
 	void parsedChannelsMatchPrintedChannels() throws ZipException, IOException {
-		Collection<Channel> channels = zipper.getChannels().values();
+		final Collection<Channel> channels = zipper.getChannels().values();
 
 		System.setOut(newOut);
 		dataCtr.printChannels();
 
-		byte[] temp = newConsole.toByteArray();
+		final byte[] temp = newConsole.toByteArray();
 		String out = new String(temp, StandardCharsets.ISO_8859_1);
 		out = out.replaceAll("\r", "");
-		String[] singleChannels = out.split("\n");
+		final String[] singleChannels = out.split("\n");
 
-		int i = 0;
-		for (Channel channel : channels) {
-			String expectedChannel = new String(channel.getName().getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
-			String actualChannel = new String(singleChannels[i].getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
+		int iterator = 0;
+		String expectedChannel = null;
+		String actualChannel = null;
+		for (final Channel channel : channels) {
+			expectedChannel = new String(channel.getName().getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
+			actualChannel = new String(singleChannels[iterator].getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
 			assertEquals(expectedChannel, actualChannel);
-			i++;
+			iterator++;
 		}
 	}
 }
