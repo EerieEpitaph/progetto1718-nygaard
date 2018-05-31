@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/Controller.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\DataController.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/DataController.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\ExceptionsHandler.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/ExceptionsHandler.java">
 <error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="5" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="8" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="8" column="30" severity="error" message="Parameter message should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandInterpreter.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandInterpreter.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParser.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParser.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParserInterface.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParserInterface.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\main\AppMain.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/main/AppMain.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\AbstractGraph.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/AbstractGraph.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\Edge.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/Edge.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\MentionGraph.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/MentionGraph.java">
 <error line="63" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="67" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="105" column="57" severity="error" message="Expected @throws tag for &apos;ExceptionsHandler&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\model\Model.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/Model.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\parsing\GsonReader.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/GsonReader.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\parsing\JsonParserInterface.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/JsonParserInterface.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\parsing\ZipParser.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/ZipParser.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\view\View.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/view/View.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\view\WarningMessage.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/view/WarningMessage.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\workdata\Channel.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/Channel.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\workdata\Message.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/Message.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/User.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\wrapping\ChannelsWrapper.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/wrapping/ChannelsWrapper.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\wrapping\EdgesWrapper.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/wrapping/EdgesWrapper.java">
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\main\java\it\uniba\wrapping\UsersWrapper.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/wrapping/UsersWrapper.java">
 </file>
 </checkstyle>
