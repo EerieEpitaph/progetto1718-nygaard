@@ -176,13 +176,15 @@ public class ZipParser {
 								currChannel, lecturer);
 					}
 					lecturer.close();
-					// Non ho trovato i file che ci servono
-					if (!loadedSomething) {
-						throw new ZipException();
-					}
 				}
 			}
 		}
+
+		// Non ho trovato i file che ci servono
+		if (!loadedSomething) {
+			throw new ZipException();
+		}
+
 		final File tempFile = new File(zip.getName());
 		final String tempFileName = tempFile.getName();
 		workspaceLoaded = tempFileName.replaceFirst("[.][^.]+$", "");

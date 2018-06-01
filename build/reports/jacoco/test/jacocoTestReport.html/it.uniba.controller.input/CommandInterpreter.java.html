@@ -44,15 +44,15 @@ import it.uniba.controller.ExceptionsHandler;
 <span class="fc" id="L44">				dataCtr.printMembers4Channel();</span>
 <span class="fc bfc" id="L45" title="All 2 branches covered.">			} else if (bridge.usersInChannel()) {</span>
 <span class="fc" id="L46">				dataCtr.printChannelMembers(bridge.getChannelFilter());</span>
-<span class="pc bpc" id="L47" title="1 of 2 branches missed.">			} else if (bridge.mentions()) {</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">			} else if (bridge.mentions()) {</span>
 
 <span class="fc" id="L49">				String inChannel = &quot;&quot;;</span>
 <span class="fc bfc" id="L50" title="All 2 branches covered.">				if (bridge.in()) {</span>
 <span class="fc" id="L51">					inChannel = bridge.getInWhat();</span>
 				}
 
-<span class="pc bpc" id="L54" title="1 of 4 branches missed.">				if (bridge.from() &amp;&amp; bridge.to()) {</span>
-<span class="nc" id="L55">					throw new IllegalStateException();</span>
+<span class="fc bfc" id="L54" title="All 4 branches covered.">				if (bridge.from() &amp;&amp; bridge.to()) {</span>
+<span class="fc" id="L55">					throw new IllegalStateException();</span>
 				}
 
 <span class="fc" id="L58">				final Boolean weight = bridge.weighted();</span>
@@ -77,8 +77,8 @@ import it.uniba.controller.ExceptionsHandler;
 					}
 				}
 
-<span class="fc" id="L80">			} else {</span>
-<span class="nc" id="L81">				throw new IllegalStateException();</span>
+<span class="fc" id="L80">			} else { </span>
+<span class="fc" id="L81">				throw new IllegalStateException();</span>
 			}
 		} else {
 <span class="fc" id="L84">			throw new IllegalStateException();</span>

@@ -60,10 +60,6 @@ public final class CommandParser implements CommandParserInterface {
 	 * This class manages workspace-related commands.
 	 */
 	public final class CommWorkspace {
-		/*
-		 * Activity notifier.
-		 */
-		private Boolean active = false;
 
 		/*
 		 * Name of the current workspace.
@@ -102,15 +98,6 @@ public final class CommandParser implements CommandParserInterface {
 		private String[] mentionParams;
 
 		/**
-		 * Activity getter.
-		 * 
-		 * @return active status
-		 */
-		public Boolean isActive() {
-			return active;
-		}
-
-		/**
 		 * Worskpace getter.
 		 * 
 		 * @return name of workspace
@@ -125,7 +112,7 @@ public final class CommandParser implements CommandParserInterface {
 		 * @return workspace validity
 		 */
 		public Boolean isValidWorkspace() {
-			return (workspaceName != null && !"".equals(workspaceName));
+			return !"".equals(workspaceName);
 		}
 
 		/**
@@ -181,6 +168,10 @@ public final class CommandParser implements CommandParserInterface {
 		public String[] getMentionParams() {
 			return Arrays.copyOf(mentionParams, mentionParams.length);
 		}
+		
+		public void setMentionParams(String[] newParams) {
+			mentionParams = newParams;
+		}
 	}
 
 	/**
@@ -191,7 +182,7 @@ public final class CommandParser implements CommandParserInterface {
 	 * @throws IllegalStateException
 	 *             if conflicting commands parsed
 	 */
-	public CommandParser(final String[] args) throws IllegalStateException {
+	public CommandParser(final String[] args) {
 		baseArgs = new CommBaseArgs();
 		workspace = new CommWorkspace();
 
@@ -200,45 +191,32 @@ public final class CommandParser implements CommandParserInterface {
 		final List<CommandLine> result = commandLine.parse(args);
 
 		for (final CommandLine single : result) {
-			// Gli "argomenti base" sarebbero sempre true, per com'e'
-			// strutturata la
-			// libreria.
-			// In questo if setto la loro attivita' = true solo se, usando la
-			// riflessione,
-			// uno dei loro field e' true
-			// Se piu' di un field e' true, throwo direttamente un'eccezione.
 			if (single.getCommand().getClass() == CommBaseArgs.class) {
 				baseArgs = (CommBaseArgs) single.getCommand();
+				baseArgs.active = true;
 
-				final ArrayList<Field> baseFields = new ArrayList<Field>(
-						Arrays.asList(CommBaseArgs.class.getDeclaredFields()));
-				baseFields.remove(0);
-				baseFields.remove(baseFields.size() - 1);
-
-				for (final Field singleField : baseFields) {
-					// System.out.println(y.getName());
-					singleField.setAccessible(true);
-					try {
-						if (singleField.get(baseArgs).toString().equals("true")) {
-							if (baseArgs.active) {
-								throw new IllegalStateException(); // CATCHED
-							} else {
-								baseArgs.active = true;
-							}
-						}
-
-						singleField.setAccessible(false);
-					} catch (IllegalArgumentException e) {
-						e.printStackTrace();
-					} catch (IllegalAccessException e) {
-						e.printStackTrace();
-					}
-				}
-			} else if (single.getCommand().getClass() == CommWorkspace.class) {
+			} else {
 				workspace = (CommWorkspace) single.getCommand();
-				workspace.active = true;
 			}
 		}
+	}
+
+	/**
+	 * No-param args getter.
+	 * 
+	 * @return baseArguments
+	 */
+	public CommBaseArgs getBaseArgs() {
+		return baseArgs;
+	}
+
+	/**
+	 * Workspace commadn getter.
+	 * 
+	 * @return workspaceCommand
+	 */
+	public CommWorkspace getCommWorkspace() {
+		return workspace;
 	}
 
 	// ==========================================================
@@ -250,7 +228,7 @@ public final class CommandParser implements CommandParserInterface {
 	 */
 	@Override
 	public Boolean validWorkspace() {
-		if (workspace.isActive() && workspace.isValidWorkspace()) {
+		if (workspace.isValidWorkspace()) {
 			return true;
 		}
 		return false;
@@ -346,12 +324,8 @@ public final class CommandParser implements CommandParserInterface {
 		final String[] params = workspace.mentionParams;
 		final int length = params.length;
 		for (int i = 0; i < length; i++) {
-			try {
-				if ("from".equals(params[i]) && (params[i + 1] != null)) {
-					return true;
-				}
-			} catch (Exception e) {
-				throw new IllegalStateException();
+			if ("from".equals(params[i]) && (params[i + 1] != null)) {
+				return true;
 			}
 		}
 		return false;
@@ -384,14 +358,11 @@ public final class CommandParser implements CommandParserInterface {
 		final String[] params = workspace.mentionParams;
 		final int length = params.length;
 		for (int i = 0; i < length; i++) {
-			try {
-				if (("to".equals(params[i])) && (params[i + 1] != null)) {
-					return true;
-				}
-			} catch (Exception e) {
-				throw new IllegalStateException();
+			if (("to".equals(params[i])) && (params[i + 1] != null)) {
+				return true;
 			}
 		}
+
 		return false;
 	}
 
@@ -422,12 +393,8 @@ public final class CommandParser implements CommandParserInterface {
 		final String[] params = workspace.mentionParams;
 		final int length = params.length;
 		for (int i = 0; i < length; i++) {
-			try {
-				if (("in".equals(params[i])) && (params[i + 1] != null)) {
-					return true;
-				}
-			} catch (Exception e) {
-				throw new IllegalStateException();
+			if (("in".equals(params[i])) && (params[i + 1] != null)) {
+				return true;
 			}
 		}
 		return false;

@@ -78,7 +78,7 @@
 <br/>
 </p>
 <h2>Metrics</h2>
-<p>952 lines of code analyzed,
+<p>926 lines of code analyzed,
 	in 28 classes, 
 	in 8 packages.</p>
 <table width="500" cellpadding="5" cellspacing="2">
@@ -94,18 +94,18 @@
 </tr>
 <tr class="tablerow1">
 <td>Medium Priority Warnings</td>
-<td align="right">2</td>
-<td align="right">2.10</td>
+<td align="right">4</td>
+<td align="right">4.32</td>
 </tr>
 <tr class="$totalClass">
 <td>
 <b>Total Warnings</b>
 </td>
 <td align="right">
-<b>2</b>
+<b>4</b>
 </td>
 <td align="right">
-<b>2.10</b>
+<b>4.32</b>
 </td>
 </tr>
 </table>
@@ -118,6 +118,9 @@
 </p>
 <h2>Contents</h2>
 <ul>
+<li>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</li>
 <li>
 <a href="#Warnings_PERFORMANCE">Performance Warnings</a>
 </li>
@@ -133,23 +136,29 @@
 </tr>
 <tr class="tablerow0">
 <td>
-<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
 </td>
-<td align="right">2</td>
+<td align="right">1</td>
 </tr>
 <tr class="tablerow1">
+<td>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</td>
+<td align="right">3</td>
+</tr>
+<tr class="tablerow0">
 <td>
 <b>Total</b>
 </td>
 <td align="right">
-<b>2</b>
+<b>4</b>
 </td>
 </tr>
 </table>
 <h1>Warnings</h1>
 <p>Click on a warning row to see full context information.</p>
 <h2>
-<a name="Warnings_PERFORMANCE">Performance Warnings</a>
+<a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
 </h2>
 <table class="warningtable" width="100%" cellspacing="0">
 <tr class="tableheader">
@@ -158,6 +167,29 @@
 </tr>
 <tr class="tablerow1" onclick="toggleRow('N65602');">
 <td>
+<span class="priority-2">EI2</span>
+</td>
+<td>it.uniba.controller.input.CommandParser$CommWorkspace.setMentionParams(String[]) may expose internal representation by storing an externally mutable object into CommandParser$CommWorkspace.mentionParams</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65602" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class it.uniba.controller.input.CommandParser$CommWorkspace<br/>In method it.uniba.controller.input.CommandParser$CommWorkspace.setMentionParams(String[])<br/>Field it.uniba.controller.input.CommandParser$CommWorkspace.mentionParams<br/>Local variable named newParams<br/>At CommandParser.java:[line 173]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_PERFORMANCE">Performance Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65712');">
+<td>
 <span class="priority-2">Dm</span>
 </td>
 <td>it.uniba.workdata.Channel.hashCode() invokes inefficient new String(String) constructor</td>
@@ -165,12 +197,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N65602" style="display: none;">
+<p id="N65712" style="display: none;">
 <a href="#DM_STRING_CTOR">Bug type DM_STRING_CTOR (click for details)</a>
 <br/>In class it.uniba.workdata.Channel<br/>In method it.uniba.workdata.Channel.hashCode()<br/>At Channel.java:[line 130]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N65655');">
+<tr class="tablerow0" onclick="toggleRow('N65765');">
 <td>
 <span class="priority-2">Dm</span>
 </td>
@@ -179,9 +211,23 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N65655" style="display: none;">
+<p id="N65765" style="display: none;">
 <a href="#DM_STRING_CTOR">Bug type DM_STRING_CTOR (click for details)</a>
 <br/>In class it.uniba.workdata.User<br/>In method it.uniba.workdata.User.hashCode()<br/>At User.java:[line 193]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65677');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should it.uniba.controller.input.CommandParser$CommWorkspace be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65677" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class it.uniba.controller.input.CommandParser$CommWorkspace<br/>At CommandParser.java:[lines 62-174]</p>
 </td>
 </tr>
 </table>
@@ -196,6 +242,31 @@
   because the object so constructed will be functionally indistinguishable
   from the <code>String</code> passed as a parameter.&nbsp; Just use the
   argument <code>String</code> directly.</p>
+
+    
+<h2>
+<a name="EI_EXPOSE_REP2">EI_EXPOSE_REP2: May expose internal representation by incorporating reference to mutable object</a>
+</h2>
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    
+<h2>
+<a name="SIC_INNER_SHOULD_BE_STATIC">SIC_INNER_SHOULD_BE_STATIC: Should be a static inner class</a>
+</h2>
+
+  <p> This class is an inner class, but does not use its embedded reference
+  to the object which created it.&nbsp; This reference makes the instances
+  of the class larger, and may keep the reference to the creator object
+  alive longer than necessary.&nbsp; If possible, the class should be
+   made static.
+</p>
 
     </body>
 </html>

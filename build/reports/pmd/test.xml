@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-06-01T16:37:40.454">
+<pmd version="5.8.1" timestamp="2018-06-01T16:52:40.656">
 <file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/ControllerTester.java">
 <violation beginline="19" endline="19" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
@@ -54,20 +54,122 @@ Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
 <file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/input/ParserInterpreterTest.java">
-<violation beginline="27" endline="369" begincolumn="36" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="ParserInterpreterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
+<violation beginline="29" endline="607" begincolumn="36" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="ParserInterpreterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
-<violation beginline="103" endline="103" begincolumn="47" endcolumn="65" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="membersCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
-The String literal &quot;.//res//ingsw.zip&quot; appears 17 times in this file; the first occurrence is on line 103
+<violation beginline="106" endline="106" begincolumn="47" endcolumn="65" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="membersCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
+The String literal &quot;.//res//ingsw.zip&quot; appears 34 times in this file; the first occurrence is on line 106
 </violation>
-<violation beginline="157" endline="157" begincolumn="75" endcolumn="82" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="usersInChannelCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
-The String literal &quot;micali&quot; appears 4 times in this file; the first occurrence is on line 157
+<violation beginline="160" endline="160" begincolumn="75" endcolumn="82" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="usersInChannelCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
+The String literal &quot;micali&quot; appears 4 times in this file; the first occurrence is on line 160
 </violation>
-<violation beginline="175" endline="175" begincolumn="82" endcolumn="91" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromInMentionCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
-The String literal &quot;Lanubile&quot; appears 8 times in this file; the first occurrence is on line 175
+<violation beginline="178" endline="178" begincolumn="82" endcolumn="91" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromInMentionCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
+The String literal &quot;Lanubile&quot; appears 19 times in this file; the first occurrence is on line 178
 </violation>
-<violation beginline="175" endline="175" begincolumn="100" endcolumn="108" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromInMentionCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
-The String literal &quot;general&quot; appears 4 times in this file; the first occurrence is on line 175
+<violation beginline="178" endline="178" begincolumn="74" endcolumn="79" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromInMentionCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
+The String literal &quot;from&quot; appears 13 times in this file; the first occurrence is on line 178
+</violation>
+<violation beginline="178" endline="178" begincolumn="100" endcolumn="108" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromInMentionCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
+The String literal &quot;general&quot; appears 7 times in this file; the first occurrence is on line 178
+</violation>
+<violation beginline="408" endline="408" begincolumn="14" endcolumn="40" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.controller.input" class="ParserInterpreterTest" method="IllegalStateAfterMentions" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="421" endline="421" begincolumn="17" endcolumn="67" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="baseArgsActive" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="421" endline="421" begincolumn="36" endcolumn="66" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="baseArgsActive" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="421" endline="421" begincolumn="17" endcolumn="67" rule="UseAssertTrueInsteadOfAssertEquals" ruleset="JUnit" package="it.uniba.controller.input" class="ParserInterpreterTest" method="baseArgsActive" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals" priority="3">
+Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).
+</violation>
+<violation beginline="429" endline="429" begincolumn="17" endcolumn="81" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceValid" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="429" endline="429" begincolumn="37" endcolumn="80" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceValid" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="429" endline="429" begincolumn="17" endcolumn="81" rule="UseAssertTrueInsteadOfAssertEquals" ruleset="JUnit" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceValid" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals" priority="3">
+Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).
+</violation>
+<violation beginline="437" endline="437" begincolumn="17" endcolumn="78" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceFilterValid" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="437" endline="437" begincolumn="37" endcolumn="77" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceFilterValid" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="437" endline="437" begincolumn="17" endcolumn="78" rule="UseAssertTrueInsteadOfAssertEquals" ruleset="JUnit" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceFilterValid" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals" priority="3">
+Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).
+</violation>
+<violation beginline="445" endline="445" begincolumn="17" endcolumn="78" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceFilterValid2" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="445" endline="445" begincolumn="37" endcolumn="77" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceFilterValid2" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="445" endline="445" begincolumn="17" endcolumn="78" rule="UseAssertTrueInsteadOfAssertEquals" ruleset="JUnit" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceFilterValid2" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals" priority="3">
+Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).
+</violation>
+<violation beginline="453" endline="453" begincolumn="17" endcolumn="77" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceFilterValid3" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="453" endline="453" begincolumn="36" endcolumn="76" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceFilterValid3" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="453" endline="453" begincolumn="17" endcolumn="77" rule="UseAssertTrueInsteadOfAssertEquals" ruleset="JUnit" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceFilterValid3" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals" priority="3">
+Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).
+</violation>
+<violation beginline="463" endline="463" begincolumn="17" endcolumn="94" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceMentionParamsValid" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="463" endline="463" begincolumn="50" endcolumn="93" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceMentionParamsValid" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="472" endline="472" begincolumn="17" endcolumn="54" rule="UseAssertTrueInsteadOfAssertEquals" ruleset="JUnit" package="it.uniba.controller.input" class="ParserInterpreterTest" method="commWorkspaceNull" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals" priority="3">
+Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).
+</violation>
+<violation beginline="481" endline="481" begincolumn="17" endcolumn="54" rule="UseAssertTrueInsteadOfAssertEquals" ruleset="JUnit" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromInterfaceTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals" priority="3">
+Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).
+</violation>
+<violation beginline="490" endline="490" begincolumn="17" endcolumn="67" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromWhoInterfaceTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="499" endline="499" begincolumn="48" endcolumn="54" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromWhoInterfaceTest2" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
+The String literal &quot;pippo&quot; appears 6 times in this file; the first occurrence is on line 499
+</violation>
+<violation beginline="501" endline="501" begincolumn="17" endcolumn="67" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromWhoInterfaceTest2" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="512" endline="512" begincolumn="17" endcolumn="67" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromWhoInterfaceTest3" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="523" endline="523" begincolumn="17" endcolumn="67" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromWhoInterfaceTest4" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="534" endline="534" begincolumn="17" endcolumn="67" rule="LawOfDemeter" ruleset="Coupling" package="it.uniba.controller.input" class="ParserInterpreterTest" method="toWhoInterfaceTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/coupling.html#LawOfDemeter" priority="3">
+Potential violation of Law of Demeter (method chain calls)
+</violation>
+<violation beginline="564" endline="564" begincolumn="17" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="getWorkspaceNameTest" variable="zipper" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'zipper' could be declared final
+</violation>
+<violation beginline="573" endline="573" begincolumn="17" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="setWorkspaceNameTest" variable="zipper" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'zipper' could be declared final
+</violation>
+<violation beginline="583" endline="583" begincolumn="17" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="hasLoadedTest" variable="zipper" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'zipper' could be declared final
+</violation>
+<violation beginline="585" endline="585" begincolumn="17" endcolumn="54" rule="UseAssertTrueInsteadOfAssertEquals" ruleset="JUnit" package="it.uniba.controller.input" class="ParserInterpreterTest" method="hasLoadedTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals" priority="3">
+Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).
+</violation>
+<violation beginline="592" endline="592" begincolumn="17" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="hasLoadedFalseTest" variable="zipper" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'zipper' could be declared final
+</violation>
+<violation beginline="595" endline="595" begincolumn="17" endcolumn="55" rule="UseAssertTrueInsteadOfAssertEquals" ruleset="JUnit" package="it.uniba.controller.input" class="ParserInterpreterTest" method="hasLoadedFalseTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/junit.html#UseAssertTrueInsteadOfAssertEquals" priority="3">
+Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(false, x)   or assertEquals(Boolean.TRUE, x)/assertEquals(Boolean.FALSE, x).
+</violation>
+<violation beginline="602" endline="602" begincolumn="17" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fakeZipperTest" variable="zipper" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'zipper' could be declared final
 </violation>
 </file>
 <file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/model/EdgeTester.java">

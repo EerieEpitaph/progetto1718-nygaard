@@ -15,8 +15,14 @@
 <error line="21" column="30" severity="error" message="Parameter message should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
 <file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandInterpreter.java">
+<error line="80" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParser.java">
+<error line="3" column="8" severity="error" message="Unused import - java.lang.reflect.Field." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="4" column="8" severity="error" message="Unused import - java.util.ArrayList." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="171" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="172" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="172" column="38" severity="error" message="Parameter newParams should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
 <file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParserInterface.java">
 </file>
