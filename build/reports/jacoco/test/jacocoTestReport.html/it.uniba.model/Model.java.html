@@ -63,36 +63,11 @@ public class Model {
 <span class="fc" id="L63">	}</span>
 
 	/**
-	 * Check if fileParser has loaded data from the zip file
-	 * 
-	 * @return &lt;i&gt;boolean&lt;/i&gt; if fileParser has load data from zip file
-	 */
-	public boolean hasLoaded() {
-<span class="nc" id="L71">		return fileParser.hasLoaded();</span>
-	}
-
-	/**
 	 * Default costructor of Model
 	 */
-<span class="fc" id="L77">	public Model() {</span>
+<span class="fc" id="L68">	public Model() {</span>
 		// This constructor is intentionally empty. Nothing special is needed here.
-<span class="fc" id="L79">	}</span>
-
-	// /**
-	// * Initialize a generic model after load the data
-	// * @param _users &lt;i&gt;HashMap&lt;/i&gt; of all &lt;b&gt;user&lt;/b&gt; present in the workspace
-	// * @param _channels &lt;i&gt;HashMap&lt;/i&gt; of all &lt;b&gt;channels&lt;/b&gt; present in the
-	// workspace
-	// * @param _messages &lt;i&gt;HashMap&lt;/i&gt; of all &lt;b&gt;Messages&lt;/b&gt; present in the
-	// workspace
-	// */
-	// public Model(HashMap&lt;String, User&gt; _users, HashMap&lt;String, Channel&gt;
-	// _channels,
-	// HashMap&lt;String, ArrayList&lt;Message&gt;&gt; _messages) {
-	// users = _users;
-	// channels = _channels;
-	// messages = _messages;
-	// }
+<span class="fc" id="L70">	}</span>
 
 	/**
 	 * Returns a &lt;i&gt;HashMap&lt;/i&gt; of Users.
@@ -100,25 +75,7 @@ public class Model {
 	 * @return &lt;i&gt;HashMap&lt;/i&gt; of Users
 	 */
 	public Map&lt;String, User&gt; getUsers() {
-<span class="fc" id="L103">		return users;</span>
-	}
-
-	/**
-	 * Returns a &lt;i&gt;Collection&lt;/i&gt; of Users.
-	 * 
-	 * @return &lt;i&gt;Collection&lt;/i&gt; of Users
-	 */
-	public Collection&lt;User&gt; getUsersList() {
-<span class="nc" id="L112">		return users.values();</span>
-	}
-
-	/**
-	 * Returns a boolean: true if there aren't users else false
-	 * 
-	 * @return &lt;i&gt;boolean&lt;/i&gt; true if there aren't users else false
-	 */
-	public boolean isUsersEmpty() {
-<span class="nc" id="L121">		return users.isEmpty();</span>
+<span class="fc" id="L78">		return users;</span>
 	}
 
 	/**
@@ -127,7 +84,7 @@ public class Model {
 	 * @return &lt;i&gt;HashMap&lt;/i&gt; of all Channels
 	 */
 	public Map&lt;String, Channel&gt; getChannels() {
-<span class="fc" id="L130">		return channels;</span>
+<span class="fc" id="L87">		return channels;</span>
 	}
 
 	/**
@@ -136,26 +93,7 @@ public class Model {
 	 * @return &lt;i&gt;HashMap&lt;/i&gt; of all messages
 	 */
 	public Map&lt;String, ArrayList&lt;Message&gt;&gt; getMessages() {
-<span class="fc" id="L139">		return messages;</span>
-	}
-
-	/**
-	 * Returns a boolean: true if there aren't messages else false
-	 * 
-	 * @return &lt;i&gt;boolean&lt;/i&gt; true if there aren't messages else false
-	 */
-	public boolean isMessagesEmpty() {
-<span class="nc" id="L148">		return messages.isEmpty();</span>
-	}
-
-	/**
-	 * Returns an instance of &lt;i&gt;MentionGraph&lt;/i&gt; which contains all mentions.
-	 * 
-	 * @return &lt;i&gt;MentionGraph&lt;/i&gt; an instance of MentionGraph which contains all
-	 *         mentions
-	 */
-	public MentionGraph getMentionGraph() {
-<span class="nc" id="L158">		return snagraph;</span>
+<span class="fc" id="L96">		return messages;</span>
 	}
 
 	/**
@@ -171,10 +109,10 @@ public class Model {
 	 *             used to handle exceptions
 	 */
 	public Collection&lt;Edge&gt; getEdgesInDegree(final User userMention, final String inChannel) throws ExceptionsHandler {
-<span class="fc bfc" id="L174" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
-<span class="fc" id="L175">			snagraph.generate(inChannel, messages, users);</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
+<span class="fc" id="L113">			snagraph.generate(inChannel, messages, users);</span>
 		}
-<span class="fc" id="L177">		return snagraph.edgesInDegree(userMention);</span>
+<span class="fc" id="L115">		return snagraph.edgesInDegree(userMention);</span>
 	}
 
 	/**
@@ -190,10 +128,10 @@ public class Model {
 	 *             used to handle exceptions
 	 */
 	public Collection&lt;Edge&gt; getEdgesOutDegree(final User userMention, final String inChannel) throws ExceptionsHandler {
-<span class="fc bfc" id="L193" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
-<span class="fc" id="L194">			snagraph.generate(inChannel, messages, users);</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">		if (snagraph.isEmpty()) {</span>
+<span class="fc" id="L132">			snagraph.generate(inChannel, messages, users);</span>
 		}
-<span class="fc" id="L196">		return snagraph.edgesOutDegree(userMention);</span>
+<span class="fc" id="L134">		return snagraph.edgesOutDegree(userMention);</span>
 	}
 
 	/**
@@ -206,7 +144,7 @@ public class Model {
 	 * 
 	 */
 	public boolean containsChannel(final String channel) {
-<span class="fc" id="L209">		return channels.containsKey(channel);</span>
+<span class="fc" id="L147">		return channels.containsKey(channel);</span>
 	}
 
 	/**
@@ -219,7 +157,7 @@ public class Model {
 	 * 
 	 */
 	public boolean containsUser(final String user) {
-<span class="fc" id="L222">		return users.containsKey(user);</span>
+<span class="fc" id="L160">		return users.containsKey(user);</span>
 	}
 
 	/**
@@ -231,19 +169,7 @@ public class Model {
 	 * 
 	 */
 	public User getUser(final String user) {
-<span class="fc" id="L234">		return users.get(user);</span>
-	}
-
-	/**
-	 * Returns the &lt;b&gt;channel&lt;/b&gt; with the id specified.
-	 * 
-	 * @param channel
-	 *            &lt;i&gt;String&lt;/i&gt; name of the channel
-	 * @return &lt;i&gt;Channel&lt;/i&gt; specified
-	 * 
-	 */
-	public Channel getChannel(final String channel) {
-<span class="nc" id="L246">		return channels.get(channel);</span>
+<span class="fc" id="L172">		return users.get(user);</span>
 	}
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-06-01T12:30:00.754">
+<pmd version="5.8.1" timestamp="2018-06-01T16:22:25.927">
 <file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/ControllerTester.java">
 <violation beginline="19" endline="19" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
@@ -68,6 +68,38 @@ The String literal &quot;Lanubile&quot; appears 6 times in this file; the first 
 </violation>
 <violation beginline="175" endline="175" begincolumn="100" endcolumn="108" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer" package="it.uniba.controller.input" class="ParserInterpreterTest" method="fromInMentionCalled" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#AvoidDuplicateLiterals" priority="3">
 The String literal &quot;general&quot; appears 4 times in this file; the first occurrence is on line 175
+</violation>
+</file>
+<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/model/EdgeTester.java">
+<violation beginline="1" endline="68" begincolumn="1" endcolumn="2" rule="TooManyStaticImports" ruleset="Import Statements" package="it.uniba.model" class="EdgeTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#TooManyStaticImports" priority="3">
+Too many static imports may lead to messy code
+</violation>
+<violation beginline="19" endline="19" begincolumn="22" endcolumn="31" rule="RedundantFieldInitializer" ruleset="Optimization" package="it.uniba.model" class="EdgeTester" variable="mod" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#RedundantFieldInitializer" priority="3">
+Avoid using redundant field initializer for 'mod'
+</violation>
+<violation beginline="20" endline="20" begincolumn="21" endcolumn="33" rule="RedundantFieldInitializer" ruleset="Optimization" package="it.uniba.model" class="EdgeTester" variable="u_from" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#RedundantFieldInitializer" priority="3">
+Avoid using redundant field initializer for 'u_from'
+</violation>
+<violation beginline="20" endline="20" begincolumn="21" endcolumn="26" rule="VariableNamingConventions" ruleset="Naming" package="it.uniba.model" class="EdgeTester" variable="u_from" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'u_from' is not final.
+</violation>
+<violation beginline="21" endline="21" begincolumn="21" endcolumn="31" rule="RedundantFieldInitializer" ruleset="Optimization" package="it.uniba.model" class="EdgeTester" variable="v_to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#RedundantFieldInitializer" priority="3">
+Avoid using redundant field initializer for 'v_to'
+</violation>
+<violation beginline="21" endline="21" begincolumn="21" endcolumn="24" rule="VariableNamingConventions" ruleset="Naming" package="it.uniba.model" class="EdgeTester" variable="v_to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#VariableNamingConventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'v_to' is not final.
+</violation>
+<violation beginline="22" endline="22" begincolumn="21" endcolumn="35" rule="RedundantFieldInitializer" ruleset="Optimization" package="it.uniba.model" class="EdgeTester" variable="edgeTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#RedundantFieldInitializer" priority="3">
+Avoid using redundant field initializer for 'edgeTest'
+</violation>
+<violation beginline="25" endline="25" begincolumn="21" endcolumn="26" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.model" class="EdgeTester" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
+Method names should not start with capital letters
+</violation>
+<violation beginline="45" endline="45" begincolumn="22" endcolumn="23" rule="ShortVariable" ruleset="Naming" package="it.uniba.model" class="EdgeTester" method="failedEdgeEqualsTest" variable="ed" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like ed
+</violation>
+<violation beginline="45" endline="45" begincolumn="17" endcolumn="36" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="it.uniba.model" class="EdgeTester" method="failedEdgeEqualsTest" variable="ed" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'ed' could be declared final
 </violation>
 </file>
 <file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/model/MentionGraphTest.java">
