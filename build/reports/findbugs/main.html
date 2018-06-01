@@ -71,14 +71,14 @@
 <p>FindBugs version: 3.0.1</p>
 <p>Code analyzed:</p>
 <ul>
-<li>C:\1Università\Ingegneria del Software\progetto1718-nygaard\build\classes\java\main</li>
+<li>D:\Files\Progetti\Gradle\progetto1718-nygaard\build\classes\java\main</li>
 </ul>
 <p>
 <br/>
 <br/>
 </p>
 <h2>Metrics</h2>
-<p>976 lines of code analyzed,
+<p>947 lines of code analyzed,
 	in 28 classes, 
 	in 8 packages.</p>
 <table width="500" cellpadding="5" cellspacing="2">
@@ -94,18 +94,18 @@
 </tr>
 <tr class="tablerow1">
 <td>Medium Priority Warnings</td>
-<td align="right"/>
-<td align="right">0.00</td>
+<td align="right">1</td>
+<td align="right">1.06</td>
 </tr>
 <tr class="$totalClass">
 <td>
 <b>Total Warnings</b>
 </td>
 <td align="right">
-<b>0</b>
+<b>1</b>
 </td>
 <td align="right">
-<b>0.00</b>
+<b>1.06</b>
 </td>
 </tr>
 </table>
@@ -119,6 +119,9 @@
 <h2>Contents</h2>
 <ul>
 <li>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</li>
+<li>
 <a href="#Details">Details</a>
 </li>
 </ul>
@@ -130,17 +133,57 @@
 </tr>
 <tr class="tablerow0">
 <td>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</td>
+<td align="right">1</td>
+</tr>
+<tr class="tablerow1">
+<td>
 <b>Total</b>
 </td>
 <td align="right">
-<b>0</b>
+<b>1</b>
 </td>
 </tr>
 </table>
 <h1>Warnings</h1>
 <p>Click on a warning row to see full context information.</p>
+<h2>
+<a name="Warnings_PERFORMANCE">Performance Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65602');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should it.uniba.controller.input.CommandParser$CommWorkspace be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65602" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class it.uniba.controller.input.CommandParser$CommWorkspace<br/>At CommandParser.java:[lines 62-169]</p>
+</td>
+</tr>
+</table>
 <h1>
 <a name="Details">Details</a>
 </h1>
-</body>
+<h2>
+<a name="SIC_INNER_SHOULD_BE_STATIC">SIC_INNER_SHOULD_BE_STATIC: Should be a static inner class</a>
+</h2>
+
+  <p> This class is an inner class, but does not use its embedded reference
+  to the object which created it.&nbsp; This reference makes the instances
+  of the class larger, and may keep the reference to the creator object
+  alive longer than necessary.&nbsp; If possible, the class should be
+   made static.
+</p>
+
+    </body>
 </html>

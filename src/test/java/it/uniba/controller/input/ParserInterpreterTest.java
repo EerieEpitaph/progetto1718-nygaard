@@ -15,8 +15,10 @@ import org.junit.jupiter.api.Test;
 
 import it.uniba.controller.DataController;
 import it.uniba.model.Model;
+import it.uniba.parsing.ZipParser;
 import it.uniba.view.View;
 import it.uniba.controller.ExceptionsHandler;
+import it.uniba.main.AppMain;
 import picocli.CommandLine.UnmatchedArgumentException;
 
 //La maggior parte di questi test controllanto che l'output 
@@ -41,6 +43,7 @@ public class ParserInterpreterTest {
 		final Model model = new Model();
 		final View view = new View();
 		dataCtr = new DataController(model, view);
+		interpreter = new CommandInterpreter();
 
 		// Inizializzo i buffer di stampa per controllare
 		// Eguaglianze tra print()
@@ -329,21 +332,149 @@ public class ParserInterpreterTest {
 		});
 	}
 
-	// Testo "in" in casi eccezionali
+	// Testo "in what" in casi eccezionali
 	@Test
-	void badIn() {
+	void badInWhat() {
 		final String[] args = { "-w", ".//res//ingsw.zip", "-m" };
 		parser = new CommandParser(args);
 		assertEquals("", parser.getInWhat());
 	}
 
-	// Testo "in" in caso outOfBound
+	// Testo "in what" in caso outOfBound
 	@Test
-	void inOutOfBound() {
+	void inWhatOutOfBound() {
 		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "in" };
 		parser = new CommandParser(args);
 		assertThrows(IllegalStateException.class, () -> {
 			parser.getInWhat();
+		});
+	}
+
+	// Testo attività del baseArgs
+	@Test
+	void baseArgsActive() {
+		final String[] args = { "help" };
+		parser = new CommandParser(args);
+		assertEquals(true, parser.getBaseArgs().isActive());
+	}
+
+	// Testo validità del CommWorkspace
+	@Test
+	void commWorkspaceValid() {
+		final String[] args = { "-w", "", "-m" };
+		parser = new CommandParser(args);
+		assertEquals(false, parser.getCommWorkspace().isValidWorkspace());
+	}
+
+	// Testo validità del channelFilter
+	@Test
+	void commWorkspaceFilterValid() {
+		final String[] args = { "-w", "", "-m" };
+		parser = new CommandParser(args);
+		assertEquals(false, parser.getCommWorkspace().isValidFilter());
+	}
+
+	// Testo validità del channelFilter
+	@Test
+	void commWorkspaceFilterValid2() {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-uc", "" };
+		parser = new CommandParser(args);
+		assertEquals(false, parser.getCommWorkspace().isValidFilter());
+	}
+
+	// Testo validità del channelFilter
+	@Test
+	void commWorkspaceFilterValid3() {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-uc", "general" };
+		parser = new CommandParser(args);
+		assertEquals(true, parser.getCommWorkspace().isValidFilter());
+	}
+
+	// Testo validità del mentionparams
+	@Test
+	void commWorkspaceMentionParamsValid() {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "from", "Lanubile", "in", "general" };
+		final String[] mentionParams = { "from", "Lanubile", "in", "general" };
+		parser = new CommandParser(args);
+
+		assertArrayEquals(mentionParams, parser.getCommWorkspace().getMentionParams());
+	}
+	
+	// Testo nullità del mentionparams
+	@Test
+	void commWorkspaceNull() {
+		final String[] args = { "-w", ".//res//ingsw.zip" };
+		parser = new CommandParser(args);
+
+		assertEquals(false, parser.mentions());
+	}
+
+	// Testo help da main
+	@Test
+	void mainHelpTest() {
+		final String[] args = {};
+
+		System.setOut(newOut1);
+		AppMain.main(args);
+
+		System.setOut(newOut2);
+		dataCtr.showHelp();
+
+		final byte[] temp1 = newConsole1.toByteArray();
+		final byte[] temp2 = newConsole1.toByteArray();
+		Arrays.sort(temp1);
+		Arrays.sort(temp2);
+
+		final String out1 = new String(temp1, StandardCharsets.UTF_8);
+		final String out2 = new String(temp2, StandardCharsets.UTF_8);
+		assertEquals(out1.hashCode(), out2.hashCode());
+	}
+
+	// Testo "getWorkspaceName" di zipParser
+	@Test
+	void getWorkspaceNameTest() throws ZipException, IOException {
+		final String path = ".//res//ingsw.zip";
+		ZipParser zipper = new ZipParser();
+		zipper.load(path);
+		assertEquals(zipper.getWorkspaceName(), "ingsw");
+	}
+
+	// Testo "setWorkspaceName" di zipParser
+	@Test
+	void setWorkspaceNameTest() throws ZipException, IOException {
+		final String path = ".//res//ingsw.zip";
+		ZipParser zipper = new ZipParser();
+		zipper.load(path);
+		zipper.setWorkspaceName("pippo");
+		assertEquals(zipper.getWorkspaceName(), "pippo");
+	}
+
+	// Testo "hasLoaded" di zipParser
+	@Test
+	void hasLoadedTest() throws ZipException, IOException {
+		final String path = ".//res//ingsw.zip";
+		ZipParser zipper = new ZipParser();
+		zipper.load(path);
+		assertEquals(zipper.hasLoaded(), true);
+	}
+
+	// Testo "hasLoaded" di zipParser -false
+	@Test
+	void hasLoadedFalseTest() throws ZipException, IOException {
+		final String path = ".//res//ingsw.zip";
+		ZipParser zipper = new ZipParser();
+		zipper.load(path);
+		zipper.setWorkspaceName("");
+		assertEquals(zipper.hasLoaded(), false);
+	}
+
+	// Testo se zipParser carica qualcosa anche con zip fasulli
+	@Test
+	void fakeZipperTest() throws ZipException, IOException {
+		final String path = ".//res//ingsw_solo_logs.zip";
+		ZipParser zipper = new ZipParser();
+		assertThrows(ZipException.class, () -> {
+			zipper.load(path);
 		});
 	}
 }
