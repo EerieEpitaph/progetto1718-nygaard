@@ -188,17 +188,7 @@ public class DataController {
 		printMentionsFromToUser(user, inChannel, true, false);
 	}
 
-	/**
-	 * Prints all mention <i>from</i> a specified <b>user</b>.
-	 * 
-	 * @param user
-	 *            <i>String</i> name of the user specified
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsFromUser(final String user) throws ExceptionsHandler {
-		printMentionsFromToUser(user, "", true, false);
-	}
+ 
 
 	/**
 	 * Prints all mention <i>to</i> a specified <b>user</b> in a specified
@@ -214,18 +204,7 @@ public class DataController {
 	public void printMentionsToUser(final String user, final String inChannel) throws ExceptionsHandler {
 		printMentionsFromToUser(user, inChannel, false, false);
 	}
-
-	/**
-	 * Prints all mention <i>to</i> a specified <b>user</b>.
-	 * 
-	 * @param user
-	 *            <i>String</i> name of the user specified
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsToUser(final String user) throws ExceptionsHandler {
-		printMentionsFromToUser(user, "", false, false);
-	}
+ 
 
 	/**
 	 * Prints all mention <i>from</i> a specified <b>user</b> in a specified
@@ -242,18 +221,7 @@ public class DataController {
 		printMentionsFromToUser(user, inChannel, true, true);
 	}
 
-	/**
-	 * Prints all mention <i>from</i> a specified <b>user</b> with the number of
-	 * mention (<i>weight</i>).
-	 * 
-	 * @param user
-	 *            <i>String</i> name of the user specified
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsFromUserWeigthed(final String user) throws ExceptionsHandler {
-		printMentionsFromToUser(user, "", true, true);
-	}
+ 
 
 	/**
 	 * Prints all mention <i>to</i> a specified <b>user</b> in a specified
@@ -270,18 +238,7 @@ public class DataController {
 		printMentionsFromToUser(user, inChannel, false, true);
 	}
 
-	/**
-	 * Prints the mentions <i>to</i> a specified <b>user</b> with the number of
-	 * mentions(<i>weight</i>).
-	 * 
-	 * @param user
-	 *            <i>String</i> name of the user
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsToUserWeigthed(final String user) throws ExceptionsHandler {
-		printMentionsFromToUser(user, "", false, true);
-	}
+ 
 
 	/*
 	 * Returns the id the user with the name specified or a empty string <i>("")</i>
