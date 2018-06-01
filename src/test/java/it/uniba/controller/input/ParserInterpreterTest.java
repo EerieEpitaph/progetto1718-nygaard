@@ -287,6 +287,29 @@ public class ParserInterpreterTest {
 		assertEquals(out1.hashCode(), out2.hashCode());
 	}
 
+	// Testo from senza weight
+	@Test
+	void fromNoWeight() throws ZipException, IOException, ExceptionsHandler {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "from", "Lanubile" };
+		parser = new CommandParser(args);
+		interpreter = new CommandInterpreter();
+
+		System.setOut(newOut1);
+		interpreter.executeCommands(parser, dataCtr);
+
+		System.setOut(newOut2);
+		dataCtr.printMentionsFromUser("Lanubile", "");
+
+		final byte[] temp1 = newConsole1.toByteArray();
+		final byte[] temp2 = newConsole1.toByteArray();
+		Arrays.sort(temp1);
+		Arrays.sort(temp2);
+
+		final String out1 = new String(temp1, StandardCharsets.UTF_8);
+		final String out2 = new String(temp2, StandardCharsets.UTF_8);
+		assertEquals(out1.hashCode(), out2.hashCode());
+	}
+
 	// Testo un parametro inesistente
 	@Test
 	void badParameters() {
@@ -350,6 +373,26 @@ public class ParserInterpreterTest {
 		});
 	}
 
+	// Testo from e to in contemporanea
+	@Test
+	void fromToTogether() {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "from", "Lanubile", "to", "Lanubile" };
+		parser = new CommandParser(args);
+		assertThrows(IllegalStateException.class, () -> {
+			interpreter.executeCommands(parser, dataCtr);
+		});
+	}
+
+	// Testo l'illegalState se non riconosco cosa interpretare
+	@Test
+	void IllegalStateAfterMentions() {
+		final String[] args = { "-w", ".//res//ingsw.zip" };
+		parser = new CommandParser(args);
+		assertThrows(IllegalStateException.class, () -> {
+			interpreter.executeCommands(parser, dataCtr);
+		});
+	}
+
 	// Testo attività del baseArgs
 	@Test
 	void baseArgsActive() {
@@ -399,7 +442,7 @@ public class ParserInterpreterTest {
 
 		assertArrayEquals(mentionParams, parser.getCommWorkspace().getMentionParams());
 	}
-	
+
 	// Testo nullità del mentionparams
 	@Test
 	void commWorkspaceNull() {
@@ -408,6 +451,17 @@ public class ParserInterpreterTest {
 
 		assertEquals(false, parser.mentions());
 	}
+
+	// Testo errori nel from() interfaccia
+	@Test
+	void fromInterfaceTest() {
+		final String[] args = { "-w", ".//res//ingsw.zip" };
+		parser = new CommandParser(args);
+
+		assertEquals(false, parser.mentions());
+	}
+
+	// MORE
 
 	// Testo help da main
 	@Test

@@ -11,6 +11,7 @@
 <error line="8" column="30" severity="error" message="Parameter message should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandInterpreter.java">
+<error line="80" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParser.java">
 <error line="3" column="8" severity="error" message="Unused import - java.lang.reflect.Field." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>

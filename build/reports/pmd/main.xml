@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-06-01T13:29:02.541">
+<pmd version="5.8.1" timestamp="2018-06-01T13:57:23.143">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="63" endline="63" begincolumn="39" endcolumn="57" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
