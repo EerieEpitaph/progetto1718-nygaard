@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-05-31T18:43:36.400">
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\controller\ControllerTester.java">
+<pmd version="5.8.1" timestamp="2018-06-01T10:02:36.952">
+<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/ControllerTester.java">
 <violation beginline="19" endline="19" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
 </violation>
@@ -53,7 +53,7 @@ Potential violation of Law of Demeter (method chain calls)
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\controller\input\ParserInterpreterTest.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/input/ParserInterpreterTest.java">
 <violation beginline="27" endline="349" begincolumn="36" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="ParserInterpreterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
@@ -70,14 +70,14 @@ The String literal &quot;Lanubile&quot; appears 6 times in this file; the first 
 The String literal &quot;general&quot; appears 4 times in this file; the first occurrence is on line 175
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\model\MentionGraphTest.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/model/MentionGraphTest.java">
 <violation beginline="15" endline="15" begincolumn="1" endcolumn="27" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
 </violation>
 <violation beginline="16" endline="16" begincolumn="1" endcolumn="28" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
 </violation>
-<violation beginline="20" endline="128" begincolumn="31" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
+<violation beginline="20" endline="133" begincolumn="31" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
 <violation beginline="21" endline="21" begincolumn="16" endcolumn="41" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
@@ -116,14 +116,11 @@ Variables that are final and static should be all capitals, 'testerGraph' is not
 <violation beginline="31" endline="31" begincolumn="21" endcolumn="26" rule="MethodNamingConventions" ruleset="Naming" package="it.uniba.model" class="MentionGraphTest" method="Init" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#MethodNamingConventions" priority="1">
 Method names should not start with capital letters
 </violation>
-<violation beginline="90" endline="90" begincolumn="29" endcolumn="42" rule="UnusedLocalVariable" ruleset="Unused Code" package="it.uniba.model" class="MentionGraphTest" method="successfulThrowOnGenerate" variable="testEmptyModel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unusedcode.html#UnusedLocalVariable" priority="3">
-Avoid unused local variables such as 'testEmptyModel'.
-</violation>
-<violation beginline="108" endline="108" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="it.uniba.model" class="MentionGraphTest" method="failedThrowGenerateOnFilledModel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
+<violation beginline="113" endline="113" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="it.uniba.model" class="MentionGraphTest" method="failedThrowGenerateOnFilledModel" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
 Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
 </violation>
 </file>
-<file name="C:\1Università\Ingegneria del Software\progetto1718-nygaard\src\test\java\it\uniba\workdata\ChannelTester.java">
+<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/workdata/ChannelTester.java">
 <violation beginline="11" endline="11" begincolumn="16" endcolumn="32" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.workdata" class="ChannelTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
 Avoid using implementation types like 'ArrayList'; use the interface instead
 </violation>

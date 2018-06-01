@@ -14,11 +14,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//import com.google.common.graph.MutableValueGraph;
-//import com.google.common.graph.ValueGraphBuilder;
-
 /**
- * MentionGraph modesl a graph of mentions;
+ * MentionGraph manage graph of mentions;
  */
 public final class MentionGraph extends AbstractGraph {
 	// /*
@@ -32,14 +29,14 @@ public final class MentionGraph extends AbstractGraph {
 	 * based on numbers of mentions from a user
 	 */
 
-<span class="fc" id="L35">	private final MentionGraphWrapper snagraph = new MentionGraphWrapper();</span>
+<span class="fc" id="L32">	private final MentionGraphWrapper snagraph = new MentionGraphWrapper();</span>
 	// lista comandi che presentano un @Mention ma che non dovranno essere parsati
 	// perche' non presentano la struttura del messaggio: &quot;utente ---&gt; @mention&quot;
 	/*
 	 * Array of &lt;i&gt;String&lt;/i&gt; containing all of Slack's commands
 	 */
 
-<span class="fc" id="L42">	private final String[] commignore = {&quot;has joined the channel&quot;, &quot;set the channel purpose&quot;, &quot;cleared channel topic&quot;,</span>
+<span class="fc" id="L39">	private final String[] commignore = { &quot;has joined the channel&quot;, &quot;set the channel purpose&quot;, &quot;cleared channel topic&quot;,</span>
 			&quot;uploaded a file&quot;, &quot;commented on&quot;, &quot;was added to this conversation&quot;, &quot;set the channel topic&quot;,
 			&quot;pinned a message to this channel&quot;, &quot;pinned&quot;, &quot;has renamed the channel&quot;, &quot;un-archived the channel&quot;,
 			&quot;archived the channel&quot;, &quot;cleared channel purpose&quot;, &quot;has left the channel&quot;, &quot;shared a file&quot; };
@@ -48,32 +45,9 @@ public final class MentionGraph extends AbstractGraph {
 	/**
 	 * Default constructor of MentionGraph
 	 */
-<span class="fc" id="L51">	public MentionGraph() {</span>
+<span class="fc" id="L48">	public MentionGraph() {</span>
 		// This constructor is intentionally empty. Nothing special is needed here.
-<span class="fc" id="L53">	}</span>
-
-	// public MentionGraph(final String inChannel, final Map&lt;String,
-	// ArrayList&lt;Message&gt;&gt; messages,
-	// final Map&lt;String, User&gt; users) throws ExceptionsHandler {
-	// generate(inChannel, messages, users);
-	// // This constructor is intentionally empty. Nothing special is needed here.
-	// }
-	/**
-	 * @param model
-	 *            &lt;i&gt;Model&lt;/i&gt; which contains Data such as &lt;i&gt;Users,Channel and
-	 *            Messages&lt;/i&gt;
-	 */
-	// public MentionGraph(final Model model) {
-	// mod = model;
-	// }
-	//
-	// public void setModel(final Model model) {
-	// mod = model;
-	// }
-	//
-	// public Model getModel() {
-	// return mod;
-	// }
+<span class="fc" id="L50">	}</span>
 
 	/**
 	 * Check if command is present in the message
@@ -83,7 +57,7 @@ public final class MentionGraph extends AbstractGraph {
 	 * @return &lt;i&gt;boolean&lt;/i&gt; if commands is present in the current message
 	 */
 	boolean containsItems(final String inputStr) {
-<span class="fc" id="L86">		return Arrays.stream(commignore).parallel().anyMatch(inputStr::contains);</span>
+<span class="fc" id="L60">		return Arrays.stream(commignore).parallel().anyMatch(inputStr::contains);</span>
 	}
 
 	/**
@@ -93,11 +67,11 @@ public final class MentionGraph extends AbstractGraph {
 	 *            User in the graph
 	 * @return &lt;i&gt;boolean&lt;/i&gt; if &lt;b&gt;Node&lt;/b&gt; is present in the graph
 	 */
-	public boolean containsNode(final User node) {
-<span class="fc bfc" id="L97" title="All 2 branches covered.">		if (node == null) {</span>
-<span class="fc" id="L98">			return false;</span>
+	public boolean containsNode(final User node) throws ExceptionsHandler {
+<span class="fc bfc" id="L71" title="All 2 branches covered.">		if (node == null) {</span>
+<span class="fc" id="L72">			throw new ExceptionsHandler(&quot;Node is null!&quot;);</span>
 		} else {
-<span class="fc" id="L100">			return snagraph.contains(node);</span>
+<span class="fc" id="L74">			return snagraph.contains(node);</span>
 		}
 	}
 
@@ -116,20 +90,15 @@ public final class MentionGraph extends AbstractGraph {
 	 */
 	public void generate(final String inChannel, final Map&lt;String, ArrayList&lt;Message&gt;&gt; messages,
 			final Map&lt;String, User&gt; users) throws ExceptionsHandler {
-		// if (mod == null) {
-		// throw new ExceptionsHandler(&quot;Model vuoto!&quot;);
-		// } else {
-<span class="pc bpc" id="L122" title="1 of 4 branches missed.">		if (messages == null || users == null) {</span>
-<span class="fc" id="L123">			throw new ExceptionsHandler(&quot;Messages or Users are  null&quot;);</span>
+<span class="pc bpc" id="L93" title="1 of 4 branches missed.">		if (messages == null || users == null) {</span>
+<span class="fc" id="L94">			throw new ExceptionsHandler(&quot;Messages or Users are  null&quot;);</span>
 		}
-<span class="pc bpc" id="L125" title="1 of 4 branches missed.">		if (messages.isEmpty() &amp;&amp; users.isEmpty()) {</span>
-<span class="fc" id="L126">			throw new ExceptionsHandler(&quot;Messages or Users are empty&quot;);</span>
+<span class="pc bpc" id="L96" title="1 of 4 branches missed.">		if (messages.isEmpty() &amp;&amp; users.isEmpty()) {</span>
+<span class="fc" id="L97">			throw new ExceptionsHandler(&quot;Messages or Users are empty&quot;);</span>
 		} else {
-<span class="fc" id="L128">			parseMessages(messages, users, inChannel);</span>
+<span class="fc" id="L99">			parseMessages(messages, users, inChannel);</span>
 		}
-		// }
-		// gestione mod null
-<span class="fc" id="L132">	}</span>
+<span class="fc" id="L101">	}</span>
 
 	/**
 	 * Check if graph is empty
@@ -137,7 +106,7 @@ public final class MentionGraph extends AbstractGraph {
 	 * @return &lt;i&gt;boolean&lt;/i&gt; if graph is Empty
 	 */
 	public boolean isEmpty() {
-<span class="fc" id="L140">		return snagraph.isEmpty();</span>
+<span class="fc" id="L109">		return snagraph.isEmpty();</span>
 	}
 
 	/**
@@ -152,14 +121,14 @@ public final class MentionGraph extends AbstractGraph {
 	 */
 	public void parseMessages(final Map&lt;String, ArrayList&lt;Message&gt;&gt; messages, final Map&lt;String, User&gt; users,
 			final String inChannel) { // TODO _inChannel default = null || &quot;&quot;
-<span class="pc bpc" id="L155" title="1 of 4 branches missed.">		if (inChannel == null || &quot;&quot;.equals(inChannel)) {</span>
-<span class="fc bfc" id="L156" title="All 2 branches covered.">			for (final ArrayList&lt;Message&gt; mess : messages.values()) {</span>
-<span class="fc" id="L157">				parsing(mess, users);</span>
-<span class="fc" id="L158">			}</span>
-<span class="pc bpc" id="L159" title="1 of 2 branches missed.">		} else if (messages.containsKey(inChannel)) {</span>
-<span class="fc" id="L160">			parsing(messages.get(inChannel), users);</span>
+<span class="pc bpc" id="L124" title="1 of 4 branches missed.">		if (inChannel == null || &quot;&quot;.equals(inChannel)) {</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">			for (final ArrayList&lt;Message&gt; mess : messages.values()) {</span>
+<span class="fc" id="L126">				parsing(mess, users);</span>
+<span class="fc" id="L127">			}</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">		} else if (messages.containsKey(inChannel)) {</span>
+<span class="fc" id="L129">			parsing(messages.get(inChannel), users);</span>
 		}
-<span class="fc" id="L162">	}</span>
+<span class="fc" id="L131">	}</span>
 
 	/**
 	 * Find all mentions in the message, identifies: the user write
@@ -172,53 +141,45 @@ public final class MentionGraph extends AbstractGraph {
 	 *            &lt;i&gt;HashMap&lt;i&gt; of &lt;b&gt;Users&lt;/b&gt;
 	 */
 	void parsing(final Collection&lt;Message&gt; mess, final Map&lt;String, User&gt; users) {
-<span class="fc bfc" id="L175" title="All 2 branches covered.">		for (final Message msg : mess) {</span>
-<span class="fc bfc" id="L176" title="All 4 branches covered.">			if (msg.contains(&quot;&lt;@&quot;) &amp;&amp; !containsItems(msg.getText())) {</span>
-				/*
-				 * Attivare le due stampe in caso di null pointer per vedere eventuali stringhe
-				 * di controllo usate da slack per gestire il singolo utente
-				 */
-
-				// System.out.println(&quot;----------- Testo Grabbato: \n&quot; + msg.getText());
-				// System.out.println(&quot;\t\t Scritto da: &quot; + msg.getUser() + &quot;\n #############
-				// \n\n&quot;);
-<span class="fc" id="L185">				final User utenteu = users.get(msg.getUser());</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">		for (final Message msg : mess) {</span>
+<span class="fc bfc" id="L145" title="All 4 branches covered.">			if (msg.contains(&quot;&lt;@&quot;) &amp;&amp; !containsItems(msg.getText())) {</span>
+<span class="fc" id="L146">				final User utenteu = users.get(msg.getUser());</span>
 				// Prima di inserire un nuovo utente p avviene un controllo se e' nullo o se
-				// esiste gia'ï¿½ nel grafo
-<span class="pc bpc" id="L188" title="1 of 4 branches missed.">				if ((utenteu != null) &amp;&amp; !snagraph.contains(utenteu)) {</span>
-<span class="fc" id="L189">					snagraph.addNode(utenteu);</span>
+				// esiste gia'� nel grafo
+<span class="pc bpc" id="L149" title="1 of 4 branches missed.">				if ((utenteu != null) &amp;&amp; !snagraph.contains(utenteu)) {</span>
+<span class="fc" id="L150">					snagraph.addNode(utenteu);</span>
 				}
-<span class="fc" id="L191">				final Pattern pattern = Pattern.compile(&quot;\\&lt;@.*?\\&gt;&quot;);</span>
-<span class="fc" id="L192">				final Matcher matcher = pattern.matcher(msg.getText()); // msg.getText</span>
-<span class="fc bfc" id="L193" title="All 2 branches covered.">				while (matcher.find()) {</span>
-<span class="fc" id="L194">					final String dataparse = matcher.group(0); // filtro l'id dal messaggio</span>
-<span class="fc" id="L195">					final String filterstring = dataparse.replaceAll(&quot;&lt;@&quot;, &quot; &quot;).replaceAll(&quot;&gt;&quot;, &quot;&quot;).trim();</span>
+<span class="fc" id="L152">				final Pattern pattern = Pattern.compile(&quot;\\&lt;@.*?\\&gt;&quot;);</span>
+<span class="fc" id="L153">				final Matcher matcher = pattern.matcher(msg.getText()); // msg.getText</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">				while (matcher.find()) {</span>
+<span class="fc" id="L155">					final String dataparse = matcher.group(0); // filtro l'id dal messaggio</span>
+<span class="fc" id="L156">					final String filterstring = dataparse.replaceAll(&quot;&lt;@&quot;, &quot; &quot;).replaceAll(&quot;&gt;&quot;, &quot;&quot;).trim();</span>
 					// pulisco dai tag l'id e lo cerco tra gli users memorizzati
-<span class="fc" id="L197">					final User utentev = users.get(filterstring);</span>
+<span class="fc" id="L158">					final User utentev = users.get(filterstring);</span>
 					// Prima di inserire un nuovo utente q avviene un controllo se e' nullo o se
-					// esiste gia'  nel grafo
-<span class="pc bpc" id="L200" title="2 of 4 branches missed.">					if ((utentev != null) &amp;&amp; !utenteu.equals(utentev)) {</span>
-<span class="fc bfc" id="L201" title="All 2 branches covered.">						if (!snagraph.contains(utentev)) {</span>
-<span class="fc" id="L202">							snagraph.addNode(utentev);</span>
+					// esiste gia'� nel grafo
+<span class="pc bpc" id="L161" title="2 of 4 branches missed.">					if ((utentev != null) &amp;&amp; !utenteu.equals(utentev)) {</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">						if (!snagraph.contains(utentev)) {</span>
+<span class="fc" id="L163">							snagraph.addNode(utentev);</span>
 						}
 
 						/*
 						 * controllo se esiste gia un arco tra i due utenti: Se esiste aggiungo +1 al
 						 * mention altrimenti se non esiste creo l'arco
 						 */
-<span class="fc bfc" id="L209" title="All 2 branches covered.">						if (snagraph.hasEdgeConnecting(utenteu, utentev)) {</span>
-<span class="fc" id="L210">							final int mentioncount = snagraph.edgeValue(utenteu, utentev) + 1;</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">						if (snagraph.hasEdgeConnecting(utenteu, utentev)) {</span>
+<span class="fc" id="L171">							final int mentioncount = snagraph.edgeValue(utenteu, utentev) + 1;</span>
 							// cercare un modifica del peso dell'arco tra due nodi
-<span class="fc" id="L212">							snagraph.removeEdge(utenteu, utentev);</span>
-<span class="fc" id="L213">							snagraph.putEdgeValue(utenteu, utentev, mentioncount);</span>
-<span class="fc" id="L214">						} else {</span>
-<span class="fc" id="L215">							snagraph.putEdgeValue(utenteu, utentev, 1); // dobbiamo pescarlo dal grafo e poi inserire</span>
+<span class="fc" id="L173">							snagraph.removeEdge(utenteu, utentev);</span>
+<span class="fc" id="L174">							snagraph.putEdgeValue(utenteu, utentev, mentioncount);</span>
+<span class="fc" id="L175">						} else {</span>
+<span class="fc" id="L176">							snagraph.putEdgeValue(utenteu, utentev, 1); // dobbiamo pescarlo dal grafo e poi inserire</span>
 						}
 					}
-<span class="fc" id="L218">				}</span>
+<span class="fc" id="L179">				}</span>
 			}
-<span class="fc" id="L220">		}</span>
-<span class="fc" id="L221">	}</span>
+<span class="fc" id="L181">		}</span>
+<span class="fc" id="L182">	}</span>
 
 	// issue#39
 	/**
@@ -228,29 +189,26 @@ public final class MentionGraph extends AbstractGraph {
 	 *            &lt;b&gt;User&lt;/b&gt;
 	 * @return &lt;i&gt;ArrayList&lt;/i&gt; of Edge contains (&lt;i&gt;From,To,Weight&lt;/i&gt;) for each
 	 *         edge
+	 * @throws ExceptionsHandler 
 	 */
 
-	public Collection&lt;Edge&gt; edgesInDegree(final User user) {
-<span class="fc" id="L234">		final ArrayList&lt;Edge&gt; edges = new ArrayList&lt;Edge&gt;();</span>
-<span class="pc bpc" id="L235" title="2 of 4 branches missed.">		if ((snagraph.contains(user)) &amp;&amp; (snagraph.inDegree(user) &gt; 0)) {</span>
-<span class="fc" id="L236">			int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in</span>
+	public Collection&lt;Edge&gt; edgesInDegree(final User user)  {
+<span class="fc" id="L196">		final ArrayList&lt;Edge&gt; edges = new ArrayList&lt;Edge&gt;();</span>
+<span class="pc bpc" id="L197" title="1 of 2 branches missed.">		if (snagraph.inDegree(user) &gt; 0) {</span>
+<span class="fc" id="L198">			int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in</span>
 													// analisi
-			// String nameUser = user.getRealName();
-<span class="pc bpc" id="L239" title="1 of 2 branches missed.">			for (final User userTo : snagraph.nodes()) {</span>
-<span class="fc bfc" id="L240" title="All 2 branches covered.">				if (snagraph.hasEdgeConnecting(userTo, user)) {</span>
+<span class="pc bpc" id="L200" title="1 of 2 branches missed.">			for (final User userTo : snagraph.nodes()) {</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">				if (snagraph.hasEdgeConnecting(userTo, user)) {</span>
 					// stampo l'arco tra i due utenti interessati
-					// System.out.println(&quot;From: &quot; + to.getRealName() + &quot;\tTo: &quot; + nameUser + &quot;\t n.
-					// mention: &quot;
-					// + snagraph.edgeValue(to, user).get());
-<span class="fc" id="L245">					edges.add(new Edge(userTo, user, (float) snagraph.edgeValue(userTo, user)));</span>
-<span class="fc" id="L246">					inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0</span>
-<span class="fc bfc" id="L247" title="All 2 branches covered.">					if (inEdges == 0) {</span>
-<span class="fc" id="L248">						break;</span>
+<span class="fc" id="L203">					edges.add(new Edge(userTo, user, (float) snagraph.edgeValue(userTo, user)));</span>
+<span class="fc" id="L204">					inEdges--; // diminuisco il grado di entrata del nodo per ottimizzare la ricerca a grado 0</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">					if (inEdges == 0) {</span>
+<span class="fc" id="L206">						break;</span>
 					}
 				}
-<span class="fc" id="L251">			}</span>
+<span class="fc" id="L209">			}</span>
 		}
-<span class="fc" id="L253">		return edges;</span>
+<span class="fc" id="L211">		return edges;</span>
 	}
 
 	// issue37 &amp;&amp; issue#38
@@ -263,32 +221,25 @@ public final class MentionGraph extends AbstractGraph {
 	 *         edge
 	 */
 	public Collection&lt;Edge&gt; edgesOutDegree(final User user) {
-<span class="fc" id="L266">		final ArrayList&lt;Edge&gt; edges = new ArrayList&lt;Edge&gt;();</span>
-		// int numNodesPrinted = 0;
-<span class="fc bfc" id="L268" title="All 2 branches covered.">		if (user == null) { // se non e' speficato restituisce tutti gli archi</span>
-<span class="fc bfc" id="L269" title="All 2 branches covered.">			for (final User usNode : snagraph.nodes()) {</span>
-<span class="fc bfc" id="L270" title="All 2 branches covered.">				for (final User adiacenti : snagraph.adjacentNodes(usNode)) {</span>
-<span class="fc bfc" id="L271" title="All 2 branches covered.">					if (snagraph.hasEdgeConnecting(usNode, adiacenti)) {</span>
-<span class="fc" id="L272">						edges.add(new Edge(usNode, adiacenti, (float) snagraph.edgeValue(usNode, adiacenti)));</span>
-						// numNodesPrinted++;
+<span class="fc" id="L224">		final ArrayList&lt;Edge&gt; edges = new ArrayList&lt;Edge&gt;();</span>
+<span class="fc bfc" id="L225" title="All 2 branches covered.">		if (user == null) { // se non e' speficato restituisce tutti gli archi</span>
+<span class="fc bfc" id="L226" title="All 2 branches covered.">			for (final User usNode : snagraph.nodes()) {</span>
+<span class="fc bfc" id="L227" title="All 2 branches covered.">				for (final User adiacenti : snagraph.adjacentNodes(usNode)) {</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">					if (snagraph.hasEdgeConnecting(usNode, adiacenti)) {</span>
+<span class="fc" id="L229">						edges.add(new Edge(usNode, adiacenti, (float) snagraph.edgeValue(usNode, adiacenti)));</span>
 					}
-<span class="fc" id="L275">				}</span>
-<span class="fc" id="L276">			}</span>
-			// Gestito nel View
-			// if (numNodesPrinted == 0) { // eccezione: non ci sono mention nel workspace
-			// WarningSystem.out.println(&quot;There aren't mention.&quot;);
-			// }
+<span class="fc" id="L231">				}</span>
+<span class="fc" id="L232">			}</span>
 		} else {
-<span class="pc bpc" id="L282" title="1 of 2 branches missed.">			if (snagraph.contains(user)) {</span>
-<span class="fc bfc" id="L283" title="All 2 branches covered.">				for (final User adiacenti : snagraph.adjacentNodes(user)) {</span>
-<span class="fc bfc" id="L284" title="All 2 branches covered.">					if (snagraph.hasEdgeConnecting(user, adiacenti)) {</span>
-<span class="fc" id="L285">						edges.add(new Edge(user, adiacenti, (float) snagraph.edgeValue(user, adiacenti)));</span>
-						// numNodesPrinted++;
+<span class="pc bpc" id="L234" title="1 of 2 branches missed.">			if (snagraph.contains(user)) {</span>
+<span class="fc bfc" id="L235" title="All 2 branches covered.">				for (final User adiacenti : snagraph.adjacentNodes(user)) {</span>
+<span class="fc bfc" id="L236" title="All 2 branches covered.">					if (snagraph.hasEdgeConnecting(user, adiacenti)) {</span>
+<span class="fc" id="L237">						edges.add(new Edge(user, adiacenti, (float) snagraph.edgeValue(user, adiacenti)));</span>
 					}
-<span class="fc" id="L288">				}</span>
+<span class="fc" id="L239">				}</span>
 			}
 		}
-<span class="fc" id="L291">		return edges;</span>
+<span class="fc" id="L242">		return edges;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

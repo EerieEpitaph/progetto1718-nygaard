@@ -115,26 +115,19 @@ public class User {
 <span class="fc" id="L115">		this(user.getId(), user.getTeamId(), user.getName(), user.getRealName(), user.getProfile());</span>
 <span class="fc" id="L116">	}</span>
 
-	/**
-	 * HashCode overriding.
-	 */
-	@Override
-	public int hashCode() {
-<span class="fc" id="L123">		return idUser.hashCode();</span>
-	}
-
+ 
 	/**
 	 * Equals overriding.
 	 */
 	@Override
 	public boolean equals(final Object obj) {
-<span class="fc bfc" id="L131" title="All 2 branches covered.">		if (!(obj instanceof User)) {</span>
-<span class="fc" id="L132">			return false;</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">		if (!(obj instanceof User)) {</span>
+<span class="fc" id="L125">			return false;</span>
 		}
 
-<span class="fc" id="L135">		final User tempUser = new User(((User) obj));</span>
-<span class="fc" id="L136">		final String userId = tempUser.getId();</span>
-<span class="fc" id="L137">		return idUser.equals(userId);</span>
+<span class="fc" id="L128">		final User tempUser = new User(((User) obj));</span>
+<span class="fc" id="L129">		final String userId = tempUser.getId();</span>
+<span class="fc" id="L130">		return idUser.equals(userId);</span>
 	}
 
 	/**
@@ -143,7 +136,7 @@ public class User {
 	 * @return User's id
 	 */
 	public String getId() {
-<span class="fc" id="L146">		return idUser;</span>
+<span class="fc" id="L139">		return idUser;</span>
 	}
 
 	/**
@@ -152,7 +145,7 @@ public class User {
 	 * @return User's team id
 	 */
 	public String getTeamId() {
-<span class="fc" id="L155">		return teamId;</span>
+<span class="fc" id="L148">		return teamId;</span>
 	}
 
 	/**
@@ -161,7 +154,7 @@ public class User {
 	 * @return User's name
 	 */
 	public String getName() {
-<span class="fc" id="L164">		return name;</span>
+<span class="fc" id="L157">		return name;</span>
 	}
 
 	/**
@@ -170,7 +163,7 @@ public class User {
 	 * @return User's real name
 	 */
 	public String getRealName() {
-<span class="fc" id="L173">		return realName;</span>
+<span class="fc" id="L166">		return realName;</span>
 	}
 
 	/**
@@ -179,7 +172,7 @@ public class User {
 	 * @return User's profile normalized name
 	 */
 	public String getDisplayNameNorm() {
-<span class="fc" id="L182">		return profile.getDisplayNameNorm();</span>
+<span class="fc" id="L175">		return profile.getDisplayNameNorm();</span>
 	}
 
 	/**
@@ -188,7 +181,16 @@ public class User {
 	 * @return User's profile
 	 */
 	public Profile getProfile() {
-<span class="fc" id="L191">		return profile;</span>
+<span class="fc" id="L184">		return profile;</span>
+	}
+	
+	/**
+	 * Override of User's hashCode
+	 */
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L193">		return new String(idUser).hashCode();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

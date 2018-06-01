@@ -56,13 +56,19 @@ public class MentionGraphTest {
 		u_from = mod.getUser("U9P18U17X");
 		assertEquals(edges.get(0), testerGraph.edgesOutDegree(u_from));
 	}
-
+	
 	@Test
-	void edgesInDegreeTest() {
+	void edgesInDegreeTest() throws ExceptionsHandler {
 		v_to = mod.getUser("U9NAWRB2Q");
 		assertEquals(edges.get(1), testerGraph.edgesInDegree(v_to));
 	}
-
+//	@Test
+//	void failedEdgesInDegreeTest() 
+//	{
+//		assertThrows(ExceptionsHandler.class, () -> {
+//			testerGraph.edgesInDegree(null); });
+//	}
+	
 	@Test
 	void successfulContainsNodeTest() throws ExceptionsHandler {
 		assertTrue(testerGraph.containsNode(u_from));
