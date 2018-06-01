@@ -63,36 +63,11 @@ public class Model {
 	}
 
 	/**
-	 * Check if fileParser has loaded data from the zip file
-	 * 
-	 * @return <i>boolean</i> if fileParser has load data from zip file
-	 */
-	public boolean hasLoaded() {
-		return fileParser.hasLoaded();
-	}
-
-	/**
 	 * Default costructor of Model
 	 */
 	public Model() {
 		// This constructor is intentionally empty. Nothing special is needed here.
 	}
-
-	// /**
-	// * Initialize a generic model after load the data
-	// * @param _users <i>HashMap</i> of all <b>user</b> present in the workspace
-	// * @param _channels <i>HashMap</i> of all <b>channels</b> present in the
-	// workspace
-	// * @param _messages <i>HashMap</i> of all <b>Messages</b> present in the
-	// workspace
-	// */
-	// public Model(HashMap<String, User> _users, HashMap<String, Channel>
-	// _channels,
-	// HashMap<String, ArrayList<Message>> _messages) {
-	// users = _users;
-	// channels = _channels;
-	// messages = _messages;
-	// }
 
 	/**
 	 * Returns a <i>HashMap</i> of Users.
@@ -102,24 +77,6 @@ public class Model {
 	public Map<String, User> getUsers() {
 		return users;
 	}
-
-	/**
-	 * Returns a <i>Collection</i> of Users.
-	 * 
-	 * @return <i>Collection</i> of Users
-	 */
-//	public Collection<User> getUsersList() {
-//		return users.values();
-//	}
-
-	/**
-	 * Returns a boolean: true if there aren't users else false
-	 * 
-	 * @return <i>boolean</i> true if there aren't users else false
-	 */
-//	public boolean isUsersEmpty() {
-//		return users.isEmpty();
-//	}
 
 	/**
 	 * Returns a <i>HashMap</i> of Users.
@@ -139,24 +96,6 @@ public class Model {
 		return messages;
 	}
 
-	/**
-	 * Returns a boolean: true if there aren't messages else false
-	 * 
-	 * @return <i>boolean</i> true if there aren't messages else false
-	 */
-//	public boolean isMessagesEmpty() {
-//		return messages.isEmpty();
-//	}
-
-	/*
-	 * getMentionGraph inutilizzato Returns an instance of <i>MentionGraph</i> which
-	 * contains all mentions.
-	 * 
-	 * @return <i>MentionGraph</i> an instance of MentionGraph which contains all
-	 * mentions
-	 * 
-	 * public MentionGraph getMentionGraph() { return snagraph; }
-	 */
 	/**
 	 * Returns a <i>Collection</i> of edges where the the <b>user</b> specified it
 	 * was mentioned.
@@ -232,17 +171,5 @@ public class Model {
 	public User getUser(final String user) {
 		return users.get(user);
 	}
-
-	/**
-	 * Returns the <b>channel</b> with the id specified.
-	 * 
-	 * @param channel
-	 *            <i>String</i> name of the channel
-	 * @return <i>Channel</i> specified
-	 * 
-	 */
-//	public Channel getChannel(final String channel) {
-//		return channels.get(channel);
-//	}
 
 }

@@ -69,15 +69,6 @@ public class DataController {
 	}
 
 	/**
-	 * Returns a boolean that indicates if the model has loaded.
-	 * 
-	 * @return <i>boolean</i> that indicates if the model has loaded.
-	 */
-	public boolean hasLoaded() {
-		return mod.hasLoaded();
-	}
-
-	/**
 	 * Prints the members' list using the model for the data and the view for the
 	 * output.
 	 */
