@@ -94,7 +94,24 @@ public class MentionGraphTest {
 			graphTest.generate(null, null, null);
 		});
 	}
-
+	@Test
+	void successfulThrowOnGenerateUsersNull() {
+		final MentionGraph graphTest = new MentionGraph();
+		// graphTest.setModel(testEmptyModel);
+		assertThrows(ExceptionsHandler.class, () -> {
+			graphTest.generate(null, mod.getMessages(), null);
+		});
+	}
+	
+	@Test
+	void successfulThrowOnGenerateMessagesNull() {
+		final MentionGraph graphTest = new MentionGraph();
+		// graphTest.setModel(testEmptyModel);
+		assertThrows(ExceptionsHandler.class, () -> {
+			graphTest.generate(null, null, mod.getUsers());
+		});
+	}
+	
 	@Test
 	void failedThrowGenerateOnFilledModel() {
 		/*
@@ -124,5 +141,24 @@ public class MentionGraphTest {
 			graph.generate(null, messEmpty, usersEmpty);
 		});
 	}
+	@Test
+	void successfulThrowOnEmptyMessage() {
+		assertThrows(ExceptionsHandler.class, () -> {
+			final MentionGraph graph = new MentionGraph();
+			final HashMap<String, ArrayList<Message>> messEmpty = new HashMap<String, ArrayList<Message>>();
+ 			graph.generate(null, messEmpty, mod.getUsers());
+		});
+	}
+	@Test
+	void successfulThrowOnEmptyUser() {
+		assertThrows(ExceptionsHandler.class, () -> {
+			final MentionGraph graph = new MentionGraph();
+			final HashMap<String, User> usersEmpty = new HashMap<String, User>();
+			graph.generate(null, mod.getMessages(), usersEmpty);
+		});
+	}
+	
+	
+	
 
 }

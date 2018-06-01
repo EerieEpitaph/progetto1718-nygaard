@@ -90,10 +90,10 @@ public final class MentionGraph extends AbstractGraph {
 	 */
 	public void generate(final String inChannel, final Map&lt;String, ArrayList&lt;Message&gt;&gt; messages,
 			final Map&lt;String, User&gt; users) throws ExceptionsHandler {
-<span class="pc bpc" id="L93" title="1 of 4 branches missed.">		if (messages == null || users == null) {</span>
+<span class="fc bfc" id="L93" title="All 4 branches covered.">		if (messages == null || users == null) {</span>
 <span class="fc" id="L94">			throw new ExceptionsHandler(&quot;Messages or Users are  null&quot;);</span>
 		}
-<span class="pc bpc" id="L96" title="1 of 4 branches missed.">		if (messages.isEmpty() &amp;&amp; users.isEmpty()) {</span>
+<span class="fc bfc" id="L96" title="All 4 branches covered.">		if (messages.isEmpty() || users.isEmpty()) {</span>
 <span class="fc" id="L97">			throw new ExceptionsHandler(&quot;Messages or Users are empty&quot;);</span>
 		} else {
 <span class="fc" id="L99">			parseMessages(messages, users, inChannel);</span>

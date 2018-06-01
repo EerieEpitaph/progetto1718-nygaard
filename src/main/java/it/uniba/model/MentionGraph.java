@@ -93,7 +93,7 @@ public final class MentionGraph extends AbstractGraph {
 		if (messages == null || users == null) {
 			throw new ExceptionsHandler("Messages or Users are  null");
 		}
-		if (messages.isEmpty() && users.isEmpty()) {
+		if (messages.isEmpty() || users.isEmpty()) {
 			throw new ExceptionsHandler("Messages or Users are empty");
 		} else {
 			parseMessages(messages, users, inChannel);

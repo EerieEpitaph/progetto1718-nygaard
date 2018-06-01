@@ -157,7 +157,7 @@ public class DataController {
 	 */
 	private void printMentionsFromToUser(final String user, final String inChannel, final boolean from,
 			final boolean weight) throws ExceptionsHandler {
-<span class="pc bpc" id="L160" title="2 of 4 branches missed.">		if (user != null | &quot;&quot;.equals(user)) {</span>
+<span class="pc bpc" id="L160" title="2 of 4 branches missed.">		if (user != null &amp;&amp; !(&quot;&quot;.equals(user))) {</span>
 <span class="fc" id="L161">			final String idUser = getUserFromId(user);</span>
 <span class="pc bpc" id="L162" title="1 of 2 branches missed.">			if (mod.containsUser(idUser)) {</span>
 <span class="pc bpc" id="L163" title="2 of 6 branches missed.">				if ((inChannel == null || inChannel.equals(&quot;&quot;)) || mod.containsChannel(inChannel)) {</span>
