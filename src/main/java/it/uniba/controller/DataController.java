@@ -157,7 +157,7 @@ public class DataController {
 	 */
 	private void printMentionsFromToUser(final String user, final String inChannel, final boolean from,
 			final boolean weight) throws ExceptionsHandler {
-		if (user != null | "".equals(user)) {
+		if (user != null && !("".equals(user))) {
 			final String idUser = getUserFromId(user);
 			if (mod.containsUser(idUser)) {
 				if ((inChannel == null || inChannel.equals("")) || mod.containsChannel(inChannel)) {
