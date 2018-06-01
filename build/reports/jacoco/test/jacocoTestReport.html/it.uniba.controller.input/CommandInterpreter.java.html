@@ -59,10 +59,10 @@ import it.uniba.controller.ExceptionsHandler;
 <span class="fc" id="L59">				String user = &quot;&quot;;</span>
 <span class="fc bfc" id="L60" title="All 2 branches covered.">				if (bridge.from()) {</span>
 <span class="fc" id="L61">					user = bridge.getFromWho();</span>
-<span class="pc bpc" id="L62" title="1 of 2 branches missed.">					if (weight) {</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">					if (weight) {</span>
 <span class="fc" id="L63">						dataCtr.printMentionsFromUserWeigthed(user, inChannel);</span>
 					} else {
-<span class="nc" id="L65">						dataCtr.printMentionsFromUser(user, inChannel);</span>
+<span class="fc" id="L65">						dataCtr.printMentionsFromUser(user, inChannel);</span>
 					}
 				} else {
 <span class="fc bfc" id="L68" title="All 2 branches covered.">					if (bridge.to()) {</span>

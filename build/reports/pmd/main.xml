@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-06-01T16:22:21.332">
+<pmd version="5.8.1" timestamp="2018-06-01T16:37:36.409">
 <file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/Controller.java">
 <violation beginline="63" endline="63" begincolumn="39" endcolumn="57" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
 </violation>
 </file>
 <file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/DataController.java">
-<violation beginline="26" endline="320" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller" class="DataController" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
+<violation beginline="26" endline="277" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller" class="DataController" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'DataController' has a Cyclomatic Complexity of 2 (Highest = 11).
 </violation>
-<violation beginline="26" endline="320" begincolumn="29" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller" class="DataController" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
+<violation beginline="26" endline="277" begincolumn="29" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller" class="DataController" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
 <violation beginline="149" endline="174" begincolumn="17" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
@@ -27,22 +27,22 @@ Useless parentheses.
 <violation beginline="168" endline="168" begincolumn="80" endcolumn="110" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="printMentionsFromToUser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="298" endline="298" begincolumn="30" endcolumn="44" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="255" endline="255" begincolumn="30" endcolumn="44" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="298" endline="298" begincolumn="51" endcolumn="70" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="255" endline="255" begincolumn="51" endcolumn="70" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="302" endline="302" begincolumn="30" endcolumn="45" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="259" endline="259" begincolumn="30" endcolumn="45" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="302" endline="302" begincolumn="52" endcolumn="72" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="259" endline="259" begincolumn="52" endcolumn="72" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="306" endline="306" begincolumn="30" endcolumn="45" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="263" endline="263" begincolumn="30" endcolumn="45" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="306" endline="306" begincolumn="52" endcolumn="72" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="263" endline="263" begincolumn="52" endcolumn="72" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller" class="DataController" method="getUserFromId" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
 </file>

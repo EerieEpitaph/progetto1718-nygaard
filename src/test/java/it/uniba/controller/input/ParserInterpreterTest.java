@@ -191,7 +191,27 @@ public class ParserInterpreterTest {
 		final String out2 = new String(temp2, StandardCharsets.UTF_8);
 		assertEquals(out1.hashCode(), out2.hashCode());
 	}
+	@Test
+	void fromMentionCalled() throws ZipException, IOException, ExceptionsHandler {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "from", "Lanubile",  };
+		parser = new CommandParser(args);
+		interpreter = new CommandInterpreter();
 
+		System.setOut(newOut1);
+		interpreter.executeCommands(parser, dataCtr);
+
+		System.setOut(newOut2);
+		dataCtr.printMentionsFromUser("Lanubile", "");
+
+		final byte[] temp1 = newConsole1.toByteArray();
+		final byte[] temp2 = newConsole1.toByteArray();
+		Arrays.sort(temp1);
+		Arrays.sort(temp2);
+
+		final String out1 = new String(temp1, StandardCharsets.UTF_8);
+		final String out2 = new String(temp2, StandardCharsets.UTF_8);
+		assertEquals(out1.hashCode(), out2.hashCode());
+	}
 	// Testo mention to Lanubile in General
 	@Test
 	void toInMentionCalled() throws ZipException, IOException, ExceptionsHandler {

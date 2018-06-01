@@ -3,6 +3,10 @@
 <file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/Controller.java">
 </file>
 <file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/DataController.java">
+<error line="191" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="207" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="224" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="241" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/ExceptionsHandler.java">
 <error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>

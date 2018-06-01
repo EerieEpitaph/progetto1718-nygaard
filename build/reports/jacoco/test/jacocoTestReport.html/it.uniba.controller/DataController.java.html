@@ -185,20 +185,10 @@ public class DataController {
 	 *             used to handle exceptions
 	 */
 	public void printMentionsFromUser(final String user, final String inChannel) throws ExceptionsHandler {
-<span class="nc" id="L188">		printMentionsFromToUser(user, inChannel, true, false);</span>
-<span class="nc" id="L189">	}</span>
+<span class="fc" id="L188">		printMentionsFromToUser(user, inChannel, true, false);</span>
+<span class="fc" id="L189">	}</span>
 
-	/**
-	 * Prints all mention &lt;i&gt;from&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt;.
-	 * 
-	 * @param user
-	 *            &lt;i&gt;String&lt;/i&gt; name of the user specified
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsFromUser(final String user) throws ExceptionsHandler {
-<span class="nc" id="L200">		printMentionsFromToUser(user, &quot;&quot;, true, false);</span>
-<span class="nc" id="L201">	}</span>
+ 
 
 	/**
 	 * Prints all mention &lt;i&gt;to&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; in a specified
@@ -212,20 +202,9 @@ public class DataController {
 	 *             used to handle exceptions
 	 */
 	public void printMentionsToUser(final String user, final String inChannel) throws ExceptionsHandler {
-<span class="fc" id="L215">		printMentionsFromToUser(user, inChannel, false, false);</span>
-<span class="fc" id="L216">	}</span>
-
-	/**
-	 * Prints all mention &lt;i&gt;to&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt;.
-	 * 
-	 * @param user
-	 *            &lt;i&gt;String&lt;/i&gt; name of the user specified
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsToUser(final String user) throws ExceptionsHandler {
-<span class="nc" id="L227">		printMentionsFromToUser(user, &quot;&quot;, false, false);</span>
-<span class="nc" id="L228">	}</span>
+<span class="fc" id="L205">		printMentionsFromToUser(user, inChannel, false, false);</span>
+<span class="fc" id="L206">	}</span>
+ 
 
 	/**
 	 * Prints all mention &lt;i&gt;from&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; in a specified
@@ -239,21 +218,10 @@ public class DataController {
 	 *             used to handle exceptions
 	 */
 	public void printMentionsFromUserWeigthed(final String user, final String inChannel) throws ExceptionsHandler {
-<span class="fc" id="L242">		printMentionsFromToUser(user, inChannel, true, true);</span>
-<span class="fc" id="L243">	}</span>
+<span class="fc" id="L221">		printMentionsFromToUser(user, inChannel, true, true);</span>
+<span class="fc" id="L222">	}</span>
 
-	/**
-	 * Prints all mention &lt;i&gt;from&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; with the number of
-	 * mention (&lt;i&gt;weight&lt;/i&gt;).
-	 * 
-	 * @param user
-	 *            &lt;i&gt;String&lt;/i&gt; name of the user specified
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsFromUserWeigthed(final String user) throws ExceptionsHandler {
-<span class="nc" id="L255">		printMentionsFromToUser(user, &quot;&quot;, true, true);</span>
-<span class="nc" id="L256">	}</span>
+ 
 
 	/**
 	 * Prints all mention &lt;i&gt;to&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; in a specified
@@ -267,21 +235,10 @@ public class DataController {
 	 *             used to handle exceptions
 	 */
 	public void printMentionsToUserWeigthed(final String user, final String inChannel) throws ExceptionsHandler {
-<span class="fc" id="L270">		printMentionsFromToUser(user, inChannel, false, true);</span>
-<span class="fc" id="L271">	}</span>
+<span class="fc" id="L238">		printMentionsFromToUser(user, inChannel, false, true);</span>
+<span class="fc" id="L239">	}</span>
 
-	/**
-	 * Prints the mentions &lt;i&gt;to&lt;/i&gt; a specified &lt;b&gt;user&lt;/b&gt; with the number of
-	 * mentions(&lt;i&gt;weight&lt;/i&gt;).
-	 * 
-	 * @param user
-	 *            &lt;i&gt;String&lt;/i&gt; name of the user
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsToUserWeigthed(final String user) throws ExceptionsHandler {
-<span class="nc" id="L283">		printMentionsFromToUser(user, &quot;&quot;, false, true);</span>
-<span class="nc" id="L284">	}</span>
+ 
 
 	/*
 	 * Returns the id the user with the name specified or a empty string &lt;i&gt;(&quot;&quot;)&lt;/i&gt;
@@ -292,30 +249,30 @@ public class DataController {
 	 * @return &lt;i&gt;String&lt;/i&gt; the id the user with the name specified
 	 */
 	private String getUserFromId(final String name) {
-<span class="fc" id="L295">		int position = 0;</span>
-<span class="pc bpc" id="L296" title="1 of 2 branches missed.">		while (position &lt; usersWrapped.size()) {</span>
-<span class="fc" id="L297">			final String disName = usersWrapped.getDisplayNameNorm(position);</span>
-<span class="pc bpc" id="L298" title="1 of 4 branches missed.">			if ((disName != null) &amp;&amp; (name.equals(disName))) {</span>
-<span class="fc" id="L299">				return usersWrapped.getId(position);</span>
+<span class="fc" id="L252">		int position = 0;</span>
+<span class="pc bpc" id="L253" title="1 of 2 branches missed.">		while (position &lt; usersWrapped.size()) {</span>
+<span class="fc" id="L254">			final String disName = usersWrapped.getDisplayNameNorm(position);</span>
+<span class="pc bpc" id="L255" title="1 of 4 branches missed.">			if ((disName != null) &amp;&amp; (name.equals(disName))) {</span>
+<span class="fc" id="L256">				return usersWrapped.getId(position);</span>
 			}
-<span class="fc" id="L301">			final String realName = usersWrapped.getRealName(position);</span>
-<span class="pc bpc" id="L302" title="2 of 4 branches missed.">			if ((realName != null) &amp;&amp; (name.equals(realName))) {</span>
-<span class="nc" id="L303">				return usersWrapped.getId(position);</span>
+<span class="fc" id="L258">			final String realName = usersWrapped.getRealName(position);</span>
+<span class="pc bpc" id="L259" title="2 of 4 branches missed.">			if ((realName != null) &amp;&amp; (name.equals(realName))) {</span>
+<span class="nc" id="L260">				return usersWrapped.getId(position);</span>
 			}
-<span class="fc" id="L305">			final String nameUser = usersWrapped.getName(position);</span>
-<span class="pc bpc" id="L306" title="2 of 4 branches missed.">			if ((nameUser != null) &amp;&amp; (name.equals(nameUser))) {</span>
-<span class="nc" id="L307">				return usersWrapped.getId(position);</span>
+<span class="fc" id="L262">			final String nameUser = usersWrapped.getName(position);</span>
+<span class="pc bpc" id="L263" title="2 of 4 branches missed.">			if ((nameUser != null) &amp;&amp; (name.equals(nameUser))) {</span>
+<span class="nc" id="L264">				return usersWrapped.getId(position);</span>
 			}
-<span class="fc" id="L309">			position++;</span>
-<span class="fc" id="L310">		}</span>
-<span class="nc" id="L311">		return &quot;&quot;;</span>
+<span class="fc" id="L266">			position++;</span>
+<span class="fc" id="L267">		}</span>
+<span class="nc" id="L268">		return &quot;&quot;;</span>
 	}
 
 	/**
 	 * Prints the help's message.
 	 */
 	public void showHelp() {
-<span class="fc" id="L318">		WarningMessage.showHelp();</span>
-<span class="fc" id="L319">	}</span>
+<span class="fc" id="L275">		WarningMessage.showHelp();</span>
+<span class="fc" id="L276">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
