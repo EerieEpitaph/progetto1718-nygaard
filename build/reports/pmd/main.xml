@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-06-01T13:57:23.143">
+<pmd version="5.8.1" timestamp="2018-06-01T14:12:07.490">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="63" endline="63" begincolumn="39" endcolumn="57" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
@@ -126,8 +126,8 @@ Potential violation of Law of Demeter (object not created locally)
 </violation>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParser.java">
-<violation beginline="1" endline="430" begincolumn="1" endcolumn="3" rule="GodClass" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#GodClass" priority="3">
-Possible God class (WMC=61, ATFD=29, TCC=0.002849002849002849)
+<violation beginline="1" endline="434" begincolumn="1" endcolumn="3" rule="GodClass" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#GodClass" priority="3">
+Possible God class (WMC=62, ATFD=29, TCC=0.005291005291005291)
 </violation>
 <violation beginline="3" endline="3" begincolumn="1" endcolumn="31" rule="UnusedImports" ruleset="Type Resolution" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#UnusedImports" priority="4">
 Avoid unused imports such as 'java.lang.reflect.Field'
@@ -141,7 +141,7 @@ Avoid unused imports such as 'java.util.ArrayList'
 <violation beginline="4" endline="4" begincolumn="1" endcolumn="27" rule="UnusedImports" ruleset="Import Statements" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
 Avoid unused imports such as 'java.util.ArrayList'
 </violation>
-<violation beginline="15" endline="430" begincolumn="68" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
+<violation beginline="15" endline="434" begincolumn="68" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
 <violation beginline="19" endline="19" begincolumn="30" endcolumn="37" rule="ImmutableField" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" variable="baseArgs" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#ImmutableField" priority="3">
@@ -156,100 +156,109 @@ Private field 'active' could be made final; it is only initialized in the declar
 <violation beginline="160" endline="160" begincolumn="33" endcolumn="82" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser$CommWorkspace" method="isValidFilter" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="181" endline="181" begincolumn="30" endcolumn="48" rule="UseVarargs" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="CommandParser" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
+<violation beginline="172" endline="172" begincolumn="46" endcolumn="63" rule="UseVarargs" ruleset="Design" package="it.uniba.controller.input" class="CommandParser$CommWorkspace" method="setMentionParams" variable="newParams" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
 </violation>
-<violation beginline="192" endline="192" begincolumn="33" endcolumn="47" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="172" endline="172" begincolumn="46" endcolumn="63" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="it.uniba.controller.input" class="CommandParser$CommWorkspace" method="setMentionParams" variable="newParams" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'newParams' is not assigned and could be declared final
+</violation>
+<violation beginline="172" endline="172" begincolumn="46" endcolumn="63" rule="ArrayIsStoredDirectly" ruleset="Security Code Guidelines" package="it.uniba.controller.input" class="CommandParser$CommWorkspace" method="setMentionParams" variable="newParams" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/sunsecure.html#ArrayIsStoredDirectly" priority="3">
+The user-supplied array 'newParams' is stored directly.
+</violation>
+<violation beginline="185" endline="185" begincolumn="30" endcolumn="48" rule="UseVarargs" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="CommandParser" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
+Consider using varargs for methods or constructors which take an array the last parameter.
+</violation>
+<violation beginline="196" endline="196" begincolumn="33" endcolumn="47" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="309" endline="309" begincolumn="21" endcolumn="43" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="mentions" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="313" endline="313" begincolumn="21" endcolumn="43" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="mentions" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="320" endline="320" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="from" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="324" endline="324" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="from" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="323" endline="323" begincolumn="58" endcolumn="78" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="from" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="327" endline="327" begincolumn="58" endcolumn="78" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="from" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="335" endline="335" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="339" endline="339" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="339" endline="339" begincolumn="38" endcolumn="61" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="343" endline="343" begincolumn="38" endcolumn="61" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="339" endline="339" begincolumn="68" endcolumn="88" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="343" endline="343" begincolumn="68" endcolumn="88" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="342" endline="342" begincolumn="34" endcolumn="42" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
+<violation beginline="346" endline="346" begincolumn="34" endcolumn="42" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
 Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
 </violation>
-<violation beginline="343" endline="343" begincolumn="33" endcolumn="66" rule="PreserveStackTrace" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#PreserveStackTrace" priority="3">
+<violation beginline="347" endline="347" begincolumn="33" endcolumn="66" rule="PreserveStackTrace" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getFromWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#PreserveStackTrace" priority="3">
 New exception is thrown in catch block, original stack trace may be lost
 </violation>
-<violation beginline="353" endline="353" begincolumn="24" endcolumn="27" rule="ShortMethodName" ruleset="Naming" package="it.uniba.controller.input" class="CommandParser" method="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortMethodName" priority="3">
+<violation beginline="357" endline="357" begincolumn="24" endcolumn="27" rule="ShortMethodName" ruleset="Naming" package="it.uniba.controller.input" class="CommandParser" method="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortMethodName" priority="3">
 Avoid using short method names
 </violation>
-<violation beginline="354" endline="354" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="358" endline="358" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="357" endline="357" begincolumn="30" endcolumn="51" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="361" endline="361" begincolumn="30" endcolumn="51" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="357" endline="357" begincolumn="58" endcolumn="78" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="361" endline="361" begincolumn="58" endcolumn="78" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="to" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="370" endline="370" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="374" endline="374" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="374" endline="374" begincolumn="38" endcolumn="59" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="378" endline="378" begincolumn="38" endcolumn="59" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="374" endline="374" begincolumn="66" endcolumn="86" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="378" endline="378" begincolumn="66" endcolumn="86" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="377" endline="377" begincolumn="34" endcolumn="42" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
+<violation beginline="381" endline="381" begincolumn="34" endcolumn="42" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
 Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
 </violation>
-<violation beginline="378" endline="378" begincolumn="33" endcolumn="66" rule="PreserveStackTrace" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#PreserveStackTrace" priority="3">
+<violation beginline="382" endline="382" begincolumn="33" endcolumn="66" rule="PreserveStackTrace" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getToWho" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#PreserveStackTrace" priority="3">
 New exception is thrown in catch block, original stack trace may be lost
 </violation>
-<violation beginline="388" endline="388" begincolumn="24" endcolumn="27" rule="ShortMethodName" ruleset="Naming" package="it.uniba.controller.input" class="CommandParser" method="in" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortMethodName" priority="3">
+<violation beginline="392" endline="392" begincolumn="24" endcolumn="27" rule="ShortMethodName" ruleset="Naming" package="it.uniba.controller.input" class="CommandParser" method="in" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortMethodName" priority="3">
 Avoid using short method names
 </violation>
-<violation beginline="389" endline="389" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="in" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="393" endline="393" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="in" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="392" endline="392" begincolumn="30" endcolumn="51" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="in" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="396" endline="396" begincolumn="30" endcolumn="51" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="in" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="392" endline="392" begincolumn="58" endcolumn="78" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="in" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="396" endline="396" begincolumn="58" endcolumn="78" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="in" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="404" endline="404" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="408" endline="408" begincolumn="41" endcolumn="63" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="408" endline="408" begincolumn="38" endcolumn="59" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="412" endline="412" begincolumn="38" endcolumn="59" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="408" endline="408" begincolumn="66" endcolumn="86" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
+<violation beginline="412" endline="412" begincolumn="66" endcolumn="86" rule="UselessParentheses" ruleset="Unnecessary" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/unnecessary.html#UselessParentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="411" endline="411" begincolumn="34" endcolumn="42" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
+<violation beginline="415" endline="415" begincolumn="34" endcolumn="42" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
 Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
 </violation>
-<violation beginline="412" endline="412" begincolumn="33" endcolumn="66" rule="PreserveStackTrace" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#PreserveStackTrace" priority="3">
+<violation beginline="416" endline="416" begincolumn="33" endcolumn="66" rule="PreserveStackTrace" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="getInWhat" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#PreserveStackTrace" priority="3">
 New exception is thrown in catch block, original stack trace may be lost
 </violation>
-<violation beginline="424" endline="424" begincolumn="21" endcolumn="43" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="weighted" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="428" endline="428" begincolumn="21" endcolumn="43" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="weighted" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="424" endline="424" begincolumn="56" endcolumn="85" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="weighted" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="428" endline="428" begincolumn="56" endcolumn="85" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="weighted" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="425" endline="425" begincolumn="48" endcolumn="70" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="weighted" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="429" endline="429" begincolumn="48" endcolumn="70" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="weighted" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
-<violation beginline="425" endline="425" begincolumn="72" endcolumn="101" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="weighted" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
+<violation beginline="429" endline="429" begincolumn="72" endcolumn="101" rule="AccessorMethodGeneration" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="weighted" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#AccessorMethodGeneration" priority="3">
 Avoid autogenerated methods to access private fields and methods of inner / outer classes
 </violation>
 </file>

@@ -461,8 +461,61 @@ public class ParserInterpreterTest {
 		assertEquals(false, parser.mentions());
 	}
 
-	// MORE
-
+	// Testo errori nel fromWho() interfaccia
+	@Test
+	void fromWhoInterfaceTest() {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "from", "Lanubile" };
+		final String[] badArgs = { "" };
+		parser = new CommandParser(args);
+		parser.getCommWorkspace().setMentionParams(badArgs);
+		
+		assertEquals("", parser.getFromWho());
+	}
+	
+	// Testo errori nel fromWho() interfaccia
+	@Test
+	void fromWhoInterfaceTest2() {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "from", "Lanubile" };
+		final String[] badArgs = { "", "pippo" };
+		parser = new CommandParser(args);
+		parser.getCommWorkspace().setMentionParams(badArgs);
+		
+		assertEquals("", parser.getFromWho());
+	}
+	
+	// Testo errori nel fromWho() interfaccia
+	@Test
+	void fromWhoInterfaceTest3() {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "from", "Lanubile" };
+		final String[] badArgs = { "from" };
+		parser = new CommandParser(args);
+		parser.getCommWorkspace().setMentionParams(badArgs);
+		
+		assertThrows(IllegalStateException.class, () -> {parser.getFromWho();});
+	}
+	
+	// Testo errori nel fromWho() interfaccia
+	@Test
+	void fromWhoInterfaceTest4() {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "from", "Lanubile" };
+		final String[] badArgs = { "from", "pippo" };
+		parser = new CommandParser(args);
+		parser.getCommWorkspace().setMentionParams(badArgs);
+		
+		assertEquals("pippo", parser.getFromWho());
+	}
+	
+	// Testo errori nel toWho() interfaccia
+	@Test
+	void toWhoInterfaceTest() {
+		final String[] args = { "-w", ".//res//ingsw.zip", "-m", "to", "Lanubile" };
+		final String[] badArgs = { "", "pippo" };
+		parser = new CommandParser(args);
+		parser.getCommWorkspace().setMentionParams(badArgs);
+		
+		assertEquals("", parser.getToWho());
+	}
+	
 	// Testo help da main
 	@Test
 	void mainHelpTest() {

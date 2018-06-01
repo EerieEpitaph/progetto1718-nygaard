@@ -168,6 +168,10 @@ public final class CommandParser implements CommandParserInterface {
 		public String[] getMentionParams() {
 			return Arrays.copyOf(mentionParams, mentionParams.length);
 		}
+		
+		public void setMentionParams(String[] newParams) {
+			mentionParams = newParams;
+		}
 	}
 
 	/**
