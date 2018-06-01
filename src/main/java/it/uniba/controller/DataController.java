@@ -69,15 +69,6 @@ public class DataController {
 	}
 
 	/**
-	 * Returns a boolean that indicates if the model has loaded.
-	 * 
-	 * @return <i>boolean</i> that indicates if the model has loaded.
-	 */
-	public boolean hasLoaded() {
-		return mod.hasLoaded();
-	}
-
-	/**
 	 * Prints the members' list using the model for the data and the view for the
 	 * output.
 	 */
@@ -157,7 +148,7 @@ public class DataController {
 	 */
 	private void printMentionsFromToUser(final String user, final String inChannel, final boolean from,
 			final boolean weight) throws ExceptionsHandler {
-		if (user != null | "".equals(user)) {
+		if (user != null && !("".equals(user))) {
 			final String idUser = getUserFromId(user);
 			if (mod.containsUser(idUser)) {
 				if ((inChannel == null || inChannel.equals("")) || mod.containsChannel(inChannel)) {
@@ -197,17 +188,7 @@ public class DataController {
 		printMentionsFromToUser(user, inChannel, true, false);
 	}
 
-	/**
-	 * Prints all mention <i>from</i> a specified <b>user</b>.
-	 * 
-	 * @param user
-	 *            <i>String</i> name of the user specified
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsFromUser(final String user) throws ExceptionsHandler {
-		printMentionsFromToUser(user, "", true, false);
-	}
+ 
 
 	/**
 	 * Prints all mention <i>to</i> a specified <b>user</b> in a specified
@@ -223,18 +204,7 @@ public class DataController {
 	public void printMentionsToUser(final String user, final String inChannel) throws ExceptionsHandler {
 		printMentionsFromToUser(user, inChannel, false, false);
 	}
-
-	/**
-	 * Prints all mention <i>to</i> a specified <b>user</b>.
-	 * 
-	 * @param user
-	 *            <i>String</i> name of the user specified
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsToUser(final String user) throws ExceptionsHandler {
-		printMentionsFromToUser(user, "", false, false);
-	}
+ 
 
 	/**
 	 * Prints all mention <i>from</i> a specified <b>user</b> in a specified
@@ -251,18 +221,7 @@ public class DataController {
 		printMentionsFromToUser(user, inChannel, true, true);
 	}
 
-	/**
-	 * Prints all mention <i>from</i> a specified <b>user</b> with the number of
-	 * mention (<i>weight</i>).
-	 * 
-	 * @param user
-	 *            <i>String</i> name of the user specified
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsFromUserWeigthed(final String user) throws ExceptionsHandler {
-		printMentionsFromToUser(user, "", true, true);
-	}
+ 
 
 	/**
 	 * Prints all mention <i>to</i> a specified <b>user</b> in a specified
@@ -279,18 +238,7 @@ public class DataController {
 		printMentionsFromToUser(user, inChannel, false, true);
 	}
 
-	/**
-	 * Prints the mentions <i>to</i> a specified <b>user</b> with the number of
-	 * mentions(<i>weight</i>).
-	 * 
-	 * @param user
-	 *            <i>String</i> name of the user
-	 * @throws ExceptionsHandler
-	 *             used to handle exceptions
-	 */
-	public void printMentionsToUserWeigthed(final String user) throws ExceptionsHandler {
-		printMentionsFromToUser(user, "", false, true);
-	}
+ 
 
 	/*
 	 * Returns the id the user with the name specified or a empty string <i>("")</i>

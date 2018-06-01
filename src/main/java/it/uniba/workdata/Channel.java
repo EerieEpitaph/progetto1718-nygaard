@@ -122,4 +122,11 @@ public final class Channel {
 	public String getCreator() {
 		return creator;
 	}
+	/**
+	 * Override of Channel's hashCode
+	 */
+	@Override
+	public int hashCode() {
+		return new String(name).hashCode();
+	}
 }

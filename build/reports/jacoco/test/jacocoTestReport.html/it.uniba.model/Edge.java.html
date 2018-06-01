@@ -49,10 +49,10 @@ public final class Edge {
 	/**
 	 * Constructor of Edge
 	 */
-<span class="nc" id="L52">	public Edge() {</span>
-<span class="nc" id="L53">		userTo = null;</span>
-<span class="nc" id="L54">		userFrom = null;</span>
-<span class="nc" id="L55">	}</span>
+<span class="fc" id="L52">	public Edge() {</span>
+<span class="fc" id="L53">		userTo = null;</span>
+<span class="fc" id="L54">		userFrom = null;</span>
+<span class="fc" id="L55">	}</span>
 
 	/**
 	 * @return &lt;b&gt;User&lt;/b&gt; write mention
@@ -90,7 +90,7 @@ public final class Edge {
 	// Se ci sono problemi
 	@Override
 	public int hashCode() {
-<span class="nc" id="L93">		return userFrom.hashCode();</span>
+<span class="fc" id="L93">		return userFrom.hashCode();</span>
 	}
 
 	/**
@@ -103,11 +103,11 @@ public final class Edge {
 	 */
 	@Override
 	public boolean equals(final Object obj) {
-<span class="pc bpc" id="L106" title="1 of 2 branches missed.">		if (obj instanceof Edge) {</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">		if (obj instanceof Edge) {</span>
 <span class="fc" id="L107">			final Edge toCompare = new Edge((Edge) obj);</span>
-<span class="pc bpc" id="L108" title="2 of 4 branches missed.">			return ((userFrom.equals(toCompare.getFrom())) &amp;&amp; (userTo.equals(toCompare.getTo())));</span>
+<span class="pc bpc" id="L108" title="1 of 4 branches missed.">			return ((userFrom.equals(toCompare.getFrom())) &amp;&amp; (userTo.equals(toCompare.getTo())));</span>
 		} else {
-<span class="nc" id="L110">			return false;</span>
+<span class="fc" id="L110">			return false;</span>
 		}
 	}
 

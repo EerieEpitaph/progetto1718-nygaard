@@ -58,19 +58,21 @@ public class MentionGraphTest {
 	}
 
 	@Test
-	void edgesInDegreeTest() {
+	void edgesInDegreeTest() throws ExceptionsHandler {
 		v_to = mod.getUser("U9NAWRB2Q");
 		assertEquals(edges.get(1), testerGraph.edgesInDegree(v_to));
 	}
 
 	@Test
-	void successfulContainsNodeTest() {
+	void successfulContainsNodeTest() throws ExceptionsHandler {
 		assertTrue(testerGraph.containsNode(u_from));
 	}
 
 	@Test
 	void failedContainsNodeTest() {
-		assertFalse(testerGraph.containsNode(null));
+		assertThrows(ExceptionsHandler.class, () -> {
+			testerGraph.containsNode(null);
+		});
 	}
 
 	@Test
@@ -85,16 +87,31 @@ public class MentionGraphTest {
 	}
 
 	@Test
-	void successfulThrowOnGenerate(){
-		// Create empty Model
-		final Model testEmptyModel = new Model();
+	void successfulThrowOnGenerate() {
 		final MentionGraph graphTest = new MentionGraph();
 		// graphTest.setModel(testEmptyModel);
 		assertThrows(ExceptionsHandler.class, () -> {
 			graphTest.generate(null, null, null);
 		});
 	}
-
+	@Test
+	void successfulThrowOnGenerateUsersNull() {
+		final MentionGraph graphTest = new MentionGraph();
+		// graphTest.setModel(testEmptyModel);
+		assertThrows(ExceptionsHandler.class, () -> {
+			graphTest.generate(null, mod.getMessages(), null);
+		});
+	}
+	
+	@Test
+	void successfulThrowOnGenerateMessagesNull() {
+		final MentionGraph graphTest = new MentionGraph();
+		// graphTest.setModel(testEmptyModel);
+		assertThrows(ExceptionsHandler.class, () -> {
+			graphTest.generate(null, null, mod.getUsers());
+		});
+	}
+	
 	@Test
 	void failedThrowGenerateOnFilledModel() {
 		/*
@@ -124,5 +141,24 @@ public class MentionGraphTest {
 			graph.generate(null, messEmpty, usersEmpty);
 		});
 	}
+	@Test
+	void successfulThrowOnEmptyMessage() {
+		assertThrows(ExceptionsHandler.class, () -> {
+			final MentionGraph graph = new MentionGraph();
+			final HashMap<String, ArrayList<Message>> messEmpty = new HashMap<String, ArrayList<Message>>();
+ 			graph.generate(null, messEmpty, mod.getUsers());
+		});
+	}
+	@Test
+	void successfulThrowOnEmptyUser() {
+		assertThrows(ExceptionsHandler.class, () -> {
+			final MentionGraph graph = new MentionGraph();
+			final HashMap<String, User> usersEmpty = new HashMap<String, User>();
+			graph.generate(null, mod.getMessages(), usersEmpty);
+		});
+	}
+	
+	
+	
 
 }
