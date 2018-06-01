@@ -108,18 +108,18 @@ public class Model {
 	 * 
 	 * @return <i>Collection</i> of Users
 	 */
-	public Collection<User> getUsersList() {
-		return users.values();
-	}
+//	public Collection<User> getUsersList() {
+//		return users.values();
+//	}
 
 	/**
 	 * Returns a boolean: true if there aren't users else false
 	 * 
 	 * @return <i>boolean</i> true if there aren't users else false
 	 */
-	public boolean isUsersEmpty() {
-		return users.isEmpty();
-	}
+//	public boolean isUsersEmpty() {
+//		return users.isEmpty();
+//	}
 
 	/**
 	 * Returns a <i>HashMap</i> of Users.
@@ -144,20 +144,19 @@ public class Model {
 	 * 
 	 * @return <i>boolean</i> true if there aren't messages else false
 	 */
-	public boolean isMessagesEmpty() {
-		return messages.isEmpty();
-	}
+//	public boolean isMessagesEmpty() {
+//		return messages.isEmpty();
+//	}
 
-	/**
-	 * Returns an instance of <i>MentionGraph</i> which contains all mentions.
+	/*
+	 * getMentionGraph inutilizzato Returns an instance of <i>MentionGraph</i> which
+	 * contains all mentions.
 	 * 
 	 * @return <i>MentionGraph</i> an instance of MentionGraph which contains all
-	 *         mentions
+	 * mentions
+	 * 
+	 * public MentionGraph getMentionGraph() { return snagraph; }
 	 */
-	public MentionGraph getMentionGraph() {
-		return snagraph;
-	}
-
 	/**
 	 * Returns a <i>Collection</i> of edges where the the <b>user</b> specified it
 	 * was mentioned.
@@ -242,8 +241,8 @@ public class Model {
 	 * @return <i>Channel</i> specified
 	 * 
 	 */
-	public Channel getChannel(final String channel) {
-		return channels.get(channel);
-	}
+//	public Channel getChannel(final String channel) {
+//		return channels.get(channel);
+//	}
 
 }
