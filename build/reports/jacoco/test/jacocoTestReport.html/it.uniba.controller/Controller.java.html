@@ -60,7 +60,7 @@ public class Controller {
 	 * @throws ExceptionsHandler
 	 *             used to handle exceptions
 	 */
-	public void controlExecuteCLI(final String[] args) throws ZipException, IOException, ExceptionsHandler {
+	public void controlExecuteCLI(final String... args) throws ZipException, IOException, ExceptionsHandler {
 <span class="fc" id="L64">		commandParser = new CommandParser(args);</span>
 <span class="fc" id="L65">		interpreter = new CommandInterpreter();</span>
 <span class="nc" id="L66">		interpreter.executeCommands(commandParser, dataCtr);</span>

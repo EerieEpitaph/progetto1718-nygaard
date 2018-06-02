@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.uniba.model.EdgeTester" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-06-02T15:15:14" hostname="Ottavio-Laptop" time="0.003">
+<testsuite name="it.uniba.model.EdgeTester" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-06-02T18:26:23" hostname="Ottavio-Laptop" time="0.004">
   <properties/>
   <testcase name="successfulEdgeEqualsTest()" classname="it.uniba.model.EdgeTester" time="0.0"/>
-  <testcase name="failedHashCode()" classname="it.uniba.model.EdgeTester" time="0.0"/>
+  <testcase name="failedHashCode()" classname="it.uniba.model.EdgeTester" time="0.001"/>
   <testcase name="createEdgeTestWithParam()" classname="it.uniba.model.EdgeTester" time="0.0"/>
   <testcase name="successHashCode()" classname="it.uniba.model.EdgeTester" time="0.0"/>
   <testcase name="failedEdgeEqualsTest()" classname="it.uniba.model.EdgeTester" time="0.0"/>

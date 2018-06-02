@@ -172,7 +172,7 @@ public final class CommandParser implements CommandParserInterface {
 		 * 
 		 * @param newParams new parameter mentions
 		 */
-		public void setMentionParams(final String[] newParams) {
+		public void setMentionParams(final String... newParams) {
 			mentionParams = Arrays.copyOf(newParams, newParams.length);
 		}
 	}
@@ -185,7 +185,7 @@ public final class CommandParser implements CommandParserInterface {
 	 * @throws IllegalStateException
 	 *             if conflicting commands parsed
 	 */
-	public CommandParser(final String[] args) {
+	public CommandParser(final String... args) {
 		baseArgs = new CommBaseArgs();
 		workspace = new CommWorkspace();
 

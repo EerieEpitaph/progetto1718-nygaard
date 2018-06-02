@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnit Jupiter" tests="56" skipped="0" failures="0" errors="0" time="0.724" hostname="Ottavio-Laptop" timestamp="2018-06-02T17:15:12">
+<testsuite name="JUnit Jupiter" tests="56" skipped="0" failures="0" errors="0" time="0.701" hostname="Ottavio-Laptop" timestamp="2018-06-02T20:26:17">
 <properties>
 <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
 <property name="file.encoding" value="windows-1252"/>
@@ -57,85 +57,85 @@
 <property name="user.timezone" value="Europe/Berlin"/>
 <property name="user.variant" value=""/>
 </properties>
-<testcase name="successfulExHandler()" classname="it.uniba.controller.ExceptionsHandlerTest" time="0.008">
+<testcase name="successfulExHandler()" classname="it.uniba.controller.ExceptionsHandlerTest" time="0.01">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.ExceptionsHandlerTest]/[method:successfulExHandler()]
 display-name: successfulExHandler()
 ]]></system-out>
 </testcase>
-<testcase name="badFromWho()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.103">
+<testcase name="badFromWho()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.082">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:badFromWho()]
 display-name: badFromWho()
 ]]></system-out>
 </testcase>
-<testcase name="toInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.116">
+<testcase name="toInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.124">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:toInMentionCalled()]
 display-name: toInMentionCalled()
 ]]></system-out>
 </testcase>
-<testcase name="mentionToCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.053">
+<testcase name="mentionToCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.052">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:mentionToCalled()]
 display-name: mentionToCalled()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoInterfaceTest2()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
+<testcase name="fromWhoInterfaceTest2()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoInterfaceTest2()]
 display-name: fromWhoInterfaceTest2()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoInterfaceTest3()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.004">
+<testcase name="fromWhoInterfaceTest3()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoInterfaceTest3()]
 display-name: fromWhoInterfaceTest3()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoInterfaceTest4()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
+<testcase name="fromWhoInterfaceTest4()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoInterfaceTest4()]
 display-name: fromWhoInterfaceTest4()
 ]]></system-out>
 </testcase>
-<testcase name="fromNoWeight()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.047">
+<testcase name="fromNoWeight()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.051">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromNoWeight()]
 display-name: fromNoWeight()
 ]]></system-out>
 </testcase>
-<testcase name="toWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
+<testcase name="toWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:toWhoOutOfBound()]
 display-name: toWhoOutOfBound()
 ]]></system-out>
 </testcase>
-<testcase name="channelsCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.016">
+<testcase name="channelsCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.017">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:channelsCalled()]
 display-name: channelsCalled()
 ]]></system-out>
 </testcase>
-<testcase name="fromInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.024">
+<testcase name="fromInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.021">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromInMentionCalled()]
 display-name: fromInMentionCalled()
 ]]></system-out>
 </testcase>
-<testcase name="commWorkspaceFilterValid2()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
+<testcase name="commWorkspaceFilterValid2()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:commWorkspaceFilterValid2()]
 display-name: commWorkspaceFilterValid2()
 ]]></system-out>
 </testcase>
-<testcase name="commWorkspaceFilterValid3()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
+<testcase name="commWorkspaceFilterValid3()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:commWorkspaceFilterValid3()]
 display-name: commWorkspaceFilterValid3()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
+<testcase name="fromWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoOutOfBound()]
 display-name: fromWhoOutOfBound()
@@ -147,19 +147,19 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: baseMentionWeightCalled()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoInterfaceTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
+<testcase name="fromWhoInterfaceTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoInterfaceTest()]
 display-name: fromWhoInterfaceTest()
 ]]></system-out>
 </testcase>
-<testcase name="hasLoadedFalseTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.034">
+<testcase name="hasLoadedFalseTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.019">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:hasLoadedFalseTest()]
 display-name: hasLoadedFalseTest()
 ]]></system-out>
 </testcase>
-<testcase name="IllegalStateAfterMentions()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.016">
+<testcase name="IllegalStateAfterMentions()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.019">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:IllegalStateAfterMentions()]
 display-name: IllegalStateAfterMentions()
@@ -177,7 +177,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: commWorkspaceNull()
 ]]></system-out>
 </testcase>
-<testcase name="baseInMentionWeightCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.018">
+<testcase name="baseInMentionWeightCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.017">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:baseInMentionWeightCalled()]
 display-name: baseInMentionWeightCalled()
@@ -207,7 +207,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: baseArgsActive()
 ]]></system-out>
 </testcase>
-<testcase name="fromToTogether()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.019">
+<testcase name="fromToTogether()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.018">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromToTogether()]
 display-name: fromToTogether()
@@ -219,7 +219,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: usersInChannelCalled()
 ]]></system-out>
 </testcase>
-<testcase name="extendedChannelCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.019">
+<testcase name="extendedChannelCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.018">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:extendedChannelCalled()]
 display-name: extendedChannelCalled()
@@ -231,7 +231,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: helpCalled()
 ]]></system-out>
 </testcase>
-<testcase name="fromMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.028">
+<testcase name="fromMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.027">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromMentionCalled()]
 display-name: fromMentionCalled()
@@ -243,7 +243,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: hasLoadedTest()
 ]]></system-out>
 </testcase>
-<testcase name="setWorkspaceNameTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.013">
+<testcase name="setWorkspaceNameTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.014">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:setWorkspaceNameTest()]
 display-name: setWorkspaceNameTest()
@@ -267,7 +267,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: fakeZipperTest()
 ]]></system-out>
 </testcase>
-<testcase name="getWorkspaceNameTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.013">
+<testcase name="getWorkspaceNameTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.014">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:getWorkspaceNameTest()]
 display-name: getWorkspaceNameTest()
@@ -291,13 +291,13 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: mainHelpTest()
 ]]></system-out>
 </testcase>
-<testcase name="toWhoInterfaceTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0">
+<testcase name="toWhoInterfaceTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:toWhoInterfaceTest()]
 display-name: toWhoInterfaceTest()
 ]]></system-out>
 </testcase>
-<testcase name="membersCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.014">
+<testcase name="membersCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.015">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:membersCalled()]
 display-name: membersCalled()
@@ -309,13 +309,13 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: badToWho()
 ]]></system-out>
 </testcase>
-<testcase name="successfulThrowOnEmptyMessage()" classname="it.uniba.model.MentionGraphTest" time="0.001">
+<testcase name="successfulThrowOnEmptyMessage()" classname="it.uniba.model.MentionGraphTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnEmptyMessage()]
 display-name: successfulThrowOnEmptyMessage()
 ]]></system-out>
 </testcase>
-<testcase name="successfulThrowOnGenerate()" classname="it.uniba.model.MentionGraphTest" time="0">
+<testcase name="successfulThrowOnGenerate()" classname="it.uniba.model.MentionGraphTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnGenerate()]
 display-name: successfulThrowOnGenerate()
@@ -345,7 +345,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[metho
 display-name: edgesOutDegreeTest()
 ]]></system-out>
 </testcase>
-<testcase name="successfulThrowOnGenerateMessagesNull()" classname="it.uniba.model.MentionGraphTest" time="0.001">
+<testcase name="successfulThrowOnGenerateMessagesNull()" classname="it.uniba.model.MentionGraphTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnGenerateMessagesNull()]
 display-name: successfulThrowOnGenerateMessagesNull()
@@ -369,7 +369,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[metho
 display-name: successfulThrowOnEmptyUser()
 ]]></system-out>
 </testcase>
-<testcase name="failedContainsNodeTest()" classname="it.uniba.model.MentionGraphTest" time="0">
+<testcase name="failedContainsNodeTest()" classname="it.uniba.model.MentionGraphTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:failedContainsNodeTest()]
 display-name: failedContainsNodeTest()
@@ -381,7 +381,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[metho
 display-name: failedIsEmptyTest()
 ]]></system-out>
 </testcase>
-<testcase name="successfulThrowOnEmptyGraph()" classname="it.uniba.model.MentionGraphTest" time="0.001">
+<testcase name="successfulThrowOnEmptyGraph()" classname="it.uniba.model.MentionGraphTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnEmptyGraph()]
 display-name: successfulThrowOnEmptyGraph()

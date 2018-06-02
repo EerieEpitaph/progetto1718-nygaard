@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.uniba.model.MentionGraphTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2018-06-02T15:15:14" hostname="Ottavio-Laptop" time="0.02">
+<testsuite name="it.uniba.model.MentionGraphTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2018-06-02T18:26:23" hostname="Ottavio-Laptop" time="0.039">
   <properties/>
   <testcase name="successfulThrowOnEmptyMessage()" classname="it.uniba.model.MentionGraphTest" time="0.001"/>
   <testcase name="successfulThrowOnGenerate()" classname="it.uniba.model.MentionGraphTest" time="0.001"/>
   <testcase name="successfulMentionGraph()" classname="it.uniba.model.MentionGraphTest" time="0.0"/>
-  <testcase name="successfulThrowOnGenerateUsersNull()" classname="it.uniba.model.MentionGraphTest" time="0.0"/>
-  <testcase name="successfullIsEmptyTest()" classname="it.uniba.model.MentionGraphTest" time="0.002"/>
+  <testcase name="successfulThrowOnGenerateUsersNull()" classname="it.uniba.model.MentionGraphTest" time="0.001"/>
+  <testcase name="successfullIsEmptyTest()" classname="it.uniba.model.MentionGraphTest" time="0.007"/>
   <testcase name="edgesOutDegreeTest()" classname="it.uniba.model.MentionGraphTest" time="0.0"/>
   <testcase name="successfulThrowOnGenerateMessagesNull()" classname="it.uniba.model.MentionGraphTest" time="0.001"/>
   <testcase name="successfulContainsNodeTest()" classname="it.uniba.model.MentionGraphTest" time="0.0"/>
-  <testcase name="edgesInDegreeTest()" classname="it.uniba.model.MentionGraphTest" time="0.0"/>
+  <testcase name="edgesInDegreeTest()" classname="it.uniba.model.MentionGraphTest" time="0.001"/>
   <testcase name="successfulThrowOnEmptyUser()" classname="it.uniba.model.MentionGraphTest" time="0.001"/>
   <testcase name="failedContainsNodeTest()" classname="it.uniba.model.MentionGraphTest" time="0.001"/>
-  <testcase name="failedIsEmptyTest()" classname="it.uniba.model.MentionGraphTest" time="0.002"/>
+  <testcase name="failedIsEmptyTest()" classname="it.uniba.model.MentionGraphTest" time="0.01"/>
   <testcase name="successfulThrowOnEmptyGraph()" classname="it.uniba.model.MentionGraphTest" time="0.001"/>
-  <testcase name="failedThrowGenerateOnFilledModel()" classname="it.uniba.model.MentionGraphTest" time="0.006"/>
+  <testcase name="failedThrowGenerateOnFilledModel()" classname="it.uniba.model.MentionGraphTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
