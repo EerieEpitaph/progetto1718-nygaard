@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-06-01T16:52:40.656">
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/ControllerTester.java">
+<pmd version="5.8.1" timestamp="2018-06-02T17:15:10.314">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\controller\ControllerTester.java">
 <violation beginline="19" endline="19" begincolumn="1" endcolumn="38" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.controller" class="ControllerTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
 </violation>
@@ -53,7 +53,7 @@ Potential violation of Law of Demeter (method chain calls)
 Potential violation of Law of Demeter (method chain calls)
 </violation>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/controller/input/ParserInterpreterTest.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\controller\input\ParserInterpreterTest.java">
 <violation beginline="29" endline="607" begincolumn="36" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="ParserInterpreterTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
 </violation>
@@ -172,8 +172,8 @@ Use assertTrue(x)/assertFalse(x) instead of assertEquals(true, x)/assertEquals(f
 Local variable 'zipper' could be declared final
 </violation>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/model/EdgeTester.java">
-<violation beginline="1" endline="68" begincolumn="1" endcolumn="2" rule="TooManyStaticImports" ruleset="Import Statements" package="it.uniba.model" class="EdgeTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#TooManyStaticImports" priority="3">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\model\EdgeTester.java">
+<violation beginline="1" endline="68" begincolumn="1" endcolumn="3" rule="TooManyStaticImports" ruleset="Import Statements" package="it.uniba.model" class="EdgeTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#TooManyStaticImports" priority="3">
 Too many static imports may lead to messy code
 </violation>
 <violation beginline="19" endline="19" begincolumn="22" endcolumn="31" rule="RedundantFieldInitializer" ruleset="Optimization" package="it.uniba.model" class="EdgeTester" variable="mod" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/optimizations.html#RedundantFieldInitializer" priority="3">
@@ -204,7 +204,7 @@ Avoid variables with short names like ed
 Local variable 'ed' could be declared final
 </violation>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/model/MentionGraphTest.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\model\MentionGraphTest.java">
 <violation beginline="15" endline="15" begincolumn="1" endcolumn="27" rule="ImportFromSamePackage" ruleset="Import Statements" package="it.uniba.model" class="MentionGraphTest" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/imports.html#ImportFromSamePackage" priority="3">
 No need to import a type that lives in the same package
 </violation>
@@ -254,7 +254,7 @@ Method names should not start with capital letters
 Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
 </violation>
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/test/java/it/uniba/workdata/ChannelTester.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\test\java\it\uniba\workdata\ChannelTester.java">
 <violation beginline="11" endline="11" begincolumn="16" endcolumn="32" rule="LooseCoupling" ruleset="Type Resolution" package="it.uniba.workdata" class="ChannelTester" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
 Avoid using implementation types like 'ArrayList'; use the interface instead
 </violation>

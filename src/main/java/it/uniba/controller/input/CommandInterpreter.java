@@ -77,7 +77,7 @@ public class CommandInterpreter {
 					}
 				}
 
-			} else { 
+			} else {
 				throw new IllegalStateException();
 			}
 		} else {

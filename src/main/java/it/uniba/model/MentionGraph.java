@@ -36,10 +36,10 @@ public final class MentionGraph extends AbstractGraph {
 	 * Array of <i>String</i> containing all of Slack's commands
 	 */
 
-	private final String[] commignore = { "has joined the channel", "set the channel purpose", "cleared channel topic",
+	private final String[] commignore = {"has joined the channel", "set the channel purpose", "cleared channel topic",
 			"uploaded a file", "commented on", "was added to this conversation", "set the channel topic",
 			"pinned a message to this channel", "pinned", "has renamed the channel", "un-archived the channel",
-			"archived the channel", "cleared channel purpose", "has left the channel", "shared a file" };
+			"archived the channel", "cleared channel purpose", "has left the channel", "shared a file"};
 	// aggiornare lista comandi da ignorare {deleted} trovare riferimento ufficiale
 
 	/**
@@ -65,6 +65,8 @@ public final class MentionGraph extends AbstractGraph {
 	 * 
 	 * @param node
 	 *            User in the graph
+	 * @throws ExceptionsHandler
+	 *             when node is null
 	 * @return <i>boolean</i> if <b>Node</b> is present in the graph
 	 */
 	public boolean containsNode(final User node) throws ExceptionsHandler {
@@ -189,10 +191,10 @@ public final class MentionGraph extends AbstractGraph {
 	 *            <b>User</b>
 	 * @return <i>ArrayList</i> of Edge contains (<i>From,To,Weight</i>) for each
 	 *         edge
-	 * @throws ExceptionsHandler 
+	 * @throws ExceptionsHandler
 	 */
 
-	public Collection<Edge> edgesInDegree(final User user)  {
+	public Collection<Edge> edgesInDegree(final User user) {
 		final ArrayList<Edge> edges = new ArrayList<Edge>();
 		if (snagraph.inDegree(user) > 0) {
 			int inEdges = snagraph.inDegree(user); // mi conto quanti nodi sono in entrata sull'utente preso in

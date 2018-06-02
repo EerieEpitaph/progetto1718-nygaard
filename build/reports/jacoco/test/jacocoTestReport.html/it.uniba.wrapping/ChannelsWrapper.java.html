@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChannelsWrapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.wrapping</a> &gt; <span class="el_source">ChannelsWrapper.java</span></div><h1>ChannelsWrapper.java</h1><pre class="source lang-java linenums">package it.uniba.wrapping;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import it.uniba.workdata.Channel;
+
+/**
+ * This class is used to access to the value of the Channels. (It's an example
+ * of to respect the Law of Demeter).
+ */
+public final class ChannelsWrapper {
+	private Map&lt;String, Channel&gt; channels;
+
+	/**
+	 * ChannelsWrapper's constructor.
+	 * 
+	 * @param mapChannels
+	 *            &lt;i&gt;Map(String, Channel)&lt;/i&gt;
+	 */
+<span class="fc" id="L22">	public ChannelsWrapper(final Map&lt;String, Channel&gt; mapChannels) {</span>
+<span class="fc" id="L23">		channels = new HashMap&lt;String, Channel&gt;(mapChannels);</span>
+<span class="fc" id="L24">	}</span>
+
+	// inutilizzato
+	// public ChannelsWrapper(final Collection&lt;Channel&gt; mapChannels) {
+	// for (final Channel channelIn : mapChannels) {
+	// channels.put(channelIn.getId(), channelIn);
+	// }
+	// }
+	/**
+	 * Returns a &lt;i&gt;Collection&lt;/i&gt; of channels.
+	 * 
+	 * @return &lt;i&gt;Collection&lt;/i&gt; of channels
+	 */
+	public Collection&lt;Channel&gt; values() {
+<span class="fc" id="L38">		return channels.values();</span>
+	}
+
+	/**
+	 * Returns a &lt;b&gt;channel&lt;/b&gt; specified,
+	 * 
+	 * @param keyCh
+	 *            &lt;i&gt;String&lt;/i&gt; channel's name
+	 * @return &lt;i&gt;Channel&lt;/i&gt; channel specified
+	 */
+	public Channel get(final String keyCh) {
+<span class="fc" id="L49">		return new Channel(channels.get(keyCh));</span>
+	}
+
+	/**
+	 * Returns a &lt;i&gt;boolean&lt;/i&gt; true if the &lt;b&gt;channel&lt;/b&gt; with the id specified exists
+	 * else false.
+	 * 
+	 * @param keyCh
+	 *            &lt;i&gt;String&lt;/i&gt; channel's name
+	 * @return &lt;i&gt;boolean&lt;/i&gt; true if exists else false
+	 * 
+	 */
+	public boolean containsKey(final String keyCh) {
+<span class="fc" id="L62">		return channels.containsKey(keyCh);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

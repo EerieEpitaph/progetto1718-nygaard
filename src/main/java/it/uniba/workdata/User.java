@@ -115,7 +115,6 @@ public class User {
 		this(user.getId(), user.getTeamId(), user.getName(), user.getRealName(), user.getProfile());
 	}
 
- 
 	/**
 	 * Equals overriding.
 	 */
@@ -183,13 +182,12 @@ public class User {
 	public Profile getProfile() {
 		return profile;
 	}
-	
+
 	/**
 	 * Override of User's hashCode
 	 */
 	@Override
-	public int hashCode()
-	{
-		return new String(idUser).hashCode();
+	public int hashCode() {
+		return idUser.hashCode();
 	}
 }

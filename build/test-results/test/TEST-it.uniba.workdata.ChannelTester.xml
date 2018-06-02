@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.uniba.workdata.ChannelTester" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-06-02T15:15:14" hostname="Ottavio-Laptop" time="0.003">
+  <properties/>
+  <testcase name="channelGetterTest()" classname="it.uniba.workdata.ChannelTester" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
