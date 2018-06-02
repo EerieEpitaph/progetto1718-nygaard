@@ -188,6 +188,6 @@ public class User {
 	 */
 	@Override
 	public int hashCode() {
-		return new String(idUser).hashCode();
+		return idUser.hashCode();
 	}
 }

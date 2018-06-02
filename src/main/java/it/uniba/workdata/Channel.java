@@ -128,7 +128,7 @@ public final class Channel {
 	 */
 	@Override
 	public int hashCode() {
-		return new String(name).hashCode();
+		return name.hashCode();
 	}
 
 	/**

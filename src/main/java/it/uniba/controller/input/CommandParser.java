@@ -57,7 +57,7 @@ public final class CommandParser implements CommandParserInterface {
 	/**
 	 * This class manages workspace-related commands.
 	 */
-	public final class CommWorkspace {
+	public static final class CommWorkspace {
 
 		/*
 		 * Name of the current workspace.
@@ -173,7 +173,7 @@ public final class CommandParser implements CommandParserInterface {
 		 * @param newParams new parameter mentions
 		 */
 		public void setMentionParams(final String[] newParams) {
-			mentionParams = newParams;
+			mentionParams = Arrays.copyOf(newParams, newParams.length);
 		}
 	}
 

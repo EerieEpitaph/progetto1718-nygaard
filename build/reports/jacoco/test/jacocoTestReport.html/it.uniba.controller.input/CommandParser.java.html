@@ -57,7 +57,7 @@ public final class CommandParser implements CommandParserInterface {
 	/**
 	 * This class manages workspace-related commands.
 	 */
-<span class="fc" id="L60">	public final class CommWorkspace {</span>
+<span class="fc" id="L60">	public static final class CommWorkspace {</span>
 
 		/*
 		 * Name of the current workspace.
@@ -173,7 +173,7 @@ public final class CommandParser implements CommandParserInterface {
 		 * @param newParams new parameter mentions
 		 */
 		public void setMentionParams(final String[] newParams) {
-<span class="fc" id="L176">			mentionParams = newParams;</span>
+<span class="fc" id="L176">			mentionParams = Arrays.copyOf(newParams, newParams.length);</span>
 <span class="fc" id="L177">		}</span>
 	}
 

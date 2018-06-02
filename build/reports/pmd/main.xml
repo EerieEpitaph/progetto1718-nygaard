@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.8.1" timestamp="2018-06-02T17:09:18.705">
+<pmd version="5.8.1" timestamp="2018-06-02T17:15:08.692">
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 <violation beginline="63" endline="63" begincolumn="39" endcolumn="57" rule="UseVarargs" ruleset="Design" package="it.uniba.controller" class="Controller" method="controlExecuteCLI" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
@@ -122,7 +122,7 @@ Potential violation of Law of Demeter (object not created locally)
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParser.java">
 <violation beginline="1" endline="437" begincolumn="1" endcolumn="3" rule="GodClass" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#GodClass" priority="3">
-Possible God class (WMC=62, ATFD=29, TCC=0.005291005291005291)
+Possible God class (WMC=62, ATFD=30, TCC=0.005291005291005291)
 </violation>
 <violation beginline="13" endline="437" begincolumn="68" endcolumn="1" rule="TooManyMethods" ruleset="Code Size" package="it.uniba.controller.input" class="CommandParser" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/codesize.html#TooManyMethods" priority="3">
 This class has too many methods, consider refactoring it.
@@ -141,9 +141,6 @@ Useless parentheses.
 </violation>
 <violation beginline="175" endline="175" begincolumn="46" endcolumn="69" rule="UseVarargs" ruleset="Design" package="it.uniba.controller.input" class="CommandParser$CommWorkspace" method="setMentionParams" variable="newParams" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
-</violation>
-<violation beginline="175" endline="175" begincolumn="46" endcolumn="69" rule="ArrayIsStoredDirectly" ruleset="Security Code Guidelines" package="it.uniba.controller.input" class="CommandParser$CommWorkspace" method="setMentionParams" variable="newParams" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/sunsecure.html#ArrayIsStoredDirectly" priority="3">
-The user-supplied array 'newParams' is stored directly.
 </violation>
 <violation beginline="188" endline="188" begincolumn="30" endcolumn="48" rule="UseVarargs" ruleset="Design" package="it.uniba.controller.input" class="CommandParser" method="CommandParser" variable="args" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/design.html#UseVarargs" priority="4">
 Consider using varargs for methods or constructors which take an array the last parameter.
@@ -388,9 +385,6 @@ Avoid short class names like View
 </violation>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Channel.java">
-<violation beginline="131" endline="131" begincolumn="24" endcolumn="39" rule="StringInstantiation" ruleset="String and StringBuffer" package="it.uniba.workdata" class="Channel" method="hashCode" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#StringInstantiation" priority="2">
-Avoid instantiating String objects; this is usually unnecessary.
-</violation>
 <violation beginline="138" endline="138" begincolumn="44" endcolumn="44" rule="ShortVariable" ruleset="Naming" package="it.uniba.workdata" class="Channel" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
 Avoid variables with short names like o
 </violation>
@@ -422,9 +416,6 @@ Potential violation of Law of Demeter (object not created locally)
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
 <violation beginline="8" endline="193" begincolumn="8" endcolumn="1" rule="ShortClassName" ruleset="Naming" package="it.uniba.workdata" class="User" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/naming.html#ShortClassName" priority="4">
 Avoid short class names like User
-</violation>
-<violation beginline="191" endline="191" begincolumn="24" endcolumn="41" rule="StringInstantiation" ruleset="String and StringBuffer" package="it.uniba.workdata" class="User" method="hashCode" externalInfoUrl="https://pmd.github.io/pmd-5.8.1/pmd-java/rules/java/strings.html#StringInstantiation" priority="2">
-Avoid instantiating String objects; this is usually unnecessary.
 </violation>
 </file>
 <file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\wrapping\ChannelsWrapper.java">

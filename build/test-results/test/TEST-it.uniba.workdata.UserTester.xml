@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.uniba.workdata.UserTester" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-06-02T15:09:25" hostname="Ottavio-Laptop" time="0.001">
+<testsuite name="it.uniba.workdata.UserTester" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-06-02T15:15:14" hostname="Ottavio-Laptop" time="0.001">
   <properties/>
   <testcase name="successfulEquals()" classname="it.uniba.workdata.UserTester" time="0.0"/>
   <testcase name="failedEquals()" classname="it.uniba.workdata.UserTester" time="0.001"/>
