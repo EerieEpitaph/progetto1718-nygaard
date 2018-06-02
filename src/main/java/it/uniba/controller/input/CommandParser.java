@@ -1,7 +1,5 @@
 package it.uniba.controller.input;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -168,8 +166,13 @@ public final class CommandParser implements CommandParserInterface {
 		public String[] getMentionParams() {
 			return Arrays.copyOf(mentionParams, mentionParams.length);
 		}
-		
-		public void setMentionParams(String[] newParams) {
+
+		/**
+		 * Mention params setter.
+		 * 
+		 * @param newParams new parameter mentions
+		 */
+		public void setMentionParams(final String[] newParams) {
 			mentionParams = newParams;
 		}
 	}

@@ -57,7 +57,7 @@ public abstract class AbstractGraph {
 	 *            <i>User</i>
 	 * @return <i>ArrayList</i> of Edge containing (<i>From,To,Weight</i>) for each
 	 *         edge
-	 * @throws ExceptionsHandler 
+	 * @throws ExceptionsHandler
 	 */
 	abstract Collection<Edge> edgesInDegree(User node);
 }

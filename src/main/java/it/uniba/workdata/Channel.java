@@ -122,11 +122,28 @@ public final class Channel {
 	public String getCreator() {
 		return creator;
 	}
+
 	/**
 	 * Override of Channel's hashCode
 	 */
 	@Override
 	public int hashCode() {
 		return new String(name).hashCode();
+	}
+
+	/**
+	 * Override of Channel's equals
+	 */
+	@Override
+	public boolean equals(final Object o) {
+		if (o instanceof Channel) {
+			Channel oChannel = (Channel) o;
+			if (oChannel.getId().equals(idChannel) && oChannel.getMemberList().equals(members)
+					&& oChannel.getName().equals(name)) {
+				return true;
+			}
+			return false;
+		}
+		return false;
 	}
 }

@@ -1,71 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/Controller.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\Controller.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/DataController.java">
-<error line="191" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="207" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="224" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="241" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\DataController.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/ExceptionsHandler.java">
-<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="6" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="11" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="21" column="30" severity="error" message="Parameter message should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\ExceptionsHandler.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandInterpreter.java">
-<error line="80" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandInterpreter.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParser.java">
-<error line="3" column="8" severity="error" message="Unused import - java.lang.reflect.Field." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="4" column="8" severity="error" message="Unused import - java.util.ArrayList." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="171" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="172" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="172" column="38" severity="error" message="Parameter newParams should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParser.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/controller/input/CommandParserInterface.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\controller\input\CommandParserInterface.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/main/AppMain.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\main\AppMain.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/AbstractGraph.java">
-<error line="60" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\model\AbstractGraph.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/Edge.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\model\Edge.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/MentionGraph.java">
-<error line="39" column="42" severity="error" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
-<error line="70" column="57" severity="error" message="Expected @throws tag for &apos;ExceptionsHandler&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="192" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\model\MentionGraph.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/model/Model.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\model\Model.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/GsonReader.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\parsing\GsonReader.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/JsonParserInterface.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\parsing\JsonParserInterface.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/parsing/ZipParser.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\parsing\ZipParser.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/view/View.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\view\View.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/view/WarningMessage.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\view\WarningMessage.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/Channel.java">
-<error line="128" column="5" severity="error" message="Definition of &apos;hashCode()&apos; without corresponding definition of &apos;equals()&apos;." source="com.puppycrawl.tools.checkstyle.checks.coding.EqualsHashCodeCheck"/>
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Channel.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/Message.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\Message.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/workdata/User.java">
-<error line="118" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="186" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="192" column="5" severity="error" message="&apos;{&apos; at column 2 should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\workdata\User.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/wrapping/ChannelsWrapper.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\wrapping\ChannelsWrapper.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/wrapping/EdgesWrapper.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\wrapping\EdgesWrapper.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/wrapping/MentionGraphWrapper.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\wrapping\MentionGraphWrapper.java">
 </file>
-<file name="/home/phinkie/progetto1718-nygaard/src/main/java/it/uniba/wrapping/UsersWrapper.java">
+<file name="D:\Files\Progetti\Gradle\progetto1718-nygaard\src\main\java\it\uniba\wrapping\UsersWrapper.java">
 </file>
 </checkstyle>

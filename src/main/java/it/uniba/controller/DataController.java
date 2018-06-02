@@ -188,8 +188,6 @@ public class DataController {
 		printMentionsFromToUser(user, inChannel, true, false);
 	}
 
- 
-
 	/**
 	 * Prints all mention <i>to</i> a specified <b>user</b> in a specified
 	 * <b>channel</b>.
@@ -204,7 +202,6 @@ public class DataController {
 	public void printMentionsToUser(final String user, final String inChannel) throws ExceptionsHandler {
 		printMentionsFromToUser(user, inChannel, false, false);
 	}
- 
 
 	/**
 	 * Prints all mention <i>from</i> a specified <b>user</b> in a specified
@@ -221,8 +218,6 @@ public class DataController {
 		printMentionsFromToUser(user, inChannel, true, true);
 	}
 
- 
-
 	/**
 	 * Prints all mention <i>to</i> a specified <b>user</b> in a specified
 	 * <b>channel</b> with the number of mention(<i>weight</i>).
@@ -237,8 +232,6 @@ public class DataController {
 	public void printMentionsToUserWeigthed(final String user, final String inChannel) throws ExceptionsHandler {
 		printMentionsFromToUser(user, inChannel, false, true);
 	}
-
- 
 
 	/*
 	 * Returns the id the user with the name specified or a empty string <i>("")</i>

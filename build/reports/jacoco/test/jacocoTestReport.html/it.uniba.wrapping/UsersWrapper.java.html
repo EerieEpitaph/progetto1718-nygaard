@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UsersWrapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.wrapping</a> &gt; <span class="el_source">UsersWrapper.java</span></div><h1>UsersWrapper.java</h1><pre class="source lang-java linenums">package it.uniba.wrapping;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+
+import it.uniba.workdata.User;
+
+/**
+ * This class is used to access to the value of the Users. (It's an example of
+ * to respect the Law of Demeter).
+ */
+public final class UsersWrapper {
+	private final Map&lt;String, User&gt; users;
+
+	/**
+	 * UsersWrapper's constructor.
+	 * 
+	 * @param mapUsers
+	 *            &lt;i&gt;Map(String, User)&lt;/i&gt;
+	 */
+<span class="fc" id="L22">	public UsersWrapper(final Map&lt;String, User&gt; mapUsers) {</span>
+		// users = new HashMap&lt;String, User&gt;();
+<span class="fc" id="L24">		users = mapUsers;</span>
+<span class="fc" id="L25">	}</span>
+
+	/**
+	 * Returns the real name of the user specified.
+	 * 
+	 * @param keyUser
+	 *            &lt;i&gt;String&lt;/i&gt;
+	 * @return &lt;i&gt;String&lt;/i&gt; real name of the user
+	 */
+	public String getRealName(final String keyUser) {
+<span class="fc" id="L35">		final User usTmp = new User(users.get(keyUser));</span>
+<span class="fc" id="L36">		return usTmp.getRealName();</span>
+	}
+
+	/**
+	 * Returns the name of the user specified.
+	 * 
+	 * @param keyUser
+	 *            &lt;i&gt;String&lt;/i&gt;
+	 * @return &lt;i&gt;String&lt;/i&gt; name of the user
+	 */
+	public String getName(final String keyUser) {
+<span class="fc" id="L47">		final User usTmp = new User(users.get(keyUser));</span>
+<span class="fc" id="L48">		return usTmp.getRealName();</span>
+	}
+
+	/**
+	 * Returns the real name of the user in the specified position.
+	 * 
+	 * @param position
+	 *            &lt;i&gt;int&lt;/i&gt;
+	 * @return &lt;i&gt;String&lt;/i&gt; real name of the user
+	 */
+	public String getRealName(final int position) {
+<span class="fc" id="L59">		final Collection&lt;User&gt; usCollection = new ArrayList&lt;User&gt;(users.values());</span>
+<span class="fc" id="L60">		final Object[] usersTmp = usCollection.toArray();</span>
+<span class="fc" id="L61">		final User usTmp = new User((User) usersTmp[position]);</span>
+<span class="fc" id="L62">		return usTmp.getRealName();</span>
+	}
+
+	/**
+	 * Returns the name (email) of the user in the specified position.
+	 * 
+	 * @param position
+	 *            &lt;i&gt;int&lt;/i&gt;
+	 * @return &lt;i&gt;String&lt;/i&gt; name (email) of the user
+	 */
+	public String getName(final int position) {
+<span class="fc" id="L73">		final Collection&lt;User&gt; usCollection = new ArrayList&lt;User&gt;(users.values());</span>
+<span class="fc" id="L74">		final Object[] usersTmp = usCollection.toArray();</span>
+<span class="fc" id="L75">		final User usTmp = new User((User) usersTmp[position]);</span>
+<span class="fc" id="L76">		return usTmp.getRealName();</span>
+	}
+
+	/**
+	 * 
+	 * Returns the display name (normalized) of the user in the specified position.
+	 * 
+	 * @param position
+	 *            &lt;i&gt;int&lt;/i&gt;
+	 * @return &lt;i&gt;String&lt;/i&gt; display name (normalized) of the user
+	 */
+	public String getDisplayNameNorm(final int position) {
+<span class="fc" id="L88">		final Collection&lt;User&gt; usCollection = new ArrayList&lt;User&gt;(users.values());</span>
+<span class="fc" id="L89">		final Object[] usersTmp = usCollection.toArray();</span>
+<span class="fc" id="L90">		final User usTmp = new User((User) usersTmp[position]);</span>
+<span class="fc" id="L91">		return usTmp.getDisplayNameNorm();</span>
+	}
+
+	/**
+	 * Returns the id of the user in the specified position.
+	 * 
+	 * @param position
+	 *            &lt;i&gt;int&lt;/i&gt;
+	 * @return &lt;i&gt;String&lt;/i&gt; id of the user
+	 */
+	public String getId(final int position) {
+<span class="fc" id="L102">		final Collection&lt;User&gt; usCollection = new ArrayList&lt;User&gt;(users.values());</span>
+<span class="fc" id="L103">		final Object[] usersTmp = usCollection.toArray();</span>
+<span class="fc" id="L104">		final User usTmp = new User((User) usersTmp[position]);</span>
+<span class="fc" id="L105">		return usTmp.getId();</span>
+	}
+
+	/**
+	 * Returns a collection of users.
+	 * 
+	 * @return &lt;i&gt;Collection&lt;/i&gt; of users
+	 */
+	public Collection&lt;User&gt; values() {
+<span class="fc" id="L114">		return users.values();</span>
+	}
+	// inutilizzato
+	// public Map&lt;String, User&gt; valuesMap() {
+	// return users;
+	// }
+
+	/**
+	 * Returns the number of the users.
+	 * 
+	 * @return &lt;i&gt;int&lt;/i&gt; number of users
+	 */
+	public int size() {
+<span class="fc" id="L127">		return users.size();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

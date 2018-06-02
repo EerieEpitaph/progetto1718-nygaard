@@ -1,206 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnit Jupiter" tests="56" skipped="0" failures="0" errors="0" time="1.454" hostname="GiovanDonato" timestamp="2018-06-01T16:52:44">
+<testsuite name="JUnit Jupiter" tests="56" skipped="0" failures="0" errors="0" time="0.742" hostname="Ottavio-Laptop" timestamp="2018-06-02T17:09:22">
 <properties>
-<property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
-<property name="file.encoding" value="UTF-8"/>
+<property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+<property name="file.encoding" value="windows-1252"/>
 <property name="file.encoding.pkg" value="sun.io"/>
-<property name="file.separator" value="/"/>
-<property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-<property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
-<property name="java.class.path" value="/home/phinkie/progetto1718-nygaard/build/classes/java/test:/home/phinkie/progetto1718-nygaard/build/resources/test:/home/phinkie/progetto1718-nygaard/build/classes/java/main:/home/phinkie/progetto1718-nygaard/build/resources/main:/home/phinkie/progetto1718-nygaard/lib/picocli-3.0.1.jar:/home/phinkie/progetto1718-nygaard/lib/gson-2.6.2.jar:/home/phinkie/progetto1718-nygaard/lib/guava-23.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/21.0/3a3d111be1be1b745edfa7d91678a12d7ed38709/guava-21.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.0.0/811b65ec5a499732868f76c1d2a6f5786774ff82/junit-jupiter-engine-5.0.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.0.0/f7fe1b74bef74d640493781abecafba191472ad/junit-jupiter-api-5.0.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-runner/1.0.0/441aff408cd4ac7595d877a6f11b28c2ec535eb0/junit-platform-runner-1.0.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-suite-api/1.0.0/9dafe3b1e364203e3ced0e601892184a6119fc5/junit-platform-suite-api-1.0.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/1.0.0/5602a195a442636276efefce2a4c7b418cd67e5c/junit-platform-launcher-1.0.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.0.0/fdc6f63a689b894529ea5e9e218b65422748fd/junit-platform-engine-1.0.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.0.0/d2e03d9b21020746d48fe45834ff7d71fbcbd7b2/junit-platform-commons-1.0.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.0.0/3ef5276905e36f4d8055fe3cb0bdcc7503ffc85d/apiguardian-api-1.0.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.0.0/6f09c598e9ff64bf0ce2fa7e7de49a99ba83c0b4/opentest4j-1.0.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-console/1.1.0/1ea376db54ab4ec0018c5e99d414e1c7c034387/junit-platform-console-1.1.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/1.1.0/ba098edde4e59cacd9225e238ea3ad9c946684ab/junit-platform-launcher-1.1.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.1.0/2596bd4d909e7ea8d029272db4338075445d731b/junit-platform-engine-1.1.0.jar:/home/phinkie/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.1.0/d6aa21029f9cedfb4cc8a9e9efc0bd97987205b8/junit-platform-commons-1.1.0.jar"/>
+<property name="file.separator" value="\"/>
+<property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+<property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+<property name="java.class.path" value="D:\Files\Progetti\Gradle\progetto1718-nygaard\build\classes\java\test;D:\Files\Progetti\Gradle\progetto1718-nygaard\build\resources\test;D:\Files\Progetti\Gradle\progetto1718-nygaard\build\classes\java\main;D:\Files\Progetti\Gradle\progetto1718-nygaard\build\resources\main;D:\Files\Progetti\Gradle\progetto1718-nygaard\lib\gson-2.6.2.jar;D:\Files\Progetti\Gradle\progetto1718-nygaard\lib\guava-23.0.jar;D:\Files\Progetti\Gradle\progetto1718-nygaard\lib\picocli-3.0.1.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\21.0\3a3d111be1be1b745edfa7d91678a12d7ed38709\guava-21.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.jupiter\junit-jupiter-engine\5.0.0\811b65ec5a499732868f76c1d2a6f5786774ff82\junit-jupiter-engine-5.0.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.jupiter\junit-jupiter-api\5.0.0\f7fe1b74bef74d640493781abecafba191472ad\junit-jupiter-api-5.0.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-runner\1.0.0\441aff408cd4ac7595d877a6f11b28c2ec535eb0\junit-platform-runner-1.0.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-suite-api\1.0.0\9dafe3b1e364203e3ced0e601892184a6119fc5\junit-platform-suite-api-1.0.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-launcher\1.0.0\5602a195a442636276efefce2a4c7b418cd67e5c\junit-platform-launcher-1.0.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-engine\1.0.0\fdc6f63a689b894529ea5e9e218b65422748fd\junit-platform-engine-1.0.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-commons\1.0.0\d2e03d9b21020746d48fe45834ff7d71fbcbd7b2\junit-platform-commons-1.0.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.apiguardian\apiguardian-api\1.0.0\3ef5276905e36f4d8055fe3cb0bdcc7503ffc85d\apiguardian-api-1.0.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.opentest4j\opentest4j\1.0.0\6f09c598e9ff64bf0ce2fa7e7de49a99ba83c0b4\opentest4j-1.0.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-console\1.1.0\1ea376db54ab4ec0018c5e99d414e1c7c034387\junit-platform-console-1.1.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-launcher\1.1.0\ba098edde4e59cacd9225e238ea3ad9c946684ab\junit-platform-launcher-1.1.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-engine\1.1.0\2596bd4d909e7ea8d029272db4338075445d731b\junit-platform-engine-1.1.0.jar;C:\Users\Ottavio Lischio\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-commons\1.1.0\d6aa21029f9cedfb4cc8a9e9efc0bd97987205b8\junit-platform-commons-1.1.0.jar"/>
 <property name="java.class.version" value="52.0"/>
-<property name="java.endorsed.dirs" value="/opt/java8/jdk1.8.0_171/jre/lib/endorsed"/>
-<property name="java.ext.dirs" value="/opt/java8/jdk1.8.0_171/jre/lib/ext:/usr/java/packages/lib/ext"/>
-<property name="java.home" value="/opt/java8/jdk1.8.0_171/jre"/>
-<property name="java.io.tmpdir" value="/tmp"/>
-<property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+<property name="java.endorsed.dirs" value="D:\Program Files\Java\jdk1.8.0_172\jre\lib\endorsed"/>
+<property name="java.ext.dirs" value="D:\Program Files\Java\jdk1.8.0_172\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+<property name="java.home" value="D:\Program Files\Java\jdk1.8.0_172\jre"/>
+<property name="java.io.tmpdir" value="C:\Users\OTTAVI~1\AppData\Local\Temp\"/>
+<property name="java.library.path" value="D:\Program Files\Java\jdk1.8.0_172\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/Java/jre1.8.0_172/bin/server;D:/Program Files/Java/jre1.8.0_172/bin;D:/Program Files/Java/jre1.8.0_172/lib/amd64;D:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;D:\Program Files\Common Files\Intel\WirelessCommon\;D:\Program Files\MySQL\MySQL Utilities 1.6\;C:\MinGW\bin\;D:\Program Files\Git\cmd;C:\Users\Ottavio Lischio\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin\;D:\Program Files\Common Files\Intel\WirelessCommon\;D:\Program Files (x86)\Dr. Memory\bin\;C:\Program Files (x86)\Atmel\Flip 3.4.7\bin;C:\OpenSSL-Win32\bin;D:\Program Files\Docker Toolbox;D:\Program Files\Docker Toolbox;D:\Program Files\Eclipse;;."/>
 <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-<property name="java.runtime.version" value="1.8.0_171-b11"/>
+<property name="java.runtime.version" value="1.8.0_172-b11"/>
 <property name="java.specification.name" value="Java Platform API Specification"/>
 <property name="java.specification.vendor" value="Oracle Corporation"/>
 <property name="java.specification.version" value="1.8"/>
 <property name="java.vendor" value="Oracle Corporation"/>
 <property name="java.vendor.url" value="http://java.oracle.com/"/>
 <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
-<property name="java.version" value="1.8.0_171"/>
+<property name="java.version" value="1.8.0_172"/>
 <property name="java.vm.info" value="mixed mode"/>
 <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
 <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
 <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
 <property name="java.vm.specification.version" value="1.8"/>
 <property name="java.vm.vendor" value="Oracle Corporation"/>
-<property name="java.vm.version" value="25.171-b11"/>
+<property name="java.vm.version" value="25.172-b11"/>
 <property name="line.separator" value="
 "/>
 <property name="os.arch" value="amd64"/>
-<property name="os.name" value="Linux"/>
-<property name="os.version" value="4.9.0-6-amd64"/>
-<property name="path.separator" value=":"/>
+<property name="os.name" value="Windows 10"/>
+<property name="os.version" value="10.0"/>
+<property name="path.separator" value=";"/>
 <property name="sun.arch.data.model" value="64"/>
-<property name="sun.boot.class.path" value="/opt/java8/jdk1.8.0_171/jre/lib/resources.jar:/opt/java8/jdk1.8.0_171/jre/lib/rt.jar:/opt/java8/jdk1.8.0_171/jre/lib/sunrsasign.jar:/opt/java8/jdk1.8.0_171/jre/lib/jsse.jar:/opt/java8/jdk1.8.0_171/jre/lib/jce.jar:/opt/java8/jdk1.8.0_171/jre/lib/charsets.jar:/opt/java8/jdk1.8.0_171/jre/lib/jfr.jar:/opt/java8/jdk1.8.0_171/jre/classes"/>
-<property name="sun.boot.library.path" value="/opt/java8/jdk1.8.0_171/jre/lib/amd64"/>
+<property name="sun.boot.class.path" value="D:\Program Files\Java\jdk1.8.0_172\jre\lib\resources.jar;D:\Program Files\Java\jdk1.8.0_172\jre\lib\rt.jar;D:\Program Files\Java\jdk1.8.0_172\jre\lib\sunrsasign.jar;D:\Program Files\Java\jdk1.8.0_172\jre\lib\jsse.jar;D:\Program Files\Java\jdk1.8.0_172\jre\lib\jce.jar;D:\Program Files\Java\jdk1.8.0_172\jre\lib\charsets.jar;D:\Program Files\Java\jdk1.8.0_172\jre\lib\jfr.jar;D:\Program Files\Java\jdk1.8.0_172\jre\classes"/>
+<property name="sun.boot.library.path" value="D:\Program Files\Java\jdk1.8.0_172\jre\bin"/>
 <property name="sun.cpu.endian" value="little"/>
-<property name="sun.cpu.isalist" value=""/>
-<property name="sun.desktop" value="gnome"/>
+<property name="sun.cpu.isalist" value="amd64"/>
+<property name="sun.desktop" value="windows"/>
 <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-<property name="sun.java.command" value="org.junit.platform.console.ConsoleLauncher --details NONE --scan-class-path /home/phinkie/progetto1718-nygaard/build/classes/java/main:/home/phinkie/progetto1718-nygaard/build/resources/main:/home/phinkie/progetto1718-nygaard/build/classes/java/test:/home/phinkie/progetto1718-nygaard/build/resources/test -n ^.*Tests?$ -T slow -e junit-jupiter --reports-dir /home/phinkie/progetto1718-nygaard/build/test-results/junit-platform"/>
+<property name="sun.java.command" value="org.junit.platform.console.ConsoleLauncher --details NONE --scan-class-path D:\Files\Progetti\Gradle\progetto1718-nygaard\build\classes\java\main;D:\Files\Progetti\Gradle\progetto1718-nygaard\build\resources\main;D:\Files\Progetti\Gradle\progetto1718-nygaard\build\classes\java\test;D:\Files\Progetti\Gradle\progetto1718-nygaard\build\resources\test -n ^.*Tests?$ -T slow -e junit-jupiter --reports-dir D:\Files\Progetti\Gradle\progetto1718-nygaard\build\test-results\junit-platform"/>
 <property name="sun.java.launcher" value="SUN_STANDARD"/>
-<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="sun.jnu.encoding" value="Cp1252"/>
 <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-<property name="sun.os.patch.level" value="unknown"/>
+<property name="sun.os.patch.level" value=""/>
 <property name="user.country" value="IT"/>
-<property name="user.dir" value="/home/phinkie/progetto1718-nygaard"/>
-<property name="user.home" value="/home/phinkie"/>
+<property name="user.dir" value="D:\Files\Progetti\Gradle\progetto1718-nygaard"/>
+<property name="user.home" value="C:\Users\Ottavio Lischio"/>
 <property name="user.language" value="it"/>
-<property name="user.name" value="phinkie"/>
-<property name="user.timezone" value="Europe/Rome"/>
+<property name="user.name" value="Ottavio Lischio"/>
+<property name="user.script" value=""/>
+<property name="user.timezone" value="Europe/Berlin"/>
 <property name="user.variant" value=""/>
 </properties>
-<testcase name="successfulThrowOnEmptyMessage()" classname="it.uniba.model.MentionGraphTest" time="0.017">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnEmptyMessage()]
-display-name: successfulThrowOnEmptyMessage()
-]]></system-out>
-</testcase>
-<testcase name="successfulThrowOnGenerate()" classname="it.uniba.model.MentionGraphTest" time="0.002">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnGenerate()]
-display-name: successfulThrowOnGenerate()
-]]></system-out>
-</testcase>
-<testcase name="successfulMentionGraph()" classname="it.uniba.model.MentionGraphTest" time="0.002">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulMentionGraph()]
-display-name: successfulMentionGraph()
-]]></system-out>
-</testcase>
-<testcase name="successfulThrowOnGenerateUsersNull()" classname="it.uniba.model.MentionGraphTest" time="0.002">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnGenerateUsersNull()]
-display-name: successfulThrowOnGenerateUsersNull()
-]]></system-out>
-</testcase>
-<testcase name="successfullIsEmptyTest()" classname="it.uniba.model.MentionGraphTest" time="0.003">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfullIsEmptyTest()]
-display-name: successfullIsEmptyTest()
-]]></system-out>
-</testcase>
-<testcase name="edgesOutDegreeTest()" classname="it.uniba.model.MentionGraphTest" time="0.003">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:edgesOutDegreeTest()]
-display-name: edgesOutDegreeTest()
-]]></system-out>
-</testcase>
-<testcase name="successfulThrowOnGenerateMessagesNull()" classname="it.uniba.model.MentionGraphTest" time="0">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnGenerateMessagesNull()]
-display-name: successfulThrowOnGenerateMessagesNull()
-]]></system-out>
-</testcase>
-<testcase name="successfulContainsNodeTest()" classname="it.uniba.model.MentionGraphTest" time="0">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulContainsNodeTest()]
-display-name: successfulContainsNodeTest()
-]]></system-out>
-</testcase>
-<testcase name="edgesInDegreeTest()" classname="it.uniba.model.MentionGraphTest" time="0.002">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:edgesInDegreeTest()]
-display-name: edgesInDegreeTest()
-]]></system-out>
-</testcase>
-<testcase name="successfulThrowOnEmptyUser()" classname="it.uniba.model.MentionGraphTest" time="0.001">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnEmptyUser()]
-display-name: successfulThrowOnEmptyUser()
-]]></system-out>
-</testcase>
-<testcase name="failedContainsNodeTest()" classname="it.uniba.model.MentionGraphTest" time="0.001">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:failedContainsNodeTest()]
-display-name: failedContainsNodeTest()
-]]></system-out>
-</testcase>
-<testcase name="failedIsEmptyTest()" classname="it.uniba.model.MentionGraphTest" time="0.002">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:failedIsEmptyTest()]
-display-name: failedIsEmptyTest()
-]]></system-out>
-</testcase>
-<testcase name="successfulThrowOnEmptyGraph()" classname="it.uniba.model.MentionGraphTest" time="0.001">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnEmptyGraph()]
-display-name: successfulThrowOnEmptyGraph()
-]]></system-out>
-</testcase>
-<testcase name="failedThrowGenerateOnFilledModel()" classname="it.uniba.model.MentionGraphTest" time="0.055">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:failedThrowGenerateOnFilledModel()]
-display-name: failedThrowGenerateOnFilledModel()
-]]></system-out>
-</testcase>
-<testcase name="successfulExHandler()" classname="it.uniba.controller.ExceptionsHandlerTest" time="0.001">
+<testcase name="successfulExHandler()" classname="it.uniba.controller.ExceptionsHandlerTest" time="0.009">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.ExceptionsHandlerTest]/[method:successfulExHandler()]
 display-name: successfulExHandler()
 ]]></system-out>
 </testcase>
-<testcase name="badFromWho()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.086">
+<testcase name="badFromWho()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.083">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:badFromWho()]
 display-name: badFromWho()
 ]]></system-out>
 </testcase>
-<testcase name="toInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.079">
+<testcase name="toInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.125">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:toInMentionCalled()]
 display-name: toInMentionCalled()
 ]]></system-out>
 </testcase>
-<testcase name="mentionToCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.078">
+<testcase name="mentionToCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.054">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:mentionToCalled()]
 display-name: mentionToCalled()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoInterfaceTest2()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
+<testcase name="fromWhoInterfaceTest2()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoInterfaceTest2()]
 display-name: fromWhoInterfaceTest2()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoInterfaceTest3()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.005">
+<testcase name="fromWhoInterfaceTest3()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoInterfaceTest3()]
 display-name: fromWhoInterfaceTest3()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoInterfaceTest4()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
+<testcase name="fromWhoInterfaceTest4()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoInterfaceTest4()]
 display-name: fromWhoInterfaceTest4()
 ]]></system-out>
 </testcase>
-<testcase name="fromNoWeight()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.073">
+<testcase name="fromNoWeight()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.047">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromNoWeight()]
 display-name: fromNoWeight()
 ]]></system-out>
 </testcase>
-<testcase name="toWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.004">
+<testcase name="toWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:toWhoOutOfBound()]
 display-name: toWhoOutOfBound()
 ]]></system-out>
 </testcase>
-<testcase name="channelsCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.043">
+<testcase name="channelsCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.018">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:channelsCalled()]
 display-name: channelsCalled()
 ]]></system-out>
 </testcase>
-<testcase name="fromInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.047">
+<testcase name="fromInMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.025">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromInMentionCalled()]
 display-name: fromInMentionCalled()
@@ -218,37 +135,37 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: commWorkspaceFilterValid3()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
+<testcase name="fromWhoOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoOutOfBound()]
 display-name: fromWhoOutOfBound()
 ]]></system-out>
 </testcase>
-<testcase name="baseMentionWeightCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.069">
+<testcase name="baseMentionWeightCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.037">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:baseMentionWeightCalled()]
 display-name: baseMentionWeightCalled()
 ]]></system-out>
 </testcase>
-<testcase name="fromWhoInterfaceTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
+<testcase name="fromWhoInterfaceTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromWhoInterfaceTest()]
 display-name: fromWhoInterfaceTest()
 ]]></system-out>
 </testcase>
-<testcase name="hasLoadedFalseTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.049">
+<testcase name="hasLoadedFalseTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.019">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:hasLoadedFalseTest()]
 display-name: hasLoadedFalseTest()
 ]]></system-out>
 </testcase>
-<testcase name="IllegalStateAfterMentions()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.031">
+<testcase name="IllegalStateAfterMentions()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.028">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:IllegalStateAfterMentions()]
 display-name: IllegalStateAfterMentions()
 ]]></system-out>
 </testcase>
-<testcase name="badParameters()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.004">
+<testcase name="badParameters()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:badParameters()]
 display-name: badParameters()
@@ -260,7 +177,7 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: commWorkspaceNull()
 ]]></system-out>
 </testcase>
-<testcase name="baseInMentionWeightCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.034">
+<testcase name="baseInMentionWeightCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.024">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:baseInMentionWeightCalled()]
 display-name: baseInMentionWeightCalled()
@@ -272,13 +189,13 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: fromInterfaceTest()
 ]]></system-out>
 </testcase>
-<testcase name="invalidWorkspace()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
+<testcase name="invalidWorkspace()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:invalidWorkspace()]
 display-name: invalidWorkspace()
 ]]></system-out>
 </testcase>
-<testcase name="commWorkspaceFilterValid()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
+<testcase name="commWorkspaceFilterValid()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:commWorkspaceFilterValid()]
 display-name: commWorkspaceFilterValid()
@@ -290,43 +207,43 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: baseArgsActive()
 ]]></system-out>
 </testcase>
-<testcase name="fromToTogether()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.029">
+<testcase name="fromToTogether()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.019">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromToTogether()]
 display-name: fromToTogether()
 ]]></system-out>
 </testcase>
-<testcase name="usersInChannelCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.042">
+<testcase name="usersInChannelCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.025">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:usersInChannelCalled()]
 display-name: usersInChannelCalled()
 ]]></system-out>
 </testcase>
-<testcase name="extendedChannelCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.033">
+<testcase name="extendedChannelCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.02">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:extendedChannelCalled()]
 display-name: extendedChannelCalled()
 ]]></system-out>
 </testcase>
-<testcase name="helpCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
+<testcase name="helpCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:helpCalled()]
 display-name: helpCalled()
 ]]></system-out>
 </testcase>
-<testcase name="fromMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.041">
+<testcase name="fromMentionCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.024">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fromMentionCalled()]
 display-name: fromMentionCalled()
 ]]></system-out>
 </testcase>
-<testcase name="hasLoadedTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.027">
+<testcase name="hasLoadedTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.018">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:hasLoadedTest()]
 display-name: hasLoadedTest()
 ]]></system-out>
 </testcase>
-<testcase name="setWorkspaceNameTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.026">
+<testcase name="setWorkspaceNameTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.019">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:setWorkspaceNameTest()]
 display-name: setWorkspaceNameTest()
@@ -338,58 +255,142 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpr
 display-name: commWorkspaceValid()
 ]]></system-out>
 </testcase>
-<testcase name="badInWhat()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
+<testcase name="badInWhat()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:badInWhat()]
 display-name: badInWhat()
 ]]></system-out>
 </testcase>
-<testcase name="fakeZipperTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
+<testcase name="fakeZipperTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:fakeZipperTest()]
 display-name: fakeZipperTest()
 ]]></system-out>
 </testcase>
-<testcase name="getWorkspaceNameTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.027">
+<testcase name="getWorkspaceNameTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.015">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:getWorkspaceNameTest()]
 display-name: getWorkspaceNameTest()
 ]]></system-out>
 </testcase>
-<testcase name="commWorkspaceMentionParamsValid()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.005">
+<testcase name="commWorkspaceMentionParamsValid()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:commWorkspaceMentionParamsValid()]
 display-name: commWorkspaceMentionParamsValid()
 ]]></system-out>
 </testcase>
-<testcase name="inWhatOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
+<testcase name="inWhatOutOfBound()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:inWhatOutOfBound()]
 display-name: inWhatOutOfBound()
 ]]></system-out>
 </testcase>
-<testcase name="mainHelpTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
+<testcase name="mainHelpTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:mainHelpTest()]
 display-name: mainHelpTest()
 ]]></system-out>
 </testcase>
-<testcase name="toWhoInterfaceTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.002">
+<testcase name="toWhoInterfaceTest()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:toWhoInterfaceTest()]
 display-name: toWhoInterfaceTest()
 ]]></system-out>
 </testcase>
-<testcase name="membersCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.031">
+<testcase name="membersCalled()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.015">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:membersCalled()]
 display-name: membersCalled()
 ]]></system-out>
 </testcase>
-<testcase name="badToWho()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.003">
+<testcase name="badToWho()" classname="it.uniba.controller.input.ParserInterpreterTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.controller.input.ParserInterpreterTest]/[method:badToWho()]
 display-name: badToWho()
+]]></system-out>
+</testcase>
+<testcase name="successfulThrowOnEmptyMessage()" classname="it.uniba.model.MentionGraphTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnEmptyMessage()]
+display-name: successfulThrowOnEmptyMessage()
+]]></system-out>
+</testcase>
+<testcase name="successfulThrowOnGenerate()" classname="it.uniba.model.MentionGraphTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnGenerate()]
+display-name: successfulThrowOnGenerate()
+]]></system-out>
+</testcase>
+<testcase name="successfulMentionGraph()" classname="it.uniba.model.MentionGraphTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulMentionGraph()]
+display-name: successfulMentionGraph()
+]]></system-out>
+</testcase>
+<testcase name="successfulThrowOnGenerateUsersNull()" classname="it.uniba.model.MentionGraphTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnGenerateUsersNull()]
+display-name: successfulThrowOnGenerateUsersNull()
+]]></system-out>
+</testcase>
+<testcase name="successfullIsEmptyTest()" classname="it.uniba.model.MentionGraphTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfullIsEmptyTest()]
+display-name: successfullIsEmptyTest()
+]]></system-out>
+</testcase>
+<testcase name="edgesOutDegreeTest()" classname="it.uniba.model.MentionGraphTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:edgesOutDegreeTest()]
+display-name: edgesOutDegreeTest()
+]]></system-out>
+</testcase>
+<testcase name="successfulThrowOnGenerateMessagesNull()" classname="it.uniba.model.MentionGraphTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnGenerateMessagesNull()]
+display-name: successfulThrowOnGenerateMessagesNull()
+]]></system-out>
+</testcase>
+<testcase name="successfulContainsNodeTest()" classname="it.uniba.model.MentionGraphTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulContainsNodeTest()]
+display-name: successfulContainsNodeTest()
+]]></system-out>
+</testcase>
+<testcase name="edgesInDegreeTest()" classname="it.uniba.model.MentionGraphTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:edgesInDegreeTest()]
+display-name: edgesInDegreeTest()
+]]></system-out>
+</testcase>
+<testcase name="successfulThrowOnEmptyUser()" classname="it.uniba.model.MentionGraphTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnEmptyUser()]
+display-name: successfulThrowOnEmptyUser()
+]]></system-out>
+</testcase>
+<testcase name="failedContainsNodeTest()" classname="it.uniba.model.MentionGraphTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:failedContainsNodeTest()]
+display-name: failedContainsNodeTest()
+]]></system-out>
+</testcase>
+<testcase name="failedIsEmptyTest()" classname="it.uniba.model.MentionGraphTest" time="0.002">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:failedIsEmptyTest()]
+display-name: failedIsEmptyTest()
+]]></system-out>
+</testcase>
+<testcase name="successfulThrowOnEmptyGraph()" classname="it.uniba.model.MentionGraphTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:successfulThrowOnEmptyGraph()]
+display-name: successfulThrowOnEmptyGraph()
+]]></system-out>
+</testcase>
+<testcase name="failedThrowGenerateOnFilledModel()" classname="it.uniba.model.MentionGraphTest" time="0.007">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:it.uniba.model.MentionGraphTest]/[method:failedThrowGenerateOnFilledModel()]
+display-name: failedThrowGenerateOnFilledModel()
 ]]></system-out>
 </testcase>
 <system-out><![CDATA[

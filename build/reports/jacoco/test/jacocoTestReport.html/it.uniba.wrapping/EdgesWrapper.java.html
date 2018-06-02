@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EdgesWrapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SNA4Slack</a> &gt; <a href="index.source.html" class="el_package">it.uniba.wrapping</a> &gt; <span class="el_source">EdgesWrapper.java</span></div><h1>EdgesWrapper.java</h1><pre class="source lang-java linenums">package it.uniba.wrapping;
+
+import java.util.Collection;
+
+import it.uniba.model.Edge;
+import it.uniba.workdata.User;
+
+/**
+ * This class is used to access to the value of the Edges. (It's an example of
+ * to respect the Law of Demeter).
+ */
+public final class EdgesWrapper {
+	private final Object[] edgesWrapped;
+
+	/**
+	 * EdgesWrapper's constructor.
+	 * 
+	 * @param edges
+	 *            &lt;i&gt;Collection&lt;/i&gt; of edges
+	 */
+<span class="fc" id="L21">	public EdgesWrapper(final Collection&lt;Edge&gt; edges) {</span>
+<span class="fc" id="L22">		edgesWrapped = edges.toArray();</span>
+<span class="fc" id="L23">	}</span>
+
+	/**
+	 * Returns the number of mentions of the edge in the position specified.
+	 * 
+	 * @param position
+	 *            &lt;i&gt;int&lt;/i&gt;
+	 * @return &lt;i&gt;float&lt;/i&gt; number of mention
+	 */
+	public float getWeight(final int position) {
+<span class="fc" id="L33">		final Edge edgeTMP = new Edge((Edge) (edgesWrapped[position]));</span>
+<span class="fc" id="L34">		return edgeTMP.getWeigth();</span>
+	}
+
+	/**
+	 * Returns the real name of the user in the position specified that is mentioned
+	 * from someone.
+	 * 
+	 * @param position
+	 *            &lt;i&gt;int&lt;/i&gt;
+	 * @return &lt;i&gt;String&lt;/i&gt; the real name of the user mentioned
+	 */
+	public String getFromRealName(final int position) {
+<span class="fc" id="L46">		final Edge edgeTMP = new Edge((Edge) (edgesWrapped[position]));</span>
+<span class="fc" id="L47">		final User from = new User(edgeTMP.getFrom());</span>
+<span class="fc" id="L48">		return from.getRealName();</span>
+	}
+
+	/**
+	 * Returns the real name of the user in the position specified that has
+	 * mentioned someone.
+	 * 
+	 * @param position
+	 *            &lt;i&gt;int&lt;/i&gt;
+	 * @return &lt;i&gt;String&lt;/i&gt; the real name of the user that has mentioned someone
+	 */
+	public String getToRealName(final int position) {
+<span class="fc" id="L60">		final Edge edgeTMP = new Edge((Edge) (edgesWrapped[position]));</span>
+<span class="fc" id="L61">		final User toTMP = new User(edgeTMP.getTo());</span>
+<span class="fc" id="L62">		return toTMP.getRealName();</span>
+	}
+	// inutilizzato
+	// /**
+	// * Returns true if there aren't edges else false.
+	// *
+	// * @return &lt;i&gt;boolean&lt;/i&gt; true if it's empty
+	// */
+	// public boolean isEmpty() {
+	// return (edgesWrapped.length == 0);
+	// }
+
+	/**
+	 * Returns the number of the edges.
+	 * 
+	 * @return &lt;i&gt;int&lt;/i&gt; number of edges
+	 */
+	public int size() {
+<span class="fc" id="L80">		return edgesWrapped.length;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
