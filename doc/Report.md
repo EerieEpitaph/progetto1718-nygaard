@@ -293,7 +293,7 @@ I tre componenti sono:
 
 Mostra i componenti di un sistema e le loro connessioni
 
-![Diagramma Componenti](/doc/drawings/Diagramma dei Componenti.png)
+![Diagramma Componenti](/doc/drawings/Diagramma%20dei%20Componenti.png)
 
 
 **Commento delle decisioni prese**
@@ -322,19 +322,19 @@ Per lo sprint 1, infatti, le componenti che cooperano sono le medesime per ogni 
 
 **Sprint 1** :  _Diagramma di sequenza_
 
-![Diagramma Sequenza Sprint 1](/doc/drawings/Diagrammi di Sequenza/DSequenzaSprint 1.png)
+![Diagramma Sequenza Sprint 1](/doc/drawings/Diagrammi%20di%20Sequenza/DSequenzaSprint%201.png)
 
 _Diagramma delle Classi_
 
-![Diagramma Classi Sprint 1](/doc/drawings/Diagrammi di Classi/DClassiSprint 1.png)
+![Diagramma Classi Sprint 1](/doc/drawings/Diagrammi%20di%20Classi/DClassiSprint%201.png)
 
 **Sprint 2:** _Diagramma di sequenza_
 
-![Diagramma Sequenza Sprint 2](/doc/drawings/Diagrammi di Sequenza/DSequenzaSprint 2.png)
+![Diagramma Sequenza Sprint 2](/doc/drawings/Diagrammi%20di%20Sequenza/DSequenzaSprint%202.png)
 
 _Diagramma delle classi_
 
-![Diagramma Classi Sprint 2](/doc/drawings/Diagrammi di Classi/DClassiSprint 2.png)
+![Diagramma Classi Sprint 2](/doc/drawings/Diagrammi%20di%20Classi/DClassiSprint%202.png)
 
 Per  lo spint 3 si è riusciti a risolvere 3 user story, questo perché  è stata applicata una variante del pattern
 
@@ -344,11 +344,11 @@ architetturale MVC (MVP), che ha facilitato l&#39;elaborazione di questo sprint:
 
 **Sprint 3:** _Diagramma di sequenza_
 
-![Diagramma Sequenza Sprint 3](/doc/drawings/Diagrammi di Sequenza/DSequenzaSprint 3.png)
+![Diagramma Sequenza Sprint 3](/doc/drawings/Diagrammi%20di%20Sequenza/DSequenzaSprint%203.png)
 
 _Diagramma delle classi_
 
-![Diagramma Classi Sprint 3](/doc/drawings/Diagrammi di Classi/DClassiSprint 3.png)
+![Diagramma Classi Sprint 3](/doc/drawings/Diagrammi%20di%20Classi/DClassiSprint%203.png)
 
 **Pattern applicati**
 
@@ -419,7 +419,7 @@ Grazie alle conoscenze acquisite durante il corso, nei due ultimi  sprint il tea
 
 Coveralls
 
-![Jacoco Report](/doc/drawings/Jacoco Report.png)
+![Jacoco Report](/doc/drawings/Jacoco%20Report.png)
 
 **Manuale utente**
 
@@ -472,7 +472,3 @@ Una cosa che non ha funzionato è stata la scelta del design architetturale, poi
 **Cosa rifaremmo**
 
  Una cosa che rifaremmo è la scelta con la quale sono stati assegnati i task; le assegnazioni sono state fatte prendendo come criterio principale il background che ognuno di noi aveva; tutto è stato forgiato in base alle nostre competenze
-
-** **
-
-** **
