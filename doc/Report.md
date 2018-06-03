@@ -175,7 +175,7 @@ Il modello concettuale ha come scopo quello di comprendere i concetti fondamenta
 - Verificare che i Channel del workspace siano tutti presenti
 - Verificare che non siano visualizzati Channel estranei al workspace
 
-**3.  ** In qualità di utente voglio visualizzare la lista dei membri raggruppati per Channel:
+**3.** In qualità di utente voglio visualizzare la lista dei membri raggruppati per Channel:
 
 - Verificare che sia possibile fare la richiesta da standard input
 - Verificare che l&#39;output sia visualizzato su standard output
@@ -309,14 +309,14 @@ I tre componenti sono:
 
 **Diagramma dei Package**
 
-//IMG
+![Diagramma Package](/doc/drawings/Diagramma package.png)
 
 
 **Diagramma dei componenti**
 
 Mostra i componenti di un sistema e le loro connessioni
 
-//IMG
+![Diagramma Componenti](/doc/drawings/Diagramma dei Componenti.png)
 
 
 **Commento delle decisioni prese**
@@ -345,19 +345,19 @@ Per lo sprint 1, infatti, le componenti che cooperano sono le medesime per ogni 
 
 **Sprint 1** :  _Diagramma di sequenza_
 
-//IMG
+![Diagramma Sequenza Sprint 1](/doc/drawings/Diagrammi di Sequenza/DSequenzaSprint 1.png)
 
 _Diagramma delle Classi_
 
-//IMG
+![Diagramma Classi Sprint 1](/doc/drawings/Diagrammi di Classi/DClassiSprint 1.png)
 
-**Sprint 2:  ** _Diagramma di sequenza_
+**Sprint 2:** _Diagramma di sequenza_
 
-//IMG
+![Diagramma Sequenza Sprint 2](/doc/drawings/Diagrammi di Sequenza/DSequenzaSprint 2.png)
 
 _Diagramma delle classi_
 
-//IMG
+![Diagramma Classi Sprint 2](/doc/drawings/Diagrammi di Classi/DClassiSprint 2.png)
 
 Per  lo spint 3 si è riusciti a risolvere 3 user story, questo perché  è stata applicata una variante del pattern
 
@@ -367,11 +367,11 @@ architetturale MVC (MVP), che ha facilitato l&#39;elaborazione di questo sprint:
 
 **Sprint 3:** _Diagramma di sequenza_
 
-//IMG
+![Diagramma Sequenza Sprint 3](/doc/drawings/Diagrammi di Sequenza/DSequenzaSprint 3.png)
 
 _Diagramma delle classi_
 
-//IMG
+![Diagramma Classi Sprint 3](/doc/drawings/Diagrammi di Classi/DClassiSprint 3.png)
 
 **Pattern applicati**
 
@@ -385,18 +385,18 @@ I moduli di alto livello, in questo caso il MentionGraph,  non si interfaccia di
 
 Per garantire l&#39;applicazione di questo pattern si sono creati i seguenti componenti:
 
-- **** Una classe astratta _AbstractGraph_  che astrae tutti i comportamenti  base per operare con un generico grafo.
-- **** Un wrapper **MentionGraphWrapper** che si interfaccia direttamente con la libreria di Guava.
-- **** una classe **MentionGraph**  che implementa tutti i comportamenti astratti della classe AbstractGraph  e opera sul grafo  grazie al   **MentionGraphWrapper** ottenuto per composizione.
+- Una classe astratta _AbstractGraph_  che astrae tutti i comportamenti  base per operare con un generico grafo.
+- Un wrapper **MentionGraphWrapper** che si interfaccia direttamente con la libreria di Guava.
+- una classe **MentionGraph**  che implementa tutti i comportamenti astratti della classe AbstractGraph  e opera sul grafo  grazie al   **MentionGraphWrapper** ottenuto per composizione.
 
 Il Dependecy Inversion è stato applicato anche per il parsing dei messaggi json, perché questa parte dell&#39;applicativo utilizzava una libreria esterna gson-2.6 una libreria di Google, per il parsing  dei file json.
 
 Per non avere classi di alto livello in questo caso ZipParser che potessero dipendere direttamente dalla libreria di terze parti,  si sono creati i seguenti componenti:
 
-- **** Un&#39;interfaccia _JsonParserInterface_ che offre il comportamento base di un generico parsing per sna4Slack, ovvero caricare utenti, canali e messaggi dal workspace in formato zip contenente files json.
-- **** Una classe **GsonReader** che implementa tutti i comportamenti dell&#39;interfaccia JsonParserInterface e gestisce  direttamente la  libreria di terze parti.
-- **** (Gson-2.6.)
-- **** Infine la classe di alto livello, **ZipParser**  che attraverso l&#39;uso di **GsonReader** carica i dati json nelle strutture dati apposite
+- Un&#39;interfaccia _JsonParserInterface_ che offre il comportamento base di un generico parsing per sna4Slack, ovvero caricare utenti, canali e messaggi dal workspace in formato zip contenente files json.
+- Una classe **GsonReader** che implementa tutti i comportamenti dell&#39;interfaccia JsonParserInterface e gestisce  direttamente la  libreria di terze parti.
+- (Gson-2.6.)
+- Infine la classe di alto livello, **ZipParser**  che attraverso l&#39;uso di **GsonReader** carica i dati json nelle strutture dati apposite
 
 
 
@@ -442,7 +442,7 @@ Grazie alle conoscenze acquisite durante il corso, nei due ultimi  sprint il tea
 
 Coveralls
 
-//IMG
+![Jacoco Report](/doc/drawings/Jacoco Report.png)
 
 **Manuale utente**
 
