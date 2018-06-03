@@ -155,7 +155,7 @@ Il modello concettuale ha come scopo quello di comprendere i concetti fondamenta
 
   Agli sviluppatori è stato affidato il compito di modellare differenti caratteristiche, che permettessero ad un utente generico di:
 
-**1.** In qualità di utente voglio visualizzare la lista dei Member
+**1**.In qualità di utente voglio visualizzare la lista dei Member
 
 - verificare che sia possibile fare la richiesta da standard input
 - Verificare che l&#39;output sia visualizzato su standard output
@@ -165,7 +165,7 @@ Il modello concettuale ha come scopo quello di comprendere i concetti fondamenta
 - Verificare che i Member del workspace siano tutti presenti
 - Verificare che non siano visualizzati Member estranei al workspace
 
-**2.** In qualità di utente voglio visualizzare la lista dei Channel:
+**2**.In qualità di utente voglio visualizzare la lista dei Channel:
 
 - Verificare che sia possibile fare la richiesta da standard input
 - Verificare che l&#39;output sia visualizzato su standard output
@@ -175,23 +175,20 @@ Il modello concettuale ha come scopo quello di comprendere i concetti fondamenta
 - Verificare che i Channel del workspace siano tutti presenti
 - Verificare che non siano visualizzati Channel estranei al workspace
 
-**3.** In qualità di utente voglio visualizzare la lista dei membri raggruppati per Channel:
+**3**.In qualità di utente voglio visualizzare la lista dei membri raggruppati per Channel:
 
 - Verificare che sia possibile fare la richiesta da standard input
 - Verificare che l&#39;output sia visualizzato su standard output
 - Verificare che sia possibile specificare il workspace
 - Verificare che ci sia un file esportato associato al workspace
-- Verificare che i Member e Channel siano visualizzati uno per riga, con I Member visualizzati subito
-
-dopo il Channel a cui appartengono
-
+- Verificare che i Member e Channel siano visualizzati uno per riga, con I Member visualizzati subito dopo il Channel a cui appartengono
 - Verificare che sia possibile distinguere quale nome è un &quot;Member&quot; e quale è un Channel
 - Verificare che i Channel siano tutti presenti
 - Verificare che non siano visualizzati Channel estranei al workspace
 - Verificare che i Member di un Channel siano tutti presenti
 - Verificare che non siano visualizzati Member estranei al Channel
 
-**4**.  In qualità di utente voglio visualizzare la lista dei Member di un Channel:
+**4**.In qualità di utente voglio visualizzare la lista dei Member di un Channel:
 
 - Verificare che sia possibile fare la richiesta da standard input
 - Verificare che l&#39;output sia visualizzato su standard output
@@ -202,29 +199,22 @@ dopo il Channel a cui appartengono
 - Verificare che i Member del Channel specificato siano tutti presenti
 - Verificare che non siano visualizzati Member estranei al Channel specificato
 
-**5**. In qualità di utente voglio poter avere informazioni di Help:
+**5**.In qualità di utente voglio poter avere informazioni di Help:
 
-- Verificare che l&#39;help possa essere richiesto digitando il nome del programma senza parametri
-
-aggiuntivi
-
+- Verificare che l&#39;help possa essere richiesto digitando il nome del programma senza parametri aggiuntivi
 - Verificare che l&#39;help sia suggerito se un comando digitato non è valido
 - Verificare l&#39;help sia mostrato su standard output
 - Verificare che siano presenti i comandi per tutte le funzionalità
 
-**6**. In qualità di utente voglio visualizzare la lista dei @mention:
+**6**.In qualità di utente voglio visualizzare la lista dei @mention:
 
-- Verificare che per ogni @mention sia visualizzata una riga con la coppia (From, To) dove From è lo
-
-User che scrive il messaggio con il @mention e To è lo User menzionato.
-
+- Verificare che per ogni @mention sia visualizzata una riga con la coppia (From, To) dove From è lo User che scrive il messaggio con il @mention e To è lo User menzionato.
 - Verificare che le coppie (From, To) non siano ripetute
 - Verificare che le coppie (From, To) corrispondenti a un @mention siano tutte presenti
 - Verificare che siano visualizzate solo coppie (From, To) corrispondenti a un @mention
-- Verificare che sia possibile specificare il Channel e, nel caso sia specificato, la lista sia ristretta ai soli
-- @mention del Channel
+- Verificare che sia possibile specificare il Channel e, nel caso sia specificato, la lista sia ristretta ai soli @mention del Channel
 
-**7**.  In qualità di utente voglio visualizzare la lista dei @mention che partono da un User:
+**7**.In qualità di utente voglio visualizzare la lista dei @mention che partono da un User:
 
 - Verificare che sia possibile specificare lo User da cui partono i @mention
 - Verificare che per ogni @mention sia visualizzata una riga con la coppia (From, To) dove From è lo
@@ -240,10 +230,7 @@ User specificato nel comando e To è lo User menzionato.
 **8**.In qualità di utente voglio visualizzare la lista di @mention che arrivano ad un User:
 
 - Verificare che sia possibile specificare lo User a cui arrivano i @mention
-- Verificare che per ogni @mention sia visualizzata una riga con la coppia (From, To) dove è lo User
-
-che scrive il messaggio con il @mention e To è lo User menzionato e specificato nel comando.
-
+- Verificare che per ogni @mention sia visualizzata una riga con la coppia (From, To) dove è lo User che scrive il messaggio con il @mention e To è lo User menzionato e specificato nel comando.
 - Verificare che le coppie (From, To) non siano ripetute
 - Verificare che le coppie (From, To) corrispondenti a un @mention siano tutte presenti
 - Verificare che siano visualizzate solo coppie (From, To) corrispondenti a un @mention
@@ -251,7 +238,7 @@ che scrive il messaggio con il @mention e To è lo User menzionato e specificato
 
 @mention del Channel
 
-**9.** In qualità di utente voglio visualizzare la lista pesata dei @mention:
+**9**.In qualità di utente voglio visualizzare la lista pesata dei @mention:
 
 - Verificare che per ogni @mention sia visualizzata una riga con la tripla\*\*(From, To, Weight)\*\* dove
 - From è lo User che scrive il messaggio con il @mention, To è lo User menzionato, e Weight. è il
@@ -259,16 +246,12 @@ che scrive il messaggio con il @mention e To è lo User menzionato e specificato
 - Verificare che le triple (From, To, Weight) non siano ripetute
 - Verificare che le triple (From, To, Weight) corrispondenti a un @mention siano tutte presenti
 - Verificare che siano visualizzate solo triple (From, To, Weight)\* corrispondenti a un @mention
-- Verificare che sia possibile specificare il Channel e, nel caso sia specificato, la lista sia ristretta ai soli
-- @mention del Channel\_
+- Verificare che sia possibile specificare il Channel e, nel caso sia specificato, la lista sia ristretta ai soli @mention del Channel\_
 
-**10**.  In qualità di utente voglio visualizzare la lista pesata dei @mention che partono da un User:
+**10**.In qualità di utente voglio visualizzare la lista pesata dei @mention che partono da un User:
 
 - Verificare che sia possibile specificare lo User da cui partono i @mention
-- Verificare che per ogni @mention sia visualizzata una riga con la tripla (From, To, Weight) dove
-
-From è lo User specificato nel comando e To è lo User menzionato, e Weight il numero di mention.
-
+- Verificare che per ogni @mention sia visualizzata una riga con la tripla (From, To, Weight) dove From è lo User specificato nel comando e To è lo User menzionato, e Weight il numero di mention.
 - Verificare che le triple (From, To, Weight) non siano ripetute
 - Verificare che le triple (From, To, Weight) corrispondenti a un @mention siano tutte presenti
 - Verificare che siano visualizzate solo triple (From, To, Weight) corrispondenti a un @mention
@@ -279,10 +262,7 @@ From è lo User specificato nel comando e To è lo User menzionato, e Weight il 
 **11**.  In qualità di utente voglio visualizzare la lista pesata dei @mention che arrivano ad un User:
 
 - Verificare che sia possibile specificare lo User a cui arrivano i @mention
-- Verificare che per ogni @mention sia visualizzata una riga con a tripla (From, To, Weight) dove
-
-From è lo User specificato nel comando e To è lo User menzionato, e Weight il numero di mention.
-
+- Verificare che per ogni @mention sia visualizzata una riga con a tripla (From, To, Weight) dove From è lo User specificato nel comando e To è lo User menzionato, e Weight il numero di mention.
 - Verificare che le triple (From, To, Weight) non siano ripetute
 - Verificare che le triple (From, To, Weight) corrispondenti a un @mention siano tutte presenti
 - Verificare che siano visualizzate solo triple (From, To, Weight) corrispondenti a un @mention
@@ -290,14 +270,11 @@ From è lo User specificato nel comando e To è lo User menzionato, e Weight il 
 - @mention del Channel
 
 
-
 **Architettura**
 
 **Stile Architetturale adottato**
 
-L&#39;applicativo implementa la variante del pattern architetturale MVC ( **MVP** ): il pattern divide in tre macro-componentil&#39;intera struttura dell&#39;applicativo, questo garantisce un notevole vantaggio; ovvero ogni componente  è indipendente dagli altri offrendo all&#39;intero sistema indipendenza, scalabilità e
-
-manutenzione.
+L&#39;applicativo implementa la variante del pattern architetturale MVC ( **MVP** ): il pattern divide in tre macro-componentil&#39;intera struttura dell&#39;applicativo, questo garantisce un notevole vantaggio; ovvero ogni componente  è indipendente dagli altri offrendo all&#39;intero sistema indipendenza, scalabilità e manutenzione.
 
 I tre componenti sono:
 
