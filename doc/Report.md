@@ -352,11 +352,11 @@ _Diagramma delle classi_
 
 **Pattern applicati**
 
-Nel lavoro di progettazione si è scelto di utilizzare dei wrapper che potessero fare da interfacce con alcune Nel lavoro di progettazione si è deciso di applicare il design pattern strutturale Adapter, implementando dei wrapper(o adapter) su alcuni componenti principali del progetto, come: UsersWrapper, ChannelsWrapper.,  EdgesWrapper e infine MentionGraphWrapper.
+Nel lavoro di progettazione si è deciso di applicare il design pattern strutturale **Adapter**, implementando dei wrapper(o adapter) su alcuni componenti principali del progetto, come: UsersWrapper, ChannelsWrapper,EdgesWrapper e infine MentionGraphWrapper.
 
 I Wrapper sono moduli software che ne rivestono  un altro, ovvero che funzionano da tramite fra i propri clienti (che usano l&#39;interfaccia del wrapper) e il modulo rivestito (che svolge effettivamente i servizi richiesti, su delega dell&#39;oggetto wrapper). Per quanto riguarda l&#39; implementazione dei nostri wrapper, si è scelto per motivi di tempo di creare al posto delle interfacce le Classi, e i clienti per composizione possono utilizzare il wrapper indicato per le loro responsabilità.
 
-Abbiamo scelto di  implementare i wrapper per rispettare la legge di Demetra e soprattutto per quanto riguarda l&#39;ultimo wrapper  &quot;MentionGraphWrapper&quot; per rispettare uno dei 5  principi Solid: Dependecy Inversion;
+Abbiamo scelto di  implementare i wrapper per rispettare la **Legge di Demetra** e soprattutto per quanto riguarda l&#39;ultimo wrapper  &quot;MentionGraphWrapper&quot; per rispettare uno dei 5  principi **S.O.L.I.D.**: [Dependecy Inversion];
 
 I moduli di alto livello, in questo caso il MentionGraph,  non si interfaccia direttamente con  la libreria ma con il wrapper  (per composizione) e solo il wrapper  (MentionGraphWrapper) delega a Guava(un libreria di Google per la gestione dei grafi) le operazioni di basso livello.
 
@@ -405,7 +405,7 @@ Nel main abbiamo ignorato i seguenti warning:
 
 **Commento delle decisioni prese**
 
-Grazie alle conoscenze acquisite durante il corso, nei due ultimi  sprint il team ha cercato di implementare al meglio i pattern per garantire robustezza nell&#39;applicativo.  Dopo la lezione sui principi Solid abbiamo pensato subito di applicare l&#39;ultimo principio: Dependency Inversion, questo perché  nel progetto si è fatto uso di librerie di terze parti. Il Dependecy Inversion si  occupa di eliminare le dipendenze tra un modulo di alto livello con uno di basso livello (in questo caso  le librerie utilizzate). Dal momento che  il principio è stato applicato,  le classi di alto livello non  operano  più con le librerie ma con degli Adapter che si occupano di interrogare la libreria e restituire i risultati alle classi di alto livello. In questo modo abbiamo garantito anche il primo principio Solid, il Responsability dove ogni classe ha una sola e singola responsabilità, e il quarto principio, quello dell&#39;interface segregation. Le interfacce che operano sui dati di basso livello non sono eccessivamente generiche e permettono, inoltre, una facile modifica ed estensione della codebase.
+Grazie alle conoscenze acquisite durante il corso, nei due ultimi  sprint il team ha cercato di implementare al meglio i pattern per garantire robustezza nell&#39;applicativo.  Dopo la lezione sui principi **S.O.L.I.D.** abbiamo pensato subito di applicare l&#39;ultimo principio: Dependency Inversion, questo perché  nel progetto si è fatto uso di librerie di terze parti. Il Dependecy Inversion si  occupa di eliminare le dipendenze tra un modulo di alto livello con uno di basso livello (in questo caso  le librerie utilizzate). Dal momento che  il principio è stato applicato,  le classi di alto livello non  operano  più con le librerie ma con degli Adapter che si occupano di interrogare la libreria e restituire i risultati alle classi di alto livello. In questo modo abbiamo garantito anche il primo principio **S.O.L.I.D.**, il Responsability dove ogni classe ha una sola e singola responsabilità, e il quarto principio, quello dell&#39;interface segregation. Le interfacce che operano sui dati di basso livello non sono eccessivamente generiche e permettono, inoltre, una facile modifica ed estensione della codebase.
 
 
 
