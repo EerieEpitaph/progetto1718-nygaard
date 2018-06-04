@@ -420,6 +420,7 @@ Grazie alle conoscenze acquisite durante il corso, nei due ultimi  sprint il tea
 Coveralls
 
 ![Jacoco Report](/doc/drawings/Jacoco%20Report.png)
+![Jacoco Tests](/doc/drawings/InfoTest.png)
 
 **Manuale utente**
 
